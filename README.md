@@ -1,4 +1,4 @@
-# ChilCare
+# ChildCare
 
 ## About
 

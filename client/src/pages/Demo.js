@@ -2,6 +2,8 @@ import { Box, MuiThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import React from "react";
 
+import VidAnnotator from "../components/VidAnnotator";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -53,14 +55,7 @@ const theme = createMuiTheme({
 export default function Demo() {
   return (
     <MuiThemeProvider theme={theme}>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        css={{ height: 600 }}
-      >
-        Demo Page.
-      </Box>
+      <VidAnnotator />
     </MuiThemeProvider>
   );
 }
