@@ -138,25 +138,6 @@ const theme = createMuiTheme({
         fontWeight: 500,
         fontSize: "72px",
       },
-
-      h2: {
-        /* Heading 2 [14] SB */
-        fontFamily: [
-          "-apple-system",
-          "BlinkMacSystemFont",
-          '"Segoe UI"',
-          "Roboto",
-          '"Helvetica Neue"',
-          "Arial",
-          "sans-serif",
-          '"Apple Color Emoji"',
-          '"Segoe UI Emoji"',
-          '"Segoe UI Symbol"',
-        ].join(","),
-        fontStyle: "normal",
-        fontWeight: 600,
-        fontSize: 16,
-      },
     },
   },
 });
