@@ -40,6 +40,7 @@ class ChildForm extends Component {
     medication: "",
     medication1: "",
     familyHistory: "",
+    familyMember: ""
   };
 
   onStart = (e) => {
@@ -85,7 +86,8 @@ class ChildForm extends Component {
       this.state.surgery1,
       this.state.medication,
       this.state.medication1,
-      this.state.familyHistory
+      this.state.familyHistory,
+      this.state.familyMember
     );
 
     this.nextStep();
@@ -126,7 +128,8 @@ class ChildForm extends Component {
       this.state.surgery1,
       this.state.medication,
       this.state.medication1,
-      this.state.familyHistory
+      this.state.familyHistory,
+      this.state.familyMember
     );
 
     this.prevStep();
@@ -167,7 +170,7 @@ class ChildForm extends Component {
             <div style={{ flex: "2" }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 }}>
+            <div style={{ flex: "8" }}>
               <Personal
                 personal={this.state}
                 onChange={this.onChange}
@@ -182,7 +185,7 @@ class ChildForm extends Component {
             <div style={{ flex: "2" }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 }}>
+            <div style={{ flex: "8"}}>
               <Education
                 personal={this.state}
                 onChange={this.onChange}
@@ -226,13 +229,18 @@ class ChildForm extends Component {
         );
       case 5:
         return (
-          <div>
-            <Family
-              personal={this.state}
-              onChange={this.onChange}
-              onContinue={this.onContinue}
-              onBack={this.onBack}
-            />
+          <div className="container" style={myStyle}>
+            <div style={{ flex: 2 }}>
+              <Sidebar step={this.state.step} />
+            </div>
+            <div style={{ flex: 8 }}>
+              <Family
+                personal={this.state}
+                onContinue={this.onContinue}
+                onBack={this.onBack}
+              />
+            </div>
+            
           </div>
         );
       case 6:
