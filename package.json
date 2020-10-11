@@ -32,8 +32,13 @@
     "fs": "0.0.1-security",
     "graphql": "^15.3.0",
     "jsonwebtoken": "^8.5.1",
+<<<<<<< HEAD
     "lodash": "^4.17.20",
     "mongoose": "^5.10.8",
     "path": "^0.12.7"
+=======
+    "mongoose": "^5.10.8",
+    "nodemon": "^2.0.4"
+>>>>>>> 23a306b1183fd8c340e5d20d6ba73b0fc4f04af0
   }
 }
