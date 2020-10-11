@@ -12,9 +12,29 @@ function Home() {
   console.log("user info", user);
 
   const display = user ? (
-    <div>You have been logged in!</div>
+    <div
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        fontSize: "50px",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      Hello {user.username} !
+    </div>
   ) : (
-    <div>Landing Page Goes Here</div>
+    <div
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        fontSize: "70px",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      Welcome!
+    </div>
   );
 
   return display;
