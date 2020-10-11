@@ -13,6 +13,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
+import STT from "./pages/STT";
+import Form from "./pages/Form";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Container>
           <MenuBar />
           <Route exact path="/" component={Home} />
+          <Route exact path="/form" component={Form} />
+          <Route exact path="/stt" component={STT} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/posts/:postId" component={SinglePost} />
