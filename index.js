@@ -1,6 +1,8 @@
 const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require("mongoose");
-
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
 const { MONGODB } = require("./config.js");
@@ -21,5 +23,4 @@ const server = new ApolloServer({
 
 MONGODB();
 
-server.listen({ port: PORT });
-console.log(`listening at port ${PORT}`);
+server.listen(PORT, () => console.log(`Server started on port ${PORT}`));

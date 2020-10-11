@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "childcaredemo",
+  "private_key_id": "59692beeceb421c873fd1f727f34948f6904acbb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQChIMkSNGaYlqjL\ndIT1XBCHk3y0ra0dHjm81DQ3dKrdCO6iccjCB1V0b0SR2/UnW7Ou+7glzIc/3WyU\n3lwcwAULTvIa5bjlTmS8UCWWYnJxSWK6oHDiU/5V1rNviQDVC0hS26fTYyVyOqN3\nDeiP7UwRz0fv8ZtX75ErRHm7nbP0Nmgejqt0AqQQrbw4USIZaow9GYQ/bzsAHO/K\nv2W5+61zxTzSErpEz9PuSw5Ffd7J7MnwNK8rOPkDvnXVlt+k5Bgh45J6Ewww8aPa\nd/fYxHyASi2PsPqHfFK/rZ81Vc7uCi5WeE22qc1tjWra1l9b4UYJuwZYd/ZWoFIQ\nGijXR0MxAgMBAAECggEAHqk1efBcwZaRwj2G+4WsY5AuP9d4xLy2sfcThKX/yZXk\niybp0/o/SavOuY7IpNevZpHh5dd4uS9ydRWnI5VqoE9ChNnICGKVirwZmvda3bHg\nRrE3Kepf0IfNl2DTtrax6YqA8hnAy27bIlGUOqcmPZFbGA66x83/quMZ4xjMYKEY\nVMR2vl+8YAE+qQmXmZUFf4oRAqznZ+uPWCUNZN9aNTBwNDHM2LlWulEdZN+ZPHMG\npgxM/LwlHR0RD3glVNJJBkoYm9Kd74oYteLRUIdEC9bytQtpVDtpC7tPftaMw5/c\n5aCmxbnhnDN6rH0Pkbm9CFJkGzzvLao7jmc7CUlmbQKBgQDYhMcsuv5cQZ9EvkO/\ny4sXI15H3iAxWU+6S/CA/8mT1pUwd69wTnzwRixCRkviY+aup/gnCOHiqxnGWdMo\nOm5HMkn578KQMdqstboR5LkV3cxfUqwBQpBQng0CZcvmke+WEKgrXYAW1MV7kxKK\nBhXlzhgmHcFCc8xHI97kAqAXawKBgQC+gldH0I1T/K079h21/eJuqfJnH7mIiVMa\n8EwZ1XYrAqR5DewgDffCBN4Jw8SXi5rD/0hF2YanJI+e3ZhN/JVujkaqlfLsphoP\nWJAt2r4aRRIA+5hvvdB+3/PD6atgN41FnlEfHiHyaaCQtdGq8zGmRZ/evQrwgyk/\nkCYjDVdi0wKBgQCI9fTH5sFfumL1KSXR/P9O86B/9ZKHpOc6AS9xalwomGRm9E6V\nzBBcLQdyJOV7n5YchUQD7Sp2J6V2Qvu/RrbbcoQ5BeEdNWwONCYvi29I1bSh17nW\nUjTXyiKQkbQZddcIJiE6zTppNs51DON9S7wuUeAUvF2zm2xs09P6h26dYQKBgAIX\nDfwUtqg4OnJQ9ex8N5K9PJKTD4cG8ql1/2+9HsnEAqftVizX2mL/iKwUwMBk4LLL\nxzA0/bwxs32rsrMQVVdcKjxO3tZn0Btg/lvybWl+Xn8yQ27eZz4tGNCKbL3mfh9I\naF1uCDNPo1pTFFTKzD2lv+ZCrq8K0VYIL9Lsn4vPAoGBALk5mmj32goveAXcc+ju\nHD/IT6Cp1hoARJSwolJH9/qw9K4SRrBu5DfrABh/DzGFM+axaEFBoVPR474wW4QO\nYHRRDfToyAAZf+8gsDR0QAyJiuQ4lKSB0C5sl53qoDCv1xkuxdxDAN9r0hwOMUvE\nHUpuNDfBHQEMNrS7aA2+5bWN\n-----END PRIVATE KEY-----\n",
+  "client_email": "speechtotext@childcaredemo.iam.gserviceaccount.com",
+  "client_id": "113766321292427651043",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speechtotext%40childcaredemo.iam.gserviceaccount.com"
+}
