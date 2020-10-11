@@ -185,7 +185,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="awareness"
               value={this.props.personal.awareness}
-              style={{ width: "50%" }}
+              style={{ width: "90%" }}
             />
             <br />
             <button style={btnStyle} onClick={this.props.onContinue}>

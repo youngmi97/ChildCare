@@ -41,6 +41,13 @@ class Sidebar extends Component {
       background: this.props.step === 6 ? "#E3E4FA" : "none",
     };
   };
+
+  getStyle7 = () => {
+    return {
+      padding: "10px",
+      background: this.props.step === 7 ? "#E3E4FA" : "none",
+    };
+  };
   render() {
     return (
       <div className="sidebar">
@@ -49,7 +56,8 @@ class Sidebar extends Component {
         <p style={this.getStyle3()}>발달력</p>
         <p style={this.getStyle4()}>병력</p>
         <p style={this.getStyle5()}>가족력</p>
-        <p style={this.getStyle6()}>제출</p>
+        <p style={this.getStyle6()}>비디오 업로드</p>
+        <p style={this.getStyle7()}>제출</p>
       </div>
     );
   }

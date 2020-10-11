@@ -20,6 +20,7 @@
   "homepage": "https://github.com/youngmi97/ChildCare#readme",
   "dependencies": {
     "apollo-server": "^2.18.2",
+    "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "find-config": "^1.0.0",

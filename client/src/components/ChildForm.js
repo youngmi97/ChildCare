@@ -6,6 +6,7 @@ import Development from "./questions/Development";
 import Illness from "./questions/Illness";
 import Family from "./questions/Family";
 import Sidebar from "./SideBar";
+import Video from "./questions/Video";
 
 class ChildForm extends Component {
   state = {
@@ -167,10 +168,10 @@ class ChildForm extends Component {
       case 1:
         return (
           <div className="container" style={myStyle}>
-            <div style={{ flex: "2" }}>
+            <div style={{ flex: "2"}}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8" }}>
+            <div style={{ flex: "8", margin:"0 160px"}}>
               <Personal
                 personal={this.state}
                 onChange={this.onChange}
@@ -185,7 +186,7 @@ class ChildForm extends Component {
             <div style={{ flex: "2" }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8"}}>
+            <div style={{ flex: "8", margin:"30px 160px"}}>
               <Education
                 personal={this.state}
                 onChange={this.onChange}
@@ -201,7 +202,7 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 }}>
+            <div style={{ flex: 8 , margin:"30px 160px"}}>
               <Development
                 personal={this.state}
                 onChange={this.onChange}
@@ -217,7 +218,7 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 }}>
+            <div style={{ flex: 8 , margin:"30px 160px"}}>
               <Illness
                 personal={this.state}
                 onChange={this.onChange}
@@ -233,7 +234,7 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 }}>
+            <div style={{ flex: 8 , margin:"30px 160px"}}>
               <Family
                 personal={this.state}
                 onContinue={this.onContinue}
@@ -243,20 +244,39 @@ class ChildForm extends Component {
             
           </div>
         );
+
       case 6:
-        return (
+        return(
           <div className="container" style={myStyle}>
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", padding: "40px" }}>
-              <p style={{ margin: "50px" }}>제출하시겠습니까?</p>
+            <div style={{ flex: 8 , margin:"30px 160px"}}>
+              <Video
+                onContinue={this.onContinue}
+                onBack={this.onBack}
+              />
+            </div>
+            
+          </div>
+          
+        )
+      case 7:
+        return (
+          
+          <div className="container" style={myStyle}>
+            <div style={{ flex: 2 }}>
+              <Sidebar step={this.state.step} />
+            </div>
+            <div style={{ flex: "8", margin: "30px 160px" }}>
+              <p >제출하시겠습니까?</p>
               <button onClick={this.onStart} style={startButton}>
                 Submit
               </button>
             </div>
           </div>
         );
+
       default:
         return (
           <div>
@@ -272,6 +292,7 @@ class ChildForm extends Component {
 const myStyle = {
   margin: "70px",
   display: "flex",
+  flexDirection: "row",
 };
 
 const startButton = {

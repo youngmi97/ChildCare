@@ -71,7 +71,7 @@ class Form extends Component {
     return (
       <div className="Form">
         <header style={headerStyle}>아동언어연구소</header>
-        <ChildForm form={this.state.info} newAnswer={this.newAnswer}/>
+        <ChildForm style={{display:"flex"}} form={this.state.info} newAnswer={this.newAnswer} />
       </div>
     )
   }
