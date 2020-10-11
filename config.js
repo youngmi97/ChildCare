@@ -10,4 +10,6 @@ const MONGODB = async () => {
   console.log("db connected!");
 };
 
-module.exports = MONGODB;
+const SECRET_KEY = "asnidnwqidonqondksndiqnwdonsndqoiwdn";
+
+module.exports = { MONGODB: MONGODB, SECRET_KEY: SECRET_KEY };

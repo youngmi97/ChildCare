@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
-const MONGODB = require("./config.js");
+const { MONGODB } = require("./config.js");
 
 const dotenv = require("dotenv").config({
   path: require("find-config")(".env"),
