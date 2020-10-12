@@ -52,6 +52,7 @@ class Family extends Component {
             checked={this.props.personal.familyHistory === "No"}
           />{" "}
           아니오
+          </div>
           <div>
             <input
               type="checkbox"
@@ -172,7 +173,6 @@ class Family extends Component {
               checked={this.state.brotherSister === true}
             />{" "}
             형제/자매
-          </div>
         </div>
         <br />
         <br />
