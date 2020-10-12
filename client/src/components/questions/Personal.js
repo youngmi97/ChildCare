@@ -168,7 +168,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               checked={this.props.personal.improvement === "getting worse"}
             />{" "}
-            악화되고 있다 -
+            악화되고 있다 
             <input
               type="radio"
               value="no change"
