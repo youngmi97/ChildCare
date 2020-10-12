@@ -253,6 +253,7 @@ class ChildForm extends Component {
             </div>
             <div style={{ flex: 8 , margin:"30px 160px"}}>
               <Video
+                onChange = {this.onChange}
                 onContinue={this.onContinue}
                 onBack={this.onBack}
               />
