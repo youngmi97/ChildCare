@@ -234,14 +234,14 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 , margin:"30px 160px"}}>
+            <div style={{ flex: 8, margin: "30px 160px" }}>
               <Family
                 personal={this.state}
                 onContinue={this.onContinue}
+                onChange={this.onChange}
                 onBack={this.onBack}
               />
             </div>
-            
           </div>
         );
 
