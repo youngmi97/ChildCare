@@ -14,6 +14,7 @@
     "apollo-client": "^2.6.10",
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
+    "aws-sdk": "^2.772.0",
     "axios": "^0.20.0",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
@@ -30,7 +31,8 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.0",
     "styled-components": "^5.2.0",
-    "wavesurfer.js": "^4.1.1"
+    "wavesurfer.js": "^4.1.1",
+    "websocket": "^1.0.32"
   },
   "scripts": {
     "start": "react-scripts start",
