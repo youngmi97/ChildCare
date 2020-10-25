@@ -14,17 +14,15 @@ class Family extends Component {
     brotherSister: false,
   };
 
-  
   componentDidUpdate() {
-    var result = ""
-    for(var name in this.state){
-      if (this.state[name]===true){
-       result = result + " "+ name;
+    var result = "";
+    for (var name in this.state) {
+      if (this.state[name] === true) {
+        result = result + " " + name;
       }
     }
     this.props.personal.familyMember = result;
   }
-
 
   render() {
     return (
@@ -33,7 +31,7 @@ class Family extends Component {
           언어문제를 가진 가족이 있습니까?{" "}
         </p>
         <br />
-        <div style={{margin:"40px"}}>
+        <div style={{ margin: "40px" }}>
           <input
             type="radio"
             value="Yes"
