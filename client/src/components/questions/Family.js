@@ -33,13 +33,13 @@ class Family extends Component {
           언어문제를 가진 가족이 있습니까?{" "}
         </p>
         <br />
-        <div>
+        <div style={{margin:"40px"}}>
           <input
             type="radio"
             value="Yes"
             name="familyHistory"
             id="familyHistory"
-
+            onChange={this.props.onChange}
             checked={this.props.personal.familyHistory === "Yes"}
           />{" "}
           네
@@ -52,6 +52,7 @@ class Family extends Component {
             checked={this.props.personal.familyHistory === "No"}
           />{" "}
           아니오
+          </div>
           <div>
             <input
               type="checkbox"
@@ -173,7 +174,7 @@ class Family extends Component {
             />{" "}
             형제/자매
           </div>
-        </div>
+        
         <br />
         <br />
 

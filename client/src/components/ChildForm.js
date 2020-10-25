@@ -7,6 +7,8 @@ import Illness from "./questions/Illness";
 import Family from "./questions/Family";
 import Sidebar from "./SideBar";
 import Video from "./questions/Video";
+import NWR from "./questions/NWR";
+import SR from "./questions/SR"
 
 class ChildForm extends Component {
   state = {
@@ -41,7 +43,8 @@ class ChildForm extends Component {
     medication: "",
     medication1: "",
     familyHistory: "",
-    familyMember: ""
+    familyMember: "",
+
   };
 
   onStart = (e) => {
@@ -88,7 +91,7 @@ class ChildForm extends Component {
       this.state.medication,
       this.state.medication1,
       this.state.familyHistory,
-      this.state.familyMember
+      this.state.familyMember,
     );
 
     this.nextStep();
@@ -130,7 +133,7 @@ class ChildForm extends Component {
       this.state.medication,
       this.state.medication1,
       this.state.familyHistory,
-      this.state.familyMember
+      this.state.familyMember,
     );
 
     this.prevStep();
@@ -237,6 +240,7 @@ class ChildForm extends Component {
             <div style={{ flex: 8 , margin:"30px 160px"}}>
               <Family
                 personal={this.state}
+                onChange = {this.onChange}
                 onContinue={this.onContinue}
                 onBack={this.onBack}
               />
@@ -261,7 +265,41 @@ class ChildForm extends Component {
           </div>
           
         )
+
       case 7:
+        return(
+          <div className="container" style={myStyle}>
+            <div style={{ flex: 2 }}>
+              <Sidebar step={this.state.step} />
+            </div>
+            <div style={{ flex: 8 , margin:"30px 160px"}}>
+              <NWR
+                onContinue={this.onContinue}
+                onBack={this.onBack}
+              />
+            </div>
+            
+          </div>
+          
+        )
+
+      case 8:
+          return(
+            <div className="container" style={myStyle}>
+              <div style={{ flex: 2 }}>
+                <Sidebar step={this.state.step} />
+              </div>
+              <div style={{ flex: 8 , margin:"30px 160px"}}>
+                <SR
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </div>
+              
+            </div>
+            
+          )
+      case 9:
         return (
           
           <div className="container" style={myStyle}>
@@ -276,6 +314,7 @@ class ChildForm extends Component {
             </div>
           </div>
         );
+        
 
       default:
         return (

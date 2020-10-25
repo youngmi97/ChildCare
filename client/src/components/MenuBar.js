@@ -29,6 +29,14 @@ function MenuBar() {
         as={Link}
         to="/form"
       />
+
+      <Menu.Item
+        name="Results"
+        active={activeItem === "results"}
+        onClick={handleItemClick}
+        as={Link}
+        to="/results"
+      />
       <Menu.Item
         name="STT"
         active={activeItem === "STT"}

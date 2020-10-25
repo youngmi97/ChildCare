@@ -1,21 +1,22 @@
 import axios from 'axios'; 
 import React,{Component} from 'react'; 
 import Modal from './Modal.js'
+import Audio from './Audio.js'
 
   
-class Video extends Component { 
+class NWR extends Component { 
    
     state = { 
   
       // Initially, no file is selected 
-      videoFile: null
+      nwrFile: null
     }; 
      
     // On file select (from the pop up) 
     onFileChange = event => { 
      
       // Update the state 
-      this.setState({ videoFile: event.target.files[0] }); 
+      this.setState({ nwrFile: event.target.files[0] }); 
      
     }; 
      
@@ -28,12 +29,12 @@ class Video extends Component {
       // Update the formData object 
       formData.append( 
         "myFile", 
-        this.state.videoFile, 
-        this.state.videoFile.name 
+        this.state.nwrFile, 
+        this.state.nwrFile.name 
       ); 
      
       // Details of the uploaded file 
-      console.log(this.state.selectedFile); 
+      console.log(this.state.nwrFile); 
      
       // Request made to the backend api 
       // Send formData object 
@@ -44,16 +45,16 @@ class Video extends Component {
     // file upload is complete 
     fileData = () => { 
      
-      if (this.state.videoFile) { 
+      if (this.state.nwrFile) { 
           
         return ( 
           <div> 
             <h2>File Details:</h2> 
-            <p>File Name: {this.state.videoFile.name}</p> 
-            <p>File Type: {this.state.videoFile.type}</p> 
+            <p>File Name: {this.state.nwrFile.name}</p> 
+            <p>File Type: {this.state.nwrFile.type}</p> 
             <p> 
               Last Modified:{" "} 
-              {this.state.videoFile.lastModifiedDate.toDateString()} 
+              {this.state.nwrFile.lastModifiedDate.toDateString()} 
             </p> 
           </div> 
         ); 
@@ -66,7 +67,7 @@ class Video extends Component {
         ); 
       } 
     }; 
-     
+
     render() { 
      
       return ( 
@@ -76,13 +77,16 @@ class Video extends Component {
               <Modal />
           </div>
           <div style={{margin:"30px 0px"}}>
-            <p>아동과 5분간 상호작용 영상을 촬영하여 업로드 해 주세요.<br/>
-              소꿉놀이, 의사놀이, 블록놀이 등의 장난감을 활용한 놀이 영상<br/>
-              성인과 아동의 1:1 영상으로, 두사람이 화면에 모두 나오게 촬영해주세요.<br />
+            <p>비단어 따라말하기 영상을 촬영하여 업로드 해 주세요.<br/>
+              아래에 제공된 음성파일들을 아이에게 들려주시고 따라말하게 해주시고<br/>
+              아동의 정면 얼굴이 나오도록 촬영해 주세요. <br/>
               상단의 샘플 영상을 참고해주세요. 
             </p>
           </div>
-          <div> 
+        
+            <Audio />
+
+          <div style={{margin:"30px 0px"}}> 
               <h3> 
                 영상을 업로드 하세요. 
               </h3> 
@@ -106,7 +110,8 @@ class Video extends Component {
     } 
   } 
   
-  export default Video; 
+  export default NWR;
+
   const btnStyle = {
     margin: "80px 20px",
     color: "#6C2DC7",
