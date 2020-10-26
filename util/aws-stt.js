@@ -10,7 +10,7 @@ var AWS = require("aws-sdk");
 //   region: "us-east-2",
 // });
 
-// need to know the difference be tween BODY and KEY
+// need to know the difference between BODY and KEY
 
 async function callSttPromise() {
   const bucketName = "sttdemoaudio";
@@ -58,6 +58,10 @@ async function callSttPromise() {
     Media: { MediaFileUri },
     MediaFormat: "wav",
     OutputBucketName: bucketName,
+    Settings: {
+      ShowSpeakerLabels: true,
+      MaxSpeakerLabels: 2,
+    },
     LanguageCode: "ko-KR",
   };
 
@@ -67,6 +71,7 @@ async function callSttPromise() {
       apiVersion: "2017-10-26",
       region: "us-east-2",
     });
+
     transcribeService.startTranscriptionJob(params, function (err, data) {
       if (err) {
         console.log("transcription err", err);

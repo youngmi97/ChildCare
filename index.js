@@ -23,6 +23,10 @@ const server = new ApolloServer({
 
 MONGODB();
 
+// TODO
+// Invoke callSttPromise when it is called from the frontend
+// Q: Should all these Promise calls just take place from frontend??
+// Q: How to tell that the transcription job has finished via Lambda Function ??
 callSttPromise()
   .then(function () {
     console.log("Promise Resolved");
