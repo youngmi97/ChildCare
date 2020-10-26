@@ -27,12 +27,14 @@ MONGODB();
 // Invoke callSttPromise when it is called from the frontend
 // Q: Should all these Promise calls just take place from frontend??
 // Q: How to tell that the transcription job has finished via Lambda Function ??
-callSttPromise()
-  .then(function () {
-    console.log("Promise Resolved");
-  })
-  .catch(function () {
-    console.log("Promise Rejected");
-  });
+
+// Make this call from frontend
+// callSttPromise()
+//   .then(function () {
+//     console.log("Promise Resolved");
+//   })
+//   .catch(function () {
+//     console.log("Promise Rejected");
+//   });
 
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -26,7 +26,6 @@ async function callSttPromise() {
       const payload = {
         Key: uploadFileName,
         Bucket: bucketName,
-        //Body: JSON.stringify(fileData, null, 2),
         Body: fileData,
         ContentType: "audio/x-wav",
       };
@@ -82,6 +81,11 @@ async function callSttPromise() {
       }
     });
   });
+
+  //   const s3params = {
+  //     Bucket: "sttdemoaudio",
+  //     Key: "sttchildlang2.json",
+  //   };
 }
 
 module.exports = {
