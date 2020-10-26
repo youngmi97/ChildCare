@@ -1,54 +1,78 @@
 const dotenv = require("dotenv").config({
   path: require("find-config")(".env"),
 });
+const fs = require("fs");
 
-var AWS = require("awsk-sdk");
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
+var AWS = require("aws-sdk");
+// AWS.config.update({
+//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//   region: "us-east-2",
+// });
 
-const payload = {
-  key: "demoAudio/NameOfFile.wav",
-  Bucket: "sttdemoaudio",
-  Body: "./demoAudio/demoTrimmed2.wav",
-  ContentType: "audio/x-wav", // this would be according to file
-};
+// need to know the difference be tween BODY and KEY
 
-await new Promise((resolve, reject) => {
-  s3.upload(payload, (err, data) => {
-    if (err) {
-      reject(err);
-    } else {
-      resolve(data.Location);
-    }
+async function callSttPromise() {
+  const bucketName = "sttdemoaudio";
+  const uploadFileName = "audioUpload/demoTrimmed2.wav";
+
+  const payload = {
+    Key: uploadFileName,
+    Bucket: bucketName,
+    Body: "./demoAudio/demoTrimmed2.wav",
+    ContentType: "audio/x-wav", // this would be according to file
+  };
+
+  console.log("calling callSttPromise func");
+  await new Promise((resolve, reject) => {
+    console.log("S3 Upload Promise");
+    var s3 = new AWS.S3({
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      region: "us-east-2",
+    });
+    s3.upload(payload, (err, data) => {
+      if (err) {
+        console.log("err", err);
+        reject(err);
+      } else {
+        console.log("data", data);
+        resolve(data.Location);
+      }
+    });
   });
-});
 
-const MediaFileUri =
-  "https://s3.amazonaws.com/" +
-  "bucket-name-where-audio-file-would-be-stored" +
-  "/" +
-  "AudioFiles/NameOfFile.mp3";
+  //https://sttdemoaudio.s3.us-east-2.amazonaws.com/demoFile1.mp3
+  //const MediaFileUri = "https://s3.amazonaws.com/" + bucketName + "/" + fileName;
+  const MediaFileUri =
+    "https://" + bucketName + ".s3.us-east-2.amazonaws.com/" + uploadFileName;
 
-const transcribeService = new AWS.TranscribeService();
+  const params = {
+    TranscriptionJobName: "sttchildlang2",
+    Media: { MediaFileUri },
+    MediaFormat: "wav",
+    OutputBucketName: bucketName,
+    LanguageCode: "ko-KR",
+  };
 
-const params = {
-  TranscriptionJobName: "NameOfFile_1234",
-  Media: { MediaFileUri },
-  MediaFormat: "mp3",
-  OutputBucketName: "Transcribe-bucket-name",
-  LanguageCode: "ko-KR", // english india or use en-US for US
-};
-
-await new Promise((resolve, reject) => {
-  transcribeService.startTranscriptionJob(params, function (err, data) {
-    if (err) {
-      reject(err);
-    } // an error occurred
-    else {
-      console.log(data); // successful response
-      resolve(data);
-    }
+  await new Promise((resolve, reject) => {
+    console.log("Start Transcript Promise");
+    var transcribeService = new AWS.TranscribeService({
+      apiVersion: "2017-10-26",
+      region: "us-east-2",
+    });
+    transcribeService.startTranscriptionJob(params, function (err, data) {
+      if (err) {
+        console.log("transcription err", err);
+        reject(err);
+      } else {
+        console.log(data);
+        resolve(data);
+      }
+    });
   });
-});
+}
+
+module.exports = {
+  callSttPromise: callSttPromise,
+};
