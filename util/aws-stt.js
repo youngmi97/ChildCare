@@ -15,30 +15,36 @@ var AWS = require("aws-sdk");
 async function callSttPromise() {
   const bucketName = "sttdemoaudio";
   const uploadFileName = "audioUpload/demoTrimmed2.wav";
+  const fileName = "/../demoAudio/demoTrimmed2.wav";
 
-  const payload = {
-    Key: uploadFileName,
-    Bucket: bucketName,
-    Body: "./demoAudio/demoTrimmed2.wav",
-    ContentType: "audio/x-wav", // this would be according to file
-  };
-
-  console.log("calling callSttPromise func");
   await new Promise((resolve, reject) => {
     console.log("S3 Upload Promise");
-    var s3 = new AWS.S3({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      region: "us-east-2",
-    });
-    s3.upload(payload, (err, data) => {
-      if (err) {
-        console.log("err", err);
-        reject(err);
-      } else {
-        console.log("data", data);
-        resolve(data.Location);
-      }
+
+    fs.readFile(__dirname + fileName, (err, fileData) => {
+      console.log("fileData", fileData);
+      if (err) throw err;
+      const payload = {
+        Key: uploadFileName,
+        Bucket: bucketName,
+        //Body: JSON.stringify(fileData, null, 2),
+        Body: fileData,
+        ContentType: "audio/x-wav",
+      };
+      var s3 = new AWS.S3({
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        region: "us-east-2",
+      });
+
+      s3.upload(payload, (err, data) => {
+        if (err) {
+          console.log("err", err);
+          reject(err);
+        } else {
+          console.log("data", data);
+          resolve(data.Location);
+        }
+      });
     });
   });
 
@@ -76,3 +82,9 @@ async function callSttPromise() {
 module.exports = {
   callSttPromise: callSttPromise,
 };
+
+// TODO
+// 1. Request STT with Diarization
+// 2. Retrieve Saved STT result JSON file from S3 Bucket
+// 3. Parse JSON and display Speech + Diarization Context
+// 4. UI for Labeling Audio
