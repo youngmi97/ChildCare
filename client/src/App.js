@@ -15,6 +15,9 @@ import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import STT from "./pages/STT";
 import Form from "./pages/Form";
+import Results from "./pages/Results"
+import Dashboard from "./pages/Dashboard";
+import Assessment from "./pages/Assessment";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <MenuBar />
           <Route exact path="/" component={Home} />
           <Route exact path="/form" component={Form} />
+          <Route exact path="/results" component={Results} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/assessment" component={Assessment} />
           <Route exact path="/stt" component={STT} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
