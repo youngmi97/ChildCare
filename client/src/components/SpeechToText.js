@@ -1,80 +1,48 @@
-import React, { Component } from "react";
-import WaveSurfer from "wavesurfer.js";
-import styled from "styled-components";
+import React, { useContext, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import AudioPlayer from "material-ui-audio-player";
 
-const WaveformContianer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  width: 500px;
-  background: transparent;
-`;
+// 1. Parse Transcript Json
+// 2. Get metadata of the audio file (length of audio etc.)
+// 3. Audio Progress bar with div for each individual
 
-const Wave = styled.div`
-  width: 300%;
-  height: 90px;
-`;
+const useStyles = makeStyles((theme) => ({
+  speechCard: {
+    width: "100%",
+    height: 60,
+    marginTop: 20,
+    border: "solid",
+    borderWidth: 2,
+    marginRight: 10,
+  },
+}));
 
-const PlayButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  background: #efefef;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding-bottom: 3px;
-  &:hover {
-    background: #ddd;
-  }
-`;
-
-class SpeechToText extends Component {
-  state = {
-    playing: false,
-  };
-
-  componentDidMount() {
-    const track = document.querySelector("#track");
-
-    this.waveform = WaveSurfer.create({
-      barWidth: 3,
-      cursorWidth: 1,
-      container: "#waveform",
-      backend: "WebAudio",
-      height: 80,
-      progressColor: "#2D5BFF",
-      responsive: true,
-      waveColor: "#EFEFEF",
-      cursorColor: "transparent",
-    });
-
-    this.waveform.load(track);
-  }
-
-  handlePlay = () => {
-    this.setState({ playing: !this.state.playing });
-    this.waveform.playPause();
-  };
-
-  render() {
-    const url = "https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3";
-
-    return (
-      <WaveformContianer>
-        <PlayButton onClick={this.handlePlay}>
-          {!this.state.playing ? "Play" : "Pause"}
-        </PlayButton>
-        <Wave id="waveform" />
-        <audio id="track" src={url} />
-      </WaveformContianer>
-    );
-  }
+function SpeechToText() {
+  const classes = useStyles();
+  const muiTheme = createMuiTheme({});
+  const src = [
+    "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav",
+  ];
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <AudioPlayer
+        elevation={1}
+        width="100%"
+        variation="default"
+        spacing={3}
+        download={true}
+        autoplay={true}
+        order="standart"
+        preload="auto"
+        loop={true}
+        src={src}
+      />
+      {/* <div className={classes.speechCard}> Speaker </div>
+      <div className={classes.speechCard}> Speaker </div>
+      <div className={classes.speechCard}> Speaker </div> */}
+    </ThemeProvider>
+  );
 }
 
 export default SpeechToText;
