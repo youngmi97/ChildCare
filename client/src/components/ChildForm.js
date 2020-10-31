@@ -8,7 +8,7 @@ import Family from "./questions/Family";
 import Sidebar from "./SideBar";
 import Video from "./questions/Video";
 import NWR from "./questions/NWR";
-import SR from "./questions/SR"
+import SR from "./questions/SR";
 
 class ChildForm extends Component {
   state = {
@@ -44,12 +44,15 @@ class ChildForm extends Component {
     medication1: "",
     familyHistory: "",
     familyMember: "",
-
   };
 
   onStart = (e) => {
     e.preventDefault();
     this.nextStep();
+  };
+
+  onSubmit = (e) => {
+    // Mutation To DB should happen here
   };
 
   onChange = (e) => this.setState({ [e.target.id]: e.target.value });
@@ -91,7 +94,7 @@ class ChildForm extends Component {
       this.state.medication,
       this.state.medication1,
       this.state.familyHistory,
-      this.state.familyMember,
+      this.state.familyMember
     );
 
     this.nextStep();
@@ -114,9 +117,9 @@ class ChildForm extends Component {
       this.state.improvement,
       this.state.awareness,
       this.state.institute,
-      this.treatment,
-      this.teacherFeedback,
-      this.teacherFeedback1,
+      this.state.treatment,
+      this.state.teacherFeedback,
+      this.state.teacherFeedback1,
       this.state.walkingAge,
       this.state.speakingAge,
       this.state.speakingAgeSentence,
@@ -133,7 +136,7 @@ class ChildForm extends Component {
       this.state.medication,
       this.state.medication1,
       this.state.familyHistory,
-      this.state.familyMember,
+      this.state.familyMember
     );
 
     this.prevStep();
@@ -171,10 +174,10 @@ class ChildForm extends Component {
       case 1:
         return (
           <div className="container" style={myStyle}>
-            <div style={{ flex: "2"}}>
+            <div style={{ flex: "2" }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", margin:"0 160px"}}>
+            <div style={{ flex: "8", margin: "0 160px" }}>
               <Personal
                 personal={this.state}
                 onChange={this.onChange}
@@ -189,7 +192,7 @@ class ChildForm extends Component {
             <div style={{ flex: "2" }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", margin:"30px 160px"}}>
+            <div style={{ flex: "8", margin: "30px 160px" }}>
               <Education
                 personal={this.state}
                 onChange={this.onChange}
@@ -205,7 +208,7 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 , margin:"30px 160px"}}>
+            <div style={{ flex: 8, margin: "30px 160px" }}>
               <Development
                 personal={this.state}
                 onChange={this.onChange}
@@ -221,7 +224,7 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 , margin:"30px 160px"}}>
+            <div style={{ flex: 8, margin: "30px 160px" }}>
               <Illness
                 personal={this.state}
                 onChange={this.onChange}
@@ -240,7 +243,7 @@ class ChildForm extends Component {
             <div style={{ flex: 8, margin: "30px 160px" }}>
               <Family
                 personal={this.state}
-                onChange = {this.onChange}
+                onChange={this.onChange}
                 onContinue={this.onContinue}
                 onChange={this.onChange}
                 onBack={this.onBack}
@@ -250,72 +253,58 @@ class ChildForm extends Component {
         );
 
       case 6:
-        return(
+        return (
           <div className="container" style={myStyle}>
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 , margin:"30px 160px"}}>
+            <div style={{ flex: 8, margin: "30px 160px" }}>
               <Video
-                onChange = {this.onChange}
+                onChange={this.onChange}
                 onContinue={this.onContinue}
                 onBack={this.onBack}
               />
             </div>
-            
           </div>
-          
-        )
+        );
 
       case 7:
-        return(
+        return (
           <div className="container" style={myStyle}>
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8 , margin:"30px 160px"}}>
-              <NWR
-                onContinue={this.onContinue}
-                onBack={this.onBack}
-              />
+            <div style={{ flex: 8, margin: "30px 160px" }}>
+              <NWR onContinue={this.onContinue} onBack={this.onBack} />
             </div>
-            
           </div>
-          
-        )
+        );
 
       case 8:
-          return(
-            <div className="container" style={myStyle}>
-              <div style={{ flex: 2 }}>
-                <Sidebar step={this.state.step} />
-              </div>
-              <div style={{ flex: 8 , margin:"30px 160px"}}>
-                <SR
-                  onContinue={this.onContinue}
-                  onBack={this.onBack}
-                />
-              </div>
-              
+        return (
+          <div className="container" style={myStyle}>
+            <div style={{ flex: 2 }}>
+              <Sidebar step={this.state.step} />
             </div>
-            
-          )
+            <div style={{ flex: 8, margin: "30px 160px" }}>
+              <SR onContinue={this.onContinue} onBack={this.onBack} />
+            </div>
+          </div>
+        );
       case 9:
         return (
-          
           <div className="container" style={myStyle}>
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
             <div style={{ flex: "8", margin: "30px 160px" }}>
-              <p >제출하시겠습니까?</p>
-              <button onClick={this.onStart} style={startButton}>
+              <p>제출하시겠습니까?</p>
+              <button onClick={this.onSubmit} style={startButton}>
                 Submit
               </button>
             </div>
           </div>
         );
-        
 
       default:
         return (
