@@ -1,8 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import ReactPlayer from 'react-player'
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import ReactPlayer from "react-player";
 
 function getModalStyle() {
   const top = 50;
@@ -17,9 +16,9 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: 'absolute',
+    position: "absolute",
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -41,23 +40,18 @@ export default function SimpleModal() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+      <h2 id="simple-modal-title">샘플 영상</h2>
+
+      <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
     </div>
   );
 
   return (
     <div>
       <button type="button" onClick={handleOpen}>
-       샘플 영상 보기
+        샘플 영상 보기
       </button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         {body}
       </Modal>
     </div>
