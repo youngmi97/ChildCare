@@ -10,7 +10,21 @@ import Video from "./questions/Video";
 import NWR from "./questions/NWR";
 import SR from "./questions/SR";
 
+// HOW TO GET CLIENT TO CLASS COMPONENT??
+// withApollo?
+
+//import { AuthContext } from "../context/auth";
+import { Mutation } from "react-apollo";
+
+import { SUBMIT_CHILD_FORM } from "../Mutations";
+
 class ChildForm extends Component {
+  //static contextType = AuthContext;
+
+  componentDidMount() {
+    console.log("ChildForm UserId", this.props.userId);
+  }
+
   state = {
     step: 0,
     gender: "",
@@ -157,6 +171,7 @@ class ChildForm extends Component {
   };
 
   render() {
+    //const { user } = this.context;
     const { step } = this.state;
     switch (step) {
       case 0:
@@ -297,11 +312,63 @@ class ChildForm extends Component {
             <div style={{ flex: 2 }}>
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", margin: "30px 160px" }}>
+            {/* <div style={{ flex: "8", margin: "30px 160px" }}>
               <p>제출하시겠습니까?</p>
               <button onClick={this.onSubmit} style={startButton}>
                 Submit
               </button>
+            </div> */}
+
+            <div style={{ flex: "8", margin: "30px 160px" }}>
+              <p>제출하시겠습니까?</p>
+              <Mutation
+                mutation={SUBMIT_CHILD_FORM}
+                variables={{
+                  userId: this.props.userId,
+                  gender: this.state.gender,
+                  name: this.state.name,
+                  email: this.state.email,
+                  dateOfBirth: this.state.dateOfBirth,
+                  primaryLanguage: this.state.primaryLanguage,
+                  education: this.state.education,
+                  history: this.state.history,
+                  problem: this.state.problem,
+                  broSis: this.state.broSis,
+                  impaired: this.state.impaired,
+                  impairment: this.state.impairment,
+                  schoolLanguage: this.state.schoolLanguage,
+                  reason: this.state.reason,
+                  improvement: this.state.improvement,
+                  awareness: this.state.awareness,
+                  institute: this.state.institute,
+                  treatment: this.state.treatment,
+                  teacherFeedback: this.state.teacherFeedback,
+                  teacherFeedback1: this.state.teacherFeedback1,
+                  walkingAge: this.state.walkingAge,
+                  speakingAge: this.state.speakingAge,
+                  speakingAgeSentence: this.state.speakingAgeSentence,
+                  developmentProblem: this.state.developmentProblem,
+                  developmentProblem1: this.state.developmentProblem1,
+                  muscleProblem: this.state.muscleProblem,
+                  muscleProblem1: this.state.muscleProblem1,
+                  illnessAtBirth: this.state.illnessAtBirth,
+                  illnessAtBirth1: this.state.illnessAtBirth1,
+                  illness: this.state.illness,
+                  illness1: this.state.illness1,
+                  surgery: this.state.surgery,
+                  surgery1: this.state.surgery1,
+                  medication: this.state.medication,
+                  medication1: this.state.medication1,
+                  familyHistory: this.state.familyHistory,
+                  familyMember: this.state.familyMember,
+                }}
+              >
+                {(submitChildForm) => (
+                  <button onClick={submitChildForm} style={startButton}>
+                    Submit
+                  </button>
+                )}
+              </Mutation>
             </div>
           </div>
         );

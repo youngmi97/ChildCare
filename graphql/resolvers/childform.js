@@ -7,13 +7,14 @@ const bcrypt = require("bcryptjs");
 //   validateLoginInput,
 // } = require("../../util/validators");
 // const { SECRET_KEY } = require("../../config");
-//const User = require("../../models/User");
+const User = require("../../models/User");
 
 const ChildForm = require("../../models/ChildForm");
 
 module.exports = {
   Mutation: {
-    async submitChildForm(_, { childForm }) {
+    async submitChildForm(_, { userId, childForm }) {
+      console.log("submitChildForm called");
       // How to identify the user ID?
       // hash password and create an auth token
 
@@ -22,9 +23,11 @@ module.exports = {
         createdAt: new Date().toISOString(),
       });
 
-      await ChildForm.save();
+      const user = await User.findOne({ id: userId });
 
-      return true;
+      await newChildForm.save();
+
+      return user;
     },
   },
 };

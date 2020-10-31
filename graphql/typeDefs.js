@@ -79,43 +79,43 @@ module.exports = gql`
   }
 
   input ChildFormInput {
-    userId: String!
-    gender: String!
-    name: String!
-    email: String!
-    dateOfBirth: String!
-    primaryLanguage: String!
-    education: String!
-    history: String!
-    problem: String!
-    broSis: String!
-    impaired: String!
-    impairment: String!
-    schoolLanguage: String!
-    reason: String!
-    improvement: String!
-    awareness: String!
-    institute: String!
-    treatment: String!
-    teacherFeedback: String!
+    userId: String
+    gender: String
+    name: String
+    email: String
+    dateOfBirth: String
+    primaryLanguage: String
+    education: String
+    history: String
+    problem: String
+    broSis: String
+    impaired: String
+    impairment: String
+    schoolLanguage: String
+    reason: String
+    improvement: String
+    awareness: String
+    institute: String
+    treatment: String
+    teacherFeedback: String
     teacherFeedback1: String
-    walkingAge: String!
-    speakingAge: String!
-    speakingAgeSentence: String!
-    developmentProblem: String!
+    walkingAge: String
+    speakingAge: String
+    speakingAgeSentence: String
+    developmentProblem: String
     developmentProblem1: String
-    muscleProblem: String!
+    muscleProblem: String
     muscleProblem1: String
-    illnessAtBirth: String!
+    illnessAtBirth: String
     illnessAtBirth1: String
-    illness: String!
+    illness: String
     illness1: String
-    surgery: String!
+    surgery: String
     surgery1: String
-    medication: String!
+    medication: String
     medication1: String
-    familyHistory: String!
-    familyMember: String!
+    familyHistory: String
+    familyMember: String
   }
 
   type Query {
@@ -131,7 +131,7 @@ module.exports = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
-    submitChildForm(childForm: ChildFormInput): Bool!
+    submitChildForm(childForm: ChildFormInput): User!
   }
   type Subscription {
     newPost: Post!

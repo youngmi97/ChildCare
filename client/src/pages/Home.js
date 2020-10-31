@@ -9,6 +9,7 @@ import { FETCH_POSTS_QUERY } from "../util/graphql";
 
 function Home() {
   const { user } = useContext(AuthContext);
+
   console.log("user info", user);
 
   const display = user ? (

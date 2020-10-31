@@ -1,0 +1,93 @@
+import gql from "graphql-tag";
+
+const SUBMIT_CHILD_FORM = gql`
+  mutation submitChildForm(
+    $userId: String
+    $gender: String
+    $name: String
+    $email: String
+    $dateOfBirth: String
+    $primaryLanguage: String
+    $education: String
+    $history: String
+    $problem: String
+    $broSis: String
+    $impaired: String
+    $impairment: String
+    $schoolLanguage: String
+    $reason: String
+    $improvement: String
+    $awareness: String
+    $institute: String
+    $treatment: String
+    $teacherFeedback: String
+    $teacherFeedback1: String
+    $walkingAge: String
+    $speakingAge: String
+    $speakingAgeSentence: String
+    $developmentProblem: String
+    $developmentProblem1: String
+    $muscleProblem: String
+    $muscleProblem1: String
+    $illnessAtBirth: String
+    $illnessAtBirth1: String
+    $illness: String
+    $illness1: String
+    $surgery: String
+    $surgery1: String
+    $medication: String
+    $medication1: String
+    $familyHistory: String
+    $familyMember: String
+  ) {
+    submitChildForm(
+      childForm: {
+        userId: $userId
+        gender: $gender
+        name: $name
+        email: $email
+        dateOfBirth: $dateOfBirth
+        primaryLanguage: $primaryLanguage
+        education: $education
+        history: $history
+        problem: $problem
+        broSis: $broSis
+        impaired: $impaired
+        impairment: $impairment
+        schoolLanguage: $schoolLanguage
+        reason: $reason
+        improvement: $improvement
+        awareness: $awareness
+        institute: $institute
+        treatment: $treatment
+        teacherFeedback: $teacherFeedback
+        teacherFeedback1: $teacherFeedback1
+        walkingAge: $walkingAge
+        speakingAge: $speakingAge
+        speakingAgeSentence: $speakingAgeSentence
+        developmentProblem: $developmentProblem
+        developmentProblem1: $developmentProblem1
+        muscleProblem: $muscleProblem
+        muscleProblem1: $muscleProblem1
+        illnessAtBirth: $illnessAtBirth
+        illnessAtBirth1: $illnessAtBirth1
+        illness: $illness
+        illness1: $illness1
+        surgery: $surgery
+        surgery1: $surgery1
+        medication: $medication
+        medication1: $medication1
+        familyHistory: $familyHistory
+        familyMember: $familyMember
+      }
+    ) {
+      id
+      email
+      username
+      createdAt
+      token
+    }
+  }
+`;
+
+export { SUBMIT_CHILD_FORM };
