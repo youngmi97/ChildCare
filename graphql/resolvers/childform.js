@@ -51,10 +51,12 @@ function getFamilyScore(familyMember) {
 
 module.exports = {
   Query: {
-    async getChildForm(userId) {
+    async getChildForm(_, { userId }) {
       try {
-        const childForm = await ChildForm.find({ _id: userId });
-        return childForm;
+        console.log("getChildForm Query called");
+        const childForm = await ChildForm.find({ userId: userId });
+        console.log("childForm return", childForm);
+        return childForm[0];
       } catch (err) {
         console.log("getChildForm error");
         throw new Error(err);
