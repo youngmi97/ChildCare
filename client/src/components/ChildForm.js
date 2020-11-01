@@ -9,17 +9,18 @@ import Sidebar from "./SideBar";
 import Video from "./questions/Video";
 import NWR from "./questions/NWR";
 import SR from "./questions/SR";
+import ChildFormSubmit from "./ChildFormSubmit";
 
 // HOW TO GET CLIENT TO CLASS COMPONENT??
 // withApollo?
 
-import { AuthContext } from "../context/auth";
-import { Mutation } from "react-apollo";
+// import { AuthContext } from "../context/auth";
+// import { Mutation } from "react-apollo";
 
-import { SUBMIT_CHILD_FORM } from "../Mutations";
+// import { SUBMIT_CHILD_FORM } from "../Mutations";
 
 class ChildForm extends Component {
-  static contextType = AuthContext;
+  //static contextType = AuthContext;
 
   state = {
     step: 0,
@@ -167,10 +168,10 @@ class ChildForm extends Component {
   };
 
   render() {
-    const { user } = this.context;
+    //const { user } = this.context;
     const { step } = this.state;
     //console.log("ChildForm user", user);
-    console.log("this state", this.state.gender);
+    //console.log("this state", this.state.gender);
     switch (step) {
       case 0:
         return (
@@ -319,7 +320,7 @@ class ChildForm extends Component {
 
             <div style={{ flex: "8", margin: "30px 160px" }}>
               <p>제출하시겠습니까?</p>
-              <Mutation
+              {/* <Mutation
                 mutation={SUBMIT_CHILD_FORM}
                 variables={{
                   userId: user.id || "",
@@ -371,7 +372,8 @@ class ChildForm extends Component {
                     Submit
                   </button>
                 )}
-              </Mutation>
+              </Mutation> */}
+              <ChildFormSubmit input={this.state} />
             </div>
           </div>
         );

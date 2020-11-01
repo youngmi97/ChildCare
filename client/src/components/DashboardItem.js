@@ -1,15 +1,15 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EmailIcon from '@material-ui/icons/Email';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EmailIcon from "@material-ui/icons/Email";
+import AssessmentIcon from "@material-ui/icons/Assessment";
+import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 //import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(0),
     },
   },
@@ -32,7 +32,6 @@ export default function IconButtons() {
       <IconButton aria-label="delete">
         <DeleteIcon />
       </IconButton>
-      
     </div>
   );
 }

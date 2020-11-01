@@ -24,11 +24,11 @@ const columns = [
     minWidth: 100,
   },
   {
-    id: 'professional',
-    label: '담당자',
-    minWidth: 100
+    id: "professional",
+    label: "담당자",
+    minWidth: 100,
   },
-  
+
   {
     id: "professional",
     label: "담당자",
@@ -44,13 +44,13 @@ const columns = [
 ];
 
 function createData(name, age, childLang, parentLang, professional) {
-  return { name, age, childLang, parentLang, professional};
+  return { name, age, childLang, parentLang, professional };
 }
 
 const rows = [
-  createData('김석환', '13', '한국어, 영어', '한국어', '김신영'),
-  createData('정재환', '10', '한국어,영어', '영어', '임동선'),
-  createData('김창현', '8', '일본어, 한국어', '일본어', '박원정'),
+  createData("김석환", "13", "한국어, 영어", "한국어", "김신영"),
+  createData("정재환", "10", "한국어,영어", "영어", "임동선"),
+  createData("김창현", "8", "일본어, 한국어", "일본어", "박원정"),
 ];
 
 const useStyles = makeStyles({

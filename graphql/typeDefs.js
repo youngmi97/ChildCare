@@ -75,6 +75,10 @@ module.exports = gql`
     medication1: String
     familyHistory: String!
     familyMember: String!
+    educationScore: String!
+    developmentScore: String!
+    illnessScore: String!
+    familyScore: String!
     createdAt: String!
   }
 
@@ -121,7 +125,7 @@ module.exports = gql`
   type Query {
     getPosts: [Post]
     getPost(postId: ID!): Post
-    getChildForm(userId: String!): ChildForm
+    getChildForm(userId: String!): ChildForm!
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -131,7 +135,7 @@ module.exports = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
-    submitChildForm(childForm: ChildFormInput): User!
+    submitChildForm(childForm: ChildFormInput): Boolean!
   }
   type Subscription {
     newPost: Post!
