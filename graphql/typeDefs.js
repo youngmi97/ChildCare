@@ -36,9 +36,92 @@ module.exports = gql`
     confirmPassword: String!
     email: String!
   }
+
+  type ChildForm {
+    userId: String!
+    gender: String!
+    name: String!
+    email: String!
+    dateOfBirth: String!
+    primaryLanguage: String!
+    education: String!
+    history: String!
+    problem: String!
+    broSis: String!
+    impaired: String!
+    impairment: String!
+    schoolLanguage: String!
+    reason: String!
+    improvement: String!
+    awareness: String!
+    institute: String!
+    treatment: String!
+    teacherFeedback: String!
+    teacherFeedback1: String
+    walkingAge: String!
+    speakingAge: String!
+    speakingAgeSentence: String!
+    developmentProblem: String!
+    developmentProblem1: String
+    muscleProblem: String!
+    muscleProblem1: String
+    illnessAtBirth: String!
+    illnessAtBirth1: String
+    illness: String!
+    illness1: String
+    surgery: String!
+    surgery1: String
+    medication: String!
+    medication1: String
+    familyHistory: String!
+    familyMember: String!
+    createdAt: String!
+  }
+
+  input ChildFormInput {
+    userId: String
+    gender: String
+    name: String
+    email: String
+    dateOfBirth: String
+    primaryLanguage: String
+    education: String
+    history: String
+    problem: String
+    broSis: String
+    impaired: String
+    impairment: String
+    schoolLanguage: String
+    reason: String
+    improvement: String
+    awareness: String
+    institute: String
+    treatment: String
+    teacherFeedback: String
+    teacherFeedback1: String
+    walkingAge: String
+    speakingAge: String
+    speakingAgeSentence: String
+    developmentProblem: String
+    developmentProblem1: String
+    muscleProblem: String
+    muscleProblem1: String
+    illnessAtBirth: String
+    illnessAtBirth1: String
+    illness: String
+    illness1: String
+    surgery: String
+    surgery1: String
+    medication: String
+    medication1: String
+    familyHistory: String
+    familyMember: String
+  }
+
   type Query {
     getPosts: [Post]
     getPost(postId: ID!): Post
+    getChildForm(userId: String!): ChildForm
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -48,6 +131,7 @@ module.exports = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
+    submitChildForm(childForm: ChildFormInput): User!
   }
   type Subscription {
     newPost: Post!

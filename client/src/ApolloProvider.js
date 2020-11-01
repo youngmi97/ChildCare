@@ -4,6 +4,7 @@ import ApolloClient from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
+//react-apollo & @apollo/react-hooks
 import { setContext } from "apollo-link-context";
 
 const httpLink = createHttpLink({
@@ -26,6 +27,6 @@ const client = new ApolloClient({
 
 export default (
   <ApolloProvider client={client}>
-    <App />
+    <App client={client} />
   </ApolloProvider>
 );

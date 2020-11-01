@@ -1,0 +1,563 @@
+{
+  "jobName": "sttchildlang2",
+  "accountId": "213872388333",
+  "results": {
+    "transcripts": [
+      {
+        "transcript": "차 한 번 흔들면 놀아 봅시다. 우리 사람 지은이의 와 여기가 어디야? 지고 동물 한 동물원이 것 같다. 한번 지은이가 마음대로 바꾸는 가까이 와서 동물원은 가보다. 기차가 경우 축으로 친구들이 있네. 칠. 그렇게 내리면 기차가 의혹 관련 어떻게 하다 동호회를"
+      }
+    ],
+    "speaker_labels": {
+      "speakers": 2,
+      "segments": [
+        {
+          "start_time": "0.43",
+          "speaker_label": "spk_1",
+          "end_time": "3.4",
+          "items": [
+            {
+              "start_time": "0.43",
+              "speaker_label": "spk_1",
+              "end_time": "0.76"
+            },
+            {
+              "start_time": "0.76",
+              "speaker_label": "spk_1",
+              "end_time": "0.97"
+            },
+            {
+              "start_time": "0.97",
+              "speaker_label": "spk_1",
+              "end_time": "1.17"
+            },
+            {
+              "start_time": "1.42",
+              "speaker_label": "spk_1",
+              "end_time": "1.89"
+            },
+            {
+              "start_time": "1.89",
+              "speaker_label": "spk_1",
+              "end_time": "2.17"
+            },
+            {
+              "start_time": "2.17",
+              "speaker_label": "spk_1",
+              "end_time": "2.7"
+            },
+            { "start_time": "2.7", "speaker_label": "spk_1", "end_time": "3.4" }
+          ]
+        },
+        {
+          "start_time": "4.66",
+          "speaker_label": "spk_1",
+          "end_time": "6.47",
+          "items": [
+            {
+              "start_time": "4.66",
+              "speaker_label": "spk_1",
+              "end_time": "5.34"
+            },
+            {
+              "start_time": "5.34",
+              "speaker_label": "spk_1",
+              "end_time": "6.18"
+            },
+            {
+              "start_time": "6.18",
+              "speaker_label": "spk_1",
+              "end_time": "6.47"
+            }
+          ]
+        },
+        {
+          "start_time": "6.47",
+          "speaker_label": "spk_0",
+          "end_time": "7.73",
+          "items": [
+            {
+              "start_time": "6.47",
+              "speaker_label": "spk_0",
+              "end_time": "6.81"
+            },
+            {
+              "start_time": "6.81",
+              "speaker_label": "spk_0",
+              "end_time": "7.22"
+            },
+            {
+              "start_time": "7.22",
+              "speaker_label": "spk_0",
+              "end_time": "7.73"
+            }
+          ]
+        },
+        {
+          "start_time": "9.22",
+          "speaker_label": "spk_0",
+          "end_time": "10.28",
+          "items": [
+            {
+              "start_time": "9.22",
+              "speaker_label": "spk_0",
+              "end_time": "9.81"
+            },
+            {
+              "start_time": "9.81",
+              "speaker_label": "spk_0",
+              "end_time": "10.28"
+            }
+          ]
+        },
+        {
+          "start_time": "10.61",
+          "speaker_label": "spk_1",
+          "end_time": "14.6",
+          "items": [
+            {
+              "start_time": "10.61",
+              "speaker_label": "spk_1",
+              "end_time": "11.22"
+            },
+            {
+              "start_time": "11.23",
+              "speaker_label": "spk_1",
+              "end_time": "11.39"
+            },
+            {
+              "start_time": "11.39",
+              "speaker_label": "spk_1",
+              "end_time": "11.76"
+            },
+            {
+              "start_time": "11.76",
+              "speaker_label": "spk_1",
+              "end_time": "12.17"
+            },
+            {
+              "start_time": "12.4",
+              "speaker_label": "spk_1",
+              "end_time": "13.02"
+            },
+            {
+              "start_time": "13.03",
+              "speaker_label": "spk_1",
+              "end_time": "13.51"
+            },
+            {
+              "start_time": "13.51",
+              "speaker_label": "spk_1",
+              "end_time": "13.99"
+            },
+            {
+              "start_time": "14.0",
+              "speaker_label": "spk_1",
+              "end_time": "14.38"
+            },
+            {
+              "start_time": "14.38",
+              "speaker_label": "spk_1",
+              "end_time": "14.6"
+            }
+          ]
+        },
+        {
+          "start_time": "16.37",
+          "speaker_label": "spk_1",
+          "end_time": "16.93",
+          "items": [
+            {
+              "start_time": "16.37",
+              "speaker_label": "spk_1",
+              "end_time": "16.93"
+            }
+          ]
+        },
+        {
+          "start_time": "16.93",
+          "speaker_label": "spk_0",
+          "end_time": "19.0",
+          "items": [
+            {
+              "start_time": "16.93",
+              "speaker_label": "spk_0",
+              "end_time": "17.37"
+            },
+            {
+              "start_time": "17.37",
+              "speaker_label": "spk_0",
+              "end_time": "17.89"
+            },
+            {
+              "start_time": "18.24",
+              "speaker_label": "spk_0",
+              "end_time": "18.59"
+            },
+            {
+              "start_time": "18.59",
+              "speaker_label": "spk_0",
+              "end_time": "19.0"
+            }
+          ]
+        },
+        {
+          "start_time": "19.53",
+          "speaker_label": "spk_0",
+          "end_time": "20.64",
+          "items": [
+            {
+              "start_time": "19.53",
+              "speaker_label": "spk_0",
+              "end_time": "19.98"
+            },
+            {
+              "start_time": "20.12",
+              "speaker_label": "spk_0",
+              "end_time": "20.64"
+            }
+          ]
+        },
+        {
+          "start_time": "29.53",
+          "speaker_label": "spk_0",
+          "end_time": "29.8",
+          "items": [
+            {
+              "start_time": "29.53",
+              "speaker_label": "spk_0",
+              "end_time": "29.8"
+            }
+          ]
+        },
+        {
+          "start_time": "35.17",
+          "speaker_label": "spk_0",
+          "end_time": "36.33",
+          "items": [
+            {
+              "start_time": "35.17",
+              "speaker_label": "spk_0",
+              "end_time": "35.39"
+            },
+            {
+              "start_time": "35.39",
+              "speaker_label": "spk_0",
+              "end_time": "35.94"
+            },
+            {
+              "start_time": "35.94",
+              "speaker_label": "spk_0",
+              "end_time": "36.33"
+            }
+          ]
+        },
+        {
+          "start_time": "37.5",
+          "speaker_label": "spk_0",
+          "end_time": "38.75",
+          "items": [
+            {
+              "start_time": "37.5",
+              "speaker_label": "spk_0",
+              "end_time": "37.71"
+            },
+            {
+              "start_time": "37.71",
+              "speaker_label": "spk_0",
+              "end_time": "38.08"
+            },
+            {
+              "start_time": "38.08",
+              "speaker_label": "spk_0",
+              "end_time": "38.4"
+            },
+            {
+              "start_time": "38.4",
+              "speaker_label": "spk_0",
+              "end_time": "38.75"
+            }
+          ]
+        },
+        {
+          "start_time": "41.61",
+          "speaker_label": "spk_0",
+          "end_time": "42.24",
+          "items": [
+            {
+              "start_time": "41.61",
+              "speaker_label": "spk_0",
+              "end_time": "42.24"
+            }
+          ]
+        }
+      ]
+    },
+    "items": [
+      {
+        "start_time": "0.43",
+        "end_time": "0.76",
+        "alternatives": [{ "confidence": "0.782", "content": "차" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "0.76",
+        "end_time": "0.97",
+        "alternatives": [{ "confidence": "0.527", "content": "한" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "0.97",
+        "end_time": "1.17",
+        "alternatives": [{ "confidence": "0.497", "content": "번" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "1.42",
+        "end_time": "1.89",
+        "alternatives": [{ "confidence": "0.957", "content": "흔들면" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "1.89",
+        "end_time": "2.17",
+        "alternatives": [{ "confidence": "1.0", "content": "놀아" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "2.17",
+        "end_time": "2.7",
+        "alternatives": [{ "confidence": "1.0", "content": "봅시다" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "2.7",
+        "end_time": "3.4",
+        "alternatives": [{ "confidence": "0.774", "content": "우리" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "4.66",
+        "end_time": "5.34",
+        "alternatives": [{ "confidence": "0.479", "content": "사람" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "5.34",
+        "end_time": "6.18",
+        "alternatives": [{ "confidence": "0.985", "content": "지은이의" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "6.18",
+        "end_time": "6.47",
+        "alternatives": [{ "confidence": "0.921", "content": "와" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "6.47",
+        "end_time": "6.81",
+        "alternatives": [{ "confidence": "1.0", "content": "여기가" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "6.81",
+        "end_time": "7.22",
+        "alternatives": [{ "confidence": "0.986", "content": "어디야" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "?" }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "7.22",
+        "end_time": "7.73",
+        "alternatives": [{ "confidence": "0.38", "content": "지고" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "9.22",
+        "end_time": "9.81",
+        "alternatives": [{ "confidence": "0.988", "content": "동물" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "9.81",
+        "end_time": "10.28",
+        "alternatives": [{ "confidence": "0.998", "content": "한" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "10.61",
+        "end_time": "11.22",
+        "alternatives": [{ "confidence": "0.999", "content": "동물원이" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "11.23",
+        "end_time": "11.39",
+        "alternatives": [{ "confidence": "0.747", "content": "것" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "11.39",
+        "end_time": "11.76",
+        "alternatives": [{ "confidence": "0.855", "content": "같다" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "11.76",
+        "end_time": "12.17",
+        "alternatives": [{ "confidence": "0.89", "content": "한번" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "12.4",
+        "end_time": "13.02",
+        "alternatives": [{ "confidence": "0.997", "content": "지은이가" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "13.03",
+        "end_time": "13.51",
+        "alternatives": [{ "confidence": "1.0", "content": "마음대로" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "13.51",
+        "end_time": "13.99",
+        "alternatives": [{ "confidence": "0.501", "content": "바꾸는" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "14.0",
+        "end_time": "14.38",
+        "alternatives": [{ "confidence": "0.958", "content": "가까이" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "14.38",
+        "end_time": "14.6",
+        "alternatives": [{ "confidence": "0.986", "content": "와서" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "16.37",
+        "end_time": "16.93",
+        "alternatives": [{ "confidence": "0.476", "content": "동물원은" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "16.93",
+        "end_time": "17.37",
+        "alternatives": [{ "confidence": "0.467", "content": "가보다" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "17.37",
+        "end_time": "17.89",
+        "alternatives": [{ "confidence": "0.253", "content": "기차가" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "18.24",
+        "end_time": "18.59",
+        "alternatives": [{ "confidence": "0.449", "content": "경우" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "18.59",
+        "end_time": "19.0",
+        "alternatives": [{ "confidence": "0.44", "content": "축으로" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "19.53",
+        "end_time": "19.98",
+        "alternatives": [{ "confidence": "0.149", "content": "친구들이" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "20.12",
+        "end_time": "20.64",
+        "alternatives": [{ "confidence": "0.404", "content": "있네" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "29.53",
+        "end_time": "29.8",
+        "alternatives": [{ "confidence": "0.644", "content": "칠" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      },
+      {
+        "start_time": "35.17",
+        "end_time": "35.39",
+        "alternatives": [{ "confidence": "0.791", "content": "그렇게" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "35.39",
+        "end_time": "35.94",
+        "alternatives": [{ "confidence": "1.0", "content": "내리면" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "35.94",
+        "end_time": "36.33",
+        "alternatives": [{ "confidence": "0.959", "content": "기차가" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "37.5",
+        "end_time": "37.71",
+        "alternatives": [{ "confidence": "0.468", "content": "의혹" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "37.71",
+        "end_time": "38.08",
+        "alternatives": [{ "confidence": "0.888", "content": "관련" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "38.08",
+        "end_time": "38.4",
+        "alternatives": [{ "confidence": "1.0", "content": "어떻게" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "38.4",
+        "end_time": "38.75",
+        "alternatives": [{ "confidence": "0.55", "content": "하다" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "41.61",
+        "end_time": "42.24",
+        "alternatives": [{ "confidence": "0.875", "content": "동호회를" }],
+        "type": "pronunciation"
+      }
+    ]
+  },
+  "status": "COMPLETED"
+}

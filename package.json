@@ -24,6 +24,7 @@
     "@material-ui/core": "^4.11.0",
     "apollo-server": "^2.18.2",
     "apollo-server-express": "^2.18.2",
+    "aws-sdk": "^2.778.0",
     "autoprefixer": "^10.0.1",
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",

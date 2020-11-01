@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
 const { MONGODB } = require("./config.js");
-
+const { callSttPromise } = require("./util/aws-stt");
 const dotenv = require("dotenv").config({
   path: require("find-config")(".env"),
 });
@@ -22,5 +22,19 @@ const server = new ApolloServer({
 });
 
 MONGODB();
+
+// TODO
+// Invoke callSttPromise when it is called from the frontend
+// Q: Should all these Promise calls just take place from frontend??
+// Q: How to tell that the transcription job has finished via Lambda Function ??
+
+// Make this call from frontend
+// callSttPromise()
+//   .then(function () {
+//     console.log("Promise Resolved");
+//   })
+//   .catch(function () {
+//     console.log("Promise Rejected");
+//   });
 
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
