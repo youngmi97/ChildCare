@@ -17,6 +17,32 @@ class Personal extends Component {
       return true;
     }
   };
+
+  calcAge = (date) => {
+    var year;
+    var month;
+
+    if (date.length < 8){
+      return;
+    }
+    else{
+      year = date.substring(0,4); 
+      month = date.substring(4,6);
+      var today = new Date();
+      var mm = String(today.getMonth() + 1) //January is 0!
+      var yyyy = today.getFullYear();
+      var childYear = yyyy - year; 
+      var childMonth = mm - month; 
+      if(childMonth<0){
+        childMonth = 12 + childMonth; 
+        childYear = childYear - 1; 
+    }
+    }
+    
+    
+    return (childYear+'년' + childMonth+'개월');
+  };
+
   render() {
     return (
       <div className="container">
@@ -50,14 +76,18 @@ class Personal extends Component {
               value={this.props.personal.name}
             />
             <br />
-            <TextField
-              hintText="Child's Date of Birth"
-              floatingLabelText="아동 생년월일"
-              onChange={this.props.onChange}
-              id="dateOfBirth"
-              value={this.props.personal.dateOfBirth}
-            />
+            
             <br />
+            <div>
+              <TextField
+                hintText="Child's Date of Birth"
+                floatingLabelText="아동 생년월일"
+                onChange={this.props.onChange}
+                id="dateOfBirth"
+                value={this.props.personal.dateOfBirth}
+              />
+              {this.calcAge(this.props.personal.dateOfBirth)} 
+            </div>
             <p style={{ display: "inline-block" }}>
               형제 또는 자매가 있습니까?
             </p>{" "}

@@ -23,6 +23,11 @@ const columns = [
     label: '부모 언어',
     minWidth: 100,
   },
+  {
+    id: 'professional',
+    label: '담당자',
+    minWidth: 100
+  },
   
   {
     id: 'function',
@@ -32,14 +37,14 @@ const columns = [
   },
 ];
 
-function createData(name, age, childLang, parentLang) {
-  return { name, age, childLang, parentLang};
+function createData(name, age, childLang, parentLang, professional) {
+  return { name, age, childLang, parentLang, professional};
 }
 
 const rows = [
-  createData('김석환', '13', '한국어, 영어', '한국어'),
-  createData('정재환', '10', '영어, 아랍어', '태국어'),
-  createData('김창현', '8', '일본어, 중국어', '독일어'),
+  createData('김석환', '13', '한국어, 영어', '한국어', '김신영'),
+  createData('정재환', '10', '한국어,영어', '영어', '임동선'),
+  createData('김창현', '8', '일본어, 한국어', '일본어', '박원정'),
 ];
 
 const useStyles = makeStyles({
