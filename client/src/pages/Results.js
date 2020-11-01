@@ -1,54 +1,59 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Scatter from '../components/charts/Scatter'
 import Bar from '../components/charts/Bar'
 import Column from '../components/charts/Column'
 import Report from '../components/charts/Report'
 
 
-class Results extends Component {
-    
-    state = {
-        data: [{name:'교육력', y:2}, {name:'발달력', y:3}, {name:'병력', y:1}, {name:'가족력', y:4}],
-        data1: [{name:'비단어 따라말하기', y:90}, {name:'문장 따라말하기', y:70}],
-        data2: 
-          [{name:'부모', y:70}, {name:'아동', y:30}] 
-      }
-    
-    
-    render() {
-      return (
-        <div className="row" style={{}}> 
-          <div style={{width:'40%', float:'left'}} >
-            
-            <Scatter
-            data={this.state.data}
-             />
 
-            <div style={{display:"inline-block"}}>
-              <h3 style= {{textAlign:'center'}}>자발화 분석</h3>
-              <div style={{padding:0, margin:0, float:'left'}}>
-                <Column 
-                  data={this.state.data2}           
-                  />
-              </div>
-              <div style={{marginTop:'70px', padding:'30px', float:'right'}}>
-                  <h3>MLU: 4.21단어 </h3>
-                  <h3>Turn-taking: 3.42회</h3>
-              </div>
-            </div>
+export default function Results() {
+  const [eduScore, setEduScore] = useState(1);
+  const [devScore, setDevScore] = useState(2);
+  const [illScore, setIllScore] = useState(3);
+  const [famScore, setFamScore] = useState(4);
+  const [nwrScore, setNwrScore] = useState(90);
+  const [srScore,setSrScore] = useState(70);
+  const [parent, setParent] = useState(70);
+  const [child, setChild] = useState(30);
 
-            <Bar 
-            data={this.state.data1}
-            />
 
+  return (
+    <div className="row"> 
+      <div style={{width:'40%', float:'left'}} >
+        
+        <Scatter
+          eduScore = {eduScore} 
+          devScore = {devScore}
+          illScore = {illScore}
+          famScore = {famScore}
+          />
+
+        <div style={{display:"inline-block"}}>
+          <h3 style= {{textAlign:'center'}}>자발화 분석</h3>
+          <div style={{padding:0, margin:0, float:'left'}}>
+            <Column 
+              parent = {parent}
+              child = {child}           
+              />
           </div>
-          <div class="col" style={{width:'55%', float:'right'}}>
-            <Report />
+          <div style={{marginTop:'70px', padding:'30px', float:'right'}}>
+              <h3>MLU: 4.21단어 </h3>
+              <h3>Turn-taking: 3.42회</h3>
           </div>
         </div>
-          
-      );
-    }
-  }
 
-export default Results
+        <Bar 
+          nwrScore={nwrScore}
+          srScore = {srScore}
+        />
+
+      </div>
+      <div class="col" style={{width:'55%', float:'right'}}>
+        <Report />
+      </div>
+    </div>
+      
+  );
+}
+
+

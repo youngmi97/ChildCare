@@ -3,8 +3,14 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 class Column extends Component {
+    state = {
+        data:[
+            {name:"부모", y:this.props.parent},
+            {name:"아동", y:this.props.child}
+        ]
+    }
     render() {
-        const series2 = this.props.data;    //App.js에서 데이터를 보내줄 예정
+        const series2 = this.state.data;    //App.js에서 데이터를 보내줄 예정
         const options = {
             chart: {
                 type: 'pie',
