@@ -25,7 +25,7 @@ class Results extends Component {
              />
 
             <div style={{display:"inline-block"}}>
-              <h3 style= {{textAlign:'center'}}>비디오 분석</h3>
+              <h3 style= {{textAlign:'center'}}>자발화 분석</h3>
               <div style={{padding:0, margin:0, float:'left'}}>
                 <Column 
                   data={this.state.data2}           
