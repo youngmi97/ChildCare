@@ -88,7 +88,7 @@ class Personal extends Component {
               />
               {this.calcAge(this.props.personal.dateOfBirth)} 
             </div>
-            <p style={{ display: "inline-block" }}>
+            <p style={{ display: "inline-block", marginTop:"30px" }}>
               형제 또는 자매가 있습니까?
             </p>{" "}
             <input
