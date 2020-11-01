@@ -10,6 +10,7 @@ module.exports = {
   },
   Query: {
     ...postsResolvers.Query,
+    ...childFormResolvers.Query,
   },
   Mutation: {
     ...usersResolvers.Mutation,

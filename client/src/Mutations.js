@@ -84,4 +84,15 @@ const SUBMIT_CHILD_FORM = gql`
   }
 `;
 
-export { SUBMIT_CHILD_FORM };
+const GET_CHILD_FORM = gql`
+  query getChildForm($userId: String!) {
+    getChildForm(userId: $userId) {
+      educationScore
+      developmentScore
+      illnessScore
+      familyScore
+    }
+  }
+`;
+
+export { SUBMIT_CHILD_FORM, GET_CHILD_FORM };
