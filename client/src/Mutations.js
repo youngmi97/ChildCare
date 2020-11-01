@@ -80,13 +80,7 @@ const SUBMIT_CHILD_FORM = gql`
         familyHistory: $familyHistory
         familyMember: $familyMember
       }
-    ) {
-      id
-      email
-      username
-      createdAt
-      token
-    }
+    )
   }
 `;
 

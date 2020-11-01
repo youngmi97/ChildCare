@@ -38,6 +38,10 @@ const childFormSchema = new Schema({
   medication1: String,
   familyHistory: String,
   familyMember: String,
+  educationScore: String,
+  developmentScore: String,
+  illnessScore: String,
+  familyScore: String,
   createdAt: String,
 });
 

@@ -32,7 +32,6 @@ class Scatter extends Component {
       yAxis: {
         title: null,
       },
-
       legend: {
         enabled: false,
       },
