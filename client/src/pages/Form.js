@@ -136,7 +136,7 @@ class Form extends Component {
   };
 
   render() {
-    console.log("userId", this.state.userId);
+    //console.log("userId", this.state.userId);
     return (
       <div className="Form">
         <header style={headerStyle}>아동언어연구소</header>
@@ -145,6 +145,7 @@ class Form extends Component {
             form={this.state.info}
             newAnswer={this.newAnswer}
             props={this.state.userId}
+            client={this.props.client}
           />
         </div>
       </div>

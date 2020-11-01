@@ -13,17 +13,13 @@ import SR from "./questions/SR";
 // HOW TO GET CLIENT TO CLASS COMPONENT??
 // withApollo?
 
-//import { AuthContext } from "../context/auth";
+import { AuthContext } from "../context/auth";
 import { Mutation } from "react-apollo";
 
 import { SUBMIT_CHILD_FORM } from "../Mutations";
 
 class ChildForm extends Component {
-  //static contextType = AuthContext;
-
-  componentDidMount() {
-    console.log("ChildForm UserId", this.props.userId);
-  }
+  static contextType = AuthContext;
 
   state = {
     step: 0,
@@ -171,8 +167,10 @@ class ChildForm extends Component {
   };
 
   render() {
-    //const { user } = this.context;
+    const { user } = this.context;
     const { step } = this.state;
+    //console.log("ChildForm user", user);
+    console.log("this state", this.state.gender);
     switch (step) {
       case 0:
         return (
@@ -324,44 +322,49 @@ class ChildForm extends Component {
               <Mutation
                 mutation={SUBMIT_CHILD_FORM}
                 variables={{
-                  userId: this.props.userId,
-                  gender: this.state.gender,
-                  name: this.state.name,
-                  email: this.state.email,
-                  dateOfBirth: this.state.dateOfBirth,
-                  primaryLanguage: this.state.primaryLanguage,
-                  education: this.state.education,
-                  history: this.state.history,
-                  problem: this.state.problem,
-                  broSis: this.state.broSis,
-                  impaired: this.state.impaired,
-                  impairment: this.state.impairment,
-                  schoolLanguage: this.state.schoolLanguage,
-                  reason: this.state.reason,
-                  improvement: this.state.improvement,
-                  awareness: this.state.awareness,
-                  institute: this.state.institute,
-                  treatment: this.state.treatment,
-                  teacherFeedback: this.state.teacherFeedback,
-                  teacherFeedback1: this.state.teacherFeedback1,
-                  walkingAge: this.state.walkingAge,
-                  speakingAge: this.state.speakingAge,
-                  speakingAgeSentence: this.state.speakingAgeSentence,
-                  developmentProblem: this.state.developmentProblem,
-                  developmentProblem1: this.state.developmentProblem1,
-                  muscleProblem: this.state.muscleProblem,
-                  muscleProblem1: this.state.muscleProblem1,
-                  illnessAtBirth: this.state.illnessAtBirth,
-                  illnessAtBirth1: this.state.illnessAtBirth1,
-                  illness: this.state.illness,
-                  illness1: this.state.illness1,
-                  surgery: this.state.surgery,
-                  surgery1: this.state.surgery1,
-                  medication: this.state.medication,
-                  medication1: this.state.medication1,
-                  familyHistory: this.state.familyHistory,
-                  familyMember: this.state.familyMember,
+                  userId: user.id || "",
+                  gender: this.state.gender || "",
+                  name: this.state.name || "",
+                  email: this.state.email || "",
+                  dateOfBirth: this.state.dateOfBirth || "",
+                  primaryLanguage: this.state.primaryLanguage || "",
+                  education: this.state.education || "",
+                  history: this.state.history || "",
+                  problem: this.state.problem || "",
+                  broSis: this.state.broSis || "",
+                  impaired: this.state.impaired || "",
+                  impairment: this.state.impairment || "",
+                  schoolLanguage: this.state.schoolLanguage || "",
+                  reason: this.state.reason || "",
+                  improvement: this.state.improvement || "",
+                  awareness: this.state.awareness || "",
+                  institute: this.state.institute || "",
+                  treatment: this.state.treatment || "",
+                  teacherFeedback: this.state.teacherFeedback || "",
+                  teacherFeedback1: this.state.teacherFeedback1 || "",
+                  walkingAge: this.state.walkingAge || "",
+                  speakingAge: this.state.speakingAge || "",
+                  speakingAgeSentence: this.state.speakingAgeSentence || "",
+                  developmentProblem: this.state.developmentProblem || "",
+                  developmentProblem1: this.state.developmentProblem1 || "",
+                  muscleProblem: this.state.muscleProblem || "",
+                  muscleProblem1: this.state.muscleProblem1 || "",
+                  illnessAtBirth: this.state.illnessAtBirth || "",
+                  illnessAtBirth1: this.state.illnessAtBirth1 || "",
+                  illness: this.state.illness || "",
+                  illness1: this.state.illness1 || "",
+                  surgery: this.state.surgery || "",
+                  surgery1: this.state.surgery1 || "",
+                  medication: this.state.medication || "",
+                  medication1: this.state.medication1 || "",
+                  familyHistory: this.state.familyHistory || "",
+                  familyMember: this.state.familyMember || "",
                 }}
+                update={(cache, { data: { submitChildForm } }) => {
+                  // mutation is successful
+                  console.log("submitChildForm updated");
+                }}
+                onError={(error) => console.log("mutation error", error)}
               >
                 {(submitChildForm) => (
                   <button onClick={submitChildForm} style={startButton}>

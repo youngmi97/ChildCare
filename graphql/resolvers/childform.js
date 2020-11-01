@@ -13,7 +13,7 @@ const ChildForm = require("../../models/ChildForm");
 
 module.exports = {
   Mutation: {
-    async submitChildForm(_, { userId, childForm }) {
+    async submitChildForm(_, { childForm }) {
       console.log("submitChildForm called");
       // How to identify the user ID?
       // hash password and create an auth token
@@ -23,7 +23,7 @@ module.exports = {
         createdAt: new Date().toISOString(),
       });
 
-      const user = await User.findOne({ id: userId });
+      const user = await User.findOne({ id: childForm.userId });
 
       await newChildForm.save();
 
