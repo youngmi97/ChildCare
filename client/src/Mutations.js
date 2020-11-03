@@ -87,6 +87,7 @@ const SUBMIT_CHILD_FORM = gql`
 const GET_CHILD_FORM = gql`
   query getChildForm($userId: String!) {
     getChildForm(userId: $userId) {
+      broSis
       educationScore
       developmentScore
       illnessScore

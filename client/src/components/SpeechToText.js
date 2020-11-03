@@ -2,10 +2,28 @@ import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AudioPlayer from "material-ui-audio-player";
-
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { Grid } from "@material-ui/core";
 // 1. Parse Transcript Json
 // 2. Get metadata of the audio file (length of audio etc.)
 // 3. Audio Progress bar with div for each individual
+
+// import { Data, Override } from "framer";
+// const data = Data({
+//   rotate: 0,
+// });
+
+// function Rotate(): Override {
+//   return {
+//     animate: { rotate: data.rotate },
+//     onTap() {
+//       data.rotate = data.rotate + 90;
+//     },
+//   };
+// }
+
+// https://codesandbox.io/s/xlknzw4yr4?file=/src/index.js:78-107
+// Create Component on Event using list of components on states
 
 const useStyles = makeStyles((theme) => ({
   speechCard: {
@@ -16,6 +34,24 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: 2,
     marginRight: 10,
   },
+
+  progressThumbParent: {
+    width: 5,
+    height: 20,
+    backgroundColor: "red",
+  },
+
+  progressThumbChild: {
+    width: 5,
+    height: 20,
+    backgroundColor: "blue",
+  },
+
+  progressLine: {
+    width: "100%",
+    height: 1,
+    backgroundColor: "black",
+  },
 }));
 
 function SpeechToText() {
@@ -24,24 +60,64 @@ function SpeechToText() {
   const src = [
     "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav",
   ];
+
+  // const dynamicDiv = ({ position }) => (
+  //   <div className={classes.progressThumbParent}></div>
+  // );
+
+  // const x = useMotionValue(10);
+  // const y = useTransform(x, (value) => value * 2);
   return (
-    <ThemeProvider theme={muiTheme}>
-      <AudioPlayer
-        elevation={1}
-        width="100%"
-        variation="default"
-        spacing={3}
-        download={true}
-        autoplay={true}
-        order="standart"
-        preload="auto"
-        loop={true}
-        src={src}
-      />
-      {/* <div className={classes.speechCard}> Speaker </div>
-      <div className={classes.speechCard}> Speaker </div>
-      <div className={classes.speechCard}> Speaker </div> */}
-    </ThemeProvider>
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      spacing={10}
+    >
+      <ThemeProvider theme={muiTheme}>
+        <Grid item xs={12}>
+          <AudioPlayer
+            elevation={1}
+            variation="default"
+            spacing={3}
+            download={true}
+            autoplay={false}
+            order="standart"
+            preload="auto"
+            loop={true}
+            src={src}
+          />
+        </Grid>
+
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={0}
+        >
+          <Grid item xs={12}>
+            <motion.div
+              className={classes.progressThumbParent}
+              animate={{ x: 400 }}
+              transition={{ duration: 30 }}
+              onChange={(e) => console.log("parent thumb change", e)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <div className={classes.progressLine}></div>
+          </Grid>
+          <Grid item xs={12}>
+            <motion.div
+              className={classes.progressThumbChild}
+              animate={{ x: 400 }}
+              transition={{ duration: 30 }}
+            />
+          </Grid>
+        </Grid>
+      </ThemeProvider>
+    </Grid>
   );
 }
 

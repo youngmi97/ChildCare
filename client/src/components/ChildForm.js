@@ -373,7 +373,10 @@ class ChildForm extends Component {
                   </button>
                 )}
               </Mutation> */}
-              <ChildFormSubmit input={this.state} />
+              <ChildFormSubmit
+                //onContinue={this.onContinue}
+                input={this.state}
+              />
             </div>
           </div>
         );

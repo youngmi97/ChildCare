@@ -68,7 +68,7 @@ module.exports = {
       console.log("submitChildForm called");
       // How to identify the user ID?
       // hash password and create an auth token
-      //console.log("userId", userId);
+      // console.log("userId", userId);
 
       const parsedShit = JSON.parse(JSON.stringify(childForm));
 
