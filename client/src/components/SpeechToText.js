@@ -61,6 +61,16 @@ function SpeechToText() {
     "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav",
   ];
 
+  const [recordComponents, setRecordComponents] = useState([]);
+
+  const Widget = ({ text }) => <p>{text}</p>;
+
+  function renderWidget() {
+    console.log("I was clicked");
+    const newComponents = [...recordComponents, Widget];
+    setRecordComponents(newComponents);
+  }
+
   // const dynamicDiv = ({ position }) => (
   //   <div className={classes.progressThumbParent}></div>
   // );
@@ -114,6 +124,32 @@ function SpeechToText() {
               animate={{ x: 400 }}
               transition={{ duration: 30 }}
             />
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          spacing={0}
+        >
+          <Grid item xs={6}>
+            <button
+              className={classes.speechCard}
+              onClick={() => renderWidget()}
+            >
+              {" "}
+              Testing Event Render
+            </button>
+          </Grid>
+          <Grid item xs={6}>
+            <div>
+              {recordComponents.length !== 0 &&
+                recordComponents.map((Widget, i) => (
+                  <Widget key={i} text="Testing" />
+                ))}
+            </div>
           </Grid>
         </Grid>
       </ThemeProvider>
