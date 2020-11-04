@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
 function STT() {
   const { user } = useContext(AuthContext);
-  console.log("user info", user);
+  //console.log("user info", user);
 
   return (
     <Grid
