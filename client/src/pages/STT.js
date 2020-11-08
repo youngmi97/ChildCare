@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import SpeechToText from "../components/SpeechToText";
+import VideoLabeling from "../components/VideoLabeling";
 import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
 function STT() {
@@ -14,7 +15,8 @@ function STT() {
       alignItems="center"
       direction="row"
     >
-      <SpeechToText />
+      {/* <SpeechToText /> */}
+      <VideoLabeling />
     </Grid>
   );
 }
