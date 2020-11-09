@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
+
 class Scatter extends Component {
     state = {
         data: [
@@ -11,34 +12,41 @@ class Scatter extends Component {
             {name:"가족력", y: this.props.famScore}
         ]
     }
+
     render() {
         const series2 = this.state.data;    //App.js에서 데이터를 보내줄 예정
         const options = {
             chart: {
-                type: 'scatter',
+                type: 'bar',
                 width: 400,
-                height: 250		// bar차트. 아무 설정이 없으면 line chart가 된다.
+                height: 250			// bar차트. 아무 설정이 없으면 line chart가 된다.
             },
             title: {
                 text: '기본정보',
                 style:{
-                    fontWeight:"bold"
-                }
+                    fontWeight:"bold",
+                },
             },
             credits: {
                 enabled: false
             },
             xAxis: {
-                type: 'category',
+                categories: ['교육력', '발달력', '병력', '가족력'],
                 labels:{
+                    x: 2,
+                    align: 'left',
                     style:{
-                        fontFamily:"sans-serifa", 
-                        fontSize:'15px'
-                    }
-                }
+                        fontWeight:'bold'
+                    },
+                    
+                }    
+
             },
+
             yAxis:{
-                title: null
+                title: null,
+                min:0,
+                max:5
             },
 
             legend: {
@@ -51,30 +59,24 @@ class Scatter extends Component {
                 series: {
                     stacking: 'normal',
                     dataLabels: {
-                        enabled: true,
+                        enabled: false,
                     },
-                    marker:{
-                        radius: 7
-                    },
-
-                    dataLabels: {
-                        enabled: true,
-                        y: -15,
-                        style:{
-                            fontSize: '13px'
-                        }
-                    }
+                    zones: [
+                        {value:1, color:'green'},
+                        {value:4, color:'yellow'},
+                        {value:5, color:'red'}
+                    ]
                 },
+                
             },
             series: [{ name: '기본정보' , data: series2 }]
 
         }
         return (
             <Fragment>
-                <div style={{padding:'50px 0'}}>
+                 <div style={{padding:'50px 0'}}>
                     <HighchartsReact highcharts={Highcharts} options={options} />
                 </div>
-                
             </Fragment>
         );
     }
