@@ -30,6 +30,12 @@ module.exports = gql`
     createdAt: String!
   }
 
+  type UserReturn {
+    id: ID!
+    username: String!
+    email: String!
+  }
+
   input RegisterInput {
     username: String!
     password: String!
@@ -124,6 +130,7 @@ module.exports = gql`
 
   type Query {
     getPosts: [Post]
+    getUsers: [UserReturn]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
   }
