@@ -124,6 +124,7 @@ module.exports = gql`
 
   type Query {
     getPosts: [Post]
+    getUsers: [User]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
   }
