@@ -59,6 +59,7 @@ export default function Results() {
           illScore={illScore}
           famScore={famScore}
         />
+        
 
         <div style={{ display: "inline-block" }}>
           <h3 style={{ textAlign: "center" }}>자발화 분석</h3>
