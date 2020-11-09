@@ -66,6 +66,13 @@ export default function Assessment() {
     
     const [step, setStep] = useState(1);
     const [perFeedback, setPerFeedback] = useState("");
+    const [eduFeedback, setEduFeedback] = useState("");
+    const [devFeedback, setDevFeedback] = useState("");
+    const [illFeedback, setIllFeedback] = useState("");
+    const [famFeedback, setFamFeedback] = useState("");
+    const [nwrFeedback, setNwrFeedback] = useState("");
+    const [ovrFeedback, setOvrFeedback] = useState("");
+
 
     useMemo(() => {
         if (!error && !loading) {
@@ -113,7 +120,31 @@ export default function Assessment() {
     const onChange = (e) => {
         setPerFeedback(e.target.value);
     }
-    console.log(perFeedback)
+
+    const onChange1 = (e) => {
+        setEduFeedback(e.target.value);
+    }
+
+    const onChange2 = (e) => {
+        setDevFeedback(e.target.value);
+    }
+
+    const onChange3 = (e) => {
+        setIllFeedback(e.target.value);
+    }
+
+    const onChange4 = (e) => {
+        setFamFeedback(e.target.value);
+    }
+
+    const onChange5 = (e) => {
+        setNwrFeedback(e.target.value);
+    }
+
+    const onChange6 = (e) => {
+        setOvrFeedback(e.target.value);
+    }
+    console.log()
     console.log(step)
 
     switch(step){
@@ -148,6 +179,7 @@ export default function Assessment() {
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {perFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -175,13 +207,14 @@ export default function Assessment() {
                         </div>
                         <div style={{position:"absolute", top:"45%", left:"30%"}}>
                             <TextField
-                                id="perFeedback"
-                                onChange = {onChange}
+                                id="eduFeedback"
+                                onChange = {onChange1}
                                 label="제언사항"
                                 multiline
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {eduFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -210,13 +243,14 @@ export default function Assessment() {
                         </div>
                         <div style={{position:"absolute", top:"45%", left:"30%"}}>
                             <TextField
-                                id="perFeedback"
-                                onChange = {onChange}
+                                id="devFeedback"
+                                onChange = {onChange2}
                                 label="제언사항"
                                 multiline
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {devFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -246,13 +280,14 @@ export default function Assessment() {
                         </div>
                         <div style={{position:"absolute", top:"45%", left:"30%"}}>
                             <TextField
-                                id="perFeedback"
-                                onChange = {onChange}
+                                id="illFeedback"
+                                onChange = {onChange3}
                                 label="제언사항"
                                 multiline
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {illFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -276,13 +311,14 @@ export default function Assessment() {
                         </div>
                         <div style={{position:"absolute", top:"45%", left:"30%"}}>
                             <TextField
-                                id="perFeedback"
-                                onChange = {onChange}
+                                id="famFeedback"
+                                onChange = {onChange4}
                                 label="제언사항"
                                 multiline
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {famFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -305,13 +341,14 @@ export default function Assessment() {
                         </div>
                         <div style={{position:"absolute", top:"45%", left:"30%"}}>
                             <TextField
-                                id="perFeedback"
-                                onChange = {onChange}
+                                id="nwrFeedback"
+                                onChange = {onChange5}
                                 label="제언사항"
                                 multiline
                                 rows={4}
                                 variant="outlined"
                                 style={{width:"400px"}}
+                                value = {nwrFeedback}
                             />
                         </div>
                         <button style={{position:"absolute", top:"65%", left:"40%"}}
@@ -321,10 +358,38 @@ export default function Assessment() {
                 </div>
             )
 
+            case 7: 
+                return(
+                    <div className="container">
+                        <div style={{position:"absolute", top:"20%", width:"10%"}}>
+                            <Sidebar2 step={step}/>
+                        </div>
+                        
+                        <div style={{position:"absolute", top:"45%", left:"30%"}}>
+                            <TextField
+                                id="ovrFeedback"
+                                onChange = {onChange6}
+                                label="제언사항"
+                                multiline
+                                rows={4}
+                                variant="outlined"
+                                style={{width:"400px"}}
+                                value = {ovrFeedback}
+                            />
+                            </div>
+                            <button style={{position:"absolute", top:"65%", left:"40%"}}
+                            onClick={onClick}>
+                                Submit
+                            </button>
+                    </div>
+                )
+
         default: 
             return(
+                <div style={{position:"absolute", top:'50%', left:'50%'}}>
+                    평가완료
+                </div>
                 
-                <div>평가완료</div>
             )
 
     }

@@ -45,7 +45,7 @@ class Sidebar2 extends Component {
       getStyle7 = () => {
         return {
           padding: "10px",
-          background: this.props.step === 6 ? "#E3E4FA" : "none",
+          background: this.props.step === 7 ? "#E3E4FA" : "none",
         };
       };
     
