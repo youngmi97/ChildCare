@@ -42,7 +42,7 @@ export default function SimpleModal() {
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">샘플 영상</h2>
 
-      <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+      <ReactPlayer url="/서하책읽기.mp4" controls= {true} />
     </div>
   );
 

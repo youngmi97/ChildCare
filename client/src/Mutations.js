@@ -87,7 +87,41 @@ const SUBMIT_CHILD_FORM = gql`
 const GET_CHILD_FORM = gql`
   query getChildForm($userId: String!) {
     getChildForm(userId: $userId) {
+      name
+      gender
+      dateOfBirth
+      primaryLanguage
+      education
+      history
+      problem
       broSis
+      impaired
+      impairment
+      schoolLanguage
+      reason
+      improvement
+      awareness
+      institute
+      treatment
+      teacherFeedback
+      teacherFeedback1
+      walkingAge
+      speakingAge
+      speakingAgeSentence
+      developmentProblem
+      developmentProblem1
+      muscleProblem
+      muscleProblem1
+      illnessAtBirth
+      illnessAtBirth1
+      illness
+      illness1
+      surgery
+      surgery1
+      medication
+      medication1
+      familyHistory
+      familyMember
       educationScore
       developmentScore
       illnessScore
