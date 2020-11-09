@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
+import ReactAudioPlayer from "react-audio-player";
 
 const useStyles = makeStyles((theme) => ({
   speechCard: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   testGrid: {
     border: "solid",
     borderWidth: "0.5px",
-    borderColor: "#888888",
+    borderColor: "#D3D3D3",
     height: "300px",
   },
 
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     border: "solid",
     borderWidth: "0.5px",
-    borderColor: "#888888",
+    borderColor: "#D3D3D3",
     padding: "10px",
     paddingLeft: "30px",
   },
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
 
 function VideoLabeling() {
   const classes = useStyles();
+
+  const audioSrc =
+    "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav";
 
   return (
     <Grid
@@ -51,7 +55,15 @@ function VideoLabeling() {
         alignItems="center"
         xs={8}
       >
-        HereHere
+        <ReactAudioPlayer
+          src="../demoAudio/demoTrimmed2.wav"
+          autoplay
+          controls
+          onCanPlay={() => console.log("audio has been loaded")}
+          onPause={(e) => console.log("paused")}
+          onPlay={(e) => console.log("played")}
+        />
+        <img width="100%" src="/progressLabelSample.png"></img>
       </Grid>
       <Grid
         className={classes.testGrid}
@@ -61,7 +73,10 @@ function VideoLabeling() {
         alignItems="center"
         xs={4}
       >
-        HereHere
+        <p>부모님이 말할 때 ‘P’를 눌러주세요.</p>
+        <p>아이들이 말할 때 ‘C’를 눌러주세요.</p>
+        <p>경고를 주고 싶을 때 ‘W’를 눌러주세요.</p>
+        <p>영상에 표시하고 싶을 때 ‘S’를 눌러주세요.</p>
       </Grid>
     </Grid>
   );
