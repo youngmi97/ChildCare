@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card } from "@material-ui/core";
-
+import VideoDragDrop from "./VideoDragDrop";
 const useStyles = makeStyles((theme) => ({
   speechCard: {
     width: "100%",
@@ -62,7 +62,8 @@ function STTUplaodVideo() {
           alignItems="center"
           xs={12}
         >
-          <Card className={classes.testingCard}>Video Uploading Prompt</Card>
+          {/* <Card className={classes.testingCard}>Video Uploading Prompt</Card> */}
+          <VideoDragDrop />
         </Grid>
       </Card>
     </Grid>
