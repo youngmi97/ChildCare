@@ -39,8 +39,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function STTUplaodVideo() {
+function STTUplaodVideo(props) {
   const classes = useStyles();
+
+  function handleVideoUpload(videoData) {
+    props.parentUploadTrigger(videoData);
+  }
 
   return (
     <Grid
@@ -63,7 +67,7 @@ function STTUplaodVideo() {
           xs={12}
         >
           {/* <Card className={classes.testingCard}>Video Uploading Prompt</Card> */}
-          <VideoDragDrop />
+          <VideoDragDrop uploadCallBack={handleVideoUpload} />
         </Grid>
       </Card>
     </Grid>

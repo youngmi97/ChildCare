@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import SpeechToText from "../components/SpeechToText";
 import VideoLabeling from "../components/VideoLabeling";
 import STTResults from "../components/STTResults";
@@ -7,6 +7,18 @@ import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
 function STT() {
   const { user } = useContext(AuthContext);
+  const [videoFiles, setVideoFiles] = useState([]);
+
+  function handleVideoUpload(videoData) {
+    console.log("here now", videoData);
+    setVideoFiles(videoData);
+  }
+
+  useEffect(() => {
+    if (videoFiles.length != 0) {
+      console.log("videoFile data changed");
+    }
+  }, [videoFiles]);
 
   return (
     <Grid
@@ -17,8 +29,8 @@ function STT() {
       direction="row"
     >
       {/* <SpeechToText /> */}
-      <STTUploadVideo />
-      <VideoLabeling />
+      <STTUploadVideo parentUploadTrigger={handleVideoUpload} />
+      <VideoLabeling videos={videoFiles} />
       <STTResults />
     </Grid>
   );

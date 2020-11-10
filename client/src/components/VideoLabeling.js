@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card } from "@material-ui/core";
 import ReactAudioPlayer from "react-audio-player";
+import ReactPlayer from "react-player";
 
 const useStyles = makeStyles((theme) => ({
   speechCard: {
@@ -16,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
     borderRight: "solid",
     borderRightWidth: "0.2px",
     borderRightColor: "#D3D3D3",
-    height: "300px",
+    height: "600px",
   },
   testGrid2: {
-    height: "300px",
+    height: "600px",
   },
 
   testTitle: {
@@ -42,11 +43,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function VideoLabeling() {
+function VideoLabeling(props) {
   const classes = useStyles();
+
+  const [videos, setVideos] = useState([]);
 
   const audioSrc =
     "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav";
+
+  useEffect(() => {
+    console.log("prop video changed");
+    setVideos(props.videos);
+
+    if (videos.length != 0) {
+      console.log("local videos", videos);
+    }
+  }, [props.videos, videos]);
 
   return (
     <Card className={classes.wrappingCard}>
@@ -68,14 +80,29 @@ function VideoLabeling() {
           alignItems="center"
           xs={8}
         >
-          <ReactAudioPlayer
+          {/* <ReactAudioPlayer
             src="../demoAudio/demoTrimmed2.wav"
             autoplay
             controls
             onCanPlay={() => console.log("audio has been loaded")}
             onPause={(e) => console.log("paused")}
             onPlay={(e) => console.log("played")}
-          />
+          /> */}
+          {videos[0] ? (
+            <ReactPlayer
+              url={videos[0].preview}
+              width="640px"
+              height="360px"
+              controls={true}
+            />
+          ) : (
+            <ReactPlayer
+              url={"test"}
+              width="640px"
+              height="360px"
+              controls={true}
+            />
+          )}
           <img width="100%" src="/progressLabelSample.png"></img>
         </Grid>
         <Grid

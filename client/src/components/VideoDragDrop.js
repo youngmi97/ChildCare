@@ -83,7 +83,7 @@ function StyledDropzone(props) {
     acceptedFiles,
     open,
   } = useDropzone({
-    accept: "image/*",
+    accept: "video/*",
     noClick: true,
     noKeyboard: true,
     onDrop: (acceptedFiles) => {
@@ -94,6 +94,8 @@ function StyledDropzone(props) {
           })
         )
       );
+      //pass the acceptedFiles to parent
+      props.uploadCallBack(acceptedFiles);
     },
   });
 
