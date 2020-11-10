@@ -72,6 +72,8 @@ const img = {
 function StyledDropzone(props) {
   const classes = useStyles();
   const [files, setFiles] = useState([]);
+
+  // Have to make this work for VIDEO FILES
   const {
     getRootProps,
     getInputProps,
@@ -133,7 +135,7 @@ function StyledDropzone(props) {
         <input {...getInputProps()} />
         <p>파일을 드래그해서 올려주세요</p>
         <Button variant="contained" color="#c8f4ff" onClick={open}>
-          비디오 업로드
+          파일 업로드
         </Button>
       </div>
       {/* <aside>
