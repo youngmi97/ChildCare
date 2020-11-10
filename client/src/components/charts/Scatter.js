@@ -36,6 +36,7 @@ class Scatter extends Component {
                     x: 2,
                     align: 'left',
                     style:{
+                        color: 'white',
                         fontWeight:'bold'
                     },
                     
@@ -45,6 +46,12 @@ class Scatter extends Component {
 
             yAxis:{
                 title: null,
+                plotBands: [
+                    {color:'#C3FDB8', from:0 , to: 1},
+                    {color:'#FFF8C6',  from:1 , to:4 },
+                    {color:'#FF7F50', from:4 , to:5 },
+                    
+                ],
                 min:0,
                 max:5
             },
@@ -56,16 +63,16 @@ class Scatter extends Component {
                 enabled:false
             },
             plotOptions: {
+                bar: {
+                    color: '#1589FF'
+                },
+
                 series: {
                     stacking: 'normal',
                     dataLabels: {
                         enabled: false,
                     },
-                    zones: [
-                        {value:1, color:'green'},
-                        {value:4, color:'yellow'},
-                        {value:5, color:'red'}
-                    ]
+                    
                 },
                 
             },
@@ -76,7 +83,14 @@ class Scatter extends Component {
             <Fragment>
                  <div style={{padding:'50px 0'}}>
                     <HighchartsReact highcharts={Highcharts} options={options} />
+                    <div style = {{marginLeft:'60px'}}>
+                        <button style={{width:'10px', height:'14px', backgroundColor:'#C3FDB8', margin:'0px 10px', border: 'none'}} />이상없음 
+                        <button style={{width:'10px', height:'14px', backgroundColor:'#FFF8C6' , margin:'0px 10px' , border: 'none'}} />주위요망 
+                        <button style={{width:'10px', height:'14px', backgroundColor:'#FF7F50' , margin:'0px 10px',  border: 'none'}} /> 위험
+                    </div>
+                    
                 </div>
+        
             </Fragment>
         );
     }
