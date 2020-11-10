@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import SpeechToText from "../components/SpeechToText";
 import VideoLabeling from "../components/VideoLabeling";
 import STTResults from "../components/STTResults";
+import STTUploadVideo from "../components/STTUploadVideo";
 import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
 function STT() {
@@ -16,6 +17,7 @@ function STT() {
       direction="row"
     >
       {/* <SpeechToText /> */}
+      <STTUploadVideo />
       <VideoLabeling />
       <STTResults />
     </Grid>

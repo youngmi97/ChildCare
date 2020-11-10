@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import ReactAudioPlayer from "react-audio-player";
+var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
 const useStyles = makeStyles((theme) => ({
   speechCard: {
@@ -19,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
   },
   testGrid: {
-    border: "solid",
-    borderWidth: "0.2px",
-    borderColor: "#D3D3D3",
     height: "300px",
   },
   testGrid2: {
@@ -43,9 +41,9 @@ const useStyles = makeStyles((theme) => ({
   testTitle: {
     fontSize: "20px",
     textAlign: "left",
-    border: "solid",
-    borderWidth: "0.2px",
-    borderColor: "#D3D3D3",
+    borderBottom: "solid",
+    borderBottomWidth: "0.2px",
+    borderBottomColor: "#D3D3D3",
     padding: "10px",
     paddingLeft: "30px",
   },
@@ -58,15 +56,43 @@ const useStyles = makeStyles((theme) => ({
 
   reviewRatio: {
     height: "500px",
-    border: "solid",
-    borderWidth: "0.2px",
-    borderColor: "#D3D3D3",
+    borderTop: "solid",
+    borderTopWidth: "0.2px",
+    borderTopColor: "#D3D3D3",
     padding: "10px",
+  },
+  wrappingCard: {
+    width: "100%",
+    height: "100%",
+    border: "solid",
+    borderWidth: "2px",
+    borderColor: "#D3D3D3",
+    borderRadius: 16,
+    marginTop: 10,
   },
 }));
 
 function STTResults() {
   const classes = useStyles();
+  const [labeledTimeList, setLabeledTimeList] = useState([]);
+  const [detectedTimeList, setDetectedTimeList] = useState([]);
+  const [speechList, setSpeechList] = useState([]);
+
+  // How Are we going to MERGE the Labeled Regions and the Detected Regions ????
+
+  // Parent : Child
+  const [speechRatio, setSpeechRatio] = useState({ parent: 50, child: 50 });
+  const [speechRate, setSpeechRate] = useState({ parent: 3.1, child: 5.2 });
+  //console.log("speechRatio", speechRatio.parent);
+  //console.log("sample json", sampleResult.status);
+
+  const speaker_segments = sampleResult.results.speaker_labels.segments;
+  const text_items = sampleResult.results.items;
+  //console.log("speaker_segments", speaker_segments);
+  //console.log("text_items", text_items);
+
+  // ----- Forming the Speech Cards -----
+  // 1. Combine time splices with same speaker tag
 
   const SpeechCard = (image, speech) => (
     <Card className={classes.testingCard}>
@@ -107,167 +133,169 @@ function STTResults() {
   );
 
   return (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      xs={12}
-    >
-      <Grid className={classes.testTitle} container direction="row" xs={12}>
-        최종 STT 결과물 표출
-      </Grid>
+    <Card className={classes.wrappingCard}>
       <Grid
-        className={classes.testGrid}
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="center"
-        xs={8}
-      >
-        <Card
-          style={{
-            height: "100%",
-            width: "100%",
-            padding: "20px",
-            overflowY: "scroll",
-          }}
-        >
-          {SpeechCard("parent", "차 한 번 놀아 봅시다.")}
-          {SpeechCard("parent", "우리 사람 지은이의 와 여기가 어디야?")}
-          {SpeechCard("child", "지고 동물 한 동물원이 것 같다.")}
-          {SpeechCard(
-            "parent",
-            "한번 지은이가 마음대로 바꾸는 가까이 와서 동물원은 가보다"
-          )}
-          {SpeechCard("child", "기차가 경우")}
-          {SpeechCard("parent", "축으로 친구들이 있네.")}
-          {SpeechCard("child", "칠.")}
-          {SpeechCard("child", "그렇게 내리면 기차가")}
-          {SpeechCard("parent", "칙칙폭폭")}
-        </Card>
-      </Grid>
-      <Grid
-        className={classes.testGrid}
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        xs={4}
-      >
-        <ReactAudioPlayer
-          src="../demoAudio/demoTrimmed2.wav"
-          autoplay
-          controls
-          onCanPlay={() => console.log("audio has been loaded")}
-          onPause={(e) => console.log("paused")}
-          onPlay={(e) => console.log("played")}
-        />
-      </Grid>
-      <Grid
-        className={classes.reviewRatio}
         container
         direction="row"
         justify="center"
         alignItems="center"
         xs={12}
       >
-        <Grid
-          className={classes.testGrid2}
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={4}
-        >
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
-          >
-            {" "}
-            발화비율
-          </Grid>
-          <Grid
-            className={classes.testGrid2}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={5}
-          >
-            <img width="100px" src="childTag.png" />
-            <p>30%</p>
-          </Grid>
-          :
-          <Grid
-            className={classes.testGrid2}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={5}
-          >
-            <img width="100px" src="parentTag.png" />
-            <p>70%</p>
-          </Grid>
+        <Grid className={classes.testTitle} container direction="row" xs={12}>
+          최종 STT 결과물 표출
         </Grid>
         <Grid
-          className={classes.testGrid2}
+          className={classes.testGrid}
           container
-          direction="row"
-          justify="center"
+          direction="column"
+          justify="flex-start"
           alignItems="center"
-          xs={4}
+          xs={8}
         >
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
+          <Card
+            style={{
+              height: "100%",
+              width: "100%",
+              padding: "20px",
+              overflowY: "scroll",
+            }}
           >
-            {" "}
-            이벤트 횟수
-          </Grid>
-          <Grid
-            className={classes.testGrid2}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={5}
-          >
-            <img width="50px" src="star.png" />
-            <p>1번</p>
-          </Grid>
-          :
-          <Grid
-            className={classes.testGrid2}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={5}
-          >
-            <img width="50px" src="warning.png" />
-            <p>1번</p>
-          </Grid>
+            {SpeechCard("parent", "차 한 번 놀아 봅시다.")}
+            {SpeechCard("parent", "우리 사람 지은이의 와 여기가 어디야?")}
+            {SpeechCard("child", "지고 동물 한 동물원이 것 같다.")}
+            {SpeechCard(
+              "parent",
+              "한번 지은이가 마음대로 바꾸는 가까이 와서 동물원은 가보다"
+            )}
+            {SpeechCard("child", "기차가 경우")}
+            {SpeechCard("parent", "축으로 친구들이 있네.")}
+            {SpeechCard("child", "칠.")}
+            {SpeechCard("child", "그렇게 내리면 기차가")}
+            {SpeechCard("parent", "칙칙폭폭")}
+          </Card>
         </Grid>
         <Grid
-          className={classes.testGrid2}
+          className={classes.testGrid}
           container
           direction="column"
           justify="center"
           alignItems="center"
           xs={4}
         >
-          <p>결과 분석 및 코멘트</p>
+          <ReactAudioPlayer
+            src="../demoAudio/demoTrimmed2.wav"
+            autoplay
+            controls
+            onCanPlay={() => console.log("audio has been loaded")}
+            onPause={(e) => console.log("paused")}
+            onPlay={(e) => console.log("played")}
+          />
+        </Grid>
+        <Grid
+          className={classes.reviewRatio}
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <Grid
+            className={classes.testGrid2}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={4}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+            >
+              {" "}
+              발화비율
+            </Grid>
+            <Grid
+              className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={5}
+            >
+              <img width="100px" src="childTag.png" />
+              <p>30%</p>
+            </Grid>
+            :
+            <Grid
+              className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={5}
+            >
+              <img width="100px" src="parentTag.png" />
+              <p>70%</p>
+            </Grid>
+          </Grid>
+          <Grid
+            className={classes.testGrid2}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={4}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+            >
+              {" "}
+              이벤트 횟수
+            </Grid>
+            <Grid
+              className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={5}
+            >
+              <img width="50px" src="star.png" />
+              <p>1번</p>
+            </Grid>
+            :
+            <Grid
+              className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={5}
+            >
+              <img width="50px" src="warning.png" />
+              <p>1번</p>
+            </Grid>
+          </Grid>
+          <Grid
+            className={classes.testGrid2}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={4}
+          >
+            <p>결과 분석 및 코멘트</p>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Card>
   );
 }
 
