@@ -7,6 +7,7 @@ import {
   CardHeader,
   Typography,
 } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
 import ReactAudioPlayer from "react-audio-player";
 var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
@@ -16,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     height: 60,
     marginTop: 20,
     border: "solid",
-    borderWidth: 2,
+    borderWidth: "3px",
+    borderColor: "#fed8b1",
     marginRight: 10,
   },
   testGrid: {
@@ -48,14 +50,26 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "30px",
   },
 
-  testingCard: {
+  testingCardChild: {
     width: "100%",
-    height: "60px",
+    height: "70px",
     margin: "10px",
+    borderColor: "#90CAFF", //blue
+    borderWidth: "3px",
+    border: "solid",
+  },
+
+  testingCardParent: {
+    width: "100%",
+    height: "70px",
+    margin: "10px",
+    borderColor: "#FF9FCD", //pink
+    borderWidth: "3px",
+    border: "solid",
   },
 
   reviewRatio: {
-    height: "500px",
+    height: "300px",
     borderTop: "solid",
     borderTopWidth: "0.2px",
     borderTopColor: "#D3D3D3",
@@ -69,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "#D3D3D3",
     borderRadius: 16,
     marginTop: 10,
+    marginBottom: 20,
   },
 }));
 
@@ -95,7 +110,11 @@ function STTResults() {
   // 1. Combine time splices with same speaker tag
 
   const SpeechCard = (image, speech) => (
-    <Card className={classes.testingCard}>
+    <Card
+      className={
+        image == "child" ? classes.testingCardChild : classes.testingCardParent
+      }
+    >
       <Grid
         container
         direction="row"
@@ -124,9 +143,10 @@ function STTResults() {
           alignItems="left"
           xs={10}
         >
-          <textarea height="100%" marginRight="10px">
+          {/* <textarea height="100%" marginRight="10px">
             {speech}
-          </textarea>
+          </textarea> */}
+          <TextField defaultValue={speech} />
         </Grid>
       </Grid>
     </Card>
