@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
   },
   testGrid: {
-    height: "300px",
+    height: "500px",
   },
   testGrid2: {
-    height: "300px",
+    height: "500px",
   },
 
   textCardGridImage: {
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     // borderWidth: "0.2px",
     // borderColor: "#888888",
     height: "60px",
+    marginTop: "4px",
   },
   textCardGridText: {
     height: "60px",
@@ -43,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
   testTitle: {
     fontSize: "20px",
     textAlign: "left",
+    backgroundColor: "#ff8c00",
+    color: "#ffffff",
+    fontWeight: "bold",
     borderBottom: "solid",
     borderBottomWidth: "0.2px",
     borderBottomColor: "#D3D3D3",
@@ -55,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     height: "70px",
     margin: "10px",
     borderColor: "#90CAFF", //blue
+    backgroundColor: "#f2f8fb",
     borderWidth: "3px",
     border: "solid",
   },
@@ -64,12 +69,13 @@ const useStyles = makeStyles((theme) => ({
     height: "70px",
     margin: "10px",
     borderColor: "#FF9FCD", //pink
+    backgroundColor: "#fff0f2",
     borderWidth: "3px",
     border: "solid",
   },
 
   reviewRatio: {
-    height: "300px",
+    height: "250px",
     borderTop: "solid",
     borderTopWidth: "0.2px",
     borderTopColor: "#D3D3D3",
@@ -131,9 +137,9 @@ function STTResults() {
           xs={2}
         >
           {image == "child" ? (
-            <img height="100%" src="/childTag.png" />
+            <img height="100%" src="/childTagSvg.svg" />
           ) : (
-            <img height="100%" src="/parentTag.png" />
+            <img height="100%" src="/parentTagSvg.svg" />
           )}
         </Grid>
         <Grid
@@ -220,7 +226,7 @@ function STTResults() {
           xs={12}
         >
           <Grid
-            className={classes.testGrid2}
+            // className={classes.testGrid2}
             container
             direction="row"
             justify="center"
@@ -232,37 +238,40 @@ function STTResults() {
               direction="row"
               justify="center"
               alignItems="center"
+              height="70px"
+              marginBottom="50px"
               xs={12}
             >
-              {" "}
-              발화비율
+              <Typography variant="h5">발화비율</Typography>
             </Grid>
             <Grid
-              className={classes.testGrid2}
+              // className={classes.testGrid2}
               container
               direction="column"
               justify="center"
               alignItems="center"
+              height="100px"
               xs={5}
             >
-              <img width="100px" src="childTag.png" />
-              <p>30%</p>
+              <img width="60px" src="childTagSvg.svg" />
+              <Typography variant="h7">30%</Typography>
             </Grid>
             :
             <Grid
-              className={classes.testGrid2}
+              // className={classes.testGrid2}
               container
               direction="column"
               justify="center"
               alignItems="center"
+              height="100px"
               xs={5}
             >
-              <img width="100px" src="parentTag.png" />
-              <p>70%</p>
+              <img width="60px" src="parentTagSvg.svg" />
+              <Typography variant="h7">70%</Typography>
             </Grid>
           </Grid>
           <Grid
-            className={classes.testGrid2}
+            // className={classes.testGrid2}
             container
             direction="row"
             justify="center"
@@ -274,37 +283,40 @@ function STTResults() {
               direction="row"
               justify="center"
               alignItems="center"
+              height="70px"
+              marginBottom="50px"
               xs={12}
             >
-              {" "}
-              이벤트 횟수
+              <Typography variant="h5">이벤트 횟수</Typography>
             </Grid>
             <Grid
-              className={classes.testGrid2}
+              // className={classes.testGrid2}
               container
               direction="column"
               justify="center"
               alignItems="center"
+              height="100px"
               xs={5}
             >
-              <img width="50px" src="star.png" />
-              <p>1번</p>
+              <img width="20px" src="star.png" />
+              <Typography variant="h7">1 번</Typography>
             </Grid>
             :
             <Grid
-              className={classes.testGrid2}
+              // className={classes.testGrid2}
               container
               direction="column"
               justify="center"
               alignItems="center"
+              height="100px"
               xs={5}
             >
-              <img width="50px" src="warning.png" />
-              <p>1번</p>
+              <img width="20px" src="warning.png" />
+              <Typography variant="h7">1 번</Typography>
             </Grid>
           </Grid>
           <Grid
-            className={classes.testGrid2}
+            // className={classes.testGrid2}
             container
             direction="column"
             justify="center"

@@ -21,11 +21,16 @@ const useStyles = makeStyles((theme) => ({
   },
   testGrid2: {
     height: "600px",
+    backgroundColor: "#ffecd8",
+    fontSize: "20px",
   },
 
   testTitle: {
     fontSize: "20px",
     textAlign: "left",
+    backgroundColor: "#ff8c00",
+    color: "#ffffff",
+    fontWeight: "bold",
     borderBottom: "solid",
     borderBottomWidth: "0.2px",
     borderBottomColor: "#D3D3D3",
