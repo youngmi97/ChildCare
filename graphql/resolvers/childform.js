@@ -55,7 +55,7 @@ module.exports = {
       try {
         console.log("getChildForm Query called");
         const childForm = await ChildForm.find({ userId: userId });
-        console.log("childForm return", childForm);
+        //console.log("childForm return", childForm);
         return childForm[0];
       } catch (err) {
         console.log("getChildForm error");
