@@ -70,7 +70,7 @@ class Video extends Component {
     render() { 
      
       return ( 
-        <div>
+        <div style ={{fontSize:'16px'}}>
           <div style={{marginBottom:"30px"}}>
               <h3 style={{display:"inline-block"}}>영상촬영방법</h3>
               <Modal />

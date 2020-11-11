@@ -12,13 +12,13 @@ export default function Development(props) {
     
     return (
         <div>
-            {walkingAge}
-            {speakingAge}
-            {speakingAgeSentence}
-            {developmentProblem}
-            {developmentProblem1}
-            {muscleProblem}
-            {muscleProblem1}
+            {walkingAge} <br />
+            {speakingAge} <br />
+            {speakingAgeSentence} <br />
+            {developmentProblem} <br />
+            {developmentProblem1} <br />
+            {muscleProblem} <br />
+            {muscleProblem1} <br />
         </div>
     )
 }

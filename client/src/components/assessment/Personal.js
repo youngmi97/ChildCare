@@ -20,9 +20,9 @@ export default function Personal(props) {
 
     return (
         <div style={{marginBottom:"40px"}}>
-            {name} {gender} {dateOfBirth} {broSis} {impaired}
-            {impairment} {primaryLanguage} {schoolLanguage}
-            {problem} {reason} {improvement} {awareness}
+            {name} <br />{gender} <br />{dateOfBirth} <br />{broSis} <br />{impaired}
+            <br />{impairment} <br />{primaryLanguage} <br />{schoolLanguage}<br />
+            {problem} <br />{reason} <br />{improvement} <br />{awareness}
 
         </div>
     )

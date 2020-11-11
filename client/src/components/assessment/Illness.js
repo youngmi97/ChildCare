@@ -13,14 +13,14 @@ export default function Illness(props) {
 
     return (
         <div>
-            {illnessAtBirth}
-            {illnessAtBirth1}
-            {illness}
-            {illness1}
-            {surgery}
-            {surgery1}
-            {medication}
-            {medication1}
+            {illnessAtBirth} <br />
+            {illnessAtBirth1} <br />
+            {illness} <br />
+            {illness1} <br />
+            {surgery} <br />
+            {surgery1} <br />
+            {medication} <br />
+            {medication1} <br />
         </div>
     )
 }

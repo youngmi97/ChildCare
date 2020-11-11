@@ -3,6 +3,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
 
 
+
 class Personal extends Component {
   state = {
     radio: {
@@ -45,7 +46,7 @@ class Personal extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style ={{fontSize:'18px'}}>
         <p style={{ display: "inline" }}>아동성별:</p>{" "}
         <input
           type="radio"
@@ -74,10 +75,10 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="name"
               value={this.props.personal.name}
+              autoComplete='off'
             />
             <br />
             
-            <br />
             <div>
               <TextField
                 hintText="Child's Date of Birth"
@@ -85,6 +86,7 @@ class Personal extends Component {
                 onChange={this.props.onChange}
                 id="dateOfBirth"
                 value={this.props.personal.dateOfBirth}
+                autoComplete='off'
               />
               {this.calcAge(this.props.personal.dateOfBirth)} 
             </div>
@@ -169,6 +171,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="problem"
               value={this.props.personal.problem}
+              style={{ width: "50%" }}
             />
             <br />
             <TextField
@@ -177,6 +180,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="reason"
               value={this.props.personal.reason}
+              style={{ width: "50%" }}
             />
             <br />
             <br />
@@ -189,6 +193,7 @@ class Personal extends Component {
               id="improvement"
               onChange={this.props.onChange}
               checked={this.props.personal.improvement === "getting better"}
+              
             />{" "}
             개선되고 있다
             <input
@@ -211,12 +216,11 @@ class Personal extends Component {
             변화가 없다
             <br />
             <TextField
-              hintText="예: 인지하는거 같다, 원하는 대로 안되면 친구를 때린다"
               floatingLabelText="아동의 자신의 언어문제를 인지하는지"
               onChange={this.props.onChange}
               id="awareness"
               value={this.props.personal.awareness}
-              style={{ width: "90%" }}
+              style={{ width: "50%" }}
             />
             <br />
             <button style={btnStyle} onClick={this.props.onContinue}>

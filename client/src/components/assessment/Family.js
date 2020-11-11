@@ -7,7 +7,7 @@ export default function Family(props) {
 
     return (
         <div>
-            {familyHistory}
+            {familyHistory}<br />
             {familyMember}
         </div>
     )

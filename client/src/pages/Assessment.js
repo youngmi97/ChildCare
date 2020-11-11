@@ -170,7 +170,7 @@ export default function Assessment() {
                             awareness={awareness} 
                         />
                         </div>
-                        <div style={{position:"absolute", top:"45%", left:"30%"}}>
+                        <div style={{position:"absolute", top:"55%", left:"30%"}}>
                             <TextField
                                 id="perFeedback"
                                 onChange = {onChange}
@@ -182,7 +182,7 @@ export default function Assessment() {
                                 value = {perFeedback}
                             />
                         </div>
-                        <button style={{position:"absolute", top:"65%", left:"40%"}}
+                        <button style={{position:"absolute", top:"75%", left:"40%"}}
                         onClick={onClick}>
                             Continue
                         </button>
