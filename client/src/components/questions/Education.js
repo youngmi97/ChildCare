@@ -28,7 +28,7 @@ class Education extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style ={{fontSize:'18px'}}>
         <MuiThemeProvider>
           <React.Fragment>
             <p style={{ display: "inline-block" }}>
@@ -108,8 +108,7 @@ class Education extends Component {
             <br />
             <br />
             <p style={{ display: "inline-block" }}>
-              교사로부터 아동이 교육기관에서 언어 또는 학업 등과 관련한 문제를
-              보이고 있음을 보고받은 경험이 있습니까?
+              교사로부터 언어 또는 학업 등과 관련한 문제를 보고받은 경험이 있습니까?
             </p>
             <br />
             <input

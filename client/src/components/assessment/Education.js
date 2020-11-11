@@ -13,12 +13,12 @@ export default function Education(props) {
 
     return (
         <div style={{marginBottom:"40px"}}>
-            {education}
-            {institute}
-            {history}
-            {treatment}
-            {teacherFeedback}
-            {teacherFeedback1}
+            {education} <br />
+            {institute} <br />
+            {history} <br />
+            {treatment} <br />
+            {teacherFeedback} <br />
+            {teacherFeedback1} <br />
 
         </div>
     )

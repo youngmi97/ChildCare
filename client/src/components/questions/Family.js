@@ -26,7 +26,7 @@ class Family extends Component {
 
   render() {
     return (
-      <div>
+      <div  style ={{fontSize:'18px'}}>
         <p style={{ display: "inline-block" }}>
           언어문제를 가진 가족이 있습니까?{" "}
         </p>
@@ -149,17 +149,8 @@ class Family extends Component {
           </div>
           <br />
           <div>
-            <input
-              type="checkbox"
-              name="target"
-              id="target"
-              value= {this.state.target}
-              onClick = { () => this.setState({
-                target : !this.state.target
-              })}
-              checked={this.state.target === true}
-            />{" "}
-            대상 아동
+            <p style = {{display:"inline-block"}}> 대상 아동</p> {" "}
+            
             <input
               type="checkbox"
               name="brotherSister"

@@ -88,7 +88,7 @@ class SR extends Component {
     render() { 
      
       return ( 
-        <div>
+        <div style ={{fontSize:'16px'}}>
           <div style={{marginBottom:"30px"}}>
               <h3 style={{display:"inline-block"}}>영상촬영방법</h3>
           </div>
@@ -98,7 +98,8 @@ class SR extends Component {
               아동의 정면 얼굴이 나오도록 촬영해 주세요. <br/>
             </p>
           </div>
-        
+
+          <div style={{position:'relative', left:'30%'}}>
           <div style={{display:"flex"}}> 
             <Audio url={this.url.url1}/>
             <Audio url={this.url.url2}/>
@@ -119,6 +120,7 @@ class SR extends Component {
             <Audio url={this.url.url12}/>
             <Audio url={this.url.url13}/>
             <Audio url={this.url.url14}/>
+          </div>
           </div>
 
           <div style={{margin:"30px 0px"}}> 

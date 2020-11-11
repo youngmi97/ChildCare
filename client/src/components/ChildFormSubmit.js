@@ -13,13 +13,13 @@ function ChildFormSubmit(props) {
   console.log("prop institute", props.input.institute);
   console.log("prop familyMember", props.input.familyMember);
 
-  const [onChildFormSubmit, { data, loading, error }] = useMutation(
+  const [onChildFormSubmit, { data, loading, error }] = 
+  useMutation(
     SUBMIT_CHILD_FORM
   );
 
-  return (
-    <button
-      onClick={() =>
+
+  const myFunction = (e) => {
         onChildFormSubmit({
           variables: {
             userId: user.id,
@@ -60,12 +60,32 @@ function ChildFormSubmit(props) {
             familyHistory: props.input.familyHistory || "",
             familyMember: props.input.familyMember || "",
           },
-        })
+        });
+
+        props.onContinue(e);
+  }
+
+
+  return (
+    <button
+      style={btnStyle}
+      onClick={
+        myFunction
       }
     >
       Submit
     </button>
   );
 }
+
+const btnStyle = {
+  margin: "20px",
+  color: "#6C2DC7",
+  backgroundColor: "white",
+  border: "2px solid",
+  borderColor: "#6C2DC7",
+  fontSize: "13px",
+  padding: "8px 13px",
+};
 
 export default ChildFormSubmit;

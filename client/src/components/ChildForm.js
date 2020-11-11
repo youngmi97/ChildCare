@@ -10,6 +10,9 @@ import Video from "./questions/Video";
 import NWR from "./questions/NWR";
 import SR from "./questions/SR";
 import ChildFormSubmit from "./ChildFormSubmit";
+import { Grid } from "@material-ui/core";
+import { Card } from "@material-ui/core"
+import { withStyles } from "@material-ui/core"
 
 // HOW TO GET CLIENT TO CLASS COMPONENT??
 // withApollo?
@@ -18,6 +21,15 @@ import ChildFormSubmit from "./ChildFormSubmit";
 // import { Mutation } from "react-apollo";
 
 // import { SUBMIT_CHILD_FORM } from "../Mutations";
+
+const styles = theme => ({
+  root: {
+    height: '500px',
+    textAlign: 'center',
+    justifyContent: 'center'
+  }, 
+
+});
 
 class ChildForm extends Component {
   //static contextType = AuthContext;
@@ -63,6 +75,8 @@ class ChildForm extends Component {
   };
 
   onSubmit = (e) => {
+    e.preventDefault();
+    this.nextStep();
     // Mutation To DB should happen here
   };
 
@@ -169,158 +183,482 @@ class ChildForm extends Component {
 
   render() {
     //const { user } = this.context;
+    const { classes } = this.props;
     const { step } = this.state;
     //console.log("ChildForm user", user);
     //console.log("this state", this.state.gender);
     switch (step) {
       case 0:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: "6", padding: "40px" }}>
-              <button onClick={this.onStart} style={startButton}>
-                Start
-              </button>
+          <Grid  
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={12}>
+            <div className="container" style={myStyle}>
+              <div style={{ flex: "6", padding: "40px" }}>
+                <button onClick={this.onStart} style={startButton}>
+                  Start
+                </button>
+              </div>
             </div>
-            <div style={{ flex: "6" }}></div>
-          </div>
+          </Grid>
+          
         );
 
       case 1:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: "2" }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", margin: "0 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Personal
-                personal={this.state}
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-              />
-            </div>
-          </div>
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
+          
         );
       case 2:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: "2" }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: "8", margin: "30px 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Education
-                personal={this.state}
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-                onBack={this.onBack}
-              />
-            </div>
-          </div>
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
       case 3:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Development
-                personal={this.state}
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-                onBack={this.onBack}
-              />
-            </div>
-          </div>
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
       case 4:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Illness
-                personal={this.state}
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-                onBack={this.onBack}
-              />
-            </div>
-          </div>
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
       case 5:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Family
-                personal={this.state}
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-                onChange={this.onChange}
-                onBack={this.onBack}
-              />
-            </div>
-          </div>
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
 
       case 6:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
               <Video
-                onChange={this.onChange}
-                onContinue={this.onContinue}
-                onBack={this.onBack}
-              />
-            </div>
-          </div>
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
 
       case 7:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
-              <NWR onContinue={this.onContinue} onBack={this.onBack} />
-            </div>
-          </div>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
+              <NWR
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
 
       case 8:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid
+            
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            <div style={{ flex: 8, margin: "30px 160px" }}>
-              <SR onContinue={this.onContinue} onBack={this.onBack} />
-            </div>
-          </div>
+              
+            
+          </Grid>
+
+          <Grid
+            className = {classes.root}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
+              <SR
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+            </Card>
+              
+          </Grid>
+          </Grid>
         );
       case 9:
         return (
-          <div className="container" style={myStyle}>
-            <div style={{ flex: 2 }}>
+          <Grid  container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          xs={12}>
+
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={3}
+          >
+            <div style={{width:'70%', textAlign:"center"}}> 
               <Sidebar step={this.state.step} />
             </div>
-            {/* <div style={{ flex: "8", margin: "30px 160px" }}>
+          </Grid>
+
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={9}>
+
+            <p style={{fontSize:"18px"}}>제출하시겠습니까?</p>
+            <ChildFormSubmit
+                onContinue={this.onContinue}
+                input = {this.state}
+              />
+
+          </Grid>
+          </Grid>
+  
+          
+            /* <div style={{ flex: "8", margin: "30px 160px" }}>
               <p>제출하시겠습니까?</p>
               <button onClick={this.onSubmit} style={startButton}>
                 Submit
               </button>
-            </div> */}
+            </div> */
 
-            <div style={{ flex: "8", margin: "30px 160px" }}>
-              <p>제출하시겠습니까?</p>
-              {/* <Mutation
+              
+              /* <Mutation
                 mutation={SUBMIT_CHILD_FORM}
                 variables={{
                   userId: user.id || "",
@@ -372,22 +710,25 @@ class ChildForm extends Component {
                     Submit
                   </button>
                 )}
-              </Mutation> */}
-              <ChildFormSubmit
-                //onContinue={this.onContinue}
-                input={this.state}
-              />
-            </div>
-          </div>
+              </Mutation> */
+              
+          
         );
 
       default:
         return (
-          <div>
-            <p style={{ padding: "50px" }}>
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+          >
+            <p style={{ fontSize: "20px", margin:"50px 0px"}}>
               제출되었습니다. 평가 결과를 기다려주세요.
             </p>
-          </div>
+          </Grid>
+
         );
     }
   }
@@ -409,4 +750,4 @@ const startButton = {
 ChildForm.propTypes = {
   form: PropTypes.array.isRequired,
 };
-export default ChildForm;
+export default withStyles(styles) (ChildForm);
