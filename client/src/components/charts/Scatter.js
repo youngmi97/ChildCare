@@ -85,7 +85,7 @@ class Scatter extends Component {
                     <HighchartsReact highcharts={Highcharts} options={options} />
                     <div style = {{marginLeft:'60px'}}>
                         <button style={{width:'10px', height:'14px', backgroundColor:'#C3FDB8', margin:'0px 10px', border: 'none'}} />이상없음 
-                        <button style={{width:'10px', height:'14px', backgroundColor:'#FFF8C6' , margin:'0px 10px' , border: 'none'}} />주위요망 
+                        <button style={{width:'10px', height:'14px', backgroundColor:'#FFF8C6' , margin:'0px 10px' , border: 'none'}} />주의요망 
                         <button style={{width:'10px', height:'14px', backgroundColor:'#FF7F50' , margin:'0px 10px',  border: 'none'}} /> 위험
                     </div>
                     
