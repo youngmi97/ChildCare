@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     height: "500px",
   },
 
+  textDiagram: {
+    padding: "10px",
+  },
+
   textCardGridImage: {
     // border: "solid",
     // borderWidth: "0.2px",
@@ -245,7 +249,7 @@ function STTResults() {
               <Typography variant="h5">발화비율</Typography>
             </Grid>
             <Grid
-              // className={classes.testGrid2}
+              className={classes.textDiagram}
               container
               direction="column"
               justify="center"
@@ -254,11 +258,11 @@ function STTResults() {
               xs={5}
             >
               <img width="60px" src="childTagSvg.svg" />
-              <Typography variant="h7">30%</Typography>
+              <Typography variant="h6">30%</Typography>
             </Grid>
             :
             <Grid
-              // className={classes.testGrid2}
+              className={classes.textDiagram}
               container
               direction="column"
               justify="center"
@@ -267,7 +271,7 @@ function STTResults() {
               xs={5}
             >
               <img width="60px" src="parentTagSvg.svg" />
-              <Typography variant="h7">70%</Typography>
+              <Typography variant="h6">70%</Typography>
             </Grid>
           </Grid>
           <Grid
@@ -290,7 +294,7 @@ function STTResults() {
               <Typography variant="h5">이벤트 횟수</Typography>
             </Grid>
             <Grid
-              // className={classes.testGrid2}
+              className={classes.textDiagram}
               container
               direction="column"
               justify="center"
@@ -299,11 +303,11 @@ function STTResults() {
               xs={5}
             >
               <img width="20px" src="star.png" />
-              <Typography variant="h7">1 번</Typography>
+              <Typography variant="h6">1 번</Typography>
             </Grid>
             :
             <Grid
-              // className={classes.testGrid2}
+              className={classes.textDiagram}
               container
               direction="column"
               justify="center"
@@ -312,25 +316,69 @@ function STTResults() {
               xs={5}
             >
               <img width="20px" src="warning.png" />
-              <Typography variant="h7">1 번</Typography>
+              <Typography variant="h6">1 번</Typography>
             </Grid>
           </Grid>
           <Grid
             // className={classes.testGrid2}
             container
-            direction="column"
+            direction="row"
             justify="center"
             alignItems="center"
             xs={4}
           >
-            <p>결과 분석 및 코멘트</p>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              height="70px"
+              marginBottom="50px"
+              xs={12}
+            >
+              <Typography variant="h5">발화속도</Typography>
+            </Grid>
+            <Grid
+              className={classes.textDiagram}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              height="100px"
+              xs={5}
+            >
+              <img width="60px" src="childTagSvg.svg" />
+              <Typography variant="h6">1.8 개</Typography>
+            </Grid>
+
+            <Grid
+              className={classes.textDiagram}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              height="100px"
+              xs={5}
+            >
+              <img width="60px" src="parentTagSvg.svg" />
+              <Typography variant="h6">3.7 개</Typography>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              height="70px"
+              marginBottom="50px"
+              xs={12}
+            >
+              <Typography variant="h8">*words per second</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
     </Card>
   );
 }
-
-
 
 export default STTResults;
