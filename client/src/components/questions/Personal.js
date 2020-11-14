@@ -155,6 +155,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="primaryLanguage"
               value={this.props.personal.primaryLanguage}
+              autoComplete='off'
             />
             <br />
             <TextField
@@ -163,6 +164,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="schoolLanguage"
               value={this.props.personal.schoolLanguage}
+              autoComplete='off'
             />
             <br />
             <TextField
@@ -172,6 +174,7 @@ class Personal extends Component {
               id="problem"
               value={this.props.personal.problem}
               style={{ width: "50%" }}
+              autoComplete='off'
             />
             <br />
             <TextField
@@ -181,6 +184,7 @@ class Personal extends Component {
               id="reason"
               value={this.props.personal.reason}
               style={{ width: "50%" }}
+              autoComplete='off'
             />
             <br />
             <br />
@@ -221,6 +225,7 @@ class Personal extends Component {
               id="awareness"
               value={this.props.personal.awareness}
               style={{ width: "50%" }}
+              autoComplete='off'
             />
             <br />
             <button style={btnStyle} onClick={this.props.onContinue}>

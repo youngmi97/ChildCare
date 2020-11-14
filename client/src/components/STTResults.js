@@ -9,6 +9,9 @@ import {
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import ReactAudioPlayer from "react-audio-player";
+import Vertical from "./charts/Vertical";
+import Column from "./charts/Column";
+
 var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
 const useStyles = makeStyles((theme) => ({
@@ -79,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   reviewRatio: {
-    height: "250px",
+    height: "300px",
     borderTop: "solid",
     borderTopWidth: "0.2px",
     borderTopColor: "#D3D3D3",
@@ -102,6 +105,12 @@ function STTResults() {
   const [labeledTimeList, setLabeledTimeList] = useState([]);
   const [detectedTimeList, setDetectedTimeList] = useState([]);
   const [speechList, setSpeechList] = useState([]);
+  const [event1, setEvent1] = useState(2);
+  const [event2, setEvent2] = useState(3);
+  const [speed1, setSpeed1] = useState(3.4);
+  const [speed2, setSpeed2] = useState(1.6);
+  const [parent, setParent] = useState(70);
+  const [child, setChild] = useState(30);
 
   // How Are we going to MERGE the Labeled Regions and the Detected Regions ????
 
@@ -232,148 +241,44 @@ function STTResults() {
           <Grid
             // className={classes.testGrid2}
             container
-            direction="row"
+            direction="column"
             justify="center"
             alignItems="center"
             xs={4}
           >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              height="70px"
-              marginBottom="50px"
-              xs={12}
-            >
-              <Typography variant="h5">발화비율</Typography>
-            </Grid>
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="60px" src="childTagSvg.svg" />
-              <Typography variant="h6">30%</Typography>
-            </Grid>
-            :
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="60px" src="parentTagSvg.svg" />
-              <Typography variant="h6">70%</Typography>
-            </Grid>
+            <Column parent={parent} child={child} />
           </Grid>
-          <Grid
-            // className={classes.testGrid2}
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={4}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              height="70px"
-              marginBottom="50px"
-              xs={12}
-            >
-              <Typography variant="h5">이벤트 횟수</Typography>
-            </Grid>
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="20px" src="star.png" />
-              <Typography variant="h6">1 번</Typography>
-            </Grid>
-            :
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="20px" src="warning.png" />
-              <Typography variant="h6">1 번</Typography>
-            </Grid>
-          </Grid>
-          <Grid
-            // className={classes.testGrid2}
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={4}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              height="70px"
-              marginBottom="50px"
-              xs={12}
-            >
-              <Typography variant="h5">발화속도</Typography>
-            </Grid>
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="60px" src="childTagSvg.svg" />
-              <Typography variant="h6">1.8 개</Typography>
-            </Grid>
 
-            <Grid
-              className={classes.textDiagram}
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              height="100px"
-              xs={5}
-            >
-              <img width="60px" src="parentTagSvg.svg" />
-              <Typography variant="h6">3.7 개</Typography>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              height="70px"
-              marginBottom="50px"
-              xs={12}
-            >
-              <Typography variant="h8">*words per second</Typography>
-            </Grid>
+          <Grid
+            // className={classes.testGrid2}
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            xs={4}
+          >
+            <Vertical
+              event1={event1}
+              event2={event2}
+              chartName="이벤트 횟수"
+              color="yellow"
+              color2="red"
+            />
+          </Grid>
+          <Grid
+            // className={classes.testGrid2}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={4}
+          >
+            <Vertical
+              event1={speed1}
+              event2={speed2}
+              chartName="발화 속도"
+              color2="gray"
+            />
           </Grid>
         </Grid>
       </Grid>

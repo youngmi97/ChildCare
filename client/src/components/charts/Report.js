@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     "& > *": {
       width: "700px",
-      height: "850px",
+      height: "900px",
       margin: "60px 0",
       float: "right",
     },
