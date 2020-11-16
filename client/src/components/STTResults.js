@@ -9,8 +9,8 @@ import {
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import ReactAudioPlayer from "react-audio-player";
-import Vertical from "./charts/Vertical"
-import Column from "./charts/Column"
+import Vertical from "./charts/Vertical";
+import Column from "./charts/Column";
 
 var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
   testGrid2: {
     height: "500px",
+  },
+
+  textDiagram: {
+    padding: "10px",
   },
 
   textCardGridImage: {
@@ -96,13 +100,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function STTResults() {
   const classes = useStyles();
   const [labeledTimeList, setLabeledTimeList] = useState([]);
   const [detectedTimeList, setDetectedTimeList] = useState([]);
   const [speechList, setSpeechList] = useState([]);
-  const [event1, setEvent1] = useState(2); 
+  const [event1, setEvent1] = useState(2);
   const [event2, setEvent2] = useState(3);
   const [speed1, setSpeed1] = useState(3.4);
   const [speed2, setSpeed2] = useState(1.6);
@@ -243,9 +246,8 @@ function STTResults() {
             alignItems="center"
             xs={4}
           >
-            
-              <Column parent={parent} child={child} />
-            </Grid>
+            <Column parent={parent} child={child} />
+          </Grid>
 
           <Grid
             // className={classes.testGrid2}
@@ -255,28 +257,33 @@ function STTResults() {
             alignItems="center"
             xs={4}
           >
-
-              <Vertical event1= {event1} event2 = {event2} chartName="이벤트 횟수" color="yellow" color2="red"/>
-
+            <Vertical
+              event1={event1}
+              event2={event2}
+              chartName="이벤트 횟수"
+              color="yellow"
+              color2="red"
+            />
           </Grid>
           <Grid
             // className={classes.testGrid2}
             container
-            direction="column"
+            direction="row"
             justify="center"
             alignItems="center"
             xs={4}
           >
-              <Vertical event1= {speed1} event2 = {speed2} chartName="발화 속도" color2="gray"/>
+            <Vertical
+              event1={speed1}
+              event2={speed2}
+              chartName="발화 속도"
+              color2="gray"
+            />
           </Grid>
         </Grid>
       </Grid>
     </Card>
-
-         
   );
 }
-
-
 
 export default STTResults;
