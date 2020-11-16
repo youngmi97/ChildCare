@@ -17,7 +17,7 @@ import STT from "./pages/STT";
 import Form from "./pages/Form";
 import Results from "./pages/Results";
 import Dashboard from "./pages/Dashboard";
-import Assessment from "./pages/Assessment";
+import Assessment from "./pages/Assessment";    
 import { constant } from "lodash";
 
 const App = (props) => {

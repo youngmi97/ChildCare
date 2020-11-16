@@ -18,8 +18,8 @@ class Scatter extends Component {
         const options = {
             chart: {
                 type: 'bar',
-                width: 400,
-                height: 250			// bar차트. 아무 설정이 없으면 line chart가 된다.
+                width: this.props.width,
+                height: this.props.height			// bar차트. 아무 설정이 없으면 line chart가 된다.
             },
             title: {
                 text: '기본정보',

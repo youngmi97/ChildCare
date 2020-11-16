@@ -20,7 +20,7 @@ class Development extends Component {
 
   render() {
     return (
-      <div className="container" style ={{fontSize:'18px'}}>
+      <div className="container" style={{ fontSize: "18px" }}>
         <MuiThemeProvider>
           <React.Fragment>
             <p style={{ display: "inline-block" }}>
@@ -51,61 +51,63 @@ class Development extends Component {
               />{" "}
               평균이였다
               <br />
-              <div style={{marginBottom:"20px"}}>
-              <p style={{ display: "inline-block" }}>
-                언제 단어를 사용하기 시작했나요? (평균 남아 여아 아동
-                10-12개월):{" "}
-              </p>{" "}
-              <br />
-              <input
-                type="radio"
-                value="Slow"
-                name="speakingAge"
-                id="speakingAge"
-                onChange={this.props.onChange}
-                checked={this.props.personal.speakingAge === "Slow"}
-              />{" "}
-              느렸다{" "}
-              <input
-                type="radio"
-                value="Average"
-                name="speakingAge"
-                id="speakingAge"
-                onChange={this.props.onChange}
-                checked={this.props.personal.speakingAge === "Average"}
-              />{" "}
-              평균이였다
-              <br />
+              <div style={{ marginBottom: "20px" }}>
+                <p style={{ display: "inline-block" }}>
+                  언제 단어를 사용하기 시작했나요? (평균 남아 여아 아동
+                  10-12개월):{" "}
+                </p>{" "}
+                <br />
+                <input
+                  type="radio"
+                  value="Slow"
+                  name="speakingAge"
+                  id="speakingAge"
+                  onChange={this.props.onChange}
+                  checked={this.props.personal.speakingAge === "Slow"}
+                />{" "}
+                느렸다{" "}
+                <input
+                  type="radio"
+                  value="Average"
+                  name="speakingAge"
+                  id="speakingAge"
+                  onChange={this.props.onChange}
+                  checked={this.props.personal.speakingAge === "Average"}
+                />{" "}
+                평균이였다
+                <br />
               </div>
-              <div style={{margin:"20px 0px"}}>
-              <p style={{ display: "inline-block" }}>
-                간단한 문장 사용을 언제 시작했나요? (평균 남아 여아 아동
-                19-24개월):{" "}
-              </p>{" "}
-              <br />
-              <input
-                type="radio"
-                value="Slow"
-                name="speakingAgeSentence"
-                id="speakingAgeSentence"
-                onChange={this.props.onChange}
-                checked={this.props.personal.speakingAgeSentence === "Slow"}
-              />{" "}
-              느렸다{" "}
-              <input
-                type="radio"
-                value="Average"
-                name="speakingAgeSentence"
-                id="speakingAgeSentence"
-                onChange={this.props.onChange}
-                checked={this.props.personal.speakingAgeSentence === "Average"}
-              />{" "}
-              평균이였다
-              <br />
-            </div>
+              <div style={{ margin: "20px 0px" }}>
+                <p style={{ display: "inline-block" }}>
+                  간단한 문장 사용을 언제 시작했나요? (평균 남아 여아 아동
+                  19-24개월):{" "}
+                </p>{" "}
+                <br />
+                <input
+                  type="radio"
+                  value="Slow"
+                  name="speakingAgeSentence"
+                  id="speakingAgeSentence"
+                  onChange={this.props.onChange}
+                  checked={this.props.personal.speakingAgeSentence === "Slow"}
+                />{" "}
+                느렸다{" "}
+                <input
+                  type="radio"
+                  value="Average"
+                  name="speakingAgeSentence"
+                  id="speakingAgeSentence"
+                  onChange={this.props.onChange}
+                  checked={
+                    this.props.personal.speakingAgeSentence === "Average"
+                  }
+                />{" "}
+                평균이였다
+                <br />
+              </div>
             </div>
             <p style={{ display: "inline-block" }}>
-              아동이 식이/수면/배면 문제를 갖고 있습니까?
+              아동이 식이/수면/배변 문제를 갖고 있습니까?
             </p>
 
             <div>

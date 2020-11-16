@@ -64,6 +64,8 @@ export default function Results() {
           devScore={devScore}
           illScore={illScore}
           famScore={famScore}
+          width = "400"
+          height = "250"
         />
         
 

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
 
-
-
 class Personal extends Component {
   state = {
     radio: {
@@ -23,30 +21,28 @@ class Personal extends Component {
     var year;
     var month;
 
-    if (date.length < 8){
+    if (date.length < 8) {
       return;
-    }
-    else{
-      year = date.substring(0,4); 
-      month = date.substring(4,6);
+    } else {
+      year = date.substring(0, 4);
+      month = date.substring(4, 6);
       var today = new Date();
-      var mm = String(today.getMonth() + 1) //January is 0!
+      var mm = String(today.getMonth() + 1); //January is 0!
       var yyyy = today.getFullYear();
-      var childYear = yyyy - year; 
-      var childMonth = mm - month; 
-      if(childMonth<0){
-        childMonth = 12 + childMonth; 
-        childYear = childYear - 1; 
+      var childYear = yyyy - year;
+      var childMonth = mm - month;
+      if (childMonth < 0) {
+        childMonth = 12 + childMonth;
+        childYear = childYear - 1;
+      }
     }
-    }
-    
-    
-    return (childYear+'년' + childMonth+'개월');
+
+    return childYear + "년" + childMonth + "개월";
   };
 
   render() {
     return (
-      <div className="container" style ={{fontSize:'18px'}}>
+      <div className="container" style={{ fontSize: "18px" }}>
         <p style={{ display: "inline" }}>아동성별:</p>{" "}
         <input
           type="radio"
@@ -75,10 +71,9 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="name"
               value={this.props.personal.name}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
-            
             <div>
               <TextField
                 hintText="Child's Date of Birth"
@@ -86,11 +81,11 @@ class Personal extends Component {
                 onChange={this.props.onChange}
                 id="dateOfBirth"
                 value={this.props.personal.dateOfBirth}
-                autoComplete='off'
+                autoComplete="off"
               />
-              {this.calcAge(this.props.personal.dateOfBirth)} 
+              {this.calcAge(this.props.personal.dateOfBirth)}
             </div>
-            <p style={{ display: "inline-block", marginTop:"30px" }}>
+            <p style={{ display: "inline-block", marginTop: "30px" }}>
               형제 또는 자매가 있습니까?
             </p>{" "}
             <input
@@ -155,7 +150,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="primaryLanguage"
               value={this.props.personal.primaryLanguage}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
             <TextField
@@ -164,7 +159,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               id="schoolLanguage"
               value={this.props.personal.schoolLanguage}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
             <TextField
@@ -174,7 +169,7 @@ class Personal extends Component {
               id="problem"
               value={this.props.personal.problem}
               style={{ width: "50%" }}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
             <TextField
@@ -184,7 +179,7 @@ class Personal extends Component {
               id="reason"
               value={this.props.personal.reason}
               style={{ width: "50%" }}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
             <br />
@@ -197,7 +192,6 @@ class Personal extends Component {
               id="improvement"
               onChange={this.props.onChange}
               checked={this.props.personal.improvement === "getting better"}
-              
             />{" "}
             개선되고 있다
             <input
@@ -208,7 +202,7 @@ class Personal extends Component {
               onChange={this.props.onChange}
               checked={this.props.personal.improvement === "getting worse"}
             />{" "}
-            악화되고 있다 
+            악화되고 있다
             <input
               type="radio"
               value="no change"
@@ -225,7 +219,7 @@ class Personal extends Component {
               id="awareness"
               value={this.props.personal.awareness}
               style={{ width: "50%" }}
-              autoComplete='off'
+              autoComplete="off"
             />
             <br />
             <button style={btnStyle} onClick={this.props.onContinue}>
