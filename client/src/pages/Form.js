@@ -141,7 +141,7 @@ class Form extends Component {
     //console.log("userId", this.state.userId);
     return (
       <div className="Form">
-        <header style={headerStyle}>아동언어연구소</header>
+        <header style={headerStyle}>토키아이</header>
         <div>
           <ChildForm
             form={this.state.info}
@@ -159,5 +159,8 @@ const headerStyle = {
   textAlign: "left",
   padding: "30px",
   fontSize: "30px",
+  fontFamily: "Poor Story",
+  fontWeight: "bold",
+  color: "#6C2DC7"
 };
 export default Form;

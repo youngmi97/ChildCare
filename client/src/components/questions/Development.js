@@ -130,6 +130,7 @@ class Development extends Component {
               />{" "}
               아니오
               <input
+                autoComplete= "off"
                 type="text"
                 name="developmentProblem1"
                 id="developmentProblem1"

@@ -91,7 +91,7 @@ export default function Results() {
 
         <Bar nwrScore={nwrScore} srScore={srScore} />
       </div>
-      <div class="col" style={{ width: "55%", float: "right" }}>
+      <div style={{ width: "55%", float: "right" }}>
         <Report />
       </div>
     </div>
