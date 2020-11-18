@@ -79,9 +79,46 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//Custom KeyPress Hook
+function useKeyPress(targetKey) {
+  // State for keeping track of whether key is pressed
+  const [keyPressed, setKeyPressed] = useState(false);
+
+  // If pressed key is our target key then set to true
+  function downHandler({ key }) {
+    if (key === targetKey) {
+      setKeyPressed(true);
+    }
+  }
+
+  // If released key is our target key then set to false
+  const upHandler = ({ key }) => {
+    if (key === targetKey) {
+      setKeyPressed(false);
+    }
+  };
+
+  // Add event listeners
+  useEffect(() => {
+    window.addEventListener("keydown", downHandler);
+    window.addEventListener("keyup", upHandler);
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return keyPressed;
+}
+
 function VideoLabeling(props) {
   const classes = useStyles();
   const ref = useRef(null);
+
+  const pPress = useKeyPress("p");
+  const cPress = useKeyPress("c");
+  const spacePress = useKeyPress(" ");
 
   const [videos, setVideos] = useState([]);
   const [currentWidth, setCurrentWidth] = useState(0);
@@ -104,14 +141,13 @@ function VideoLabeling(props) {
         //className={classes.parentInstance}
         // absolute position to allow overlap
         style={{
-          width: "30px",
+          width: "0.1px",
           height: "10px",
           backgroundColor: "#FF9FCD",
           verticalAlign: "top",
           display: "inline-block",
           left: offset + "px",
           position: "absolute",
-          animation: "scaleX(2) 1s",
         }}
       ></div>
     );
@@ -125,7 +161,7 @@ function VideoLabeling(props) {
         //className={classes.parentInstance}
         // absolute position to allow overlap
         style={{
-          width: "30px",
+          width: "0.1px",
           height: "10px",
           backgroundColor: "#90CAFF",
           verticalAlign: "top",
@@ -182,14 +218,38 @@ function VideoLabeling(props) {
     setVideos(props.videos);
 
     if (videos.length != 0) {
-      console.log("local videos", videos);
+      //console.log("local videos", videos);
     }
 
     if (ref.current) {
       setCurrentWidth(ref.current.offsetWidth);
-      console.log("div pos", currentWidth * played);
+      //console.log("div pos", currentWidth * played);
     }
-  }, [props.videos, videos, ref.current, played]);
+
+    if (pPress) {
+      // Event for Marking Parent Speech
+      console.log("pPressed");
+      async function renderParent() {
+        await renderParentWidget();
+      }
+      renderParent();
+    }
+    if (!pPress && !cPress && !spacePress) {
+      // Event for Stop Marking Process
+      console.log("key Unpressed");
+    }
+    if (cPress) {
+      // Event for Marking Child Process
+      console.log("cPressed");
+      async function renderChild() {
+        await renderChildWidget();
+      }
+      renderChild();
+    }
+    if (spacePress) {
+      console.log("space Pressed");
+    }
+  }, [props.videos, videos, ref.current, played, pPress, cPress, spacePress]);
 
   return (
     <Card className={classes.wrappingCard}>
