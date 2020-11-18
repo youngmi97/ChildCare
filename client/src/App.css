@@ -12,5 +12,24 @@
 
 .ui.teal.button:focus,
 .ui.teal.buttons .button:focus {
-  background-color: #6C2DC7;
+  background-color: #6c2dc7;
+}
+
+.graybox {
+  float: right;
+  background-color: gray;
+  height: 100px;
+  width: 400px;
+  line-height: 100px;
+  transform-origin: 100% 50%;
+  animation: main 5s;
+}
+
+@keyframes main {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }

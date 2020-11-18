@@ -1,9 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card } from "@material-ui/core";
-import ReactAudioPlayer from "react-audio-player";
+//import ReactAudioPlayer from "react-audio-player";
 import ReactPlayer from "react-player";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import "../App.css";
+
+// TODO
+// cancel animation control on key press
+//
 
 const useStyles = makeStyles((theme) => ({
   speechCard: {
@@ -106,6 +111,7 @@ function VideoLabeling(props) {
           display: "inline-block",
           left: offset + "px",
           position: "absolute",
+          animation: "scaleX(2) 1s",
         }}
       ></div>
     );
@@ -255,6 +261,7 @@ function VideoLabeling(props) {
           >
             {" Testing Child Click "}
           </button>
+          <div class="graybox"></div>
         </Grid>
         <Grid
           className={classes.testGrid2}
