@@ -4,11 +4,23 @@ import { Grid } from "@material-ui/core";
 import { AuthContext } from "../../context/auth";
 import { Card } from "@material-ui/core";
 import ButtonBar from "./ButtonBar";
+import VideoDragDrop from "../../components/VideoDragDrop";
+import {makeStyles} from "@material-ui/core"
 
+const useStyles = makeStyles((theme) => ({
+
+  dragdrop: {
+    padding: "20px",
+    marginBottom: "50px",
+  },
+
+}));
 export default function Lectures() {
+  const classes = useStyles();
   const { user } = useContext(AuthContext);
   const [videoFiles, setVideoFiles] = useState([]);
   const [step, setStep] = useState("1");
+  const [uploaded, setUploaded] = useState(false); 
 
   const videoList = [
     "https://youtu.be/yDKPXHgImzc",
@@ -36,15 +48,19 @@ export default function Lectures() {
   function handleVideoUpload(videoData) {
     console.log("here now", videoData);
     setVideoFiles(videoData);
+    setUploaded(true);
   }
 
   useEffect(() => {
     if (videoFiles.length != 0) {
-      console.log("videoFile data changed");
+      console.log(videoFiles[0].preview);
     }
   }, [videoFiles]);
 
+
   return (
+  
+    
     <Grid container direction="row" xs={12}>
       <Card style={{ width: "100%", height: "800px", overflowY: "scroll" }}>
         <ButtonBar step={step} onChange={handleChange} />
@@ -52,8 +68,17 @@ export default function Lectures() {
           step={step}
           title={'"' + videoName[step - 1] + '"'}
           url={videoList[step - 1]}
-          parentUploadTrigger={handleVideoUpload}
         />
+        <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        xs={12}
+        className={classes.dragdrop}
+      >
+        {uploaded===false? <VideoDragDrop uploadCallBack={handleVideoUpload} /> : <p>Successfully Uploaded!</p>}
+      </Grid>
       </Card>
     </Grid>
   );
