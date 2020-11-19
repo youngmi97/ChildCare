@@ -28,7 +28,11 @@ const styles = theme => ({
     textAlign: 'center',
     justifyContent: 'center'
   }, 
-
+  textField: {
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "purple"
+  }
+  }
 });
 
 class ChildForm extends Component {

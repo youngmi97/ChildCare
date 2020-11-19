@@ -1,8 +1,24 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
+import { withStyles } from "@material-ui/core"
+
+const styles = theme => ({
+  root: {
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "green"
+    },
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "red"
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "purple"
+    }
+  }
+});
 
 class Personal extends Component {
+  
   state = {
     radio: {
       male: true,
@@ -41,6 +57,7 @@ class Personal extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div className="container" style={{ fontSize: "18px" }}>
         <p style={{ display: "inline" }}>아동성별:</p>{" "}
@@ -66,6 +83,7 @@ class Personal extends Component {
         <MuiThemeProvider>
           <React.Fragment>
             <TextField
+              className={classes.root}
               hintText="Child's Name"
               floatingLabelText="아동 이름"
               onChange={this.props.onChange}
@@ -242,4 +260,4 @@ const btnStyle = {
   padding: "8px 13px",
 };
 
-export default Personal;
+export default withStyles(styles) (Personal);
