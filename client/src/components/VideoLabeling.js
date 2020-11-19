@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, Button } from "@material-ui/core";
 //import ReactAudioPlayer from "react-audio-player";
 import ReactPlayer from "react-player";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -53,13 +53,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
   },
   progressBar: {
-    width: "100%",
-    backgroundColor: "#dedede",
+    width: "80%",
+    //backgroundColor: "#dedede",
     marginTop: "20px",
   },
   parentBar: {
     width: "100%",
-    height: "10px",
+    height: "20px",
     position: "relative",
   },
   parentInstance: {
@@ -69,13 +69,22 @@ const useStyles = makeStyles((theme) => ({
   },
   childBar: {
     width: "100%",
-    height: "10px",
+    height: "20px",
     position: "relative",
+    marginTop: "5px",
   },
   childInstance: {
     width: "30px",
     height: "5px",
     backgroundColor: "red",
+  },
+  resetGrid: {
+    marginTop: "30px",
+  },
+  timelineLabel: {
+    marginRight: "10px",
+    float: "right",
+    marginBottom: "30px",
   },
 }));
 
@@ -120,6 +129,12 @@ function VideoLabeling(props) {
   const cPress = useKeyPress("c");
   const spacePress = useKeyPress(" ");
 
+  const [parentTime, setParentTime] = useState([]);
+  const [childTime, setChildTime] = useState([]);
+
+  const [parentCount, setParentCount] = useState(0);
+  const [childCount, setChildCount] = useState(0);
+
   const [videos, setVideos] = useState([]);
   const [currentWidth, setCurrentWidth] = useState(0);
 
@@ -138,11 +153,11 @@ function VideoLabeling(props) {
     // Offset from Left is not working
     return (
       <div
-        //className={classes.parentInstance}
+        // className={classes.parentInstance}
         // absolute position to allow overlap
         style={{
           width: "0.1px",
-          height: "10px",
+          height: "20px",
           backgroundColor: "#FF9FCD",
           verticalAlign: "top",
           display: "inline-block",
@@ -162,7 +177,7 @@ function VideoLabeling(props) {
         // absolute position to allow overlap
         style={{
           width: "0.1px",
-          height: "10px",
+          height: "20px",
           backgroundColor: "#90CAFF",
           verticalAlign: "top",
           display: "inline-block",
@@ -174,13 +189,13 @@ function VideoLabeling(props) {
   };
 
   function renderParentWidget() {
-    console.log("parent clicked");
+    //console.log("parent clicked");
     const newParentComponents = [...parentLabels, parentWidget];
     setParentLabels(newParentComponents);
   }
 
   function renderChildWidget() {
-    console.log("child clicked");
+    //console.log("child clicked");
     const newChildComponents = [...childLabels, childWidget];
     setChildLabels(newChildComponents);
   }
@@ -214,7 +229,7 @@ function VideoLabeling(props) {
     "https://sttdemoaudio.s3.us-east-2.amazonaws.com/audioUpload/demoTrimmed2.wav";
 
   useEffect(() => {
-    console.log("prop video changed");
+    //console.log("prop video changed");
     setVideos(props.videos);
 
     if (videos.length != 0) {
@@ -228,21 +243,84 @@ function VideoLabeling(props) {
 
     if (pPress) {
       // Event for Marking Parent Speech
-      console.log("pPressed");
+      //console.log("pPressed");
+
       async function renderParent() {
         await renderParentWidget();
+        //update the starting time for parent time segment
+        if (parentTime && parentTime.length === 0) {
+          //adding new time segment
+          const newTime = [...parentTime, {}];
+          console.log("newTime", newTime);
+          setParentTime(newTime);
+          console.log("parentTime", parentTime);
+        } else if (
+          parentTime &&
+          parentTime.length !== 0
+          //parentTime[parentTime.length - 1].keys().length === 2
+        ) {
+          const currentTime = [...parentTime];
+          //console.log("currentTime", currentTime);
+          if (Object.keys(currentTime[currentTime.length - 1]).length === 2) {
+            //adding new time segment
+            const newTime = [...parentTime, {}];
+            //console.log("newTime", newTime);
+            setParentTime(newTime);
+            //console.log("parentTime", parentTime);
+          } else if (
+            Object.keys(currentTime[currentTime.length - 1]).length === 0
+          ) {
+            //update starting time
+            let newParentTime = [...parentTime];
+            newParentTime[newParentTime.length - 1] = {
+              start: duration * progress,
+            };
+            setParentTime(newParentTime);
+            console.log("startTime", duration * progress);
+          }
+        }
+        setParentCount((parentCount) => parentCount + 1);
       }
       renderParent();
     }
-    if (!pPress && !cPress && !spacePress) {
-      // Event for Stop Marking Process
-      console.log("key Unpressed");
-    }
+
     if (cPress) {
       // Event for Marking Child Process
-      console.log("cPressed");
+      //console.log("cPressed");
       async function renderChild() {
         await renderChildWidget();
+        if (childTime && childTime.length === 0) {
+          //adding new time segment
+          const newTime = [...childTime, {}];
+          console.log("newTime", newTime);
+          setChildTime(newTime);
+          console.log("parentTime", childTime);
+        } else if (
+          childTime &&
+          childTime.length !== 0
+          //parentTime[parentTime.length - 1].keys().length === 2
+        ) {
+          const currentTime = [...childTime];
+          //console.log("currentTime", currentTime);
+          if (Object.keys(currentTime[currentTime.length - 1]).length === 2) {
+            //adding new time segment
+            const newTime = [...childTime, {}];
+            //console.log("newTime", newTime);
+            setChildTime(newTime);
+            //console.log("parentTime", parentTime);
+          } else if (
+            Object.keys(currentTime[currentTime.length - 1]).length === 0
+          ) {
+            //update starting time
+            let newChildTime = [...childTime];
+            newChildTime[newChildTime.length - 1] = {
+              start: duration * progress,
+            };
+            setChildTime(newChildTime);
+            console.log("startTime", duration * progress);
+          }
+        }
+        setChildCount((childCount) => childCount + 1);
       }
       renderChild();
     }
@@ -250,6 +328,43 @@ function VideoLabeling(props) {
       console.log("space Pressed");
     }
   }, [props.videos, videos, ref.current, played, pPress, cPress, spacePress]);
+
+  useEffect(() => {
+    if (!pPress && !cPress && !spacePress) {
+      // Event for Stop Marking Process
+      console.log("key Unpressed");
+
+      if (!pPress) {
+        console.log("parentCnt", parentCount);
+        if (parentTime && parentTime.length != 0) {
+          const currentTime = [...parentTime];
+          if (Object.keys(currentTime[currentTime.length - 1]).length === 1) {
+            //update ending time
+            let newParentTime = [...parentTime];
+            newParentTime[newParentTime.length - 1].end = duration * progress;
+            setParentTime(newParentTime);
+            console.log("parentTime", parentTime);
+          }
+        }
+        setParentCount(0);
+      }
+
+      if (!cPress) {
+        console.log("childCnt", childCount);
+        if (childTime && childTime.length != 0) {
+          const currentTime = [...childTime];
+          if (Object.keys(currentTime[currentTime.length - 1]).length === 1) {
+            //update ending time
+            let newChildTime = [...childTime];
+            newChildTime[newChildTime.length - 1].end = duration * progress;
+            setChildTime(newChildTime);
+            console.log("parentTime", childTime);
+          }
+        }
+        setChildCount(0);
+      }
+    }
+  }, [pPress, cPress, spacePress]);
 
   return (
     <Card className={classes.wrappingCard}>
@@ -303,25 +418,50 @@ function VideoLabeling(props) {
               {parentLabels.length !== 0 &&
                 parentLabels.map((Widget, i) => <Widget key={i} />)}
             </div>
-            <LinearProgress variant="determinate" value={progress} />
+            <LinearProgress
+              variant="determinate"
+              value={progress}
+              style={{ marginTop: "5px" }}
+            />
             <div className={classes.childBar}>
               {childLabels.length !== 0 &&
                 childLabels.map((Widget, i) => <Widget key={i} />)}
             </div>
+            <div className={classes.timelineLabel}>Timeline</div>
           </div>
-          <button
-            // className={classes.speechCard}
-            onClick={() => renderParentWidget()}
+          <div
+            className={classes.resetGrid}
+            container
+            direction="column"
+            xs={12}
           >
-            {" Testing Parent Click "}
-          </button>
-          <button
-            // className={classes.speechCard}
-            onClick={() => renderChildWidget()}
-          >
-            {" Testing Child Click "}
-          </button>
-          <div class="graybox"></div>
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ margin: "10px" }}
+              // className={classes.speechCard}
+              onClick={() => {
+                setParentLabels([]);
+                setParentTime([]);
+              }}
+            >
+              {" Reset Parent "}
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ margin: "10px" }}
+              // className={classes.speechCard}
+              onClick={() => {
+                setChildLabels([]);
+                setChildTime([]);
+              }}
+            >
+              {" Reset Child "}
+            </Button>
+          </div>
+
+          {/* <div class="graybox"></div> */}
         </Grid>
         <Grid
           className={classes.testGrid2}
