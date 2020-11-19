@@ -13,7 +13,7 @@ export default function Family(props) {
   return (
     <div style={{ fontSize: "18px", marginTop: "20px", marginBottom: "50px" }}>
       <p>
-        <span>병력이 있는 가족: </span>
+        <span style={spanStyle}>병력이 있는 가족: </span>
         {familyHistory === "Yes" ? { familyMember } : "없음"}
       </p>
     </div>
