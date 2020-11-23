@@ -142,7 +142,7 @@ class Form extends Component {
       <div className="Form">
         <header style={headerStyle}>토키아이</header>
         <div>
-          <ChildForm
+          <NewChildForm
             form={this.state.info}
             newAnswer={this.newAnswer}
             props={this.state.userId}

@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal.js";
 import { Grid } from "@material-ui/core";
-import { withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import ReactPlayer from "react-player";
-import VideoDragDrop from "../VideoDragDrop"
+import VideoDragDrop from "../VideoDragDrop2"
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "25px",
     marginLeft: "90px",
@@ -63,31 +63,29 @@ const styles = (theme) => ({
     padding: "20px",
     marginBottom: "50px",
   },
-});
+}));
 
-class Video extends Component {
+export default function Video(props){
 
-  state = {
-    // Initially, no file is selected
-    videoFiles: [],
-    uploaded: false,
-  };
+  const classes = useStyles();
+  const [videoFiles, setVideoFiles] = useState([]);
+  const [uploaded, setUploaded] = useState(false); 
 
 
   // On file select (from the pop up)
-  handleVideoUpload = (videoData) => {
-    console.log("here now", videoData);
-    this.setState({videoFiles: videoData});
-    this.setState({uploaded: true})
+  function handleVideoUpload(videoData) {
+    props.parentUploadTrigger(videoData);
+    setUploaded(true);
   }
 
 
   // File content to be displayed after
   // file upload is complete
- 
+  useEffect(() => {
+    setVideoFiles(props.videos);
+  },[props.videos]);
 
-  render() {
-    const { classes } = this.props;
+  
     return (
       <div>
         <Grid
@@ -108,9 +106,8 @@ class Video extends Component {
           xs={12}
           className={classes.subtitle}
         >
-          <p>아동과 5분간 상호작용 영상을 촬영하여 업로드 해주세요. (소꿉놀이, 의사놀이, 블록놀이 등의 장난감을 활용한 영상) <br /> 
-          성인과 아동의 1:1 영상으로, 두 사람이 화면에 모두 나오게 촬영해 주세요. <br /> 
-          하단의 샘플 영상을 참고해 주세요.</p>
+          <p>아동과 5분간 상호작용 영상을 촬영하여 업로드 해주세요. (소꿉놀이, 의사놀이, 블록놀이 등의 장난감을 활용한 영상)</p>
+          <p>성인과 아동의 1:1 영상으로, 두 사람이 화면에 모두 나오게 촬영해 주세요. 하단의 샘플 영상을 참고해 주세요. </p>
         </Grid>
 
         <Grid>
@@ -140,7 +137,7 @@ class Video extends Component {
               alignItems="center"
               xs={12}
             >
-              <ReactPlayer width="80%" url="/서하책읽기.mp4" controls={true}/>
+              <ReactPlayer url="./서하책일기.mp4" width="70%" controls={true}/>
             </Grid>
           </Grid>
         </Grid>
@@ -174,11 +171,12 @@ class Video extends Component {
               alignItems="center"
               xs={12}
             >
-              {this.state.uploaded===false? <VideoDragDrop uploadCallBack={this.handleVideoUpload} /> : <ReactPlayer
-              url={this.state.videoFiles[0].preview}
-              controls={true}
-            />
-          }
+              <VideoDragDrop uploadCallBack={handleVideoUpload} /> 
+              {videoFiles[0] ? (
+              <ReactPlayer url={videoFiles[0].preview} controls={true}/>) :
+                (<ReactPlayer url={"asd"} controls={true}/>)
+              }
+              
             </Grid>
           </Grid>
         </Grid>
@@ -189,17 +187,17 @@ class Video extends Component {
           alignItems="center"
           xs={12}
         >
-          <button style={btnStyle1} onClick={this.props.onBack}>
+          <button style={btnStyle1} onClick={props.onBack}>
             이전 단계로 이동
           </button>
-          <button style={btnStyle} onClick={this.props.onContinue}>
+          <button style={btnStyle} onClick={props.onContinue}>
             다음 단계로 이동
           </button>
         </Grid>
       </div>
     );
   }
-}
+
 
 const btnStyle = {
   margin: "50px",
@@ -222,4 +220,3 @@ const btnStyle1 = {
   outlineColor: "#626567",
   fontWeight: "600",
 };
-export default withStyles(styles)(Video);

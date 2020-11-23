@@ -33,6 +33,12 @@ const styles = (theme) => ({
 
 export class NewChildForm extends Component {
 
+  componentDidUpdate(prevstate){
+    if(prevstate.videoFiles!==this.state.videoFiles){
+      console.log(this.state.videoFiles[0])
+    }
+  }
+
   state = {
     step: 0,
     gender: "",
@@ -66,12 +72,18 @@ export class NewChildForm extends Component {
     medication1: "",
     familyHistory: "",
     familyMember: "",
+    videoFiles: ""
   };
 
   onStart = (e) => {
     e.preventDefault();
     this.nextStep();
   };
+
+  handleVideoUpload = (videoData) => {
+    console.log("here now", videoData);
+    this.setState({videoFiles: videoData});
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +96,7 @@ export class NewChildForm extends Component {
 
   onContinue = (e) => {
     e.preventDefault();
-    /*this.props.newAnswer(
+    this.props.newAnswer(
       this.state.gender,
       this.state.name,
       this.state.dateOfBirth,
@@ -120,13 +132,13 @@ export class NewChildForm extends Component {
       this.state.medication1,
       this.state.familyHistory,
       this.state.familyMember
-    );*/
+    );
 
     this.nextStep();
   };
   onBack = (e) => {
     e.preventDefault();
-    /*this.props.newAnswer(
+    this.props.newAnswer(
       this.state.gender,
       this.state.name,
       this.state.dateOfBirth,
@@ -162,7 +174,7 @@ export class NewChildForm extends Component {
       this.state.medication1,
       this.state.familyHistory,
       this.state.familyMember
-    );*/
+    );
 
     this.prevStep();
   };
@@ -536,9 +548,8 @@ export class NewChildForm extends Component {
                   xs={12}
                 >
                   <Video
-                    personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
+                    parentUploadTrigger={this.handleVideoUpload}
+                    videos={this.state.videoFiles}
                     onContinue={this.onContinue}
                     onBack={this.onBack}
                   />
