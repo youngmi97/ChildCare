@@ -20,6 +20,7 @@ import Dashboard from "./pages/Dashboard";
 import Assessment from "./pages/Assessment";
 import { constant } from "lodash";
 import Lectures from "./pages/Lectures/Lectures";
+import NewChildForm from "./components/NewChildForm";
 
 const App = (props) => {
   return (
@@ -34,6 +35,7 @@ const App = (props) => {
           <Route exact path="/assessment" component={Assessment} />
           <Route exact path="/stt" component={STT} />
           <Route exact path="/lectures" component={Lectures} />
+          <Route exact path="/temp" component={NewChildForm} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/posts/:postId" component={SinglePost} />

@@ -39,7 +39,7 @@ export default function Lectures() {
     "Take turns to keep the interaction going",
     "Build interaction (SPARK)",
     "Add language",
-    "Let's play",
+    "Let's  play",
   ];
   function handleChange(newValue) {
     setStep(newValue);

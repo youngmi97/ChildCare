@@ -11,8 +11,8 @@ import NWR from "./questions/NWR";
 import SR from "./questions/SR";
 import ChildFormSubmit from "./ChildFormSubmit";
 import { Grid } from "@material-ui/core";
-import { Card } from "@material-ui/core"
-import { withStyles } from "@material-ui/core"
+import { Card } from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
 // HOW TO GET CLIENT TO CLASS COMPONENT??
 // withApollo?
@@ -22,17 +22,17 @@ import { withStyles } from "@material-ui/core"
 
 // import { SUBMIT_CHILD_FORM } from "../Mutations";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    height: '500px',
-    textAlign: 'center',
-    justifyContent: 'center'
-  }, 
+    height: "500px",
+    textAlign: "center",
+    justifyContent: "center",
+  },
   textField: {
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "purple"
-  }
-  }
+      borderColor: "purple",
+    },
+  },
 });
 
 class ChildForm extends Component {
@@ -194,12 +194,13 @@ class ChildForm extends Component {
     switch (step) {
       case 0:
         return (
-          <Grid  
+          <Grid
             container
             direction="row"
             justify="center"
             alignItems="center"
-            xs={12}>
+            xs={12}
+          >
             <div className="container" style={myStyle}>
               <div style={{ flex: "6", padding: "40px" }}>
                 <button onClick={this.onStart} style={startButton}>
@@ -208,160 +209,146 @@ class ChildForm extends Component {
               </div>
             </div>
           </Grid>
-          
         );
 
       case 1:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Personal
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Personal
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                 />
-            </Card>
-              
+              </Card>
+            </Grid>
           </Grid>
-          </Grid>
-          
         );
       case 2:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Education
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Education
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                   onBack={this.onBack}
                 />
-            </Card>
-              
-          </Grid>
+              </Card>
+            </Grid>
           </Grid>
         );
       case 3:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Development
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Development
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                   onBack={this.onBack}
                 />
-            </Card>
-              
-          </Grid>
+              </Card>
+            </Grid>
           </Grid>
         );
       case 4:
@@ -373,296 +360,269 @@ class ChildForm extends Component {
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Illness
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Illness
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                   onBack={this.onBack}
                 />
-            </Card>
-              
-          </Grid>
+              </Card>
+            </Grid>
           </Grid>
         );
       case 5:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Family
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Family
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                   onBack={this.onBack}
                 />
-            </Card>
-              
-          </Grid>
+              </Card>
+            </Grid>
           </Grid>
         );
 
       case 6:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <Video
-                  onContinue={this.onContinue}
-                  onBack={this.onBack}
-                />
-            </Card>
-              
-          </Grid>
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <Video onContinue={this.onContinue} onBack={this.onBack} />
+              </Card>
+            </Grid>
           </Grid>
         );
 
       case 7:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <NWR
-                  onContinue={this.onContinue}
-                  onBack={this.onBack}
-                />
-            </Card>
-              
-          </Grid>
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <NWR onContinue={this.onContinue} onBack={this.onBack} />
+              </Card>
+            </Grid>
           </Grid>
         );
 
       case 8:
         return (
           <Grid
-            
             container
             direction="row"
             justify="space-around"
             alignItems="center"
             xs={12}
           >
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
-          >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-              
-            
-          </Grid>
-
-          <Grid
-            className = {classes.root}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}
-          >
-            <Card
-              style={{
-                height: "100%",
-                width: "100%",
-                padding: "20px",
-                overflowY: "scroll",
-              }}
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
             >
-              <SR
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
+
+            <Grid
+              className={classes.root}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <Card
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  padding: "20px",
+                  overflowY: "scroll",
+                }}
+              >
+                <SR
                   personal={this.state}
                   onChange={this.onChange}
                   onContinue={this.onContinue}
                   onBack={this.onBack}
                 />
-            </Card>
-              
-          </Grid>
+              </Card>
+            </Grid>
           </Grid>
         );
       case 9:
         return (
-          <Grid  container
-          direction="row"
-          justify="space-around"
-          alignItems="center"
-          xs={12}>
-
           <Grid
             container
-            direction="column"
-            justify="center"
+            direction="row"
+            justify="space-around"
             alignItems="center"
-            xs={3}
+            xs={12}
           >
-            <div style={{width:'70%', textAlign:"center"}}> 
-              <Sidebar step={this.state.step} />
-            </div>
-          </Grid>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={3}
+            >
+              <div style={{ width: "70%", textAlign: "center" }}>
+                <Sidebar step={this.state.step} />
+              </div>
+            </Grid>
 
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={9}>
-
-            <p style={{fontSize:"18px"}}>제출하시겠습니까?</p>
-            <ChildFormSubmit
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={9}
+            >
+              <p style={{ fontSize: "18px" }}>제출하시겠습니까?</p>
+              <ChildFormSubmit
                 onContinue={this.onContinue}
-                input = {this.state}
+                input={this.state}
               />
+            </Grid>
+          </Grid>
 
-          </Grid>
-          </Grid>
-  
-          
-            /* <div style={{ flex: "8", margin: "30px 160px" }}>
+          /* <div style={{ flex: "8", margin: "30px 160px" }}>
               <p>제출하시겠습니까?</p>
               <button onClick={this.onSubmit} style={startButton}>
                 Submit
               </button>
             </div> */
 
-              
-              /* <Mutation
+          /* <Mutation
                 mutation={SUBMIT_CHILD_FORM}
                 variables={{
                   userId: user.id || "",
@@ -715,8 +675,6 @@ class ChildForm extends Component {
                   </button>
                 )}
               </Mutation> */
-              
-          
         );
 
       default:
@@ -728,11 +686,10 @@ class ChildForm extends Component {
             alignItems="center"
             xs={12}
           >
-            <p style={{ fontSize: "20px", margin:"50px 0px"}}>
+            <p style={{ fontSize: "20px", margin: "50px 0px" }}>
               제출되었습니다. 평가 결과를 기다려주세요.
             </p>
           </Grid>
-
         );
     }
   }
@@ -754,4 +711,4 @@ const startButton = {
 ChildForm.propTypes = {
   form: PropTypes.array.isRequired,
 };
-export default withStyles(styles) (ChildForm);
+export default withStyles(styles)(ChildForm);

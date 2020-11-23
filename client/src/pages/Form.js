@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ChildForm from "../components/ChildForm";
+import { NewChildForm } from "../components/NewChildForm";
 // import { AuthProvider } from "../context/auth";
 
 import { AuthContext } from "../context/auth";
-
-
 
 class Form extends Component {
   static contextType = AuthContext;
@@ -161,6 +160,6 @@ const headerStyle = {
   fontSize: "30px",
   fontFamily: "Poor Story",
   fontWeight: "bold",
-  color: "#6C2DC7"
+  color: "#6C2DC7",
 };
 export default Form;

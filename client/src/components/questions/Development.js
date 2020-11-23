@@ -1,5 +1,67 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import TextField from "@material-ui/core/TextField";
+import { withStyles } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
+const styles = (theme) => ({
+  title: {
+    marginTop: "25px",
+    marginLeft: "90px",
+    marginRight: "90px",
+    fontSize: "25px",
+    fontWeight: "600",
+    fontFamily: "'Noto Sans KR', sans-serif;",
+  },
+  subtitle: {
+    margin: "10px 0px",
+    marginLeft: "110px",
+    marginRight: "110px",
+    marginBottom: "30px",
+    fontSize: "13px",
+    fontWeight: "normal",
+    fontFamily: "'Roboto KR', sans-serif;",
+  },
+  qna: {
+    padding: "15px 0px",
+  },
+  question: {
+    margin: "20px 90px",
+    fontSize: "18px",
+    fontWeight: "normal",
+    fontFamily: "'Roboto KR', sans-serif;",
+  },
+  answer: {
+    margin: "0px 110px",
+    fontSize: "15px",
+    fontWeight: "normal",
+    fontFamily: "'Roboto KR', sans-serif;",
+    "& label.Mui-focused": {
+      color: "#FFB800",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#FFB800",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
+      },
+      "&:hover fieldset": {
+        borderColor: "yellow",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFB800",
+      },
+    },
+    "& .Mui-checked": {
+      color: "#FFB800",
+    },
+  },
+});
 
 class Development extends Component {
   show = () => {
@@ -18,198 +80,334 @@ class Development extends Component {
     }
   };
 
+  handleChange = (event) => {
+    console.log(event.target);
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  state = {};
+
   render() {
+    const { classes } = this.props;
     return (
-      <div className="container" style={{ fontSize: "18px" }}>
-        <MuiThemeProvider>
-          <React.Fragment>
-            <p style={{ display: "inline-block" }}>
-              아동의 발달력 정보를 기입해주세요.
-            </p>
-            <br />
-
-            <div>
-              <p style={{ display: "inline-block" }}>
-                걷기 (평균 남아 여아 아동 12개월):{" "}
-              </p>{" "}
-              <input
-                type="radio"
-                value="Slow"
+      <div>
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          xs={12}
+          className={classes.title}
+        >
+          <p>발달력</p>
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          xs={12}
+          className={classes.subtitle}
+        >
+          <p>아동의 발달력에 대해 적어주세요.</p>
+        </Grid>
+        <Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>1. 또래에 비해 걷기 시작한 시기가 늦었습니까? (평균 12개월)</p>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <FormControl component="fieldset">
+              <RadioGroup
                 name="walkingAge"
-                id="walkingAge"
-                onChange={this.props.onChange}
-                checked={this.props.personal.walkingAge === "Slow"}
-              />{" "}
-              느렸다{" "}
-              <input
-                type="radio"
-                value="Average"
-                name="walkingAge"
-                id="walkingAge"
-                onChange={this.props.onChange}
-                checked={this.props.personal.walkingAge === "Average"}
-              />{" "}
-              평균이였다
-              <br />
-              <div style={{ marginBottom: "20px" }}>
-                <p style={{ display: "inline-block" }}>
-                  언제 단어를 사용하기 시작했나요? (평균 남아 여아 아동
-                  10-12개월):{" "}
-                </p>{" "}
-                <br />
-                <input
-                  type="radio"
+                value={this.state.walkingAge}
+                onChange={this.handleChange}
+              >
+                <FormControlLabel
+                  id="walkingAge"
                   value="Slow"
-                  name="speakingAge"
-                  id="speakingAge"
-                  onChange={this.props.onChange}
-                  checked={this.props.personal.speakingAge === "Slow"}
-                />{" "}
-                느렸다{" "}
-                <input
-                  type="radio"
+                  control={<Radio />}
+                  label="느렸다"
+                  onChange={this.props.onChange2}
+                />
+                <FormControlLabel
+                  id="walkingAge"
                   value="Average"
-                  name="speakingAge"
+                  control={<Radio />}
+                  label="평균이었다"
+                  onChange={this.props.onChange2}
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        <Grid className={classes.qna}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>2. 단어를 사용하기 시작한 시기가 늦었습니까? (평균 10~12개월)</p>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <FormControl component="fieldset">
+              <RadioGroup
+                name="speakingAge"
+                value={this.state.speakingAge}
+                onChange={this.handleChange}
+              >
+                <FormControlLabel
                   id="speakingAge"
-                  onChange={this.props.onChange}
-                  checked={this.props.personal.speakingAge === "Average"}
-                />{" "}
-                평균이였다
-                <br />
-              </div>
-              <div style={{ margin: "20px 0px" }}>
-                <p style={{ display: "inline-block" }}>
-                  간단한 문장 사용을 언제 시작했나요? (평균 남아 여아 아동
-                  19-24개월):{" "}
-                </p>{" "}
-                <br />
-                <input
-                  type="radio"
                   value="Slow"
-                  name="speakingAgeSentence"
-                  id="speakingAgeSentence"
-                  onChange={this.props.onChange}
-                  checked={this.props.personal.speakingAgeSentence === "Slow"}
-                />{" "}
-                느렸다{" "}
-                <input
-                  type="radio"
+                  control={<Radio />}
+                  label="느렸다"
+                  onChange={this.props.onChange2}
+                />
+                <FormControlLabel
+                  id="speakingAge"
                   value="Average"
-                  name="speakingAgeSentence"
+                  control={<Radio />}
+                  label="평균이었다"
+                  onChange={this.props.onChange2}
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid className={classes.qna}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>
+              3. 간단한 문장을 구사하기 시작한 시기가 늦었습니까? (평균
+              10~12개월)
+            </p>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <FormControl component="fieldset">
+              <RadioGroup
+                name="speakingAgeSentence"
+                value={this.state.speakingAgeSentence}
+                onChange={this.handleChange}
+              >
+                <FormControlLabel
                   id="speakingAgeSentence"
-                  onChange={this.props.onChange}
-                  checked={
-                    this.props.personal.speakingAgeSentence === "Average"
-                  }
-                />{" "}
-                평균이였다
-                <br />
-              </div>
-            </div>
-            <p style={{ display: "inline-block" }}>
-              아동이 식이/수면/배변 문제를 갖고 있습니까?
-            </p>
+                  value="Slow"
+                  control={<Radio />}
+                  label="느렸다"
+                  onChange={this.props.onChange2}
+                />
+                <FormControlLabel
+                  id="speakingAgeSentence"
+                  value="Average"
+                  control={<Radio />}
+                  label="평균이었다"
+                  onChange={this.props.onChange2}
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid container className={classes.qna}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>4. 아동이 식이, 수면, 배변문제를 갖고 있습니까?</p>
+          </Grid>
 
-            <div>
-              <input
-                type="radio"
-                value="Yes"
-                name="developmentProblem"
-                id="developmentProblem"
-                onChange={this.props.onChange}
-                checked={this.props.personal.developmentProblem === "Yes"}
-              />{" "}
-              네
-              <input
-                type="radio"
-                value="No"
-                name="developmentProblem"
-                id="developmentProblem"
-                onChange={this.props.onChange}
-                checked={this.props.personal.developmentProblem === "No"}
-              />{" "}
-              아니오
-              <input
-                autoComplete= "off"
-                type="text"
-                name="developmentProblem1"
-                id="developmentProblem1"
-                value={this.props.personal.developmentProblem1}
-                onChange={this.props.onChange}
-                hidden={this.show()}
-                placeholder="무엇인지 적어주세요."
-                style={{
-                  border: "none",
-                  borderBottom: "1px solid lightGray",
-                  outline: "none",
-                }}
-              />
-            </div>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+            >
+              <FormControl component="fieldset">
+                <RadioGroup
+                  name="developmentProblem"
+                  value={this.state.developmentProblem}
+                  onChange={this.handleChange}
+                >
+                  <FormControlLabel
+                    id="developmentProblem"
+                    value="Yes"
+                    control={<Radio />}
+                    label="예"
+                    onChange={this.props.onChange2}
+                  />
+                  <FormControlLabel
+                    id="developmentProblem"
+                    value="No"
+                    control={<Radio />}
+                    label="아니오"
+                    onChange={this.props.onChange2}
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <TextField
+              placeholder="무엇인지 적어주세요."
+              style={{ width: "80%" }}
+              onChange={this.props.onChange}
+              id="developmentProblem1"
+              value={this.props.personal.developmentProblem1}
+              autoComplete="off"
+              fullWidth
+              disabled={this.show()}
+            />
+          </Grid>
+        </Grid>
+        <Grid container className={classes.qna}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>5. 아동이 대근육, 소근육, 구강 운동 문제를 갖고 있습니까?</p>
+          </Grid>
 
-            <br />
-            <p style={{ display: "inline-block" }}>
-              아동이 현재 대근육 운동, 소근육 운동, 구강 운동 문제를 갖고
-              있습니까?
-            </p>
-            <br />
-            <div>
-              <input
-                type="radio"
-                value="Yes"
-                name="muscleProblem"
-                id="muscleProblem"
-                onChange={this.props.onChange}
-                checked={this.props.personal.muscleProblem === "Yes"}
-              />{" "}
-              네
-              <input
-                type="radio"
-                value="No"
-                name="muscleProblem"
-                id="muscleProblem"
-                onChange={this.props.onChange}
-                checked={this.props.personal.muscleProblem === "No"}
-              />{" "}
-              아니오
-              <input
-                type="text"
-                name="muscleProblem1"
-                id="muscleProblem1"
-                value={this.props.personal.muscleProblem1}
-                onChange={this.props.onChange}
-                hidden={this.show1()}
-                placeholder="무엇인지 적어주세요."
-                style={{
-                  border: "none",
-                  borderBottom: "1px solid lightGray",
-                  outline: "none",
-                }}
-              />
-            </div>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+            >
+              <FormControl component="fieldset">
+                <RadioGroup
+                  name="muscleProblem"
+                  value={this.state.muscleProblem}
+                  onChange={this.handleChange}
+                >
+                  <FormControlLabel
+                    id="muscleProblem"
+                    value="Yes"
+                    control={<Radio />}
+                    label="예"
+                    onChange={this.props.onChange2}
+                  />
+                  <FormControlLabel
+                    id="muscleProblem"
+                    value="No"
+                    control={<Radio />}
+                    label="아니오"
+                    onChange={this.props.onChange2}
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Grid>
+            <TextField
+              placeholder="무엇인지 적어주세요."
+              style={{ width: "80%" }}
+              onChange={this.props.onChange}
+              id="muscleProblem1"
+              value={this.props.personal.muscleProblem1}
+              autoComplete="off"
+              fullWidth
+              disabled={this.show1()}
+            />
+          </Grid>
+        </Grid>
 
-            <br />
-            <br />
-            <button style={btnStyle} onClick={this.props.onBack}>
-              Back
-            </button>
-            <button style={btnStyle} onClick={this.props.onContinue}>
-              Continue
-            </button>
-          </React.Fragment>
-        </MuiThemeProvider>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <button style={btnStyle1} onClick={this.props.onBack}>
+            이전 단계로 이동
+          </button>
+          <button style={btnStyle} onClick={this.props.onContinue}>
+            다음 단계로 이동
+          </button>
+        </Grid>
       </div>
     );
   }
 }
 
 const btnStyle = {
-  margin: "20px",
-  color: "#6C2DC7",
-  backgroundColor: "white",
-  border: "2px solid",
-  borderColor: "#6C2DC7",
+  margin: "50px",
+  backgroundColor: "#FFEBB8",
+  width: "150px",
+  height: "50px",
+  border: "none",
   fontSize: "13px",
-  padding: "8px 13px",
+  outlineColor: "#FFB800",
+  fontWeight: "600",
 };
 
-export default Development;
+const btnStyle1 = {
+  margin: "50px",
+  backgroundColor: "#E4E4E4",
+  width: "150px",
+  height: "50px",
+  border: "none",
+  fontSize: "13px",
+  outlineColor: "#626567",
+  fontWeight: "600",
+};
+
+export default withStyles(styles)(Development);
