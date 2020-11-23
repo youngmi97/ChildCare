@@ -10,6 +10,10 @@ import Family from "./questions/Family";
 import Video from "./questions/Video";
 
 const styles = (theme) => ({
+  root:{
+    marginTop:"50px"
+  },
+
   textField: {
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderColor: "purple",
@@ -28,6 +32,7 @@ const styles = (theme) => ({
 });
 
 export class NewChildForm extends Component {
+
   state = {
     step: 0,
     gender: "",
@@ -167,6 +172,7 @@ export class NewChildForm extends Component {
     this.setState({
       step: step + 1,
     });
+    window.scrollTo(0, 0)
   };
 
   prevStep = () => {
@@ -174,7 +180,9 @@ export class NewChildForm extends Component {
     this.setState({
       step: step - 1,
     });
+    window.scrollTo(0, 0)
   };
+  
 
   render() {
     const { classes } = this.props;
@@ -190,6 +198,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -248,6 +257,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -307,6 +317,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -366,6 +377,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -425,6 +437,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -484,6 +497,7 @@ export class NewChildForm extends Component {
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
               <Card
                 style={{ width: "80%", height: "100%", borderRadius: "0px" }}
@@ -521,7 +535,13 @@ export class NewChildForm extends Component {
                   alignItems="center"
                   xs={12}
                 >
-                  <Video onContinue={this.onContinue} onBack={this.onBack} />
+                  <Video
+                    personal={this.state}
+                    onChange={this.onChange}
+                    onChange2={this.onChange2}
+                    onContinue={this.onContinue}
+                    onBack={this.onBack}
+                  />
                 </Grid>
               </Card>
             </Grid>
@@ -533,3 +553,4 @@ export class NewChildForm extends Component {
 }
 
 export default withStyles(styles)(NewChildForm);
+
