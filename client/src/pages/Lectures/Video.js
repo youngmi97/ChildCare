@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import VideoDragDrop from "../../components/VideoDragDrop";
+
 
 const useStyles = makeStyles((theme) => ({
   grid1: {
@@ -39,11 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function Video(props) {
   const classes = useStyles();
-  function handleVideoUpload(videoData) {
-    props.parentUploadTrigger(videoData);
-  }
 
   return (
     <Grid
@@ -107,16 +106,6 @@ export default function Video(props) {
         <p>
           Step 3. 부모-아동 상호작용 영상을 5분 분량응로 촬영하여 업로드해주세요
         </p>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
-        className={classes.dragdrop}
-      >
-        <VideoDragDrop uploadCallBack={handleVideoUpload} />
       </Grid>
     </Grid>
   );

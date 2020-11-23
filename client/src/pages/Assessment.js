@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "green",
+      borderColor: "gray",
     },
-    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "red",
-    },
+    //"&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      //borderColor: "red",
+    //},
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "purple",
+      borderColor: "#6C2DC7",
     },
   },
 }));
@@ -300,6 +300,7 @@ export default function Assessment() {
             justify="center"
             alignItems="center"
             xs={3}
+            className={classes.testMenu}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
               <Sidebar2 step={step} />
@@ -311,6 +312,7 @@ export default function Assessment() {
             justify="center"
             alignItems="center"
             xs={9}
+            className={classes.testCard}
           >
             <Grid
               container
@@ -353,6 +355,7 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
+                    className={classes.root}
                       id="eduFeedback"
                       onChange={onChange1}
                       label="제언사항"
@@ -403,6 +406,7 @@ export default function Assessment() {
           xs={12}
         >
           <Grid
+          className={classes.testMenu}
             container
             direction="column"
             justify="center"
@@ -414,6 +418,7 @@ export default function Assessment() {
             </div>
           </Grid>
           <Grid
+          className={classes.testCard}
             container
             direction="column"
             justify="center"
@@ -462,6 +467,7 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
+                    className={classes.root}
                       id="devFeedback"
                       onChange={onChange2}
                       label="제언사항"
@@ -511,6 +517,7 @@ export default function Assessment() {
           xs={12}
         >
           <Grid
+           className={classes.testMenu}
             container
             direction="column"
             justify="center"
@@ -522,6 +529,7 @@ export default function Assessment() {
             </div>
           </Grid>
           <Grid
+          className={classes.testCard}
             container
             direction="column"
             justify="center"
@@ -571,6 +579,7 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
+                    className={classes.root}
                       id="illFeedback"
                       onChange={onChange3}
                       label="제언사항"
@@ -621,6 +630,7 @@ export default function Assessment() {
           xs={12}
         >
           <Grid
+          className={classes.testMenu}
             container
             direction="column"
             justify="center"
@@ -632,6 +642,7 @@ export default function Assessment() {
             </div>
           </Grid>
           <Grid
+          className={classes.testCard}
             container
             direction="column"
             justify="center"
@@ -675,7 +686,8 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
-                      id="illFeedback"
+                    className={classes.root}
+                      id="famFeedback"
                       onChange={onChange3}
                       label="제언사항"
                       multiline
@@ -725,6 +737,7 @@ export default function Assessment() {
           xs={12}
         >
           <Grid
+          className={classes.testMenu}
             container
             direction="column"
             justify="center"
@@ -736,6 +749,7 @@ export default function Assessment() {
             </div>
           </Grid>
           <Grid
+          className={classes.testCard}
             container
             direction="column"
             justify="center"
@@ -776,7 +790,8 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
-                      id="illFeedback"
+                    className={classes.root}
+                      id="nwrFeedback"
                       onChange={onChange3}
                       label="제언사항"
                       multiline
@@ -826,6 +841,7 @@ export default function Assessment() {
           xs={12}
         >
           <Grid
+          className={classes.testMenu}
             container
             direction="column"
             justify="center"
@@ -837,6 +853,7 @@ export default function Assessment() {
             </div>
           </Grid>
           <Grid
+          className={classes.testCard}
             container
             direction="column"
             justify="center"
@@ -877,7 +894,8 @@ export default function Assessment() {
                     xs={12}
                   >
                     <TextField
-                      id="illFeedback"
+                    className={classes.root}
+                      id="ovrFeedback"
                       onChange={onChange3}
                       label="제언사항"
                       multiline
