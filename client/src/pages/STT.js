@@ -9,9 +9,22 @@ function STT() {
   const { user } = useContext(AuthContext);
   const [videoFiles, setVideoFiles] = useState([]);
 
+  const [childTimeLabel, setChildTimeLabel] = useState([]);
+  const [parentTimeLabel, setParentTimeLabel] = useState([]);
+
   function handleVideoUpload(videoData) {
     console.log("here now", videoData);
     setVideoFiles(videoData);
+  }
+
+  function handleParentTimeLabel(timeFrag) {
+    console.log("parent time", timeFrag);
+    setParentTimeLabel(timeFrag);
+  }
+
+  function handleChildTimeLabel(timeFrag) {
+    console.log("child time", timeFrag);
+    setChildTimeLabel(timeFrag);
   }
 
   useEffect(() => {
@@ -19,6 +32,8 @@ function STT() {
       console.log("videoFile data changed");
     }
   }, [videoFiles]);
+
+  // Check Successful Prop Pass via show/hide of STTResults Component
 
   return (
     <Grid
@@ -30,8 +45,12 @@ function STT() {
     >
       {/* <SpeechToText /> */}
       <STTUploadVideo parentUploadTrigger={handleVideoUpload} />
-      <VideoLabeling videos={videoFiles} />
-      <STTResults />
+      <VideoLabeling
+        videos={videoFiles}
+        parentTimeLabeled={handleParentTimeLabel}
+        childTimeLabeled={handleChildTimeLabel}
+      />
+      <STTResults parentLabel={parentTimeLabel} childLabel={childTimeLabel} />
     </Grid>
   );
 }

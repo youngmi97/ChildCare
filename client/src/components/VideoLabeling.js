@@ -129,9 +129,11 @@ function VideoLabeling(props) {
   const cPress = useKeyPress("c");
   const spacePress = useKeyPress(" ");
 
+  // States to save the speaker time fragments
   const [parentTime, setParentTime] = useState([]);
   const [childTime, setChildTime] = useState([]);
 
+  // States for speaker fragment ratio
   const [parentCount, setParentCount] = useState(0);
   const [childCount, setChildCount] = useState(0);
 
@@ -144,6 +146,7 @@ function VideoLabeling(props) {
   const [duration, setDuration] = useState();
   const [secondsElapsed, setSecondsElapsed] = useState();
 
+  // States to store individual time fragments
   const [childLabels, setChildLabels] = useState([]);
   const [parentLabels, setParentLabels] = useState([]);
 
@@ -366,6 +369,13 @@ function VideoLabeling(props) {
     }
   }, [pPress, cPress, spacePress]);
 
+  const onSubmit = () => {
+    // console.log("on submit");
+    // pass parentTime and childTime to parent component
+    props.parentTimeLabeled(parentTime);
+    props.childTimeLabeled(childTime);
+  };
+
   return (
     <Card className={classes.wrappingCard}>
       <Grid
@@ -381,7 +391,7 @@ function VideoLabeling(props) {
         <Grid
           className={classes.testGrid1}
           container
-          direction="column"
+          direction="row"
           justify="center"
           alignItems="center"
           xs={8}
@@ -462,6 +472,17 @@ function VideoLabeling(props) {
           </div>
 
           {/* <div class="graybox"></div> */}
+          <div className={classes.resetGrid}>
+            <Button
+              className={classes.submitBtn}
+              variant="contained"
+              color="primary"
+              style={{ margin: "10px" }}
+              onClick={onSubmit}
+            >
+              {"Finish Labeling"}
+            </Button>
+          </div>
         </Grid>
         <Grid
           className={classes.testGrid2}
