@@ -4,6 +4,7 @@ import Modal from "./Modal.js";
 import { Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 import ReactPlayer from "react-player";
+import VideoDragDrop from "../VideoDragDrop"
 
 const styles = (theme) => ({
   title: {
@@ -23,68 +24,67 @@ const styles = (theme) => ({
     fontWeight: "normal",
     fontFamily: "'Roboto KR', sans-serif;",
   },
+  qna: {
+    padding: "15px 0px",
+  },
   question: {
     margin: "20px 90px",
     fontSize: "18px",
     fontWeight: "normal",
     fontFamily: "'Roboto KR', sans-serif;",
   },
+  answer: {
+    margin: "0px 110px",
+    fontSize: "15px",
+    fontWeight: "normal",
+    fontFamily: "'Roboto KR', sans-serif;",
+    "& label.Mui-focused": {
+      color: "#FFB800",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#FFB800",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
+      },
+      "&:hover fieldset": {
+        borderColor: "yellow",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFB800",
+      },
+    },
+    "& .Mui-checked": {
+      color: "#FFB800",
+    },
+  },
+  dragdrop: {
+    padding: "20px",
+    marginBottom: "50px",
+  },
 });
 
 class Video extends Component {
+
   state = {
     // Initially, no file is selected
-    videoFile: null,
+    videoFiles: [],
+    uploaded: false,
   };
+
 
   // On file select (from the pop up)
-  onFileChange = (event) => {
-    // Update the state\
-    this.setState({ videoFile: event.target.files[0] });
-  };
+  handleVideoUpload = (videoData) => {
+    console.log("here now", videoData);
+    this.setState({videoFiles: videoData});
+    this.setState({uploaded: true})
+  }
 
-  // On file upload (click the upload button)
-  onFileUpload = () => {
-    // Create an object of formData
-    const formData = new FormData();
-
-    // Update the formData object
-    formData.append("myFile", this.state.videoFile, this.state.videoFile.name);
-
-    // Details of the uploaded file
-    console.log(this.state.selectedFile);
-
-    // Request made to the backend api
-    // Send formData object
-    axios.post("api/uploadfile", formData);
-  };
 
   // File content to be displayed after
   // file upload is complete
-  fileData = () => {
-    if (this.state.videoFile) {
-      return (
-        <div>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
-          >
-            <ReactPlayer
-              url="/서하책읽기.mp4"
-              controls={true}
-              width="70%"
-              height="300px"
-            />
-          </Grid>
-        </div>
-      );
-    } else {
-      return <p>파일이 업로드 되지 않았습니다.</p>;
-    }
-  };
+ 
 
   render() {
     const { classes } = this.props;
@@ -98,7 +98,7 @@ class Video extends Component {
           xs={12}
           className={classes.title}
         >
-          <p>교육력</p>
+          <p>상호작용</p>
         </Grid>
         <Grid
           container
@@ -108,67 +108,80 @@ class Video extends Component {
           xs={12}
           className={classes.subtitle}
         >
-          <p>
-            아동과 5분간 상호작용 영상을 촬영하여 업로드 해 주세요.
-            <br />
-            소꿉놀이, 의사놀이, 블록놀이 등의 장난감을 활용한 놀이 영상
-            <br />
-            성인과 아동의 1:1 영상으로, 두사람이 화면에 모두 나오게
-            촬영해주세요.
-            <br />
-            상단의 샘플 영상을 참고해주세요.
-          </p>
+          <p>아동과 5분간 상호작용 영상을 촬영하여 업로드 해주세요. (소꿉놀이, 의사놀이, 블록놀이 등의 장난감을 활용한 영상) <br /> 
+          성인과 아동의 1:1 영상으로, 두 사람이 화면에 모두 나오게 촬영해 주세요. <br /> 
+          하단의 샘플 영상을 참고해 주세요.</p>
         </Grid>
 
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-          xs={12}
-          className={classes.question}
-        >
-          <p>샘플영상</p>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-        >
-          <ReactPlayer
-            url="/서하책읽기.mp4"
-            controls={true}
-            width="70%"
-            height="300px"
-          />
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-          xs={12}
-          className={classes.question}
-        >
-          <p>영상을 업로드하세요.</p>
-        </Grid>
+        <Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>샘플 영상</p>
+          </Grid>
 
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-          xs={12}
-          className={classes.question}
-        >
-          <div>
-            <input type="file" onChange={this.onFileChange} />
-          </div>
-          {this.fileData()}
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+            >
+              <ReactPlayer width="80%" url="/서하책읽기.mp4" controls={true}/>
+            </Grid>
+          </Grid>
         </Grid>
+        
+        <Grid container className={classes.qna}>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.question}
+          >
+            <p>
+              영상을 업로드하세요.
+            </p>
+          </Grid>
 
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+            >
+              {this.state.uploaded===false? <VideoDragDrop uploadCallBack={this.handleVideoUpload} /> : <ReactPlayer
+              url={this.state.videoFiles[0].preview}
+              controls={true}
+            />
+          }
+            </Grid>
+          </Grid>
+        </Grid>
         <Grid
           container
           direction="row"
