@@ -9,8 +9,16 @@ const useStyles = makeStyles((theme) => ({
     height: "250px",
     border: "solid",
     borderWidth: 1,
-    fontSize: "50px",
   },
+  cardText: {
+    float: "left",
+    width: "200px",
+    height: "200px",
+    fontSize: "20px",
+    marginTop: "30px",
+    marginLeft: "20px",
+  },
+
   imageConfig: {
     width: "60%",
   },
@@ -18,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     justify: "center",
     marginTop: "20px",
     marginLeft: "20px",
+    fontSize: "30px",
   },
   mainText: {
     height: "50px",
@@ -37,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   cardImg: {
     width: "30%",
     marginTop: "30px",
+    marginRight: "20px",
     float: "right",
   },
 
@@ -116,6 +126,10 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>언어발달평가</div>
+            <div className={classes.cardText}>
+              {" "}
+              온라인으로 아동의 언어발달을 평가하고 결과를 받을 수 있는 서비스
+            </div>
             <img className={classes.cardImg} src="/checklist.png"></img>
           </Card>
         </Grid>
@@ -128,6 +142,11 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>연구참여신청</div>
+            <div className={classes.cardText}>
+              {" "}
+              이화여대 언어병리학과 아동연구실에서 진행되는 연구대상자로 참여
+              신청
+            </div>
             <img className={classes.cardImg} src="/participation.png"></img>
           </Card>
         </Grid>
@@ -149,6 +168,10 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>부모교육</div>
+            <div className={classes.cardText}>
+              {" "}
+              온라인으로 상호작용 증진을 목적으로 한 부모교육 서비스 제공
+            </div>
             <img className={classes.cardImg} src="/family.png"></img>
           </Card>
         </Grid>
@@ -161,6 +184,11 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>전문가교육</div>
+            <div className={classes.cardText}>
+              {" "}
+              온라인으로 아동 관련 직종에 종사하는 전문가를 대상으로 한 교육
+              서비스 제공
+            </div>
             <img className={classes.cardImg} src="/teacher.png"></img>
           </Card>
         </Grid>

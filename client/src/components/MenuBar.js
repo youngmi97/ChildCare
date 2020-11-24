@@ -14,11 +14,27 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const menuBar = user ? (
-    <Menu secondary pointing size="massive" color="#FFB800" style={{backgroundColor: "white", padding:"5px"}} >
+    <Menu
+      secondary
+      pointing
+      size="massive"
+      color="#FFB800"
+      style={{ backgroundColor: "white", padding: "5px" }}
+    >
       <a
-        style= {{marginTop: "14px", marginRight:"30px", marginLeft:"50px", color:"#FFB800", fontSize:"25px", fontWeight:"600"} }
-        href ="/"
-      > TALKI-i </a>
+        style={{
+          marginTop: "14px",
+          marginRight: "30px",
+          marginLeft: "50px",
+          color: "#FFB800",
+          fontSize: "25px",
+          fontWeight: "600",
+        }}
+        href="/"
+      >
+        {" "}
+        TALKI-i{" "}
+      </a>
       <Menu.Item
         name="언어발달 평가"
         active={activeItem === "언어발달 평가"}
@@ -44,7 +60,7 @@ function MenuBar() {
 
       <Menu.Menu position="right">
         <Menu.Item
-        style={{marginRight:"50px"}}
+          style={{ marginRight: "50px" }}
           name="logout"
           // active={activeItem === "home"}
           onClick={logout}
@@ -54,13 +70,29 @@ function MenuBar() {
       </Menu.Menu>
     </Menu>
   ) : (
-    <Menu secondary pointing size="massive" color="#FFB800" style={{backgroundColor: "white", padding:"5px"}}>
+    <Menu
+      secondary
+      pointing
+      size="massive"
+      color="#FFB800"
+      style={{ backgroundColor: "white", padding: "5px" }}
+    >
       <a
-        style= {{marginTop: "14px", marginRight:"30px", marginLeft:"50px", color:"#FFB800", fontSize:"25px", fontWeight:"600"} }
-        href ="/"
-      > TALKI-i </a>
+        style={{
+          marginTop: "14px",
+          marginRight: "30px",
+          marginLeft: "50px",
+          color: "#FFB800",
+          fontSize: "25px",
+          fontWeight: "600",
+        }}
+        href="/"
+      >
+        {" "}
+        TALKI-i{" "}
+      </a>
 
-      <Menu.Menu position="right">
+      <Menu.Menu position="right" style={{ marginRight: "30px" }}>
         <Menu.Item
           name="login"
           active={activeItem === "login"}
