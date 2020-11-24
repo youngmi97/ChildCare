@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: 1,
     fontSize: "50px",
   },
+  imageConfig: {
+    width: "60%",
+  },
   optionCard: {
     justify: "center",
     marginTop: "20px",
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   mainText: {
     height: "50px",
     width: "100%",
-    fontSize: "50px",
+    fontSize: "60px",
     marginLeft: "20px",
   },
 
@@ -33,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
 
   firstHalf: {
     height: "500px",
-    border: "solid",
-    borderColor: "#dedede",
-    borderWidth: "1px",
+    // border: "solid",
+    // borderColor: "#dedede",
+    // borderWidth: "1px",
   },
 
   secondHalf: {
@@ -83,7 +86,12 @@ function HomeMain(props) {
           justify="center"
           alignItems="center"
           xs={8}
-        ></Grid>
+        >
+          <img
+            className={classes.imageConfig}
+            src="/mock-illustration.jpg"
+          ></img>
+        </Grid>
       </Grid>
       <Grid
         container
