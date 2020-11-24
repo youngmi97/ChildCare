@@ -91,6 +91,7 @@ module.exports = {
         },
       }
     ) {
+      console.log("Creating Professional");
       const { valid, errors } = validateRegisterInput(
         username,
         email,

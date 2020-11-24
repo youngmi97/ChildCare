@@ -30,33 +30,67 @@ function Register(props) {
     setUserType(userType);
   };
 
+  // How to use two different forms
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: "",
-    email: "",
     password: "",
     confirmPassword: "",
+    name: "",
+    gender: "",
+    birthday: "",
+    address: "",
+    occupation: "",
+    institution: "",
+    objective: "",
+    email: "",
   });
 
+  // For User
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(_, { data: { register: userData } }) {
       context.login(userData);
       props.history.push("/");
     },
+
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
     },
+
+    variables: {
+      username: values.username,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+      email: values.email,
+    },
+  });
+
+  // For Prof
+  const [addProf, { loadingProf }] = useMutation(REGISTER_PROFESSIONAL, {
+    update(_, { data: { registerProfessional: userData } }) {
+      context.loginProf(userData);
+      props.history.push("/");
+    },
+
+    onError(err) {
+      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+    },
+
     variables: values,
   });
 
   function registerUser() {
-    addUser();
+    if (userType) {
+      addProf();
+    } else {
+      addUser();
+    }
   }
 
   const RegisterForm = userType ? (
     <Form
       onSubmit={onSubmit}
       noValidate
-      className={loading ? "loading" : ""}
+      className={loadingProf ? "loading" : ""}
       style={{ paddingTop: "20px" }}
     >
       <h1>전문가 회원가입</h1>
@@ -69,15 +103,7 @@ function Register(props) {
         error={errors.username ? true : false}
         onChange={onChange}
       />
-      <Form.Input
-        label="Email"
-        placeholder="Email.."
-        name="email"
-        type="email"
-        value={values.email}
-        error={errors.email ? true : false}
-        onChange={onChange}
-      />
+
       <Form.Input
         label="Password"
         placeholder="Password.."
@@ -94,6 +120,78 @@ function Register(props) {
         type="password"
         value={values.confirmPassword}
         error={errors.confirmPassword ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Name"
+        placeholder="Name.."
+        name="name"
+        type="text"
+        value={values.name}
+        error={errors.name ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Gender"
+        placeholder="Gender.."
+        name="gender"
+        type="text"
+        value={values.gender}
+        error={errors.gender ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Birthday"
+        placeholder="Birthday.."
+        name="birthday"
+        type="text"
+        value={values.birthday}
+        error={errors.birthday ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Address"
+        placeholder="Address.."
+        name="address"
+        type="text"
+        value={values.address}
+        error={errors.address ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Occupation"
+        placeholder="Occupation.."
+        name="occupation"
+        type="text"
+        value={values.occupation}
+        error={errors.occupation ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Institution"
+        placeholder="Institution.."
+        name="institution"
+        type="text"
+        value={values.institution}
+        error={errors.institution ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Objective"
+        placeholder="Objective.."
+        name="objective"
+        type="text"
+        value={values.objective}
+        error={errors.objective ? true : false}
+        onChange={onChange}
+      />
+      <Form.Input
+        label="Email"
+        placeholder="Email.."
+        name="email"
+        type="email"
+        value={values.email}
+        error={errors.email ? true : false}
         onChange={onChange}
       />
       <Button type="submit" primary>
@@ -193,6 +291,44 @@ const REGISTER_USER = gql`
         email: $email
         password: $password
         confirmPassword: $confirmPassword
+      }
+    ) {
+      id
+      email
+      username
+      createdAt
+      token
+    }
+  }
+`;
+
+const REGISTER_PROFESSIONAL = gql`
+  mutation registerProfessional(
+    $username: String!
+    $password: String!
+    $confirmPassword: String!
+    $name: String!
+    $gender: String!
+    $birthday: String!
+    $address: String!
+    $occupation: String!
+    $institution: String!
+    $objective: String!
+    $email: String!
+  ) {
+    registerProfessional(
+      registerInput: {
+        username: $username
+        password: $password
+        confirmPassword: $confirmPassword
+        name: $name
+        gender: $gender
+        birthday: $birthday
+        address: $address
+        occupation: $occupation
+        institution: $institution
+        objective: $objective
+        email: $email
       }
     ) {
       id
