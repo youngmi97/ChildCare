@@ -35,11 +35,25 @@ function Login(props) {
     username: "",
     password: "",
   });
-
+  // For Parent aka User
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(_, { data: { login: userData } }) {
       context.login(userData);
       props.history.push("/");
+      console.log("executing USER login");
+    },
+    onError(err) {
+      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+    },
+    variables: values,
+  });
+
+  // For Professionals
+  const [loginProf, { loadingProf }] = useMutation(LOGIN_PROFESSIONAL, {
+    update(_, { data: { loginProfessional: userData } }) {
+      context.loginProf(userData);
+      props.history.push("/");
+      console.log("executing PROF login");
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
@@ -48,14 +62,18 @@ function Login(props) {
   });
 
   function loginUserCallback() {
-    loginUser();
+    if (userType) {
+      loginProf();
+    } else {
+      loginUser();
+    }
   }
 
   const LoginForm = userType ? (
     <Form
       onSubmit={onSubmit}
       noValidate
-      className={loading ? "loading" : ""}
+      className={loadingProf ? "loading" : ""}
       style={{ paddingTop: "20px" }}
     >
       <h1>전문가 로그인</h1>
@@ -147,6 +165,18 @@ function Login(props) {
 const LOGIN_USER = gql`
   mutation login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
+      id
+      email
+      username
+      createdAt
+      token
+    }
+  }
+`;
+
+const LOGIN_PROFESSIONAL = gql`
+  mutation loginProfessional($username: String!, $password: String!) {
+    loginProfessional(username: $username, password: $password) {
       id
       email
       username
