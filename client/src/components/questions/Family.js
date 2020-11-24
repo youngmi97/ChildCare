@@ -105,10 +105,10 @@ class Family extends Component {
                 name="paternalGrandparents"
                 id="paternalGrandparents"
                 value={this.state.paternalGrandparents}
-                onClick={() =>(
+                onClick={() =>
                   this.setState({
                     paternalGrandparents: !this.state.paternalGrandparents,
-                  }), this.calcFam(this.props.personal.familyMember))
+                  }) 
                 }
                 checked={this.state.paternalGrandparents === true}
               />{" "}

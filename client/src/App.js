@@ -26,8 +26,8 @@ const App = (props) => {
   return (
     <AuthProvider>
       <Router>
+      <MenuBar client={props.client} />
         <Container>
-          <MenuBar client={props.client} />
           <Route exact path="/" component={Home} />
           <Route exact path="/form" component={Form} client={props.client} />
           <Route exact path="/results" component={Results} />
