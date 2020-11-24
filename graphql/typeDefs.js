@@ -30,6 +30,14 @@ module.exports = gql`
     createdAt: String!
   }
 
+  type Professional {
+    id: ID!
+    email: String!
+    token: String!
+    username: String!
+    createdAt: String!
+  }
+
   type UserReturn {
     id: ID!
     username: String!
@@ -137,6 +145,10 @@ module.exports = gql`
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
+
+    #registerProfessional(registerInput: RegisterInput): Professional!
+    #loginProfessional(username: String!, password: String!): Professional!
+
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
     createComment(postId: String!, body: String!): Post!
