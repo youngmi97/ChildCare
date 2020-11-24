@@ -14,17 +14,15 @@ function Home() {
   console.log("user info", user);
 
   const display = user ? (
-    <div
-      style={{
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        fontSize: "50px",
-        transform: "translate(-50%, -50%)",
-      }}
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      direction="row"
     >
-      Hello {user.username} !
-    </div>
+      <HomeMain />
+    </Grid>
   ) : (
     <Grid
       container
