@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ChildForm from "../components/ChildForm";
-import { NewChildForm } from "../components/NewChildForm";
+import  NewChildForm  from "../components/NewChildForm";
 // import { AuthProvider } from "../context/auth";
 
 import { AuthContext } from "../context/auth";
@@ -139,8 +139,6 @@ class Form extends Component {
   render() {
     //console.log("userId", this.state.userId);
     return (
-      <div className="Form">
-        <header style={headerStyle}>토키아이</header>
         <div>
           <NewChildForm
             form={this.state.info}
@@ -149,7 +147,6 @@ class Form extends Component {
             client={this.props.client}
           />
         </div>
-      </div>
     );
   }
 }

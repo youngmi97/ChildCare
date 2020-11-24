@@ -149,7 +149,7 @@ class Illness extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="illnessAtBirth"
-                  value={this.state.illnessAtBirth}
+                  value={this.props.personal.illnessAtBirth}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -211,7 +211,7 @@ class Illness extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="illness"
-                  value={this.state.illness}
+                  value={this.props.personal.illness}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -273,7 +273,7 @@ class Illness extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="surgery"
-                  value={this.state.surgery}
+                  value={this.props.personal.surgery}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -335,7 +335,7 @@ class Illness extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="medication"
-                  value={this.state.medication}
+                  value={this.props.personal.medication}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel

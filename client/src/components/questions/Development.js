@@ -133,7 +133,7 @@ class Development extends Component {
             <FormControl component="fieldset">
               <RadioGroup
                 name="walkingAge"
-                value={this.state.walkingAge}
+                value={this.props.personal.walkingAge}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
@@ -177,7 +177,7 @@ class Development extends Component {
             <FormControl component="fieldset">
               <RadioGroup
                 name="speakingAge"
-                value={this.state.speakingAge}
+                value={this.props.personal.speakingAge}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
@@ -223,7 +223,7 @@ class Development extends Component {
             <FormControl component="fieldset">
               <RadioGroup
                 name="speakingAgeSentence"
-                value={this.state.speakingAgeSentence}
+                value={this.props.personal.speakingAgeSentence}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
@@ -274,7 +274,7 @@ class Development extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="developmentProblem"
-                  value={this.state.developmentProblem}
+                  value={this.props.personal.developmentProblem}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -336,7 +336,7 @@ class Development extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="muscleProblem"
-                  value={this.state.muscleProblem}
+                  value={this.props.personal.muscleProblem}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel

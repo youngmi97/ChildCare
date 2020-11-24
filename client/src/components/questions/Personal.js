@@ -64,7 +64,7 @@ const styles = (theme) => ({
 });
 
 class Personal extends Component {
-  
+
   state = {
     gender: "",
     broSis: "",
@@ -152,7 +152,7 @@ class Personal extends Component {
               <RadioGroup
                 id="gender"
                 name="gender"
-                value={this.state.gender}
+                value={this.props.personal.gender}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
@@ -261,7 +261,7 @@ class Personal extends Component {
             <FormControl component="fieldset">
               <RadioGroup
                 name="broSis"
-                value={this.state.broSis}
+                value={this.props.personal.broSis}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
@@ -312,7 +312,7 @@ class Personal extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="impaired"
-                  value={this.state.impaired}
+                  value={this.props.personal.impaired}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -489,7 +489,7 @@ class Personal extends Component {
             <FormControl component="fieldset">
               <RadioGroup
                 name="improvement"
-                value={this.state.improvement}
+                value={this.props.personal.improvement}
                 onChange={this.handleChange}
               >
                 <FormControlLabel
