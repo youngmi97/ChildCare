@@ -115,7 +115,7 @@ function STTResults() {
   // How Are we going to MERGE the Labeled Regions and the Detected Regions ????
 
   // Parent : Child
-  const [speechRatio, setSpeechRatio] = useState({ parent: 50, child: 50 });
+  const [speechRatio, setSpeechRatio] = useState({ parent: 70, child: 30 });
   const [speechRate, setSpeechRate] = useState({ parent: 3.1, child: 5.2 });
   //console.log("speechRatio", speechRatio.parent);
   //console.log("sample json", sampleResult.status);
