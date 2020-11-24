@@ -33,7 +33,7 @@ function MenuBar() {
         href="/"
       >
         {" "}
-        TALKI-i{" "}
+        i-Say Lab
       </a>
       <Menu.Item
         name="언어발달 평가"

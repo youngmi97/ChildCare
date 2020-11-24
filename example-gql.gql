@@ -1,0 +1,20 @@
+mutation {
+  registerProfessional(
+    registerInput: {
+      username: "firstprof"
+      password: "Waddle7331!"
+      confirmPassword: "Waddle7331!"
+      name: "beast"
+      gender: "male"
+      birthday: "1997-08-26"
+      address: "eoun dong"
+      occupation: "teacher"
+      institution: "KAIST"
+      objective: "none"
+      email: "waddle@gmail.com"
+    }
+  ) {
+    id
+    username
+  }
+}

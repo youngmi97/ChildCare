@@ -7,7 +7,8 @@ const {
   validateLoginInput,
 } = require("../../util/validators");
 const { SECRET_KEY } = require("../../config");
-const User = require("../../models/User");
+
+const Professional = require("../../models/Professional");
 
 function generateToken(user) {
   return jwt.sign(
@@ -21,15 +22,17 @@ function generateToken(user) {
   );
 }
 
+// Separate Login Context for Users and Professional
+
 module.exports = {
   Query: {
-    async getUsers() {
-      console.log("getUsers requested");
+    async getProfessionals() {
+      console.log("getProfessionals requested");
       try {
-        const users = await User.find();
+        const professionals = await Professional.find();
 
-        const filteredUsers = users.map((user) => {
-          return { id: user._id, username: user.username, email: user.email };
+        const filteredUsers = professionals.map((prof) => {
+          return { id: prof._id, username: prof.username, email: prof.email };
         });
 
         return filteredUsers;
@@ -40,40 +43,54 @@ module.exports = {
     },
   },
   Mutation: {
-    async login(_, { username, password }) {
+    async loginProfessional(_, { username, password }) {
       const { errors, valid } = validateLoginInput(username, password);
 
       if (!valid) {
         throw new UserInputError("Errors", { errors });
       }
 
-      const user = await User.findOne({ username });
+      const professional = await Professional.findOne({ username });
 
-      if (!user) {
+      if (!professional) {
         errors.general = "User not found";
         throw new UserInputError("User not found", { errors });
       }
 
-      const match = await bcrypt.compare(password, user.password);
+      const match = await bcrypt.compare(password, professional.password);
 
       if (!match) {
         errors.general = "Wrong crendetials";
         throw new UserInputError("Wrong crendetials", { errors });
       }
 
-      const token = generateToken(user);
+      const token = generateToken(professional);
 
       return {
-        ...user._doc,
-        id: user._id,
+        ...professional._doc,
+        id: professional._id,
         token,
       };
     },
-    async register(
+
+    async registerProfessional(
       _,
-      { registerInput: { username, email, password, confirmPassword } }
+      {
+        registerInput: {
+          username,
+          password,
+          confirmPassword,
+          name,
+          gender,
+          birthday,
+          address,
+          occupation,
+          institution,
+          objective,
+          email,
+        },
+      }
     ) {
-      // Validate user data
       const { valid, errors } = validateRegisterInput(
         username,
         email,
@@ -86,8 +103,8 @@ module.exports = {
       }
 
       // TODO: Make sure user doesnt already exist
-      const user = await User.findOne({ username });
-      if (user) {
+      const professional = await Professional.findOne({ username });
+      if (professional) {
         throw new UserInputError("Username is taken", {
           errors: {
             username: "This username is taken",
@@ -95,13 +112,20 @@ module.exports = {
         });
       }
 
-      // hash password and create an auth token
       password = await bcrypt.hash(password, 12);
 
-      const newUser = new User({
-        email,
+      // What fields are going to be optional?
+      const newUser = new Professional({
         username,
         password,
+        name,
+        gender,
+        birthday,
+        address,
+        occupation,
+        institution,
+        objective,
+        email,
         createdAt: new Date().toISOString(),
       });
 

@@ -10,20 +10,23 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import DashboardItem from "../components/DashboardItem";
 
-
 const columns = [
   { id: "name", label: "이름", minWidth: 100 },
+
   {
     id: "age",
     label: "생활연령",
     minWidth: 100,
   },
+
   { id: "childLang", label: "아동 언어", minWidth: 100 },
+
   {
     id: "parentLang",
     label: "부모 언어",
     minWidth: 100,
   },
+
   {
     id: "professional",
     label: "담당자",
@@ -42,14 +45,13 @@ function createData(name, age, childLang, parentLang, professional) {
   return { name, age, childLang, parentLang, professional };
 }
 
-const rows = [
-  createData("홍길동", "13", "한국어, 영어", "한국어", "김신영"),
-];
+const rows = [createData("홍길동", "13", "한국어, 영어", "한국어", "김신영")];
 
 const useStyles = makeStyles({
   root: {
     width: "100%",
   },
+
   container: {
     maxHeight: 440,
   },
@@ -57,6 +59,7 @@ const useStyles = makeStyles({
 
 export default function Dashboard() {
   const classes = useStyles();
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
