@@ -93,6 +93,7 @@ class NewChildForm extends Component {
 
   onChange = (e) => this.setState({ [e.target.id]: e.target.value });
   onChange2 = (e) => this.setState({ [e.target.name]: e.target.value });
+  onChange3 = (members) => {this.setState({familyMember: members})} 
 
   onContinue = (e) => {
     e.preventDefault();
@@ -489,8 +490,7 @@ class NewChildForm extends Component {
                 >
                   <Family
                     personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
+                    onChange3={this.onChange3}
                     onContinue={this.onContinue}
                     onBack={this.onBack}
                   />

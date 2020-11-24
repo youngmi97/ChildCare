@@ -14,39 +14,37 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const menuBar = user ? (
-    <Menu pointing secondary size="massive" color="violet">
+    <Menu secondary pointing size="massive" color="#FFB800" style={{backgroundColor: "white", padding:"5px"}} >
+      <a
+        style= {{marginTop: "14px", marginRight:"30px", marginLeft:"50px", color:"#FFB800", fontSize:"25px", fontWeight:"600"} }
+        href ="/"
+      > TALKI-i </a>
       <Menu.Item
-        name="welcome"
-        active={activeItem === "welcome"}
-        onClick={handleItemClick}
-        as={Link}
-        to="/"
-      />
-      <Menu.Item
-        name="form"
-        active={activeItem === "form"}
+        name="언어발달 평가"
+        active={activeItem === "언어발달 평가"}
         onClick={handleItemClick}
         as={Link}
         to="/form"
       />
 
       <Menu.Item
-        name="results"
-        active={activeItem === "results"}
+        name="평가결과"
+        active={activeItem === "평가결과"}
         onClick={handleItemClick}
         as={Link}
         to="/results"
       />
       <Menu.Item
-        name="STT"
-        active={activeItem === "STT"}
+        name="교육"
+        active={activeItem === "교육"}
         onClick={handleItemClick}
         as={Link}
-        to="/STT"
+        to="/lectures"
       />
 
       <Menu.Menu position="right">
         <Menu.Item
+        style={{marginRight:"50px"}}
           name="logout"
           // active={activeItem === "home"}
           onClick={logout}
