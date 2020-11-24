@@ -54,14 +54,11 @@ function MenuBar() {
       </Menu.Menu>
     </Menu>
   ) : (
-    <Menu pointing secondary size="massive" color="teal">
-      <Menu.Item
-        name="home"
-        active={activeItem === "home"}
-        onClick={handleItemClick}
-        as={Link}
-        to="/"
-      />
+    <Menu secondary pointing size="massive" color="#FFB800" style={{backgroundColor: "white", padding:"5px"}}>
+      <a
+        style= {{marginTop: "14px", marginRight:"30px", marginLeft:"50px", color:"#FFB800", fontSize:"25px", fontWeight:"600"} }
+        href ="/"
+      > TALKI-i </a>
 
       <Menu.Menu position="right">
         <Menu.Item
