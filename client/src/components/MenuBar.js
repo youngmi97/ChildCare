@@ -60,7 +60,7 @@ function MenuBar() {
         href ="/"
       > TALKI-i </a>
 
-      <Menu.Menu position="right">
+      <Menu.Menu position="right" style={{marginRight:"30px"}}>
         <Menu.Item
           name="login"
           active={activeItem === "login"}
