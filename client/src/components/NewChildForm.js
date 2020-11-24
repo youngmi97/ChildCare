@@ -31,7 +31,7 @@ const styles = (theme) => ({
   },
 });
 
-export class NewChildForm extends Component {
+class NewChildForm extends Component {
 
   componentDidUpdate(prevstate){
     if(prevstate.videoFiles!==this.state.videoFiles){

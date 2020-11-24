@@ -144,7 +144,7 @@ class Education extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="education"
-                  value={this.state.education}
+                  value={this.props.personal.education}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -209,7 +209,7 @@ class Education extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="history"
-                  value={this.state.history}
+                  value={this.props.personal.history}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
@@ -274,7 +274,7 @@ class Education extends Component {
               <FormControl component="fieldset">
                 <RadioGroup
                   name="teacherFeedback"
-                  value={this.state.teacherFeedback}
+                  value={this.props.personal.teacherFeedback}
                   onChange={this.handleChange}
                 >
                   <FormControlLabel
