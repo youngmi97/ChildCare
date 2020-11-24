@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "20px",
   },
 
+  cardImg: {
+    width: "30%",
+    marginTop: "30px",
+    float: "right",
+  },
+
   firstHalf: {
     height: "500px",
     // border: "solid",
@@ -110,6 +116,7 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>언어발달평가</div>
+            <img className={classes.cardImg} src="/checklist.png"></img>
           </Card>
         </Grid>
         <Grid
@@ -121,6 +128,7 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>연구참여신청</div>
+            <img className={classes.cardImg} src="/participation.png"></img>
           </Card>
         </Grid>
       </Grid>
@@ -141,6 +149,7 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>부모교육</div>
+            <img className={classes.cardImg} src="/family.png"></img>
           </Card>
         </Grid>
         <Grid
@@ -152,6 +161,7 @@ function HomeMain(props) {
         >
           <Card justify="center" className={classes.speechCard}>
             <div className={classes.optionCard}>전문가교육</div>
+            <img className={classes.cardImg} src="/teacher.png"></img>
           </Card>
         </Grid>
       </Grid>
