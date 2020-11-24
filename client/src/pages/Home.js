@@ -6,6 +6,7 @@ import { AuthContext } from "../context/auth";
 import PostCard from "../components/PostCard";
 import PostForm from "../components/PostForm";
 import { FETCH_POSTS_QUERY } from "../util/graphql";
+import HomeMain from "../components/home/HomeMain";
 
 function Home() {
   const { user } = useContext(AuthContext);
@@ -25,17 +26,15 @@ function Home() {
       Hello {user.username} !
     </div>
   ) : (
-    <div
-      style={{
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        fontSize: "70px",
-        transform: "translate(-50%, -50%)",
-      }}
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      direction="row"
     >
-      Welcome!
-    </div>
+      <HomeMain />
+    </Grid>
   );
 
   return display;
