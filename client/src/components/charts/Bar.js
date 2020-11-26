@@ -20,7 +20,7 @@ class Scatter extends Component {
                 height: 250			// bar차트. 아무 설정이 없으면 line chart가 된다.
             },
             title: {
-                text: '처리능력',
+                text: '',
                 style:{
                     fontWeight:"bold",
                 },

@@ -65,7 +65,7 @@ class Vertical extends Component {
         }
         return (
             <Fragment>
-                 <div style={{padding:'50px 0'}}>
+                 <div >
                     <HighchartsReact highcharts={Highcharts} options={options} />
                 </div>
             </Fragment>

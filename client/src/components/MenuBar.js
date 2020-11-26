@@ -92,11 +92,7 @@ function MenuBar() {
         TALKI-i{" "}
       </a>
 
-<<<<<<< HEAD
       <Menu.Menu position="right" style={{marginRight:"30px"}}>
-=======
-      <Menu.Menu position="right" style={{ marginRight: "30px" }}>
->>>>>>> 97b8824421f26caa162328b4d1297f28801d0f07
         <Menu.Item
           name="login"
           active={activeItem === "login"}

@@ -22,7 +22,7 @@ class Scatter extends Component {
                 height: this.props.height			// bar차트. 아무 설정이 없으면 line chart가 된다.
             },
             title: {
-                text: '기본정보',
+                text: '',
                 style:{
                     fontWeight:"bold",
                 },
@@ -83,7 +83,7 @@ class Scatter extends Component {
             <Fragment>
                  <div style={{padding:'50px 0'}}>
                     <HighchartsReact highcharts={Highcharts} options={options} />
-                    <div style = {{marginLeft:'60px'}}>
+                    <div style = {{marginLeft:'70px'}}>
                         <button style={{width:'10px', height:'14px', backgroundColor:'#C3FDB8', margin:'0px 10px', border: 'none'}} />이상없음 
                         <button style={{width:'10px', height:'14px', backgroundColor:'#FFF8C6' , margin:'0px 10px' , border: 'none'}} />주의요망 
                         <button style={{width:'10px', height:'14px', backgroundColor:'#FF7F50' , margin:'0px 10px',  border: 'none'}} /> 위험
