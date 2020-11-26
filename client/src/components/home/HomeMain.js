@@ -141,17 +141,10 @@ function HomeMain(props) {
         container
         className={classes.firstHalf}
         direction="row"
-        justify="left"
         alignItems="center"
         xs={12}
       >
-        <Grid
-          container
-          direction="column"
-          justify="left"
-          alignItems="left"
-          xs={4}
-        >
+        <Grid container direction="column" xs={4}>
           <div className={classes.textOnline}>Online</div>
           <div className={classes.mainText}>LANGUAGE</div>
           <div className={classes.mainText}>DEVELOPMENT</div>

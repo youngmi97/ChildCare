@@ -14,23 +14,11 @@ function Home() {
   console.log("user info", user);
 
   const display = user ? (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      direction="row"
-    >
+    <Grid container direction="row" justify="center" direction="row">
       <HomeMain />
     </Grid>
   ) : (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      direction="row"
-    >
+    <Grid container direction="row" justify="center" direction="row">
       <HomeMain />
     </Grid>
   );
