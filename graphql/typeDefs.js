@@ -51,6 +51,20 @@ module.exports = gql`
     email: String!
   }
 
+  input RegisterProfessionalInput {
+    username: String!
+    password: String!
+    confirmPassword: String!
+    name: String!
+    gender: String!
+    birthday: String!
+    address: String!
+    occupation: String!
+    institution: String!
+    objective: String!
+    email: String!
+  }
+
   type ChildForm {
     userId: String!
     gender: String!
@@ -139,6 +153,7 @@ module.exports = gql`
   type Query {
     getPosts: [Post]
     getUsers: [UserReturn]!
+    getProfessionals: [UserReturn]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
   }
@@ -146,8 +161,10 @@ module.exports = gql`
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
 
-    #registerProfessional(registerInput: RegisterInput): Professional!
-    #loginProfessional(username: String!, password: String!): Professional!
+    registerProfessional(
+      registerInput: RegisterProfessionalInput
+    ): Professional!
+    loginProfessional(username: String!, password: String!): Professional!
 
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
