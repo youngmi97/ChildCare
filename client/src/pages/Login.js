@@ -52,7 +52,7 @@ function Login(props) {
   const [loginProf, { loadingProf }] = useMutation(LOGIN_PROFESSIONAL, {
     update(_, { data: { loginProfessional: userData } }) {
       context.loginProf(userData);
-      props.history.push("/");
+      props.history.push("/dashboard");
       console.log("executing PROF login");
     },
     onError(err) {
