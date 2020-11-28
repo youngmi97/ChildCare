@@ -171,7 +171,7 @@ export default function Assessment() {
   console.log();
   console.log(step);
 
-  const [onChildFormSubmit, { data, loading, error }] = useMutation(
+  const [onChildFormSubmit, { data2, loading2, error2 }] = useMutation(
     SAVE_PROFESSIONAL_COMMENTS
   );
 
