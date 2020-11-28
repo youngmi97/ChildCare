@@ -9,6 +9,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import DashboardItem from "../components/DashboardItem";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -63,6 +65,8 @@ const useStyles = makeStyles({
 export default function Dashboard() {
   const classes = useStyles();
 
+  const handleChange = (event) => {};
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -105,7 +109,23 @@ export default function Dashboard() {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.id === "function" ? <DashboardItem /> : value}
+                          {column.id === "function" ? (
+                            <DashboardItem />
+                          ) : column.id === "professional" ? (
+                            <Select
+                              labelId="demo-simple-select-label"
+                              id="demo-simple-select"
+                              //value={}
+                              onChange={handleChange}
+                              style={{ width: "80px", fontSize: "12px" }}
+                            >
+                              <MenuItem value={"임동선"}>임동선</MenuItem>
+                              <MenuItem value={"박원정"}>박원정</MenuItem>
+                              <MenuItem value={"김신영"}>김신영</MenuItem>
+                            </Select>
+                          ) : (
+                            value
+                          )}
                         </TableCell>
                       );
                     })}
