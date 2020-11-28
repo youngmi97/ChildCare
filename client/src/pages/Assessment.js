@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     //borderColor: "red",
     //},
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#6C2DC7",
+      borderColor: "#FFB800",
     },
   },
 }));
@@ -168,6 +168,7 @@ export default function Assessment() {
   console.log();
   console.log(step);
 
+  const onSubmit = () => {};
   switch (step) {
     case 1:
       return (
@@ -936,11 +937,45 @@ export default function Assessment() {
         </Grid>
       );
 
-    default:
+    case 8: {
       return (
-        <div style={{ position: "absolute", top: "50%", left: "50%" }}>
-          평가완료
-        </div>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <button style={btnStyle} onClick={(onSubmit, onClick)}>
+            제출
+          </button>
+        </Grid>
       );
+    }
+
+    default: {
+      return (
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <p>평가결과가 제출되었습니다.</p>
+        </Grid>
+      );
+    }
   }
 }
+
+const btnStyle = {
+  margin: "50px",
+  backgroundColor: "#FFEBB8",
+  width: "150px",
+  height: "50px",
+  border: "none",
+  fontSize: "13px",
+  outlineColor: "#FFB800",
+  fontWeight: "600",
+};

@@ -75,6 +75,15 @@ export default function NewResults() {
   const [event2, setEvent2] = useState(3);
   const [speed1, setSpeed1] = useState(3.4);
   const [speed2, setSpeed2] = useState(1.6);
+  const [basicFeedback, setBasicFeedback] = useState("");
+  const [eduFeedback, setEduFeedback] = useState("");
+  const [devFeedback, setDevFeedback] = useState("");
+  const [illFeedback, setIllFeedback] = useState("");
+  const [famFeedback, setFamFeedback] = useState("");
+  const [nwrFeedback, setNwrFeedback] = useState("");
+  const [videoFeedback, setVideoFeedback] = useState("");
+  const [ovrFeedback, setOvrFeedback] = useState("");
+
 
   useMemo(() => {
     if (!error && !loading) {
@@ -86,6 +95,14 @@ export default function NewResults() {
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
       setFamScore(parseInt(data.getChildForm.familyScore, 10));
+      //setBasicFeedback()
+      //setEduFeedback()
+      //setDevFeedback()
+      //setIllFeedback()
+      //setFamFeedback()
+      //setNwrFeedback()
+      //setVideoFeedback()
+      //setOvrFeedback()
     }
   }, [data, error, loading]);
 
@@ -133,31 +150,46 @@ export default function NewResults() {
               />
             </Grid>
             <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              xs={6}
-              className={classes.text}
-            >
-              <div>
-                기본정보: ㅁ닝러ㅏㅣ넝라ㅣ머닝러ㅏㅣㄴ멍ㄴㅇ리ㅓㅁ니ㅏ어리ㅏㅁㄴ
-              </div>
-              <div>
-                교육력: ㅁ닝러ㅏㅣ넝라ㅣ머닝러ㅏㅣㄴ멍ㄴㅇ리ㅓㅁ니ㅏ어리ㅏㅁㄴ
-              </div>
-              <div>
-                발달력: ㅁ닝러ㅏㅣ넝라ㅣ머닝러ㅏㅣㄴ멍ㄴㅇ리ㅓㅁ니ㅏ어리ㅏㅁㄴ{" "}
-              </div>
-              <div>
-                병력: ㅁ닝러ㅏㅣ넝라ㅣ머닝러ㅏㅣㄴ멍ㄴㅇ리ㅓㅁ니ㅏ어리ㅏㅁㄴ
-              </div>
-              <div>
-                가족력: ㅁ닝러ㅏㅣ넝라ㅣ머닝러ㅏㅣㄴ멍ㄴㅇ리ㅓㅁ니ㅏ어리ㅏㅁㄴ
-              </div>
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+              >
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                xs={6}
+              >
+                <Scatter
+                    eduScore={eduScore}
+                    devScore={devScore}
+                    illScore={illScore}
+                    famScore={famScore}
+                    width = "400"
+                    height = "250"
+                    />
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                xs={6}
+                className={classes.text}
+              >
+                <div>기본정보: {basicFeedback}</div>
+                <div>교육력: {eduFeedback}</div>
+                <div>발달력: {devFeedback} </div>
+                <div>병력: {illFeedback}</div>
+                <div>가족력: {famFeedback}</div>
+
+              </Grid>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
 
         <Grid container className={classes.divider}>
           <Grid
@@ -186,25 +218,38 @@ export default function NewResults() {
               <Bar nwrScore={nwrScore} srScore={srScore} />
             </Grid>
             <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              xs={6}
-              className={classes.text}
-            >
-              <p style={{ padding: "20px 50px" }}>
-                아동은 검사 시， 웃는 얼굴로 검사자의 지시에 순순히 잘 따랐고，
-                놀이에서 공동 주의（(joint attention)를 형성하는 능력 역시 또래
-                아동에 비하여 볼 때 적절하 였다． 이는 아동의 적절한 주의집중
-                능력 및 호혜적인（reciprocal) 관계 형성 능력을 시사해주는
-                것이었다． 다만 놀이에 대한 관심이 자동차 놀이에 집중되어 있 어
-                대행자 놀이（agent play), 사회적인 역할 놀이（role play)와 같은
-                상징행동이 관찰되지 않았다．{" "}
-              </p>
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+              >
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                xs={6}
+              >
+                <Bar
+                    nwrScore={nwrScore} srScore={srScore}
+                    />
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                xs={6}
+                className={classes.text}
+              >
+                <p style={{ padding: "20px 50px" }}>
+            {nwrFeedback}
+          </p>
+              </Grid>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
 
         <Grid container className={classes.divider2}>
           <Grid
@@ -260,40 +305,36 @@ export default function NewResults() {
 
               <Grid
                 container
+                direction="column"
+                justify="center"
+                alignItems="center"
+                xs={6}
+                className={classes.text}
+              >
+                <p style={{ padding: "20px 50px" }}>
+                {videoFeedback}
+          </p>
+              </Grid>
+              </Grid>
+            </Grid>
+            <Grid container justify="center" >
+            <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+            > 
+                <div className={classes.tag}>총평</div> 
+            </Grid> 
+            <Grid
+                container
                 direction="row"
                 justify="center"
                 alignItems="center"
                 xs={12}
               >
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  xs={6}
-                >
-                  <Vertical
-                    event1={event1}
-                    event2={event2}
-                    chartName="이벤트 횟수"
-                    color="yellow"
-                    color2="red"
-                  />
-                </Grid>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  xs={6}
-                >
-                  <Vertical
-                    event1={speed1}
-                    event2={speed2}
-                    chartName="발화 속도"
-                    color2="gray"
-                  />
-                </Grid>
+                <p className={classes.ovr}> {ovrFeedback}</p>
               </Grid>
             </Grid>
             <Grid
@@ -316,7 +357,6 @@ export default function NewResults() {
               </p>
             </Grid>
           </Grid>
-        </Grid>
         <Grid container justify="center">
           <Grid
             container
