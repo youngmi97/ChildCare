@@ -1,9 +1,23 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card, Typography, TextField } from "@material-ui/core";
+import { Grid, Card } from "@material-ui/core";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 import "../../index.css";
 
 const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
   speechCard: {
     width: "80%",
     height: "250px",
@@ -68,6 +82,53 @@ const useStyles = makeStyles((theme) => ({
 function HomeMain(props) {
   const classes = useStyles();
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [cardDepth1, setCardDepth1] = useState(true);
+  const [cardDepth2, setCardDepth2] = useState(true);
+  const [cardDepth3, setCardDepth3] = useState(true);
+  const [cardDepth4, setCardDepth4] = useState(true);
+
+  function mouseCardOn1() {
+    setCardDepth1(false);
+  }
+
+  function mouseCardoff1() {
+    setCardDepth1(true);
+  }
+
+  function mouseCardOn2() {
+    setCardDepth2(false);
+  }
+
+  function mouseCardoff2() {
+    setCardDepth2(true);
+  }
+
+  function mouseCardOn3() {
+    setCardDepth3(false);
+  }
+
+  function mouseCardoff3() {
+    setCardDepth3(true);
+  }
+
+  function mouseCardOn4() {
+    setCardDepth4(false);
+  }
+
+  function mouseCardoff4() {
+    setCardDepth4(true);
+  }
+
   return (
     <Grid
       container
@@ -80,17 +141,10 @@ function HomeMain(props) {
         container
         className={classes.firstHalf}
         direction="row"
-        justify="left"
         alignItems="center"
         xs={12}
       >
-        <Grid
-          container
-          direction="column"
-          justify="left"
-          alignItems="left"
-          xs={4}
-        >
+        <Grid container direction="column" xs={4}>
           <div className={classes.textOnline}>Online</div>
           <div className={classes.mainText}>LANGUAGE</div>
           <div className={classes.mainText}>DEVELOPMENT</div>
@@ -124,7 +178,14 @@ function HomeMain(props) {
           alignItems="center"
           xs={6}
         >
-          <Card justify="center" className={classes.speechCard}>
+          <Card
+            justify="center"
+            className={classes.speechCard}
+            onMouseOver={mouseCardOn1}
+            onMouseOut={mouseCardoff1}
+            raised={cardDepth1}
+            onClick={handleOpen}
+          >
             <div className={classes.optionCard}>언어발달평가</div>
             <div className={classes.cardText}>
               {" "}
@@ -140,7 +201,14 @@ function HomeMain(props) {
           alignItems="center"
           xs={6}
         >
-          <Card justify="center" className={classes.speechCard}>
+          <Card
+            justify="center"
+            className={classes.speechCard}
+            onMouseOver={mouseCardOn2}
+            onMouseOut={mouseCardoff2}
+            raised={cardDepth2}
+            onClick={handleOpen}
+          >
             <div className={classes.optionCard}>연구참여신청</div>
             <div className={classes.cardText}>
               {" "}
@@ -166,7 +234,14 @@ function HomeMain(props) {
           alignItems="center"
           xs={6}
         >
-          <Card justify="center" className={classes.speechCard}>
+          <Card
+            justify="center"
+            className={classes.speechCard}
+            onMouseOver={mouseCardOn3}
+            onMouseOut={mouseCardoff3}
+            raised={cardDepth3}
+            onClick={handleOpen}
+          >
             <div className={classes.optionCard}>부모교육</div>
             <div className={classes.cardText}>
               {" "}
@@ -182,7 +257,14 @@ function HomeMain(props) {
           alignItems="center"
           xs={6}
         >
-          <Card justify="center" className={classes.speechCard}>
+          <Card
+            justify="center"
+            className={classes.speechCard}
+            onMouseOver={mouseCardOn4}
+            onMouseOut={mouseCardoff4}
+            raised={cardDepth4}
+            onClick={handleOpen}
+          >
             <div className={classes.optionCard}>전문가교육</div>
             <div className={classes.cardText}>
               {" "}
@@ -193,6 +275,27 @@ function HomeMain(props) {
           </Card>
         </Grid>
       </Grid>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2 id="transition-modal-title">회원가입후 이용가능합니다</h2>
+            <p id="transition-modal-description">
+              이미 회원이시라면 로그인을 해주세요
+            </p>
+          </div>
+        </Fade>
+      </Modal>
     </Grid>
   );
 }

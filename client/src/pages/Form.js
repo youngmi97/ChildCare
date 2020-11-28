@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ChildForm from "../components/ChildForm";
-import  NewChildForm  from "../components/NewChildForm";
+import NewChildForm from "../components/NewChildForm";
 // import { AuthProvider } from "../context/auth";
 
 import { AuthContext } from "../context/auth";
@@ -10,7 +10,8 @@ class Form extends Component {
 
   componentDidMount() {
     const { user } = this.context;
-    console.log(user); // { name: 'Tania', loggedIn: true }
+    //console.log(user);
+    // { name: 'Tania', loggedIn: true }
     //this.state.userId = user.id;
   }
 
@@ -139,14 +140,14 @@ class Form extends Component {
   render() {
     //console.log("userId", this.state.userId);
     return (
-        <div>
-          <NewChildForm
-            form={this.state.info}
-            newAnswer={this.newAnswer}
-            props={this.state.userId}
-            client={this.props.client}
-          />
-        </div>
+      <div>
+        <NewChildForm
+          form={this.state.info}
+          newAnswer={this.newAnswer}
+          props={this.state.userId}
+          client={this.props.client}
+        />
+      </div>
     );
   }
 }
