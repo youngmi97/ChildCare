@@ -12,6 +12,9 @@ import DashboardItem from "../components/DashboardItem";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+
 const columns = [
   { id: "name", label: "이름", minWidth: 100 },
 
@@ -66,6 +69,9 @@ export default function Dashboard() {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const { loading, error, data } = useQuery(GET_USERS);
+  console.log("users", data);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -141,3 +147,13 @@ export default function Dashboard() {
     </Paper>
   );
 }
+
+const GET_USERS = gql`
+  query getUsers {
+    getUsers {
+      id
+      username
+      email
+    }
+  }
+`;
