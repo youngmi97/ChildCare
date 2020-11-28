@@ -14,6 +14,9 @@ import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/react-hooks";
+
 const useStyles = makeStyles((theme) => ({
   testCard: {
     marginTop: "70px",
@@ -86,6 +89,7 @@ export default function Assessment() {
   const [familyMember, setFamilyMember] = useState("");
 
   const [step, setStep] = useState(1);
+
   const [perFeedback, setPerFeedback] = useState("");
   const [eduFeedback, setEduFeedback] = useState("");
   const [devFeedback, setDevFeedback] = useState("");
@@ -167,7 +171,25 @@ export default function Assessment() {
   console.log();
   console.log(step);
 
-  const onSubmit = () => {};
+  const [onChildFormSubmit, { data, loading, error }] = useMutation(
+    SAVE_PROFESSIONAL_COMMENTS
+  );
+
+  const onSubmit = () => {
+    // onChildFormSubmitonChildFormSubmit({
+    //   variables: {
+    //     username: "",
+    //     profId: user.id,
+    //     perFeedback: perFeedback,
+    //     eduFeedback: eduFeedback,
+    //     devFeedback: devFeedback,
+    //     illFeedback: illFeedback,
+    //     famFeedback: famFeedback,
+    //     nwrFeedback: nwrFeedback,
+    //     ovrFeedback: ovrFeedback,
+    //   },
+    // });
+  };
   switch (step) {
     case 1:
       return (
@@ -978,3 +1000,31 @@ const btnStyle = {
   outlineColor: "#FFB800",
   fontWeight: "600",
 };
+
+const SAVE_PROFESSIONAL_COMMENTS = gql`
+  mutation createProfComment(
+    $username: String!
+    $profId: String!
+    $perFeedback: String!
+    $eduFeedback: String!
+    $devFeedback: String!
+    $illFeedback: String!
+    $famFeedback: String!
+    $nwrFeedback: String!
+    $ovrFeedback: String!
+  ) {
+    createProfComment(
+      profComment: {
+        username: $username
+        profId: $profId
+        perFeedback: $perFeedback
+        eduFeedback: $eduFeedback
+        devFeedback: $devFeedback
+        illFeedback: $illFeedback
+        famFeedback: $famFeedback
+        nwrFeedback: $nwrFeedback
+        ovrFeedback: $ovrFeedback
+      }
+    )
+  }
+`;

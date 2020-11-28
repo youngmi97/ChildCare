@@ -17,6 +17,31 @@ module.exports = gql`
     username: String!
     body: String!
   }
+
+  type ProfComment {
+    username: String!
+    profId: String!
+    perFeedback: String
+    eduFeedback: String
+    devFeedback: String
+    illFeedback: String
+    famFeedback: String
+    nwrFeedback: String
+    ovrFeedback: String
+  }
+
+  input ProfCommentInput {
+    username: String!
+    profId: String!
+    perFeedback: String
+    eduFeedback: String
+    devFeedback: String
+    illFeedback: String
+    famFeedback: String
+    nwrFeedback: String
+    ovrFeedback: String
+  }
+
   type Like {
     id: ID!
     createdAt: String!
@@ -156,6 +181,7 @@ module.exports = gql`
     getProfessionals: [UserReturn]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
+    getProfComment(profId: String!, username: String!): ProfComment!
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -172,6 +198,8 @@ module.exports = gql`
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
     submitChildForm(childForm: ChildFormInput): Boolean!
+
+    createProfComment(profComment: ProfCommentInput): Boolean!
   }
   type Subscription {
     newPost: Post!
