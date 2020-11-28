@@ -18,3 +18,31 @@ mutation {
     username
   }
 }
+
+mutation {
+  createProfComment(
+    profComment: {
+      username: "username"
+      profId: "profId"
+      perFeedback: "perFeedback"
+      eduFeedback: "perFeedback"
+      devFeedback: "perFeedback"
+      illFeedback: "perFeedback"
+      famFeedback: "perFeedback"
+      nwrFeedback: "perFeedback"
+      ovrFeedback: "perFeedback"
+    }
+  )
+}
+
+query {
+  getProfComment(username: "username", profId: "profId") {
+    perFeedback
+    eduFeedback
+    devFeedback
+    illFeedback
+    famFeedback
+    nwrFeedback
+    ovrFeedback
+  }
+}
