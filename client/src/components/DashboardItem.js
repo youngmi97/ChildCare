@@ -33,7 +33,7 @@ export default function IconButtons() {
         <AssessmentIcon />
       </IconButton>
       <IconButton color="primary">
-        <VideoLibraryIcon />
+        <VideoLibraryIcon onClick = { () => history.push('./stt')}/>
       </IconButton>
       <IconButton color="secondary">
         <EmailIcon />
