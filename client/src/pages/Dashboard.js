@@ -154,6 +154,10 @@ const GET_USERS = gql`
       id
       username
       email
+      name
+      dateOfBirth
+      primaryLanguage
+      schoolLanguage
     }
   }
 `;

@@ -67,6 +67,10 @@ module.exports = gql`
     id: ID!
     username: String!
     email: String!
+    name: String!
+    dateOfBirth: String!
+    primaryLanguage: String!
+    schoolLanguage: String!
   }
 
   input RegisterInput {
