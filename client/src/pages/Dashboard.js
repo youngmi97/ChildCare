@@ -72,10 +72,23 @@ export default function Dashboard() {
   const [userList, setUserList] = React.useState([]);
 
   const { loading, error, data } = useQuery(GET_USERS);
-
-  var i;
-
   const rows = [];
+
+  if (!error && !loading) {
+    console.log(data);
+
+    data.getUsers.map((user) => {
+      rows.push(
+        createData(
+          user.name,
+          user.dateOfBirth,
+          user.primaryLanguage,
+          user.schoolLanguage,
+          "임동선"
+        )
+      );
+    });
+  }
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
