@@ -52,7 +52,7 @@ module.exports = {
           };
         });
 
-        console.log("filteredUsers", filteredUsers);
+        // console.log("filteredUsers", filteredUsers);
         return filteredUsers;
       } catch (err) {
         console.log("getUsers error");

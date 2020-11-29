@@ -35,17 +35,24 @@ function STT() {
       // test api gateway REST call
       const api =
         "https://85sgmxl2m9.execute-api.us-east-1.amazonaws.com/staging2";
-      const data = { name: "Mike" };
+      const data = { body: { name: "Mike" } };
 
       // Something wrong on the lambda side
+      // parse body into JSON and utilize resource
 
+      // STT Result Retrieval Flow:
+      // 1. Send file to S3 using aws-sdk
+      // --> .mp4 -> .mp3 -> .json should persist the same file name
+      // --> unique file name, save json result to db after return
+      // 2. axios post request, send file name
+      // 3. wait for response which should return the .json stt result
       axios
         .post(api, data)
         .then((response) => {
-          console.log(response);
+          console.log("response", response);
         })
         .catch((error) => {
-          console.log(error);
+          console.log("error", error);
         });
     }
   }, [videoFiles]);
