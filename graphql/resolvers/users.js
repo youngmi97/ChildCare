@@ -8,6 +8,7 @@ const {
 } = require("../../util/validators");
 const { SECRET_KEY } = require("../../config");
 const User = require("../../models/User");
+const ChildForm = require("../../models/ChildForm");
 
 function generateToken(user) {
   return jwt.sign(
@@ -28,10 +29,30 @@ module.exports = {
       try {
         const users = await User.find();
 
-        const filteredUsers = users.map((user) => {
-          return { id: user._id, username: user.username, email: user.email };
+        //name, dateOfBirth, primaryLanguage, schoolLanguage
+
+        const filteredUsers = users.map(async (user) => {
+          const userChildForm = await ChildForm.find({ userId: user._id });
+
+          const name = userChildForm.length > 0 ? userChildForm[0].name : "";
+          const dateOfBirth =
+            userChildForm.length > 0 ? userChildForm[0].dateOfBirth : "";
+          const primaryLanguage =
+            userChildForm.length > 0 ? userChildForm[0].primaryLanguage : "";
+          const schoolLanguage =
+            userChildForm.length > 0 ? userChildForm[0].schoolLanguage : "";
+          return {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            name: name,
+            dateOfBirth: dateOfBirth,
+            primaryLanguage: primaryLanguage,
+            schoolLanguage: schoolLanguage,
+          };
         });
 
+        console.log("filteredUsers", filteredUsers);
         return filteredUsers;
       } catch (err) {
         console.log("getUsers error");
