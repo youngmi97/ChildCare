@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 
@@ -21,17 +21,16 @@ import { constant } from "lodash";
 import Lectures from "./pages/Lectures/Lectures";
 import NewResults from "./pages/NewResults";
 import { AuthContext } from "./context/auth";
-
+import Diary from "./pages/Lectures/Diary";
 
 const App = (props) => {
   const { user } = useContext(AuthContext);
   console.log("user prof", user);
 
-
   return (
     <AuthProvider>
       <Router>
-      <MenuBar client={props.client} />
+        <MenuBar client={props.client} />
         <Container>
           <Route exact path="/" component={Home} />
           <Route exact path="/form" component={Form} client={props.client} />
@@ -40,6 +39,7 @@ const App = (props) => {
           <Route exact path="/assessment" component={Assessment} />
           <Route exact path="/stt" component={STT} />
           <Route exact path="/lectures" component={Lectures} />
+          <Route exact path="/temp" component={Diary} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/posts/:postId" component={SinglePost} />
