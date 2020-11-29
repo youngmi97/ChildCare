@@ -11,6 +11,8 @@ import TableRow from "@material-ui/core/TableRow";
 import DashboardItem from "../components/DashboardItem";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { GET_CHILD_FORM } from "../Mutations";
+import DashboardName from "../dashboard/DashboardName";
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -50,8 +52,6 @@ function createData(name, age, childLang, parentLang, professional) {
   return { name, age, childLang, parentLang, professional };
 }
 
-const rows = [createData("홍길동", "13", "한국어, 영어", "한국어", "김신영")];
-
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -69,9 +69,13 @@ export default function Dashboard() {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [userList, setUserList] = React.useState([]);
 
   const { loading, error, data } = useQuery(GET_USERS);
-  console.log("users", data);
+
+  var i;
+
+  const rows = [];
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
