@@ -41,7 +41,7 @@ function ChildFormSubmit(props) {
         gender: props.input.gender || "",
         name: props.input.name || "",
         email: props.input.email || "",
-        dateOfBirth: calcAge(props.input.dateOfBirth) || "",
+        dateOfBirth: props.input.dateOfBirth || "",
         primaryLanguage: props.input.primaryLanguage || "",
         education: props.input.education || "",
         history: props.input.history || "",

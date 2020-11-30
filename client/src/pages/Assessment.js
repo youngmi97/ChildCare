@@ -13,6 +13,7 @@ import NWRSR from "../components/assessment/NWRSR";
 import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
@@ -38,12 +39,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Assessment() {
+  const calcAge = (date) => {
+    var year;
+    var month;
+
+    if (date.length < 8) {
+      return;
+    } else {
+      year = date.substring(0, 4);
+      month = date.substring(4, 6);
+      var today = new Date();
+      var mm = String(today.getMonth() + 1); //January is 0!
+      var yyyy = today.getFullYear();
+      var childYear = yyyy - year;
+      var childMonth = mm - month;
+      if (childMonth < 0) {
+        childMonth = 12 + childMonth;
+        childYear = childYear - 1;
+      }
+    }
+
+    return childYear + "년" + childMonth + "개월";
+  };
   //passed as prop later
   const classes = useStyles();
   const { user } = useContext(AuthContext);
 
+  const location = useLocation();
+  console.log(location.state.user);
+
   const { loading, error, data } = useQuery(GET_CHILD_FORM, {
-    variables: { userId: user.id },
+    variables: { userId: location.state.user },
   });
 
   if (loading) {
@@ -176,19 +202,19 @@ export default function Assessment() {
   );
 
   const onSubmit = () => {
-    // onChildFormSubmitonChildFormSubmit({
-    //   variables: {
-    //     username: "",
-    //     profId: user.id,
-    //     perFeedback: perFeedback,
-    //     eduFeedback: eduFeedback,
-    //     devFeedback: devFeedback,
-    //     illFeedback: illFeedback,
-    //     famFeedback: famFeedback,
-    //     nwrFeedback: nwrFeedback,
-    //     ovrFeedback: ovrFeedback,
-    //   },
-    // });
+    onChildFormSubmit({
+      variables: {
+        username: location.state.user,
+        profId: user.id,
+        perFeedback: perFeedback,
+        eduFeedback: eduFeedback,
+        devFeedback: devFeedback,
+        illFeedback: illFeedback,
+        famFeedback: famFeedback,
+        nwrFeedback: nwrFeedback,
+        ovrFeedback: ovrFeedback,
+      },
+    });
   };
   switch (step) {
     case 1:
@@ -247,7 +273,7 @@ export default function Assessment() {
                     <Personal
                       name={name}
                       gender={gender}
-                      dateOfBirth={dateOfBirth}
+                      dateOfBirth={calcAge(dateOfBirth)}
                       broSis={broSis}
                       impaired={impaired}
                       impairment={impairment}
@@ -711,7 +737,7 @@ export default function Assessment() {
                     <TextField
                       className={classes.root}
                       id="famFeedback"
-                      onChange={onChange3}
+                      onChange={onChange4}
                       label="제언사항"
                       multiline
                       rows={4}
@@ -815,7 +841,7 @@ export default function Assessment() {
                     <TextField
                       className={classes.root}
                       id="nwrFeedback"
-                      onChange={onChange3}
+                      onChange={onChange5}
                       label="제언사항"
                       multiline
                       rows={4}
@@ -919,7 +945,7 @@ export default function Assessment() {
                     <TextField
                       className={classes.root}
                       id="ovrFeedback"
-                      onChange={onChange3}
+                      onChange={onChange6}
                       label="제언사항"
                       multiline
                       rows={4}
@@ -967,7 +993,13 @@ export default function Assessment() {
           alignItems="center"
           xs={12}
         >
-          <button style={btnStyle} onClick={(onSubmit, onClick)}>
+          <button
+            style={btnStyle}
+            onClick={() => {
+              onSubmit();
+              onClick();
+            }}
+          >
             제출
           </button>
         </Grid>

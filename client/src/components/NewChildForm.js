@@ -561,7 +561,9 @@ class NewChildForm extends Component {
         );
       }
       case 6: {
-        return <ChildFormSubmit />;
+        return (
+          <ChildFormSubmit onContinue={this.onContinue} input={this.state} />
+        );
       }
     }
   }
