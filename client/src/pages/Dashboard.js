@@ -18,26 +18,29 @@ import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const columns = [
-  { id: "name", label: "이름", minWidth: 100 },
+  { id: "name", label: "이름", minWidth: 100, align: "center" },
 
   {
     id: "age",
     label: "생활연령",
     minWidth: 100,
+    align: "center",
   },
 
-  { id: "childLang", label: "아동 언어", minWidth: 100 },
+  { id: "childLang", label: "아동 언어", minWidth: 100, align: "center" },
 
   {
     id: "parentLang",
     label: "부모 언어",
     minWidth: 100,
+    align: "center",
   },
 
   {
     id: "professional",
     label: "담당자",
     minWidth: 100,
+    align: "center",
   },
 
   {
@@ -48,8 +51,8 @@ const columns = [
   },
 ];
 
-function createData(name, age, childLang, parentLang, professional) {
-  return { name, age, childLang, parentLang, professional };
+function createData(name, age, childLang, parentLang, professional, id) {
+  return { name, age, childLang, parentLang, professional, id };
 }
 
 const useStyles = makeStyles({
@@ -63,6 +66,30 @@ const useStyles = makeStyles({
 });
 
 export default function Dashboard() {
+  const calcAge = (date) => {
+    var year;
+    var month;
+
+    if (!error && !loading) {
+      if (date.length < 8) {
+        return;
+      } else {
+        year = date.substring(0, 4);
+        month = date.substring(4, 6);
+        var today = new Date();
+        var mm = String(today.getMonth() + 1); //January is 0!
+        var yyyy = today.getFullYear();
+        var childYear = yyyy - year;
+        var childMonth = mm - month;
+        if (childMonth < 0) {
+          childMonth = 12 + childMonth;
+          childYear = childYear - 1;
+        }
+      }
+    }
+
+    return childYear + "년" + childMonth + "개월";
+  };
   const classes = useStyles();
 
   const handleChange = (event) => {};
@@ -81,10 +108,11 @@ export default function Dashboard() {
       rows.push(
         createData(
           user.name,
-          user.dateOfBirth,
+          calcAge(user.dateOfBirth),
           user.primaryLanguage,
           user.schoolLanguage,
-          "임동선"
+          "임동선",
+          user.id
         )
       );
     });
@@ -127,7 +155,7 @@ export default function Dashboard() {
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.id === "function" ? (
-                            <DashboardItem />
+                            <DashboardItem id={row["id"]} />
                           ) : column.id === "professional" ? (
                             <Select
                               labelId="demo-simple-select-label"

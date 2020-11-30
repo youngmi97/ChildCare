@@ -39,7 +39,7 @@ module.exports = {
         nwrFeedback: parsedShit.nwrFeedback,
         ovrFeedback: parsedShit.ovrFeedback,
       });
-
+      console.log(newProfComment);
       await newProfComment.save();
 
       return true;
