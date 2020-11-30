@@ -181,12 +181,21 @@ module.exports = gql`
 
   type ChildDiaries {
     userId: String
-    activity: diaryField
-    selected: diaryField
-    comment: diaryField
+    activity: diaryProgram
+    selected: diaryProgram
+    comment: diaryProgram
   }
 
-  type diaryField {
+  type diaryProgram {
+    program1: diaryWeek
+    program2: diaryWeek
+    program3: diaryWeek
+    program4: diaryWeek
+    program5: diaryWeek
+    program6: diaryWeek
+  }
+
+  type diaryWeek {
     monday: String
     tuesday: String
     wednesday: String
@@ -198,7 +207,8 @@ module.exports = gql`
 
   input ChildDiaryInput {
     userId: String
-    index: String
+    program: String
+    day: String
     activity: String
     selected: String
     comment: String

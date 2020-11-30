@@ -1,34 +1,20 @@
 const ChildDiary = require("../../models/ChildDiary");
 
+const week = {
+  monday: "",
+  tuesday: "",
+  wednesday: "",
+  thursday: "",
+  friday: "",
+  saturday: "",
+  sunday: "",
+};
+
 const emptyReturn = {
   userId: "",
-  selected: {
-    monday: "",
-    tuesday: "",
-    wednesday: "",
-    thursday: "",
-    friday: "",
-    saturday: "",
-    sunday: "",
-  },
-  activity: {
-    monday: "",
-    tuesday: "",
-    wednesday: "",
-    thursday: "",
-    friday: "",
-    saturday: "",
-    sunday: "",
-  },
-  comment: {
-    monday: "",
-    tuesday: "",
-    wednesday: "",
-    thursday: "",
-    friday: "",
-    saturday: "",
-    sunday: "",
-  },
+  selected: week,
+  activity: week,
+  comment: week,
 };
 
 module.exports = {
@@ -67,12 +53,16 @@ module.exports = {
         console.log("updating existing diary");
         // add to existing diary
         // Check if its an update or an addition by checking the date
-        const incomingDate = diaryInput.index;
+        const incomingProgram = diaryInput.program;
+        const incomingDay = diaryInput.day;
         //console.log("incomingDate", diaryInput);
 
-        updatingDiary.selected[incomingDate] = diaryInput.selected;
-        updatingDiary.activity[incomingDate] = diaryInput.activity;
-        updatingDiary.comment[incomingDate] = diaryInput.comment;
+        updatingDiary.selected[incomingProgram][incomingDay] =
+          diaryInput.selected;
+        updatingDiary.activity[incomingProgram][incomingDay] =
+          diaryInput.activity;
+        updatingDiary.comment[incomingProgram][incomingDay] =
+          diaryInput.comment;
 
         //console.log("updatingDiary", updatingDiary);
 
@@ -101,9 +91,10 @@ module.exports = {
         // !CERATE
         console.log("creating new diary");
         // create a new diary and add to initial fields
-        const incomingDate = diaryInput.index;
+        const incomingProgram = diaryInput.program;
+        const incomingDay = diaryInput.day;
 
-        const initFields = {
+        const initDays = {
           monday: "",
           tuesday: "",
           wednesday: "",
@@ -113,13 +104,38 @@ module.exports = {
           sunday: "",
         };
 
-        const initSelectedFields = initFields;
-        const initActivityFields = initFields;
-        const initCommentFields = initFields;
+        const initPrograms1 = {
+          program1: Object.assign({}, initDays),
+          program2: Object.assign({}, initDays),
+          program3: Object.assign({}, initDays),
+          program4: Object.assign({}, initDays),
+          program5: Object.assign({}, initDays),
+          program6: Object.assign({}, initDays),
+        };
+        const initPrograms2 = {
+          program1: Object.assign({}, initDays),
+          program2: Object.assign({}, initDays),
+          program3: Object.assign({}, initDays),
+          program4: Object.assign({}, initDays),
+          program5: Object.assign({}, initDays),
+          program6: Object.assign({}, initDays),
+        };
+        const initPrograms3 = {
+          program1: Object.assign({}, initDays),
+          program2: Object.assign({}, initDays),
+          program3: Object.assign({}, initDays),
+          program4: Object.assign({}, initDays),
+          program5: Object.assign({}, initDays),
+          program6: Object.assign({}, initDays),
+        };
 
-        initSelectedFields[incomingDate] = diaryInput.selected;
-        initActivityFields[incomingDate] = diaryInput.activity;
-        initCommentFields[incomingDate] = diaryInput.comment;
+        const initSelectedFields = Object.assign({}, initPrograms1);
+        const initActivityFields = Object.assign({}, initPrograms2);
+        const initCommentFields = Object.assign({}, initPrograms3);
+
+        initSelectedFields[incomingProgram][incomingDay] = diaryInput.selected;
+        initActivityFields[incomingProgram][incomingDay] = diaryInput.activity;
+        initCommentFields[incomingProgram][incomingDay] = diaryInput.comment;
 
         const newChildDiary = new ChildDiary({
           userId: diaryInput.userId,

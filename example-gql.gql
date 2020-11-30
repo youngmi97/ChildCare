@@ -51,39 +51,25 @@ mutation {
   createChildDiary(
     diaryInput: {
       userId: "5f82fcb714282cefcf02d9d0"
-      index: "monday"
-      activity: "happy"
-      selected: "some activity"
+      program: "program1"
+      day: "monday"
+      activity: "some activity"
+      selected: "happy"
       comment: "some comment"
     }
   ) {
     userId
     selected {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
+      program1 {
+        monday
+        tuesday
+      }
     }
     comment {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
-    }
-    activity {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
+      program1 {
+        monday
+        tuesday
+      }
     }
   }
 }
@@ -92,31 +78,10 @@ query {
   getChildDiaries(userId: "5f82fcb714282cefcf02d9d0") {
     userId
     selected {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
-    }
-    activity {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
-    }
-    comment {
-      monday
-      tuesday
-      wednesday
-      thursday
-      friday
-      saturday
-      sunday
+      program1 {
+        monday
+        tuesday
+      }
     }
   }
 }
