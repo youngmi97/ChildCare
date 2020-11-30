@@ -8,10 +8,11 @@ import Development from "./questions/Development";
 import Illness from "./questions/Illness";
 import Family from "./questions/Family";
 import Video from "./questions/Video";
+import ChildFormSubmit from "./ChildFormSubmit";
 
 const styles = (theme) => ({
-  root:{
-    marginTop:"50px"
+  root: {
+    marginTop: "50px",
   },
 
   textField: {
@@ -32,10 +33,9 @@ const styles = (theme) => ({
 });
 
 class NewChildForm extends Component {
-
-  componentDidUpdate(prevstate){
-    if(prevstate.videoFiles!==this.state.videoFiles){
-      console.log(this.state.videoFiles[0])
+  componentDidUpdate(prevstate) {
+    if (prevstate.videoFiles !== this.state.videoFiles) {
+      console.log(this.state.videoFiles[0]);
     }
   }
 
@@ -72,7 +72,7 @@ class NewChildForm extends Component {
     medication1: "",
     familyHistory: "",
     familyMember: "",
-    videoFiles: ""
+    videoFiles: "",
   };
 
   onStart = (e) => {
@@ -82,8 +82,8 @@ class NewChildForm extends Component {
 
   handleVideoUpload = (videoData) => {
     console.log("here now", videoData);
-    this.setState({videoFiles: videoData});
-  }
+    this.setState({ videoFiles: videoData });
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -93,7 +93,9 @@ class NewChildForm extends Component {
 
   onChange = (e) => this.setState({ [e.target.id]: e.target.value });
   onChange2 = (e) => this.setState({ [e.target.name]: e.target.value });
-  onChange3 = (members) => {this.setState({familyMember: members})} 
+  onChange3 = (members) => {
+    this.setState({ familyMember: members });
+  };
 
   onContinue = (e) => {
     e.preventDefault();
@@ -185,7 +187,7 @@ class NewChildForm extends Component {
     this.setState({
       step: step + 1,
     });
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
   prevStep = () => {
@@ -193,9 +195,8 @@ class NewChildForm extends Component {
     this.setState({
       step: step - 1,
     });
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
-  
 
   render() {
     const { classes } = this.props;
@@ -559,9 +560,11 @@ class NewChildForm extends Component {
           </div>
         );
       }
+      case 6: {
+        return <ChildFormSubmit />;
+      }
     }
   }
 }
 
 export default withStyles(styles)(NewChildForm);
-
