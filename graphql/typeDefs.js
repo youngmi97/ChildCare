@@ -179,6 +179,31 @@ module.exports = gql`
     familyMember: String
   }
 
+  type ChildDiaries {
+    userId: String
+    activity: diaryField
+    selected: diaryField
+    comment: diaryField
+  }
+
+  type diaryField {
+    monday: String
+    tuesday: String
+    wednesday: String
+    thursday: String
+    friday: String
+    saturday: String
+    sunday: String
+  }
+
+  input ChildDiaryInput {
+    userId: String
+    index: String
+    activity: String
+    selected: String
+    comment: String
+  }
+
   type Query {
     getPosts: [Post]
     getUsers: [UserReturn]!
@@ -186,6 +211,7 @@ module.exports = gql`
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
     getProfComment(profId: String!, username: String!): ProfComment!
+    getChildDiaries(userId: String!): ChildDiaries!
   }
   type Mutation {
     register(registerInput: RegisterInput): User!
@@ -195,6 +221,8 @@ module.exports = gql`
       registerInput: RegisterProfessionalInput
     ): Professional!
     loginProfessional(username: String!, password: String!): Professional!
+
+    createChildDiary(diaryInput: ChildDiaryInput): ChildDiaries!
 
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
