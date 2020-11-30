@@ -130,4 +130,18 @@ const GET_CHILD_FORM = gql`
   }
 `;
 
-export { SUBMIT_CHILD_FORM, GET_CHILD_FORM };
+const GET_PROF_COMMENTS = gql`
+  query getProfComment($userId: String!) {
+    getProfComment(userId: $userId) {
+      perFeedback
+      eduFeedback
+      devFeedback
+      illFeedback
+      famFeedback
+      nwrFeedback
+      ovrFeedback
+    }
+  }
+`;
+
+export { SUBMIT_CHILD_FORM, GET_CHILD_FORM, GET_PROF_COMMENTS };

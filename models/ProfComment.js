@@ -1,7 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 const professionalComment = new Schema({
-  username: String,
+  userId: String,
   profId: String,
   perFeedback: String,
   eduFeedback: String,

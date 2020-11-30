@@ -19,7 +19,7 @@ module.exports = gql`
   }
 
   type ProfComment {
-    username: String!
+    userId: String!
     profId: String!
     perFeedback: String
     eduFeedback: String
@@ -31,7 +31,7 @@ module.exports = gql`
   }
 
   input ProfCommentInput {
-    username: String!
+    userId: String!
     profId: String!
     perFeedback: String
     eduFeedback: String
@@ -181,12 +181,21 @@ module.exports = gql`
 
   type ChildDiaries {
     userId: String
-    activity: diaryField
-    selected: diaryField
-    comment: diaryField
+    activity: diaryProgram
+    selected: diaryProgram
+    comment: diaryProgram
   }
 
-  type diaryField {
+  type diaryProgram {
+    program1: diaryWeek
+    program2: diaryWeek
+    program3: diaryWeek
+    program4: diaryWeek
+    program5: diaryWeek
+    program6: diaryWeek
+  }
+
+  type diaryWeek {
     monday: String
     tuesday: String
     wednesday: String
@@ -198,7 +207,8 @@ module.exports = gql`
 
   input ChildDiaryInput {
     userId: String
-    index: String
+    program: String
+    day: String
     activity: String
     selected: String
     comment: String
@@ -210,7 +220,7 @@ module.exports = gql`
     getProfessionals: [UserReturn]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
-    getProfComment(profId: String!, username: String!): ProfComment!
+    getProfComment(userId: String!): ProfComment!
     getChildDiaries(userId: String!): ChildDiaries!
   }
   type Mutation {
