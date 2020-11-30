@@ -2,14 +2,13 @@ const ProfComment = require("../../models/ProfComment");
 
 module.exports = {
   Query: {
-    async getProfComment(_, { profId, username }) {
+    async getProfComment(_, { userId }) {
       try {
         console.log("getProfComment Query called");
         const profComment = await ProfComment.find({
-          profId: profId,
-          username: username,
+          userId: userId,
         });
-        //console.log("childForm return", childForm);
+
         return profComment[0];
       } catch (err) {
         console.log("getProfComment error");
@@ -29,7 +28,7 @@ module.exports = {
       console.log("parsed shit", JSON.parse(JSON.stringify(profComment)));
 
       const newProfComment = new ProfComment({
-        username: parsedShit.username,
+        userId: parsedShit.userId,
         profId: parsedShit.profId,
         perFeedback: parsedShit.perFeedback,
         eduFeedback: parsedShit.eduFeedback,

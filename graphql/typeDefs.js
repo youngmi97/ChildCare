@@ -19,7 +19,7 @@ module.exports = gql`
   }
 
   type ProfComment {
-    username: String!
+    userId: String!
     profId: String!
     perFeedback: String
     eduFeedback: String
@@ -31,7 +31,7 @@ module.exports = gql`
   }
 
   input ProfCommentInput {
-    username: String!
+    userId: String!
     profId: String!
     perFeedback: String
     eduFeedback: String
@@ -220,7 +220,7 @@ module.exports = gql`
     getProfessionals: [UserReturn]!
     getPost(postId: ID!): Post
     getChildForm(userId: String!): ChildForm!
-    getProfComment(profId: String!, username: String!): ProfComment!
+    getProfComment(userId: String!): ProfComment!
     getChildDiaries(userId: String!): ChildDiaries!
   }
   type Mutation {

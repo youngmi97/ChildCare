@@ -204,7 +204,7 @@ export default function Assessment() {
   const onSubmit = () => {
     onChildFormSubmit({
       variables: {
-        username: location.state.user,
+        userId: location.state.user,
         profId: user.id,
         perFeedback: perFeedback,
         eduFeedback: eduFeedback,
@@ -1035,7 +1035,7 @@ const btnStyle = {
 
 const SAVE_PROFESSIONAL_COMMENTS = gql`
   mutation createProfComment(
-    $username: String!
+    $userId: String!
     $profId: String!
     $perFeedback: String!
     $eduFeedback: String!
@@ -1047,7 +1047,7 @@ const SAVE_PROFESSIONAL_COMMENTS = gql`
   ) {
     createProfComment(
       profComment: {
-        username: $username
+        userId: $userId
         profId: $profId
         perFeedback: $perFeedback
         eduFeedback: $eduFeedback

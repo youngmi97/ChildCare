@@ -6,7 +6,7 @@ import Report from "../components/charts/Report";
 import Vertical from "../components/charts/Vertical";
 import { AuthContext } from "../context/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_CHILD_FORM } from "../Mutations";
+import { GET_CHILD_FORM, GET_PROF_COMMENTS } from "../Mutations";
 import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
@@ -57,10 +57,23 @@ export default function NewResults() {
     variables: { userId: user.id },
   });
 
-  if (loading) {
-    console.log("loading");
+  const { loading: loading2, error: error2, data: data2 } = useQuery(
+    GET_PROF_COMMENTS,
+    {
+      variables: { userId: user.id },
+    }
+  );
+
+  // if (loading) {
+  //   console.log("loading");
+  // } else {
+  //   console.log("got data", data);
+  // }
+
+  if (loading2) {
+    console.log("loading2");
   } else {
-    console.log("got data", data);
+    console.log("got data2", data2);
   }
 
   const [eduScore, setEduScore] = useState(0);
@@ -86,10 +99,6 @@ export default function NewResults() {
 
   useMemo(() => {
     if (!error && !loading) {
-      console.log(
-        "data.getChildForm",
-        parseInt(data.getChildForm.educationScore, 10)
-      );
       setEduScore(parseInt(data.getChildForm.educationScore, 10));
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
@@ -104,6 +113,18 @@ export default function NewResults() {
       //setOvrFeedback()
     }
   }, [data, error, loading]);
+
+  useEffect(() => {
+    if (!error2 && !loading2) {
+      console.log("data2", data2);
+      setBasicFeedback(data2.getProfComment.perFeedback);
+      setEduFeedback(data2.getProfComment.eduFeedback);
+      setDevFeedback(data2.getProfComment.devFeedback);
+      setIllFeedback(data2.getProfComment.illFeedback);
+      setFamFeedback(data2.getProfComment.famFeedback);
+      setOvrFeedback(data2.getProfComment.ovrFeedback);
+    }
+  }, [data2, error2, loading2]);
 
   return (
     <Grid
