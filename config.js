@@ -7,6 +7,7 @@ const MONGODB = async () => {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });
+  mongoose.set("useFindAndModify", false);
   console.log("db connected!");
 };
 

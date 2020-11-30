@@ -4,6 +4,7 @@ const commentsResolvers = require("./comments");
 const childFormResolvers = require("./childform");
 const professionalsResolvers = require("./professionals");
 const profcommentResolvers = require("./profcomment");
+const childdiaryResolvers = require("./childdiary");
 
 module.exports = {
   Post: {
@@ -16,6 +17,7 @@ module.exports = {
     ...childFormResolvers.Query,
     ...professionalsResolvers.Query,
     ...profcommentResolvers.Query,
+    ...childdiaryResolvers.Query,
   },
   Mutation: {
     ...usersResolvers.Mutation,
@@ -24,6 +26,7 @@ module.exports = {
     ...childFormResolvers.Mutation,
     ...professionalsResolvers.Mutation,
     ...profcommentResolvers.Mutation,
+    ...childdiaryResolvers.Mutation,
   },
   Subscription: {
     ...postsResolvers.Subscription,

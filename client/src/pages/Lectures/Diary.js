@@ -89,6 +89,8 @@ const theme3 = createMuiTheme({
 });
 
 export default function Diary() {
+  //tied to userId
+
   var [date, setDate] = useState(new Date());
   const classes = useStyles();
 
