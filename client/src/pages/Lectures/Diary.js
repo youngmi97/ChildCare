@@ -91,34 +91,7 @@ const theme3 = createMuiTheme({
 });
 
 export default function Diary() {
-<<<<<<< HEAD
   const [currentDate, setCurrentDate] = useState(new Date());
-=======
-  //tied to userId
-
-  var [date, setDate] = useState(new Date());
-  const classes = useStyles();
-
-  const [selected, setSelected] = useState("happy");
-  const [activity, setActivity] = useState("");
-  const [comment, setComment] = useState("");
-
-  const handleChange = (event) => {
-    setSelected(event.currentTarget.id);
-  };
-  const handleChange1 = (event) => {
-    setActivity(event.currentTarget.value);
-  };
-  const handleChange2 = (event) => {
-    setComment(event.currentTarget.value);
-  };
-
-  useEffect(() => {
-    console.log(selected);
-    console.log(activity);
-    console.log(comment);
-  }, [selected, activity, comment]);
->>>>>>> 27ff58912e8cdb6404089908c656874ac76bb86b
 
   const calcDate = (inDate) => {
     const month = inDate.getMonth() + 1;
