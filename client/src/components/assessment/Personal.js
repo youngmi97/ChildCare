@@ -2,29 +2,6 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 
 export default function Personal(props) {
-  const calcAge = (date) => {
-    var year;
-    var month;
-
-    if (date.length < 8) {
-      return;
-    } else {
-      year = date.substring(0, 4);
-      month = date.substring(4, 6);
-      var today = new Date();
-      var mm = String(today.getMonth() + 1); //January is 0!
-      var yyyy = today.getFullYear();
-      var childYear = yyyy - year;
-      var childMonth = mm - month;
-      if (childMonth < 0) {
-        childMonth = 12 + childMonth;
-        childYear = childYear - 1;
-      }
-    }
-
-    return childYear + "년" + childMonth + "개월";
-  };
-
   const name = props.name;
   const gender = props.gender;
   const dateOfBirth = props.dateOfBirth;

@@ -94,9 +94,9 @@ export default function Dashboard() {
 
   const handleChange = (event) => {};
 
+  const [prof, setProf] = useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [userList, setUserList] = React.useState([]);
 
   const { loading, error, data } = useQuery(GET_USERS);
   const rows = [];
@@ -111,7 +111,6 @@ export default function Dashboard() {
           calcAge(user.dateOfBirth),
           user.primaryLanguage,
           user.schoolLanguage,
-          "임동선",
           user.id
         )
       );

@@ -22,6 +22,8 @@ import Lectures from "./pages/Lectures/Lectures";
 import NewResults from "./pages/NewResults";
 import { AuthContext } from "./context/auth";
 import Diary from "./pages/Lectures/Diary";
+import NewLectures from "./pages/Lectures/NewLectures";
+import ViewDiary from "./pages/ViewDiary";
 
 const App = (props) => {
   const { user } = useContext(AuthContext);
@@ -38,8 +40,8 @@ const App = (props) => {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/assessment" component={Assessment} />
           <Route exact path="/stt" component={STT} />
-          <Route exact path="/lectures" component={Lectures} />
-          <Route exact path="/temp" component={Diary} />
+          <Route exact path="/lectures" component={NewLectures} />
+          <Route exact path="/diary" component={ViewDiary} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/posts/:postId" component={SinglePost} />

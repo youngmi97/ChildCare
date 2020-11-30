@@ -8,6 +8,8 @@ import Development from "./questions/Development";
 import Illness from "./questions/Illness";
 import Family from "./questions/Family";
 import Video from "./questions/Video";
+import NWR from "./questions/NWR";
+import SR from "./questions/SR";
 import ChildFormSubmit from "./ChildFormSubmit";
 
 const styles = (theme) => ({
@@ -29,6 +31,23 @@ const styles = (theme) => ({
     backgroundColor: "#FFEBB8",
     height: "100%",
     width: "100%",
+  },
+  title: {
+    marginTop: "25px",
+    marginLeft: "90px",
+    marginRight: "90px",
+    fontSize: "25px",
+    fontWeight: "600",
+    fontFamily: "'Noto Sans KR', sans-serif;",
+  },
+  subtitle: {
+    margin: "10px 0px",
+    marginLeft: "110px",
+    marginRight: "110px",
+    marginBottom: "90px",
+    fontSize: "13px",
+    fontWeight: "normal",
+    fontFamily: "'Roboto KR', sans-serif;",
   },
 });
 
@@ -73,6 +92,8 @@ class NewChildForm extends Component {
     familyHistory: "",
     familyMember: "",
     videoFiles: "",
+    nwrFile: "",
+    srFile: "",
   };
 
   onStart = (e) => {
@@ -83,6 +104,16 @@ class NewChildForm extends Component {
   handleVideoUpload = (videoData) => {
     console.log("here now", videoData);
     this.setState({ videoFiles: videoData });
+  };
+
+  handleNwrUpload = (nwrData) => {
+    console.log("here now", nwrData);
+    this.setState({ nwrFile: nwrData });
+  };
+
+  handleSrUpload = (srData) => {
+    console.log("here now", srData);
+    this.setState({ srFile: srData });
   };
 
   onSubmit = (e) => {
@@ -562,7 +593,210 @@ class NewChildForm extends Component {
       }
       case 6: {
         return (
-          <ChildFormSubmit onContinue={this.onContinue} input={this.state} />
+          <div>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+              className={classes.root}
+            >
+              <Card
+                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              >
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.step}
+                >
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                    className={classes.trapezoid}
+                  >
+                    <p
+                      style={{
+                        fontSize: "23px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      7 of 8
+                    </p>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <NWR
+                    parentUploadTrigger={this.handleNwrUpload}
+                    videos={this.state.nwrFile}
+                    onContinue={this.onContinue}
+                    onBack={this.onBack}
+                  />
+                </Grid>
+              </Card>
+            </Grid>
+          </div>
+        );
+      }
+      case 7: {
+        return (
+          <div>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+              className={classes.root}
+            >
+              <Card
+                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              >
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.step}
+                >
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                    className={classes.trapezoid}
+                  >
+                    <p
+                      style={{
+                        fontSize: "23px",
+                        fontWeight: "600",
+                      }}
+                    >
+                      8 of 8
+                    </p>
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <SR
+                    parentUploadTrigger={this.handleSrUpload}
+                    videos={this.state.srFile}
+                    onContinue={this.onContinue}
+                    onBack={this.onBack}
+                  />
+                </Grid>
+              </Card>
+            </Grid>
+          </div>
+        );
+      }
+      case 8: {
+        return (
+          <div>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+              className={classes.root}
+            >
+              <Card
+                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              >
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.step}
+                ></Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <ChildFormSubmit
+                    onContinue={this.onContinue}
+                    onBack={this.onBack}
+                    input={this.state}
+                  />
+                </Grid>
+              </Card>
+            </Grid>
+          </div>
+        );
+      }
+      default: {
+        return (
+          <div>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={12}
+              className={classes.root}
+            >
+              <Card
+                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              >
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.step}
+                ></Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.title}
+                >
+                  <p>감사합니다.</p>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.subtitle}
+                >
+                  <p>
+                    평가결과를 기다려주세요. 평가 완료되면 전문가로부터 이메일이
+                    올 것입니다.
+                  </p>
+                </Grid>
+              </Card>
+            </Grid>
+          </div>
         );
       }
     }

@@ -5,6 +5,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EmailIcon from "@material-ui/icons/Email";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
+import EventNoteIcon from "@material-ui/icons/EventNote";
 //import VisibilityIcon from '@material-ui/icons/Visibility';
 import { useHistory } from "react-router-dom";
 
@@ -35,6 +36,13 @@ export default function IconButtons(props) {
         <VideoLibraryIcon
           onClick={() =>
             history.push({ pathname: "./stt", state: { user: props.id } })
+          }
+        />
+      </IconButton>
+      <IconButton color="secondary">
+        <EventNoteIcon
+          onClick={() =>
+            history.push({ pathname: "./diary", state: { user: props.id } })
           }
         />
       </IconButton>
