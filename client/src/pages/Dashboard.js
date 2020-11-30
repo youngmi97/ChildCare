@@ -132,7 +132,7 @@ export default function Dashboard() {
                             <Select
                               labelId="demo-simple-select-label"
                               id="demo-simple-select"
-                              //value={}
+                              value={value}
                               onChange={handleChange}
                               style={{ width: "80px", fontSize: "12px" }}
                             >

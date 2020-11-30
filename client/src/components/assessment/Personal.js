@@ -55,7 +55,7 @@ export default function Personal(props) {
           <span style={spanStyle}>아동 성별:</span> {gender}
         </p>
         <p>
-          <span style={spanStyle}>아동 나이:</span> {calcAge(dateOfBirth)}
+          <span style={spanStyle}>아동 나이:</span> {dateOfBirth}
         </p>
         <p>
           <span style={spanStyle}>자매:</span>{" "}

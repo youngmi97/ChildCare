@@ -8,6 +8,8 @@ import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissa
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import IconButton from "@material-ui/core/IconButton";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -89,7 +91,43 @@ const theme3 = createMuiTheme({
 });
 
 export default function Diary() {
-  var [date, setDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const calcDate = (inDate) => {
+    const month = inDate.getMonth() + 1;
+    const date = inDate.getDate();
+    const day = calcDay(inDate.getDay());
+
+    return month + "월 " + date + "일 " + day;
+  };
+
+  const calcDay = (inDay) => {
+    return inDay === 0
+      ? "일요일"
+      : inDay === 1
+      ? "월요일"
+      : inDay === 2
+      ? "화요일"
+      : inDay === 3
+      ? "수요일"
+      : inDay === 4
+      ? "목요일"
+      : inDay === 5
+      ? "금요일"
+      : "토요일";
+  };
+
+  const onLeft = () => {
+    currentDate.setDate(currentDate.getDate() - 1);
+    setDate(calcDate(currentDate));
+  };
+
+  const onRight = () => {
+    currentDate.setDate(currentDate.getDate() + 1);
+    setDate(calcDate(currentDate));
+  };
+
+  const [date, setDate] = useState(calcDate(currentDate));
   const classes = useStyles();
 
   const [selected, setSelected] = useState("happy");
@@ -110,38 +148,8 @@ export default function Diary() {
     console.log(selected);
     console.log(activity);
     console.log(comment);
-  }, [selected, activity, comment]);
-
-  const calcDate = (inDate) => {
-    const month = inDate.getMonth() + 1;
-    const date = inDate.getDate();
-    const day = calcDay(inDate.getDay());
-
-    return month + "월 " + date + "일 " + day;
-  };
-  const calcDay = (inDay) => {
-    return inDay === 0
-      ? "일요일"
-      : inDay === 1
-      ? "월요일"
-      : inDay === 2
-      ? "화요일"
-      : inDay === 3
-      ? "수요일"
-      : inDay === 4
-      ? "목요일"
-      : inDay === 5
-      ? "금요일"
-      : "토요일";
-  };
-
-  useEffect(() => {
-    var timer = setInterval(() => setDate(new Date()), 10000);
-
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  });
+    console.log(date);
+  }, [selected, activity, comment, date]);
 
   return (
     <div>
@@ -153,119 +161,151 @@ export default function Diary() {
         xs={12}
         className={classes.root}
       >
-        <Card style={{ width: "80%", height: "100%" }}>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
-          >
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          xs={1}
+        >
+          <IconButton>
+            <NavigateBeforeIcon fontSize="large" onClick={onLeft} />
+          </IconButton>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          xs={10}
+        >
+          <Card style={{ width: "90%", height: "100%" }}>
             <Grid
               container
               direction="row"
               justify="center"
               alignItems="center"
               xs={12}
-              className={classes.time}
             >
-              <p> {calcDate(date)}</p>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-              className={classes.answer}
-            >
-              <span style={{ marginRight: "20px" }}>활동:</span>
-              <TextField
-                style={{ width: "50%" }}
-                placeholder="아이와 함께한 활동을 적어주세요."
-                id="primaryLanguage"
-                autoComplete="off"
-                onChange={handleChange1}
-              />
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-              className={classes.answer}
-            >
-              <span style={{ marginRight: "20px" }}>기분:</span>
-              <MuiThemeProvider theme={theme1}>
-                <IconButton
-                  color={selected === "happy" ? "secondary" : ""}
-                  id="happy"
-                  onClick={handleChange}
-                >
-                  <SentimentVerySatisfiedIcon />
-                </IconButton>
-                <MuiThemeProvider theme={theme2}>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+                className={classes.time}
+              >
+                <p> {date}</p>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.answer}
+              >
+                <span style={{ marginRight: "20px" }}>활동:</span>
+                <TextField
+                  style={{ width: "50%" }}
+                  placeholder="아이와 함께한 활동을 적어주세요."
+                  id="primaryLanguage"
+                  autoComplete="off"
+                  onChange={handleChange1}
+                  value={activity}
+                />
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.answer}
+              >
+                <span style={{ marginRight: "20px" }}>기분:</span>
+                <MuiThemeProvider theme={theme1}>
                   <IconButton
-                    color={selected === "normal" ? "secondary" : ""}
-                    id="normal"
+                    color={selected === "happy" ? "secondary" : ""}
+                    id="happy"
                     onClick={handleChange}
                   >
-                    <SentimentSatisfiedIcon />
+                    <SentimentVerySatisfiedIcon />
                   </IconButton>
-                  <MuiThemeProvider theme={theme3}>
+                  <MuiThemeProvider theme={theme2}>
                     <IconButton
-                      color={selected === "unhappy" ? "secondary" : ""}
-                      id="unhappy"
+                      color={selected === "normal" ? "secondary" : ""}
+                      id="normal"
                       onClick={handleChange}
                     >
-                      <SentimentVeryDissatisfiedIcon />
+                      <SentimentSatisfiedIcon />
                     </IconButton>
+                    <MuiThemeProvider theme={theme3}>
+                      <IconButton
+                        color={selected === "unhappy" ? "secondary" : ""}
+                        id="unhappy"
+                        onClick={handleChange}
+                      >
+                        <SentimentVeryDissatisfiedIcon />
+                      </IconButton>
+                    </MuiThemeProvider>
                   </MuiThemeProvider>
                 </MuiThemeProvider>
-              </MuiThemeProvider>
-              <span style={{ marginLeft: "20px" }}>{selected}</span>
+                <span style={{ marginLeft: "20px" }}>{selected}</span>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.answer}
+              >
+                <p style={{ marginRight: "20px" }}>코멘트:</p>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.comment}
+              >
+                <TextField
+                  id="comments"
+                  label="아이와 함께 보낸 시간에 대해 작성해주세요."
+                  multiline
+                  rows={4}
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  onChange={handleChange2}
+                  value={comment}
+                />
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+                className={classes.buttons}
+              >
+                <button style={btnStyle}>저장하기</button>
+              </Grid>
             </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-              className={classes.answer}
-            >
-              <p style={{ marginRight: "20px" }}>코멘트:</p>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-              className={classes.comment}
-            >
-              <TextField
-                id="comments"
-                label="아이와 함께 보낸 시간에 대해 작성해주세요."
-                multiline
-                rows={4}
-                variant="outlined"
-                style={{ width: "100%" }}
-                onChange={handleChange2}
-              />
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              xs={12}
-              className={classes.buttons}
-            >
-              <button style={btnStyle}>저장하기</button>
-            </Grid>
-          </Grid>
-        </Card>
+          </Card>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          xs={1}
+        >
+          <IconButton>
+            <NavigateNextIcon fontSize="large" onClick={onRight} />
+          </IconButton>
+        </Grid>
       </Grid>
     </div>
   );

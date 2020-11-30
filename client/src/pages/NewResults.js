@@ -60,7 +60,7 @@ export default function NewResults() {
   if (loading) {
     console.log("loading");
   } else {
-    // console.log("got data", data);
+    console.log("got data", data);
   }
 
   const [eduScore, setEduScore] = useState(0);
@@ -84,13 +84,12 @@ export default function NewResults() {
   const [videoFeedback, setVideoFeedback] = useState("");
   const [ovrFeedback, setOvrFeedback] = useState("");
 
-
   useMemo(() => {
     if (!error && !loading) {
-      // console.log(
-      //   "data.getChildForm",
-      //   parseInt(data.getChildForm.educationScore, 10)
-      // );
+      console.log(
+        "data.getChildForm",
+        parseInt(data.getChildForm.educationScore, 10)
+      );
       setEduScore(parseInt(data.getChildForm.educationScore, 10));
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
@@ -150,46 +149,21 @@ export default function NewResults() {
               />
             </Grid>
             <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-              >
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                xs={6}
-              >
-                <Scatter
-                    eduScore={eduScore}
-                    devScore={devScore}
-                    illScore={illScore}
-                    famScore={famScore}
-                    width = "400"
-                    height = "250"
-                    />
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                xs={6}
-                className={classes.text}
-              >
-                <div>기본정보: {basicFeedback}</div>
-                <div>교육력: {eduFeedback}</div>
-                <div>발달력: {devFeedback} </div>
-                <div>병력: {illFeedback}</div>
-                <div>가족력: {famFeedback}</div>
-
-              </Grid>
-              </Grid>
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={6}
+              className={classes.text}
+            >
+              <div>기본정보: {basicFeedback}</div>
+              <div>교육력: {eduFeedback}</div>
+              <div>발달력: {devFeedback} </div>
+              <div>병력: {illFeedback}</div>
+              <div>가족력: {famFeedback}</div>
             </Grid>
           </Grid>
+        </Grid>
 
         <Grid container className={classes.divider}>
           <Grid
@@ -218,38 +192,17 @@ export default function NewResults() {
               <Bar nwrScore={nwrScore} srScore={srScore} />
             </Grid>
             <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-              >
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                xs={6}
-              >
-                <Bar
-                    nwrScore={nwrScore} srScore={srScore}
-                    />
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                xs={6}
-                className={classes.text}
-              >
-                <p style={{ padding: "20px 50px" }}>
-            {nwrFeedback}
-          </p>
-              </Grid>
-              </Grid>
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={6}
+              className={classes.text}
+            >
+              <p style={{ padding: "20px 50px" }}>{nwrFeedback}</p>
             </Grid>
           </Grid>
+        </Grid>
 
         <Grid container className={classes.divider2}>
           <Grid
@@ -305,36 +258,40 @@ export default function NewResults() {
 
               <Grid
                 container
-                direction="column"
-                justify="center"
-                alignItems="center"
-                xs={6}
-                className={classes.text}
-              >
-                <p style={{ padding: "20px 50px" }}>
-                {videoFeedback}
-          </p>
-              </Grid>
-              </Grid>
-            </Grid>
-            <Grid container justify="center" >
-            <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-            > 
-                <div className={classes.tag}>총평</div> 
-            </Grid> 
-            <Grid
-                container
                 direction="row"
                 justify="center"
                 alignItems="center"
                 xs={12}
               >
-                <p className={classes.ovr}> {ovrFeedback}</p>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  xs={6}
+                >
+                  <Vertical
+                    event1={event1}
+                    event2={event2}
+                    chartName="이벤트 횟수"
+                    color="yellow"
+                    color2="red"
+                  />
+                </Grid>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  xs={6}
+                >
+                  <Vertical
+                    event1={speed1}
+                    event2={speed2}
+                    chartName="발화 속도"
+                    color2="gray"
+                  />
+                </Grid>
               </Grid>
             </Grid>
             <Grid
@@ -345,18 +302,10 @@ export default function NewResults() {
               xs={6}
               className={classes.text}
             >
-              <p style={{ padding: "20px 50px" }}>
-                체언을 표현할 때 아동이’수혜자’를 사용하지 않고， 수식을 사용할
-                때， 이유I, 비교‘,’양보’를 사용하지 않으며， 기능적
-                구성요소에서’접속’을 사용하지 않았는데， 이 결과는
-                김영태（1998）의 자료에 의하면， 아동의 의미유형 발달이 3세
-                수준에도 미치지 못하고 있음을 알 수 있다． 의미관계 유형에서，
-                3낱말．4낱말 사용이 매우 제한적이었으며， 문장간 의미관계유형은
-                출현하지 않았다． 총 80개의 발화 중 낱말 조합수에 따라 가장 많이
-                산출한 순서대로 의미관계 유형을 정리하면 다음과 같 다．{" "}
-              </p>
+              <p style={{ padding: "20px 50px" }}>{videoFeedback}</p>
             </Grid>
           </Grid>
+        </Grid>
         <Grid container justify="center">
           <Grid
             container
@@ -374,16 +323,7 @@ export default function NewResults() {
             alignItems="center"
             xs={12}
           >
-            <p className={classes.ovr}>
-              {" "}
-              요약하면， 채 00 는 조음문제를 동반한 수용 및 표현 언어 발달지체로
-              진단되었다． 아동의 수용 및 표현 언어연령이 대략 3세 6개월 정도로
-              평가되어 아동 의 생활연령（5세 9개월）에 비해 많이 지체되어 있는
-              것으로 나타났다． 또래 아동의 발달을 따라가고 있는 수준에
-              있는（5세 5개월） 어휘 이해능력에 비하여 어휘 다양도가 낮았고，
-              사용하고 있는 문장은 주로 단문 이며， 형태소의 이해 및 표현의
-              제한성으로 인하여 복잡한 구문을 기능적으로 구성할 수 없었다．
-            </p>
+            <p className={classes.ovr}> {ovrFeedback}</p>
           </Grid>
         </Grid>
       </Card>
