@@ -6,6 +6,13 @@ import STTUploadVideo from "../components/STTUploadVideo";
 import STTVideoArchive from "../components/STTVideoArchive";
 import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
+
+//AWS necessities
+const dotenv = require("dotenv").config({
+  path: require("find-config")(".env"),
+});
+var AWS = require("aws-sdk");
+
 const axios = require("axios");
 
 function STT() {
@@ -15,8 +22,45 @@ function STT() {
   const [childTimeLabel, setChildTimeLabel] = useState([]);
   const [parentTimeLabel, setParentTimeLabel] = useState([]);
 
+  async function callSttPromise(newName) {
+    await new Promise((resolve, reject) => {
+      console.log("S3 Upload Promise");
+      const bucketName = "mp4in";
+      const uploadFileName = "example/" + newName + ".mp4";
+      // const fileName = newName + ".mp4";
+
+      const payload = {
+        Key: uploadFileName,
+        Bucket: bucketName,
+        Body: videoFiles[0],
+        ContentType: "video/mp4",
+      };
+
+      // console.log("Credential check", process.env.AWS_ACCESS_KEY_ID);
+      // console.log("Credential check", process.env.REACT_APP_AWS_ACCESS_KEY_ID);
+
+      var s3 = new AWS.S3({
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+        region: "us-east-1",
+      });
+
+      console.log("S3 Upload Promise1");
+
+      s3.upload(payload, (err, data) => {
+        if (err) {
+          console.log("err", err);
+          reject(err);
+        } else {
+          console.log("data", data);
+          // while data is null, the mp4 is still uploading
+          resolve(data.Location);
+        }
+      });
+    });
+  }
+
   function handleVideoUpload(videoData) {
-    console.log("here now", videoData);
     setVideoFiles(videoData);
   }
 
@@ -36,10 +80,28 @@ function STT() {
       // test api gateway REST call
       const api =
         "https://85sgmxl2m9.execute-api.us-east-1.amazonaws.com/staging2";
-      const data = { body: { name: "Mike" } };
+
+      var today = new Date();
+      var date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      var time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + "-" + time;
+
+      //[id]_[date]_[type].mp4
+      //type: "form" or "lesson"
+      let newName = "userId_" + dateTime + "_" + "form";
+
+      const data = { body: { name: newName } };
 
       // Something wrong on the lambda side
       // parse body into JSON and utilize resource
+
+      //callSttPromise(newName);
 
       // STT Result Retrieval Flow:
       // 1. Send file to S3 using aws-sdk
