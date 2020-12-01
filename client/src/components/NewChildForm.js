@@ -11,6 +11,7 @@ import Video from "./questions/Video";
 import NWR from "./questions/NWR";
 import SR from "./questions/SR";
 import ChildFormSubmit from "./ChildFormSubmit";
+import StartPage from "./questions/StartPage";
 
 const styles = (theme) => ({
   root: {
@@ -235,6 +236,9 @@ class NewChildForm extends Component {
 
     switch (step) {
       case 0: {
+        return <StartPage onStart={this.onStart} />;
+      }
+      case 1: {
         return (
           <div>
             <Grid
@@ -293,7 +297,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 1: {
+      case 2: {
         return (
           <div>
             <Grid
@@ -353,7 +357,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 2: {
+      case 3: {
         return (
           <div>
             <Grid
@@ -413,7 +417,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 3: {
+      case 4: {
         return (
           <div>
             <Grid
@@ -473,7 +477,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 4: {
+      case 5: {
         return (
           <div>
             <Grid
@@ -532,7 +536,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 5: {
+      case 6: {
         return (
           <div>
             <Grid
@@ -591,7 +595,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 6: {
+      case 7: {
         return (
           <div>
             <Grid
@@ -650,7 +654,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 7: {
+      case 8: {
         return (
           <div>
             <Grid
@@ -709,7 +713,7 @@ class NewChildForm extends Component {
           </div>
         );
       }
-      case 8: {
+      case 9: {
         return (
           <div>
             <Grid

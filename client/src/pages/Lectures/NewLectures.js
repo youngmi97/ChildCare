@@ -9,6 +9,7 @@ import ButtonBar from "./ButtonBar";
 import { AuthContext } from "../../context/auth";
 import { Button } from "@material-ui/core";
 import Diary from "./Diary";
+import LecturesStartPage from "./LecturesStartPage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,9 +83,14 @@ export default function NewLectures() {
   const classes = useStyles();
   const [videoFiles, setVideoFiles] = useState([]);
   const [step, setStep] = useState("1");
+  const [start, setStart] = useState(0);
   const [uploaded, setUploaded] = useState(false);
   const { user } = useContext(AuthContext);
   const [lectureDiary, setLectureDiary] = useState("lecture");
+
+  const onStart = () => {
+    setStart(1);
+  };
 
   const videoList = [
     "https://youtu.be/yDKPXHgImzc",
@@ -177,105 +183,112 @@ export default function NewLectures() {
       <Diary />
     );
   };
-  return (
-    <div>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
-        className={classes.root}
-      >
-        <Card style={{ width: "80%", height: "100%", borderRadius: "0px" }}>
-          <Grid
-            container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
-            xs={12}
-            className={classes.topbar}
-          >
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              xs={6}
-            >
-              <Button
-                style={
-                  lectureDiary === "lecture"
-                    ? {
-                        fontFamily: "'Noto Sans KR', sans-serif;",
-                        fontSize: "22px",
-                        fontWeight: "600",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "5px solid #FFB800",
-                      }
-                    : {
-                        fontFamily: "'Noto Sans KR', sans-serif;",
-                        fontSize: "22px",
-                        fontWeight: "600",
-                        fontColor: "lightgray",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "none",
-                      }
-                }
-                className={classes.lectures}
-                onClick={() => setLectureDiary("lecture")}
-              >
-                교육
-              </Button>
-            </Grid>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
-              xs={6}
-            >
-              <Button
-                style={
-                  lectureDiary === "diary"
-                    ? {
-                        fontFamily: "'Noto Sans KR', sans-serif;",
-                        fontSize: "22px",
-                        fontWeight: "600",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "5px solid #FFB800",
-                      }
-                    : {
-                        fontFamily: "'Noto Sans KR', sans-serif;",
-                        fontSize: "22px",
-                        fontWeight: "600",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "none",
-                      }
-                }
-                className={classes.lectures}
-                onClick={() => setLectureDiary("diary")}
-              >
-                일기
-              </Button>
-            </Grid>
-          </Grid>
+  switch (start) {
+    case 0: {
+      return <LecturesStartPage onStart={onStart} />;
+    }
+    default: {
+      return (
+        <div>
           <Grid
             container
             direction="row"
             justify="center"
             alignItems="center"
             xs={12}
+            className={classes.root}
           >
-            <ButtonBar step={step} onChange={handleChange} />
+            <Card style={{ width: "80%", height: "100%", borderRadius: "0px" }}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.topbar}
+              >
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  xs={6}
+                >
+                  <Button
+                    style={
+                      lectureDiary === "lecture"
+                        ? {
+                            fontFamily: "'Noto Sans KR', sans-serif;",
+                            fontSize: "22px",
+                            fontWeight: "600",
+                            borderRadius: "0",
+                            padding: "0px 20px",
+                            borderBottom: "5px solid #FFB800",
+                          }
+                        : {
+                            fontFamily: "'Noto Sans KR', sans-serif;",
+                            fontSize: "22px",
+                            fontWeight: "600",
+                            fontColor: "lightgray",
+                            borderRadius: "0",
+                            padding: "0px 20px",
+                            borderBottom: "none",
+                          }
+                    }
+                    className={classes.lectures}
+                    onClick={() => setLectureDiary("lecture")}
+                  >
+                    교육
+                  </Button>
+                </Grid>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                  xs={6}
+                >
+                  <Button
+                    style={
+                      lectureDiary === "diary"
+                        ? {
+                            fontFamily: "'Noto Sans KR', sans-serif;",
+                            fontSize: "22px",
+                            fontWeight: "600",
+                            borderRadius: "0",
+                            padding: "0px 20px",
+                            borderBottom: "5px solid #FFB800",
+                          }
+                        : {
+                            fontFamily: "'Noto Sans KR', sans-serif;",
+                            fontSize: "22px",
+                            fontWeight: "600",
+                            borderRadius: "0",
+                            padding: "0px 20px",
+                            borderBottom: "none",
+                          }
+                    }
+                    className={classes.lectures}
+                    onClick={() => setLectureDiary("diary")}
+                  >
+                    일기
+                  </Button>
+                </Grid>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+              >
+                <ButtonBar step={step} onChange={handleChange} />
+              </Grid>
+              {whatToRender()}
+            </Card>
           </Grid>
-          {whatToRender()}
-        </Card>
-      </Grid>
-    </div>
-  );
+        </div>
+      );
+    }
+  }
 }
