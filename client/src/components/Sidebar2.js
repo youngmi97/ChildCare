@@ -4,14 +4,14 @@ class Sidebar2 extends Component {
   getStyle1 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 1 ? "#E3E4FA" : "none",
+      background: this.props.step === 1 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 1 ? "bold" : "normal",
     };
   };
   getStyle2 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 2 ? "#E3E4FA" : "none",
+      background: this.props.step === 2 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 2 ? "bold" : "normal",
     };
   };
@@ -19,7 +19,7 @@ class Sidebar2 extends Component {
   getStyle3 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 3 ? "#E3E4FA" : "none",
+      background: this.props.step === 3 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 3 ? "bold" : "normal",
     };
   };
@@ -27,7 +27,7 @@ class Sidebar2 extends Component {
   getStyle4 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 4 ? "#E3E4FA" : "none",
+      background: this.props.step === 4 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 4 ? "bold" : "normal",
     };
   };
@@ -35,7 +35,7 @@ class Sidebar2 extends Component {
   getStyle5 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 5 ? "#E3E4FA" : "none",
+      background: this.props.step === 5 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 5 ? "bold" : "normal",
     };
   };
@@ -43,7 +43,7 @@ class Sidebar2 extends Component {
   getStyle6 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 6 ? "#E3E4FA" : "none",
+      background: this.props.step === 6 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 6 ? "bold" : "normal",
     };
   };
@@ -51,7 +51,7 @@ class Sidebar2 extends Component {
   getStyle7 = () => {
     return {
       padding: "10px",
-      background: this.props.step === 7 ? "#E3E4FA" : "none",
+      background: this.props.step === 7 ? "#FFEBB8" : "none",
       fontWeight: this.props.step === 7 ? "bold" : "normal",
     };
   };

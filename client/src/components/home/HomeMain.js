@@ -20,21 +20,28 @@ const useStyles = makeStyles((theme) => ({
   },
   speechCard: {
     width: "80%",
-    height: "250px",
-    border: "solid",
-    borderWidth: 1,
+    height: "100",
+    paddingBottom: "30px",
+    marginBottom: "50px",
+  },
+  cardTitle: {
+    fontFamily: "'Noto Sans KR', sans serif;",
+    fontSize: "20px",
+    fontWeight: "600",
+    paddingTop: "30px",
   },
   cardText: {
-    float: "left",
-    width: "200px",
-    height: "200px",
-    fontSize: "20px",
-    marginTop: "30px",
-    marginLeft: "20px",
+    fontFamily: "'Noto Sans KR', sans serif;",
+    fontSize: "16px",
+    fontWeight: "600",
+    color: "gray",
+    width: "80%",
+    textAlign: "right",
   },
 
   imageConfig: {
-    width: "60%",
+    width: "70%",
+    marginLeft: "70px",
   },
   optionCard: {
     justify: "center",
@@ -43,25 +50,26 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
   },
   mainText: {
-    height: "50px",
-    width: "100%",
-    fontSize: "60px",
-    marginLeft: "20px",
+    fontFamily: "'Noto Sans', sans serif;",
+    fontSize: "50px",
+    padding: "0px",
+    margin: "0px",
+    fontWeight: "600",
   },
 
   textOnline: {
-    height: "50px",
-    width: "100%",
-    fontSize: "30px",
-    fontColor: "#dedede",
-    marginLeft: "20px",
+    fontFamily: "'Noto Sans', sans serif;",
+    fontSize: "35px",
+    color: "gray",
+    padding: "0px",
+    margin: "0px",
+    fontWeight: "600",
   },
 
   cardImg: {
-    width: "30%",
+    width: "80%",
     marginTop: "30px",
-    marginRight: "20px",
-    float: "right",
+    marginLeft: "20px",
   },
 
   firstHalf: {
@@ -144,18 +152,26 @@ function HomeMain(props) {
         alignItems="center"
         xs={12}
       >
-        <Grid container direction="column" xs={4}>
-          <div className={classes.textOnline}>Online</div>
-          <div className={classes.mainText}>LANGUAGE</div>
-          <div className={classes.mainText}>DEVELOPMENT</div>
-          <div className={classes.mainText}>ASSESSMENT</div>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="flex-end"
+          xs={12}
+          sm={5}
+        >
+          <p className={classes.textOnline}>Online</p>
+          <p className={classes.mainText}>LANGUAGE</p>
+          <p className={classes.mainText}>DEVELOPMENT</p>
+          <p className={classes.mainText}>ASSESSMENT</p>
         </Grid>
         <Grid
           container
           direction="row"
           justify="center"
           alignItems="center"
-          xs={8}
+          xs={12}
+          sm={7}
         >
           <img
             className={classes.imageConfig}
@@ -165,7 +181,6 @@ function HomeMain(props) {
       </Grid>
       <Grid
         container
-        className={classes.secondHalf}
         direction="row"
         justify="center"
         alignItems="center"
@@ -176,7 +191,8 @@ function HomeMain(props) {
           direction="row"
           justify="center"
           alignItems="center"
-          xs={6}
+          xs={12}
+          md={6}
         >
           <Card
             justify="center"
@@ -186,12 +202,30 @@ function HomeMain(props) {
             raised={cardDepth1}
             onClick={handleOpen}
           >
-            <div className={classes.optionCard}>언어발달평가</div>
-            <div className={classes.cardText}>
-              {" "}
-              온라인으로 아동의 언어발달을 평가하고 결과를 받을 수 있는 서비스
-            </div>
-            <img className={classes.cardImg} src="/checklist.png"></img>
+            <Grid container direction="row" xs={12}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-end"
+                xs={6}
+              >
+                <p className={classes.cardTitle}>언어발달평가</p>
+                <p className={classes.cardText}>
+                  온라인으로 아동의 언어발달을 평가하고 결과를 받을 수 있는
+                  서비스
+                </p>
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+                xs={6}
+              >
+                <img className={classes.cardImg} src="/checklist.png"></img>
+              </Grid>
+            </Grid>
           </Card>
         </Grid>
         <Grid
@@ -199,7 +233,8 @@ function HomeMain(props) {
           direction="row"
           justify="center"
           alignItems="center"
-          xs={6}
+          xs={12}
+          md={6}
         >
           <Card
             justify="center"
@@ -209,19 +244,35 @@ function HomeMain(props) {
             raised={cardDepth2}
             onClick={handleOpen}
           >
-            <div className={classes.optionCard}>연구참여신청</div>
-            <div className={classes.cardText}>
-              {" "}
-              이화여대 언어병리학과 아동연구실에서 진행되는 연구대상자로 참여
-              신청
-            </div>
-            <img className={classes.cardImg} src="/participation.png"></img>
+            <Grid container direction="row" xs={12}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-end"
+                xs={6}
+              >
+                <p className={classes.cardTitle}>연구참여신청</p>
+                <p className={classes.cardText}>
+                  이화여대 언어병리학과 아동연구실에서 진행되는 연구대상자로
+                  참여 신청
+                </p>
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+                xs={6}
+              >
+                <img className={classes.cardImg} src="/participation.png"></img>
+              </Grid>
+            </Grid>
           </Card>
         </Grid>
       </Grid>
       <Grid
         container
-        className={classes.secondCardRow}
         direction="row"
         justify="center"
         alignItems="center"
@@ -232,7 +283,8 @@ function HomeMain(props) {
           direction="row"
           justify="center"
           alignItems="center"
-          xs={6}
+          xs={12}
+          md={6}
         >
           <Card
             justify="center"
@@ -242,12 +294,29 @@ function HomeMain(props) {
             raised={cardDepth3}
             onClick={handleOpen}
           >
-            <div className={classes.optionCard}>부모교육</div>
-            <div className={classes.cardText}>
-              {" "}
-              온라인으로 상호작용 증진을 목적으로 한 부모교육 서비스 제공
-            </div>
-            <img className={classes.cardImg} src="/family.png"></img>
+            <Grid container direction="row" xs={12}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-end"
+                xs={6}
+              >
+                <p className={classes.cardTitle}>부모교육</p>
+                <p className={classes.cardText}>
+                  온라인으로 상호작용 증진을 목적으로 한 부모교육 서비스 제공
+                </p>
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+                xs={6}
+              >
+                <img className={classes.cardImg} src="/family.png"></img>
+              </Grid>
+            </Grid>
           </Card>
         </Grid>
         <Grid
@@ -255,7 +324,8 @@ function HomeMain(props) {
           direction="row"
           justify="center"
           alignItems="center"
-          xs={6}
+          xs={12}
+          md={6}
         >
           <Card
             justify="center"
@@ -265,13 +335,30 @@ function HomeMain(props) {
             raised={cardDepth4}
             onClick={handleOpen}
           >
-            <div className={classes.optionCard}>전문가교육</div>
-            <div className={classes.cardText}>
-              {" "}
-              온라인으로 아동 관련 직종에 종사하는 전문가를 대상으로 한 교육
-              서비스 제공
-            </div>
-            <img className={classes.cardImg} src="/teacher.png"></img>
+            <Grid container direction="row" xs={12}>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-end"
+                xs={6}
+              >
+                <p className={classes.cardTitle}>전문가교육</p>
+                <p className={classes.cardText}>
+                  온라인으로 아동 관련 직종에 종사하는 전문가를 대상으로 한 교육
+                  서비스 제공
+                </p>
+              </Grid>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+                xs={6}
+              >
+                <img className={classes.cardImg} src="/teacher.png"></img>
+              </Grid>
+            </Grid>
           </Card>
         </Grid>
       </Grid>

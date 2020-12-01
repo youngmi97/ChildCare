@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px 0px",
   },
   title: {
-    fontFamily: "'Noto Sans KR', sans serif;",
+    fontFamily: "'Noto Sans KR', sans serif",
     fontSize: "25px",
     fontWeight: "600",
     padding: "5px 0px",
     margin: "0px",
   },
   subtitle: {
-    fontFamily: "'Noto Sans KR', sans serif;",
+    fontFamily: "'Noto Sans KR', sans serif",
     fontSize: "16px",
     fontWeight: "600",
     padding: "0px 5px ",
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
   },
   text: {
-    fontFamily: "'Noto Sans KR', sans serif;",
+    fontFamily: "'Noto Sans KR', sans serif",
     fontSize: "16px",
     fontWeight: "600",
     color: "#626567",

@@ -22,7 +22,14 @@ export default function Personal(props) {
   };
 
   return (
-    <div style={{ fontSize: "18px", marginTop: "20px", marginBottom: "50px" }}>
+    <div
+      style={{
+        fontFamily: "'Noto Sans KR', sans serif;",
+        fontSize: "18px",
+        marginTop: "20px",
+        marginBottom: "50px",
+      }}
+    >
       <div>
         <p>
           <span style={spanStyle}>아동 이름 : </span>

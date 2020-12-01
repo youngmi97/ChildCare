@@ -17,7 +17,14 @@ export default function Illness(props) {
   };
 
   return (
-    <div style={{ fontSize: "18px", marginTop: "20px", marginBottom: "50px" }}>
+    <div
+      style={{
+        fontFamily: "'Noto Sans KR', sans serif;",
+        fontSize: "18px",
+        marginTop: "20px",
+        marginBottom: "50px",
+      }}
+    >
       <div>
         <p>
           <span style={spanStyle}>출산 과정에서 질병 또는 사고: </span>

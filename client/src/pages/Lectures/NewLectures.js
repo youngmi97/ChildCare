@@ -180,7 +180,7 @@ export default function NewLectures() {
         </Grid>
       </div>
     ) : (
-      <Diary />
+      <Diary step={step} />
     );
   };
   switch (start) {

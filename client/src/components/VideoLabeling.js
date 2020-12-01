@@ -27,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
   },
   testGrid2: {
     height: "600px",
-    backgroundColor: "#ffecd8",
-    fontSize: "20px",
+    backgroundColor: "#FFEBB8",
+    fontSize: "16px",
   },
 
   testTitle: {
-    fontSize: "20px",
+    fontSize: "16px",
     textAlign: "left",
-    backgroundColor: "#ff8c00",
+    backgroundColor: "#FFB800",
     color: "#ffffff",
     fontWeight: "bold",
     borderBottom: "solid",
@@ -492,10 +492,22 @@ function VideoLabeling(props) {
           alignItems="center"
           xs={4}
         >
-          <p>부모님이 말할 때 ‘P’를 눌러주세요.</p>
-          <p>아이들이 말할 때 ‘C’를 눌러주세요.</p>
-          <p>경고를 주고 싶을 때 ‘W’를 눌러주세요.</p>
-          <p>영상에 표시하고 싶을 때 ‘S’를 눌러주세요.</p>
+          <p>
+            부모님이 말할 때 <span style={{ fontWeight: "bold" }}>‘P’</span>를
+            눌러주세요.
+          </p>
+          <p>
+            아이들이 말할 때 <span style={{ fontWeight: "bold" }}>‘C’</span>를
+            눌러주세요.
+          </p>
+          <p>
+            경고를 주고 싶을 때 <span style={{ fontWeight: "bold" }}>W</span>를
+            눌러주세요.
+          </p>
+          <p>
+            영상에 표시하고 싶을 때{" "}
+            <span style={{ fontWeight: "bold" }}>‘S’</span>를 눌러주세요.
+          </p>
         </Grid>
       </Grid>
     </Card>
