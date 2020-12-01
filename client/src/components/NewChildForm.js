@@ -794,8 +794,8 @@ class NewChildForm extends Component {
                   className={classes.subtitle}
                 >
                   <p>
-                    평가결과를 기다려주세요. 평가 완료되면 전문가로부터 이메일이
-                    올 것입니다.
+                    평가결과를 기다려주세요. 평가가 완료되면 전문가로부터
+                    이메일이 올 것입니다.
                   </p>
                 </Grid>
               </Card>

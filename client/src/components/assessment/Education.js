@@ -15,7 +15,14 @@ export default function Education(props) {
   };
 
   return (
-    <div style={{ fontSize: "18px", marginTop: "20px", marginBottom: "50px" }}>
+    <div
+      style={{
+        fontFamily: "'Noto Sans KR', sans serif;",
+        fontSize: "18px",
+        marginTop: "20px",
+        marginBottom: "50px",
+      }}
+    >
       <div>
         <p>
           <span style={spanStyle}>아동이 다니는 학교: </span>

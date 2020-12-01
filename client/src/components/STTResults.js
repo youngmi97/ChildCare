@@ -15,13 +15,32 @@ import Column from "./charts/Column";
 var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    "& label.Mui-focused": {
+      color: "#FFB800",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#FFB800",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "gray",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFB800",
+      },
+    },
+  },
+  feedback: {
+    padding: "40px",
+  },
   speechCard: {
     width: "100%",
     height: 60,
     marginTop: 20,
     border: "solid",
     borderWidth: "3px",
-    borderColor: "#fed8b1",
+    borderColor: "#FFB800",
     marginRight: 10,
   },
   testGrid: {
@@ -49,9 +68,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   testTitle: {
-    fontSize: "20px",
+    fontSize: "16px",
     textAlign: "left",
-    backgroundColor: "#ff8c00",
+    backgroundColor: "#FFB800",
     color: "#ffffff",
     fontWeight: "bold",
     borderBottom: "solid",
@@ -111,6 +130,12 @@ function STTResults() {
   const [speed2, setSpeed2] = useState(1.6);
   const [parent, setParent] = useState(70);
   const [child, setChild] = useState(30);
+
+  const [videoFeedback, setVideoFeedback] = useState("");
+  const onSubmit = () => {};
+  const onChange = (e) => {
+    setVideoFeedback(e.target.value);
+  };
 
   // How Are we going to MERGE the Labeled Regions and the Detected Regions ????
 
@@ -172,118 +197,171 @@ function STTResults() {
   );
 
   return (
-    <Card className={classes.wrappingCard}>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
-      >
-        <Grid className={classes.testTitle} container direction="row" xs={12}>
-          최종 STT 결과물 표출
-        </Grid>
+    <div>
+      <Card className={classes.wrappingCard}>
         <Grid
-          className={classes.testGrid}
-          container
-          direction="column"
-          justify="flex-start"
-          alignItems="center"
-          xs={8}
-        >
-          <Card
-            style={{
-              height: "100%",
-              width: "100%",
-              padding: "20px",
-              overflowY: "scroll",
-            }}
-          >
-            {SpeechCard("parent", "차 한 번 놀아 봅시다.")}
-            {SpeechCard("parent", "우리 사람 지은이의 와 여기가 어디야?")}
-            {SpeechCard("child", "지고 동물 한 동물원이 것 같다.")}
-            {SpeechCard(
-              "parent",
-              "한번 지은이가 마음대로 바꾸는 가까이 와서 동물원은 가보다"
-            )}
-            {SpeechCard("child", "기차가 경우")}
-            {SpeechCard("parent", "축으로 친구들이 있네.")}
-            {SpeechCard("child", "칠.")}
-            {SpeechCard("child", "그렇게 내리면 기차가")}
-            {SpeechCard("parent", "칙칙폭폭")}
-          </Card>
-        </Grid>
-        <Grid
-          className={classes.testGrid}
-          container
-          direction="column"
-          justify="center"
-          alignItems="center"
-          xs={4}
-        >
-          <ReactAudioPlayer
-            src="../demoAudio/demoTrimmed2.wav"
-            autoplay
-            controls
-            onCanPlay={() => console.log("audio has been loaded")}
-            onPause={(e) => console.log("paused")}
-            onPlay={(e) => console.log("played")}
-          />
-        </Grid>
-        <Grid
-          className={classes.reviewRatio}
           container
           direction="row"
           justify="center"
           alignItems="center"
           xs={12}
         >
-          <Grid
-            // className={classes.testGrid2}
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={4}
-          >
-            <Column parent={parent} child={child} />
+          <Grid className={classes.testTitle} container direction="row" xs={12}>
+            최종 STT 결과물 표출
           </Grid>
-
           <Grid
-            // className={classes.testGrid2}
+            className={classes.testGrid}
+            container
+            direction="column"
+            justify="flex-start"
+            alignItems="center"
+            xs={8}
+          >
+            <Card
+              style={{
+                height: "100%",
+                width: "100%",
+                padding: "20px",
+                overflowY: "scroll",
+              }}
+            >
+              {SpeechCard("parent", "차 한 번 놀아 봅시다.")}
+              {SpeechCard("parent", "우리 사람 지은이의 와 여기가 어디야?")}
+              {SpeechCard("child", "지고 동물 한 동물원이 것 같다.")}
+              {SpeechCard(
+                "parent",
+                "한번 지은이가 마음대로 바꾸는 가까이 와서 동물원은 가보다"
+              )}
+              {SpeechCard("child", "기차가 경우")}
+              {SpeechCard("parent", "축으로 친구들이 있네.")}
+              {SpeechCard("child", "칠.")}
+              {SpeechCard("child", "그렇게 내리면 기차가")}
+              {SpeechCard("parent", "칙칙폭폭")}
+            </Card>
+          </Grid>
+          <Grid
+            className={classes.testGrid}
             container
             direction="column"
             justify="center"
             alignItems="center"
             xs={4}
           >
-            <Vertical
-              event1={event1}
-              event2={event2}
-              chartName="이벤트 횟수"
-              color="yellow"
-              color2="red"
+            <ReactAudioPlayer
+              src="../demoAudio/demoTrimmed2.wav"
+              autoplay
+              controls
+              onCanPlay={() => console.log("audio has been loaded")}
+              onPause={(e) => console.log("paused")}
+              onPlay={(e) => console.log("played")}
             />
           </Grid>
           <Grid
-            // className={classes.testGrid2}
+            className={classes.reviewRatio}
             container
             direction="row"
             justify="center"
             alignItems="center"
-            xs={4}
+            xs={12}
           >
-            <Vertical
-              event1={speed1}
-              event2={speed2}
-              chartName="발화 속도"
-              color2="gray"
-            />
+            <Grid
+              // className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={4}
+            >
+              <Column parent={parent} child={child} />
+            </Grid>
+
+            <Grid
+              // className={classes.testGrid2}
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+              xs={4}
+            >
+              <Vertical
+                event1={event1}
+                event2={event2}
+                chartName="이벤트 횟수"
+                color="yellow"
+                color2="red"
+              />
+            </Grid>
+            <Grid
+              // className={classes.testGrid2}
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              xs={4}
+            >
+              <Vertical
+                event1={speed1}
+                event2={speed2}
+                chartName="발화 속도"
+                color2="gray"
+              />
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Card>
+      </Card>
+
+      <Card className={classes.wrappingCard}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <Grid className={classes.testTitle} container direction="row" xs={12}>
+            자발화 분석 제언사항
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={12}
+            className={classes.feedback}
+          >
+            <TextField
+              className={classes.root}
+              id="videoFeedback"
+              onChange={onChange}
+              label="제언사항"
+              multiline
+              rows={6}
+              variant="outlined"
+              style={{ width: "70%" }}
+              value={videoFeedback}
+            />
+          </Grid>
+          <button
+            style={btnStyle}
+            onClick={() => {
+              onSubmit();
+            }}
+          >
+            제출하기
+          </button>
+        </Grid>
+      </Card>
+    </div>
   );
 }
-
+const btnStyle = {
+  marginBottom: "30px",
+  backgroundColor: "#FFEBB8",
+  width: "150px",
+  height: "50px",
+  border: "none",
+  fontSize: "13px",
+  fontWeight: "600",
+  outline: "none",
+};
 export default STTResults;

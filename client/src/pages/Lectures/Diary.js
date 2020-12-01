@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, Step } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
@@ -90,7 +90,7 @@ const theme3 = createMuiTheme({
   },
 });
 
-export default function Diary() {
+export default function Diary(props) {
   const [currentDay, setCurrentDay] = useState(1);
   const [diaryData, setDiaryData] = useState({
     selected: {
@@ -300,6 +300,7 @@ export default function Diary() {
   const [selected, setSelected] = useState("happy");
   const [activity, setActivity] = useState("");
   const [comment, setComment] = useState("");
+  const [step, setStep] = useState(props.step);
 
   const handleChange = (event) => {
     setSelected(event.currentTarget.id);
@@ -312,11 +313,10 @@ export default function Diary() {
   };
 
   useEffect(() => {
-    console.log(selected);
-    console.log(activity);
-    console.log(comment);
-    console.log(currentDay);
-  }, [selected, activity, comment, currentDay]);
+    setCurrentDay(1);
+  }, [props.step]);
+
+  const onSubmit = () => {};
 
   return (
     <div>
@@ -382,6 +382,7 @@ export default function Diary() {
                 autoComplete="off"
                 onChange={handleChange1}
                 value={activity}
+                //needs change
               />
             </Grid>
             <Grid
@@ -395,6 +396,7 @@ export default function Diary() {
               <span style={{ marginRight: "20px" }}>기분:</span>
               <MuiThemeProvider theme={theme1}>
                 <IconButton
+                  //needs change
                   color={selected === "happy" ? "secondary" : ""}
                   id="happy"
                   onClick={handleChange}
@@ -449,6 +451,7 @@ export default function Diary() {
                 style={{ width: "100%" }}
                 onChange={handleChange2}
                 value={comment}
+                //needs change
               />
             </Grid>
             <Grid
@@ -459,7 +462,9 @@ export default function Diary() {
               xs={12}
               className={classes.buttons}
             >
-              <button style={btnStyle}>저장하기</button>
+              <button style={btnStyle} onClick={onSubmit}>
+                저장하기
+              </button>
             </Grid>
           </Grid>
         </Grid>

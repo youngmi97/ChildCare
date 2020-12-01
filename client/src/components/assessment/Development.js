@@ -16,7 +16,14 @@ export default function Development(props) {
   };
 
   return (
-    <div style={{ fontSize: "18px", marginTop: "20px", marginBottom: "50px" }}>
+    <div
+      style={{
+        fontFamily: "'Noto Sans KR', sans serif;",
+        fontSize: "18px",
+        marginTop: "20px",
+        marginBottom: "50px",
+      }}
+    >
       <div>
         <p>
           <span style={spanStyle}>걷기: </span>

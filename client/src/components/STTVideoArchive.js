@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   testTitle: {
-    fontSize: "20px",
-    backgroundColor: "#ff8c00",
+    fontSize: "16px",
+    backgroundColor: "#FFB800",
     color: "#ffffff",
     fontWeight: "bold",
     textAlign: "left",
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
   testTitle2: {
     fontSize: "16px",
-    color: "#ff8c00",
+    color: "#FFB800",
     fontWeight: "bold",
     textAlign: "left",
     borderBottom: "solid",

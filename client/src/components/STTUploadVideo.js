@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   testTitle: {
-    fontSize: "20px",
-    backgroundColor: "#ff8c00",
+    fontSize: "16px",
+    backgroundColor: "#FFB800",
     color: "#ffffff",
     fontWeight: "bold",
     textAlign: "left",

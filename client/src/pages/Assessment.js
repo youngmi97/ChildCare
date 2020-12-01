@@ -26,14 +26,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "110px",
   },
   root: {
-    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "gray",
+    "& label.Mui-focused": {
+      color: "#FFB800",
     },
-    //"&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-    //borderColor: "red",
-    //},
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#FFB800",
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#FFB800",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "gray",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFB800",
+      },
     },
   },
 }));
@@ -164,8 +169,11 @@ export default function Assessment() {
     }
   }, [data, error, loading]);
 
-  const onClick = () => {
+  const onClick = (e) => {
     setStep(step + 1);
+  };
+  const onClick1 = (e) => {
+    setStep(step - 1);
   };
   const onChange = (e) => {
     setPerFeedback(e.target.value);
@@ -297,7 +305,6 @@ export default function Assessment() {
                       id="perFeedback"
                       onChange={onChange}
                       label="제언사항"
-                      autoFocus={true}
                       multiline
                       rows={4}
                       variant="outlined"
@@ -312,20 +319,8 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "40px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -422,20 +417,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -534,20 +520,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -646,20 +623,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -753,20 +721,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -857,20 +816,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -961,20 +911,11 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <button
-                      onClick={onClick}
-                      style={{
-                        margin: "20px",
-                        color: "#6C2DC7",
-                        backgroundColor: "white",
-                        border: "2px solid",
-                        borderColor: "#6C2DC7",
-                        fontSize: "13px",
-                        padding: "8px 13px",
-                        outline: "none",
-                      }}
-                    >
-                      Continue
+                    <button style={btnStyle1} onClick={onClick1}>
+                      이전 단계로 이동
+                    </button>
+                    <button style={btnStyle} onClick={onClick}>
+                      다음 단계로 이동
                     </button>
                   </Grid>
                 </Grid>
@@ -993,6 +934,9 @@ export default function Assessment() {
           alignItems="center"
           xs={12}
         >
+          <button style={btnStyle1} onClick={onClick1}>
+            이전 단계로 이동
+          </button>
           <button
             style={btnStyle}
             onClick={() => {
@@ -1000,7 +944,7 @@ export default function Assessment() {
               onClick();
             }}
           >
-            제출
+            제출하기
           </button>
         </Grid>
       );
@@ -1029,8 +973,18 @@ const btnStyle = {
   height: "50px",
   border: "none",
   fontSize: "13px",
-  outlineColor: "#FFB800",
   fontWeight: "600",
+  outline: "none",
+};
+const btnStyle1 = {
+  margin: "50px",
+  backgroundColor: "#E4E4E4",
+  width: "150px",
+  height: "50px",
+  border: "none",
+  fontSize: "13px",
+  fontWeight: "600",
+  outline: "none",
 };
 
 const SAVE_PROFESSIONAL_COMMENTS = gql`
