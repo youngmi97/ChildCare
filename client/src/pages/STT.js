@@ -3,6 +3,7 @@ import SpeechToText from "../components/SpeechToText";
 import VideoLabeling from "../components/VideoLabeling";
 import STTResults from "../components/STTResults";
 import STTUploadVideo from "../components/STTUploadVideo";
+import STTVideoArchive from "../components/STTVideoArchive";
 import { AuthContext } from "../context/auth";
 import { Grid } from "@material-ui/core";
 const axios = require("axios");
@@ -69,6 +70,7 @@ function STT() {
     >
       {/* <SpeechToText /> */}
       <STTUploadVideo parentUploadTrigger={handleVideoUpload} />
+      <STTVideoArchive />
       <VideoLabeling
         videos={videoFiles}
         parentTimeLabeled={handleParentTimeLabel}
