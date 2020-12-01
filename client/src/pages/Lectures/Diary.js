@@ -91,17 +91,187 @@ const theme3 = createMuiTheme({
 });
 
 export default function Diary() {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDay, setCurrentDay] = useState(1);
+  const [diaryData, setDiaryData] = useState({
+    selected: {
+      program1: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      prorgam2: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program3: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program4: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program5: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program6: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+    },
+    activity: {
+      program1: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      prorgam2: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program3: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program4: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program5: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program6: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+    },
+    comment: {
+      program1: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      prorgam2: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program3: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program4: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program5: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+      program6: {
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
+        sunday: "",
+      },
+    },
+  });
 
-  const calcDate = (inDate) => {
+  /*const calcDate = (inDate) => {
     const month = inDate.getMonth() + 1;
     const date = inDate.getDate();
     const day = calcDay(inDate.getDay());
 
     return month + "월 " + date + "일 " + day;
-  };
+  };*/
 
-  const calcDay = (inDay) => {
+  /* const calcDay = (inDay) => {
     return inDay === 0
       ? "일요일"
       : inDay === 1
@@ -115,19 +285,16 @@ export default function Diary() {
       : inDay === 5
       ? "금요일"
       : "토요일";
-  };
+  };*/
 
   const onLeft = () => {
-    currentDate.setDate(currentDate.getDate() - 1);
-    setDate(calcDate(currentDate));
+    setCurrentDay(currentDay - 1);
   };
 
   const onRight = () => {
-    currentDate.setDate(currentDate.getDate() + 1);
-    setDate(calcDate(currentDate));
+    setCurrentDay(currentDay + 1);
   };
 
-  const [date, setDate] = useState(calcDate(currentDate));
   const classes = useStyles();
 
   const [selected, setSelected] = useState("happy");
@@ -148,8 +315,8 @@ export default function Diary() {
     console.log(selected);
     console.log(activity);
     console.log(comment);
-    console.log(date);
-  }, [selected, activity, comment, date]);
+    console.log(currentDay);
+  }, [selected, activity, comment, currentDay]);
 
   return (
     <div>
@@ -168,8 +335,11 @@ export default function Diary() {
           alignItems="center"
           xs={1}
         >
-          <IconButton>
-            <NavigateBeforeIcon fontSize="large" onClick={onLeft} />
+          <IconButton
+            disabled={currentDay === 1 ? true : false}
+            onClick={onLeft}
+          >
+            <NavigateBeforeIcon fontSize="large" />
           </IconButton>
         </Grid>
         <Grid
@@ -194,7 +364,7 @@ export default function Diary() {
               xs={12}
               className={classes.time}
             >
-              <p> {date}</p>
+              <p> Day {currentDay}</p>
             </Grid>
             <Grid
               container
@@ -300,8 +470,11 @@ export default function Diary() {
           alignItems="center"
           xs={1}
         >
-          <IconButton>
-            <NavigateNextIcon fontSize="large" onClick={onRight} />
+          <IconButton
+            disabled={currentDay === 7 ? true : false}
+            onClick={onRight}
+          >
+            <NavigateNextIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>
