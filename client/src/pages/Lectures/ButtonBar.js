@@ -6,12 +6,12 @@ import { makeStyles } from "@material-ui/core";
 export default function ButtonBar(props) {
   const useStyles = makeStyles((theme) => ({
     bar: {
-      padding: "20px",
+      marginBottom: "15px",
     },
     button: {
-      fontSize: "16px",
+      fontSize: "14px",
       fontWeight: "normal",
-      fontFamily: "Poor Story",
+      fontFamily: "'Noto Sans KR', sans serif;",
       padding: "1px 4px",
     },
   }));
@@ -28,7 +28,9 @@ export default function ButtonBar(props) {
     >
       <Button
         value="1"
-        disabled={props.step === "1" ? true : false}
+        style={
+          props.step === "1" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("1")}
       >
@@ -36,7 +38,9 @@ export default function ButtonBar(props) {
       </Button>
       <Button
         value="2"
-        disabled={props.step === "2" ? true : false}
+        style={
+          props.step === "2" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("2")}
       >
@@ -44,7 +48,9 @@ export default function ButtonBar(props) {
       </Button>
       <Button
         value="3"
-        disabled={props.step === "3" ? true : false}
+        style={
+          props.step === "3" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("3")}
       >
@@ -52,7 +58,9 @@ export default function ButtonBar(props) {
       </Button>
       <Button
         value="4"
-        disabled={props.step === "4" ? true : false}
+        style={
+          props.step === "4" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("4")}
       >
@@ -60,7 +68,9 @@ export default function ButtonBar(props) {
       </Button>
       <Button
         value="5"
-        disabled={props.step === "5" ? true : false}
+        style={
+          props.step === "5" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("5")}
       >
@@ -68,7 +78,9 @@ export default function ButtonBar(props) {
       </Button>
       <Button
         value="6"
-        disabled={props.step === "6" ? true : false}
+        style={
+          props.step === "6" ? { color: "#FFB800", fontWeight: "600" } : {}
+        }
         className={classes.button}
         onClick={(e) => props.onChange("6")}
       >

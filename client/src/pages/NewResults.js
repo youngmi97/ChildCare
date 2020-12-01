@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "9px 0px",
     color: "#FFB800",
     textAlign: "center",
+    fontFamily: "'Noto Sans KR', sans serif;",
   },
   divider: {
     borderBottom: "solid 2px #FFEBB8",
