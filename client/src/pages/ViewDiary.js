@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Grid, Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +12,8 @@ import IconButton from "@material-ui/core/IconButton";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { useMutation, useQuery, useLazyQuery } from "@apollo/react-hooks";
+import { GET_USER_DIARY, UPDATE_DIARY } from "../Mutations";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,8 +93,25 @@ const theme3 = createMuiTheme({
   },
 });
 
-export default function ViewDiary() {
+export default function ViewDiary(props) {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const location = useLocation();
+
+  // const [
+  //   getDiary,
+  //   { loading: loading2, error: error2, data: data2 },
+  // ] = useLazyQuery(GET_USER_DIARY, {
+  //   variables: {
+  //     userId: location.state.user,
+  //   },
+  // });
+  // getDiary();
+
+  const [currentDiary, setCurrentDiary] = useState({});
+
+  const [selected, setSelected] = useState("happy");
+  const [activity, setActivity] = useState("");
+  const [comment, setComment] = useState("");
 
   const calcDate = (inDate) => {
     const month = inDate.getMonth() + 1;
@@ -127,12 +147,24 @@ export default function ViewDiary() {
     setDate(calcDate(currentDate));
   };
 
+  const [updateDiary, { loading, error, data }] = useMutation(UPDATE_DIARY, {
+    variables: {
+      userId: location.state.user,
+      program: "program1",
+      day: "monday",
+      activity: activity,
+      selected: selected,
+      comment: comment,
+    },
+  });
+
+  const saveDiary = () => {
+    updateDiary();
+    console.log("saveDiary", data);
+  };
+
   const [date, setDate] = useState(calcDate(currentDate));
   const classes = useStyles();
-
-  const [selected, setSelected] = useState("happy");
-  const [activity, setActivity] = useState("");
-  const [comment, setComment] = useState("");
 
   const handleChange = (event) => {
     setSelected(event.currentTarget.id);
@@ -145,11 +177,11 @@ export default function ViewDiary() {
   };
 
   useEffect(() => {
-    console.log(selected);
-    console.log(activity);
-    console.log(comment);
-    console.log(date);
-  }, [selected, activity, comment, date]);
+    if (!loading && !error) {
+      console.log("update Diary ", data);
+      setCurrentDiary(data);
+    }
+  }, [selected, activity, comment, date, loading, error, data]);
 
   return (
     <div>
@@ -290,7 +322,9 @@ export default function ViewDiary() {
                 xs={12}
                 className={classes.buttons}
               >
-                <button style={btnStyle}>저장하기</button>
+                <button style={btnStyle} onClick={saveDiary}>
+                  저장하기
+                </button>
               </Grid>
             </Grid>
           </Card>
