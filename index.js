@@ -14,6 +14,8 @@ const path = require("path");
 
 const PORT = process.env.PORT || 5000;
 
+const app = express();
+
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
