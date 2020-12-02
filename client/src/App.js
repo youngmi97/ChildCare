@@ -7,6 +7,7 @@ import "./App.css";
 
 import { AuthProvider } from "./context/auth";
 import AuthRoute from "./util/AuthRoute";
+//import ProfRoute from "./util/ProfRoute";
 
 import MenuBar from "./components/MenuBar";
 import Home from "./pages/Home";
@@ -27,7 +28,7 @@ import ViewDiary from "./pages/ViewDiary";
 
 const App = (props) => {
   const { user } = useContext(AuthContext);
-  console.log("user prof", user);
+  //console.log("user prof", user);
 
   return (
     <AuthProvider>

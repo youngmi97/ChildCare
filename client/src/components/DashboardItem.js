@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -8,6 +8,7 @@ import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 //import VisibilityIcon from '@material-ui/icons/Visibility';
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function IconButtons(props) {
   const history = useHistory();
+
+  const { user } = useContext(AuthContext);
 
   const classes = useStyles();
 
