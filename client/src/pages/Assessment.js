@@ -237,9 +237,9 @@ export default function Assessment() {
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -335,16 +335,16 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
             className={classes.testMenu}
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
               <Sidebar2 step={step} />
@@ -437,15 +437,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -539,15 +539,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -643,15 +643,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -741,15 +741,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>

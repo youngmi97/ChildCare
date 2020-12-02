@@ -105,15 +105,18 @@ export default function Dashboard() {
     console.log(data);
 
     data.getUsers.map((user) => {
-      rows.push(
-        createData(
-          user.name,
-          calcAge(user.dateOfBirth),
-          user.primaryLanguage,
-          user.schoolLanguage,
-          user.id
-        )
-      );
+      if (user.name !== "") {
+        rows.push(
+          createData(
+            user.name,
+            calcAge(user.dateOfBirth),
+            user.primaryLanguage,
+            user.schoolLanguage,
+            "임동선",
+            user.id
+          )
+        );
+      }
     });
   }
 
