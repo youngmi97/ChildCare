@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build ../public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -68,5 +68,6 @@
   },
   "devDependencies": {
     "webpack-cli": "^4.2.0"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
