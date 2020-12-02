@@ -26,7 +26,7 @@ function STT() {
     await new Promise((resolve, reject) => {
       console.log("S3 Upload Promise");
       const bucketName = "mp4in";
-      const uploadFileName = "example/" + newName + ".mp4";
+      const uploadFileName = newName + ".mp4";
       // const fileName = newName + ".mp4";
 
       const payload = {
@@ -82,19 +82,11 @@ function STT() {
         "https://85sgmxl2m9.execute-api.us-east-1.amazonaws.com/staging2";
 
       var today = new Date();
-      var date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-      var time =
-        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      var dateTime = date + "-" + time;
+      var date = today.getFullYear() + (today.getMonth() + 1) + today.getDate();
 
       //[id]_[date]_[type].mp4
       //type: "form" or "lesson"
-      let newName = "userId_" + dateTime + "_" + "form";
+      let newName = "userId_" + date + "_" + "form";
 
       const data = { body: { name: newName } };
 
@@ -103,12 +95,12 @@ function STT() {
 
       //callSttPromise(newName);
 
-      // STT Result Retrieval Flow:
-      // 1. Send file to S3 using aws-sdk
-      // --> .mp4 -> .mp3 -> .json should persist the same file name
-      // --> unique file name, save json result to db after return
-      // 2. axios post request, send file name
-      // 3. wait for response which should return the .json stt result
+      // valid file name example: userId_20201202_form
+      // TODO
+      // 1. delete completed transcription job
+      // 2. listen to json creation event and bring result to react
+      // 3. parse json and display data
+
       axios
         .post(api, data)
         .then((response) => {
