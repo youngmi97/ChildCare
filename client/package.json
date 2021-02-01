@@ -16,7 +16,7 @@
     "apollo-link-context": "^1.0.20",
     "apollo-link-http": "^1.5.17",
     "aws-sdk": "^2.779.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "framer": "^1.2.9",
     "framer-motion": "^2.9.4",
     "graphql": "^15.3.0",
