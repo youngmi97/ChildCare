@@ -54,7 +54,6 @@ function STT() {
           // while data is null, the mp4 is still uploading
           // when data returns, mp4 url is in data.Location e.g.) https://mp4in.s3.amazonaws.com/firstprof_202121_form.mp4
           setVidUrl(data.Location);
-
           resolve(data.Location);
         }
       });
