@@ -55,6 +55,20 @@ function STT() {
           // when data returns, mp4 url is in data.Location e.g.) https://mp4in.s3.amazonaws.com/firstprof_202121_form.mp4
           setVidUrl(data.Location);
           resolve(data.Location);
+
+          // What happens when I call the getObject method before the .json is created?
+
+          var getParams = {
+            Bucket: "sttresultjson",
+            Key: newName + ".json",
+          };
+
+          s3.getObject(getParams, function (err, data) {
+            if (err) return err;
+
+            let objectData = data.Body.toString("utf-8"); // Use the encoding necessary
+            console.log("objectData", objectData);
+          });
         }
       });
     });
@@ -101,7 +115,6 @@ function STT() {
 
       callSttPromise(newName);
 
-      // valid file name example: userId_20201202_form (form is either "evaluation" or "program")
       // TODO
       // 1. delete completed transcription job
       // 2. listen to json creation event and bring result to react
