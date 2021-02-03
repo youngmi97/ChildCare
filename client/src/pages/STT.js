@@ -64,6 +64,7 @@ function STT() {
           };
 
           s3.getObject(getParams, function (err, data) {
+            console.log("getObject called");
             if (err) return err;
 
             let objectData = data.Body.toString("utf-8"); // Use the encoding necessary

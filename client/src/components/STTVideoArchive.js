@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { AuthContext } from "../context/auth";
 import {
   Grid,
   Card,
@@ -10,6 +11,8 @@ import {
 } from "@material-ui/core";
 import VideoDragDrop from "./VideoDragDrop";
 import "../index.css";
+var AWS = require("aws-sdk");
+
 const useStyles = makeStyles((theme) => ({
   speechCard: {
     width: "100%",
@@ -81,6 +84,31 @@ const useStyles = makeStyles((theme) => ({
 
 function STTVideoArchive(props) {
   const classes = useStyles();
+  const { user } = useContext(AuthContext);
+
+  const [videoFiles, setVideoFiles] = useState([]);
+
+  var s3 = new AWS.S3({
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    region: "us-east-1",
+  });
+
+  s3.listObjectsV2(
+    {
+      Bucket: "mp4in",
+      Prefix: user.username,
+    },
+    function (err, data) {
+      if (err) throw err;
+
+      const objectExists = data.Contents.length > 0;
+      console.log(data.Contents);
+      setVideoFiles(data.Contents);
+
+      // have to retrieve the thumbnail from the list of urls
+    }
+  );
 
   const videoCard = (
     <Card className={classes.videoCard}>
