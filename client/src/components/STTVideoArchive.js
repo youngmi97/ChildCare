@@ -102,21 +102,23 @@ function STTVideoArchive(props) {
       region: "us-east-1",
     });
 
-    s3.listObjectsV2(
-      {
-        Bucket: "mp4in",
-        Prefix: user.username || "   ",
-      },
-      function (err, data) {
-        if (err) throw err;
+    if (user) {
+      s3.listObjectsV2(
+        {
+          Bucket: "mp4in",
+          Prefix: user.username,
+        },
+        function (err, data) {
+          if (err) throw err;
 
-        const objectExists = data.Contents.length > 0;
-        console.log(data.Contents);
-        setVideoFiles(data.Contents);
+          const objectExists = data.Contents.length > 0;
+          console.log(data.Contents);
+          setVideoFiles(data.Contents);
 
-        // have to retrieve the thumbnail from the list of urls
-      }
-    );
+          // have to retrieve the thumbnail from the list of urls
+        }
+      );
+    }
   }
 
   useEffect(() => {
@@ -124,10 +126,15 @@ function STTVideoArchive(props) {
     console.log("videoFiles", videoFiles);
   }, []);
 
-  const videoCard = (url) => {
+  const videoCard = (url, dateObject) => {
     function handleVideoChoose(url) {
       console.log("hello", url);
     }
+
+    let date = dateObject || "";
+    let dateString = date.toString();
+
+    console.log("dateObject", date.toString());
 
     return (
       <Card
@@ -150,7 +157,7 @@ function STTVideoArchive(props) {
               component="h5"
               style={{ height: "30px" }}
             >
-              VideoTitle
+              {dateString}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -195,22 +202,14 @@ function STTVideoArchive(props) {
             >
               {videoFiles[0]
                 ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key,
+                    videoFiles[0].LastModified
                   )
                 : videoCard("")}
               {videoFiles[0]
                 ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
-                  )
-                : videoCard("")}
-              {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
-                  )
-                : videoCard("")}
-              {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key,
+                    videoFiles[0].LastModified
                   )
                 : videoCard("")}
             </Grid>
@@ -231,10 +230,16 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {/* {videoCard("")}
-              {videoCard("")}
-              {videoCard("")}
-              {videoCard("")} */}
+              {/* {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")}
+              {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")} */}
             </Grid>
           </Grid>
         </Grid>

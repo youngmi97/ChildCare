@@ -58,18 +58,18 @@ function STT() {
 
           // What happens when I call the getObject method before the .json is created?
 
-          var getParams = {
-            Bucket: "sttresultjson",
-            Key: newName + ".json",
-          };
+          // var getParams = {
+          //   Bucket: "sttresultjson",
+          //   Key: newName + ".json",
+          // };
 
-          s3.getObject(getParams, function (err, data) {
-            console.log("getObject called");
-            if (err) return err;
+          // s3.getObject(getParams, function (err, data) {
+          //   console.log("getObject called");
+          //   if (err) return err;
 
-            let objectData = data.Body.toString("utf-8"); // Use the encoding necessary
-            console.log("objectData", objectData);
-          });
+          //   let objectData = data.Body.toString("utf-8"); // Use the encoding necessary
+          //   console.log("objectData", objectData);
+          // });
         }
       });
     });
