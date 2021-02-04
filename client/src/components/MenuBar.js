@@ -122,7 +122,7 @@ function MenuBar() {
         href="/"
       >
         {" "}
-        TALKI-i{" "}
+        i-Say Lab{" "}
       </a>
 
       <Menu.Menu position="right" style={{ marginRight: "30px" }}>
