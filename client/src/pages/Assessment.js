@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
+import Overall from "../components/assessment/Overall";
 
 const useStyles = makeStyles((theme) => ({
   testCard: {
@@ -406,7 +407,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={eduFeedback}
                     />
                   </Grid>
@@ -509,7 +510,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={devFeedback}
                     />
                   </Grid>
@@ -612,7 +613,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={illFeedback}
                     />
                   </Grid>
@@ -710,7 +711,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={famFeedback}
                     />
                   </Grid>
@@ -805,7 +806,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%", marginTop: "40px" }}
                       value={nwrFeedback}
                     />
                   </Grid>
@@ -883,7 +884,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    Hello
+                    <Overall />
                   </Grid>
                   <Grid
                     container
@@ -900,7 +901,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={ovrFeedback}
                     />
                   </Grid>

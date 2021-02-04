@@ -95,7 +95,10 @@ export default function Dashboard() {
   };
   const classes = useStyles();
 
-  const handleChange = (event) => {};
+  const handleChange = (event) => {
+    setProf(event.target.value);
+    //upload new assignee to server
+  };
 
   const [prof, setProf] = useState("");
   const [page, setPage] = React.useState(0);
@@ -115,7 +118,7 @@ export default function Dashboard() {
             calcAge(user.dateOfBirth),
             user.primaryLanguage,
             user.schoolLanguage,
-            "임동선",
+            user.assignee,
             user.id
           )
         );
@@ -163,8 +166,8 @@ export default function Dashboard() {
                             <DashboardItem id={row["id"]} />
                           ) : column.id === "professional" ? (
                             <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
+                              labelId="assignee"
+                              id="assignee"
                               value={value}
                               onChange={handleChange}
                               style={{ width: "80px", fontSize: "12px" }}
