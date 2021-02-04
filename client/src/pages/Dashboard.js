@@ -13,6 +13,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { GET_CHILD_FORM } from "../Mutations";
 import DashboardName from "../dashboard/DashboardName";
+import { AuthContext } from "../context/auth";
 
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -66,6 +67,8 @@ const useStyles = makeStyles({
 });
 
 export default function Dashboard() {
+  const context = useContext(AuthContext);
+
   const calcAge = (date) => {
     var year;
     var month;

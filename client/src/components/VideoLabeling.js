@@ -404,9 +404,9 @@ function VideoLabeling(props) {
             onPause={(e) => console.log("paused")}
             onPlay={(e) => console.log("played")}
           /> */}
-          {videos[0] ? (
+          {props.vidUrl ? (
             <ReactPlayer
-              url={videos[0].preview}
+              url={props.vidUrl}
               width="80%"
               // height="360px"
               controls={true}

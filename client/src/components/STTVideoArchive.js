@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { AuthContext } from "../context/auth";
+import VideoThumbnail from "react-video-thumbnail";
 import {
   Grid,
   Card,
@@ -10,6 +18,8 @@ import {
 } from "@material-ui/core";
 import VideoDragDrop from "./VideoDragDrop";
 import "../index.css";
+var AWS = require("aws-sdk");
+
 const useStyles = makeStyles((theme) => ({
   speechCard: {
     width: "100%",
@@ -81,31 +91,72 @@ const useStyles = makeStyles((theme) => ({
 
 function STTVideoArchive(props) {
   const classes = useStyles();
+  const { user } = useContext(AuthContext);
 
-  const videoCard = (
-    <Card className={classes.videoCard}>
-      <CardActionArea>
-        <CardMedia
-          style={{ width: "128px", height: "72px" }}
-          component="img"
-          alt="Family"
-          height="140"
-          image="/thumbnailExample.png"
-          title="Family"
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h7"
-            component="h5"
-            style={{ height: "30px" }}
-          >
-            VideoTitle
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
+  const [videoFiles, setVideoFiles] = useState([]);
+
+  function getVideos() {
+    var s3 = new AWS.S3({
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+      region: "us-east-1",
+    });
+
+    s3.listObjectsV2(
+      {
+        Bucket: "mp4in",
+        Prefix: user.username || "   ",
+      },
+      function (err, data) {
+        if (err) throw err;
+
+        const objectExists = data.Contents.length > 0;
+        console.log(data.Contents);
+        setVideoFiles(data.Contents);
+
+        // have to retrieve the thumbnail from the list of urls
+      }
+    );
+  }
+
+  useEffect(() => {
+    getVideos();
+    console.log("videoFiles", videoFiles);
+  }, []);
+
+  const videoCard = (url) => {
+    function handleVideoChoose(url) {
+      console.log("hello", url);
+    }
+
+    return (
+      <Card
+        className={classes.videoCard}
+        onClick={() => {
+          handleVideoChoose(url);
+        }}
+      >
+        <CardActionArea>
+          <VideoThumbnail
+            videoUrl={url}
+            thumbnailHandler={(thumbnail) => console.log(thumbnail)}
+            width={128}
+            height={72}
+          />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h7"
+              component="h5"
+              style={{ height: "30px" }}
+            >
+              VideoTitle
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    );
+  };
 
   return (
     <Grid
@@ -142,14 +193,26 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
+              {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")}
+              {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")}
+              {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")}
+              {videoFiles[0]
+                ? videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
+                  )
+                : videoCard("")}
             </Grid>
           </Grid>
           <Grid
@@ -168,14 +231,10 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
-              {videoCard}
+              {/* {videoCard("")}
+              {videoCard("")}
+              {videoCard("")}
+              {videoCard("")} */}
             </Grid>
           </Grid>
         </Grid>

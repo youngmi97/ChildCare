@@ -144,4 +144,288 @@ const GET_PROF_COMMENTS = gql`
   }
 `;
 
-export { SUBMIT_CHILD_FORM, GET_CHILD_FORM, GET_PROF_COMMENTS };
+const GET_USER_DIARY = gql`
+  query getChildDiaries($userId: String!) {
+    getChildDiaries(userId: $userId) {
+      userId
+      activity {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program2 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program3 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program4 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program5 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program6 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+      comment {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+      selected {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+    }
+  }
+`;
+
+const UPDATE_DIARY = gql`
+  mutation createChildDiary(
+    $userId: String
+    $program: String
+    $day: String
+    $activity: String
+    $selected: String
+    $comment: String
+  ) {
+    createChildDiary(
+      diaryInput: {
+        userId: $userId
+        program: $program
+        day: $day
+        activity: $activity
+        selected: $selected
+        comment: $comment
+      }
+    ) {
+      userId
+      activity {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program2 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program3 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program4 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program5 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program6 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+      comment {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program2 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program3 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program4 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program5 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program6 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+      selected {
+        program1 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program2 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program3 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program4 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program5 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+        program6 {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
+      }
+    }
+  }
+`;
+
+export {
+  SUBMIT_CHILD_FORM,
+  GET_CHILD_FORM,
+  GET_PROF_COMMENTS,
+  GET_USER_DIARY,
+  UPDATE_DIARY,
+};
