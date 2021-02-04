@@ -68,6 +68,7 @@ const useStyles = makeStyles({
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
+  const [childID, setChildID] = useState("");
   const [prof, setProf] = useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -152,6 +153,7 @@ export default function Dashboard() {
   }, [prof]);
 
   const handleChange = (event) => {
+    setChildID(event.target.name);
     setProf(event.target.value);
     //upload new assignee to server
   };
@@ -187,7 +189,7 @@ export default function Dashboard() {
                             <DashboardItem id={row["id"]} />
                           ) : column.id === "professional" ? (
                             <Select
-                              labelId="assignee"
+                              name={row["id"]}
                               id="assignee"
                               value={prof}
                               onChange={handleChange}
