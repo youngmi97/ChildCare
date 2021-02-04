@@ -130,6 +130,11 @@ export default function Assessment() {
   const [nwrFeedback, setNwrFeedback] = useState("");
   const [ovrFeedback, setOvrFeedback] = useState("");
 
+  const [nwrScore, setNwrScore] = useState(0);
+  const [srScore, setSrScore] = useState(0);
+  console.log(nwrScore);
+  console.log(srScore);
+
   useMemo(() => {
     if (!error && !loading) {
       setGender(data.getChildForm.gender);
@@ -202,6 +207,13 @@ export default function Assessment() {
 
   const onChange6 = (e) => {
     setOvrFeedback(e.target.value);
+  };
+
+  const updateNWR = (value) => {
+    setNwrScore(value);
+  };
+  const updateSR = (value) => {
+    setSrScore(value);
   };
   console.log();
   console.log(step);
@@ -789,7 +801,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <NWRSR />
+                    <NWRSR updateNWR={updateNWR} updateSR={updateSR} />
                   </Grid>
                   <Grid
                     container

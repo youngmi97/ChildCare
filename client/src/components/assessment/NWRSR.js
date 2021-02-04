@@ -31,12 +31,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NWRSR(props) {
   const classes = useStyles();
-  var result = 0;
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  var nwrResult = 0;
+  var srResult = 0;
+  const handleNWRChange = (event) => {
+    setNWRState({ ...nwrState, [event.target.name]: event.target.checked });
+    props.updateNWR(calcNWRScore());
+  };
+  const handleSRChange = (event) => {
+    setSRState({ ...srState, [event.target.name]: event.target.checked });
+    props.updateNWR(calcSRScore());
   };
 
-  const [state, setState] = useState({
+  const [nwrState, setNWRState] = useState({
     nwr1: false,
     nwr2: false,
     nwr3: false,
@@ -52,6 +58,9 @@ export default function NWRSR(props) {
     nwr13: false,
     nwr14: false,
     nwr15: false,
+  });
+
+  const [srState, setSRState] = useState({
     sr1: false,
     sr2: false,
     sr3: false,
@@ -66,15 +75,25 @@ export default function NWRSR(props) {
     sr12: false,
   });
 
-  const calcScore = () => {
-    Object.values(state).map((value) => {
-      if (value === false) {
-        result = result + 1;
+  const calcNWRScore = () => {
+    Object.values(nwrState).map((value) => {
+      if (value === true) {
+        nwrResult = nwrResult + 1;
       }
     });
-    return result;
+    return nwrResult;
   };
-  console.log(calcScore());
+
+  const calcSRScore = () => {
+    Object.values(srState).map((value) => {
+      if (value === true) {
+        srResult = srResult + 1;
+      }
+    });
+    return srResult;
+  };
+  console.log(calcNWRScore());
+  console.log(calcSRScore());
 
   return (
     <div style={{ margin: "0px" }}>
@@ -117,8 +136,8 @@ export default function NWRSR(props) {
             1. 누베{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr1}
-              onChange={handleChange}
+              checked={nwrState.nwr1}
+              onChange={handleNWRChange}
               name="nwr1"
             />
           </div>
@@ -127,8 +146,8 @@ export default function NWRSR(props) {
             4. 까다굳{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr4}
-              onChange={handleChange}
+              checked={nwrState.nwr4}
+              onChange={handleNWRChange}
               name="nwr4"
             />
           </div>
@@ -136,8 +155,8 @@ export default function NWRSR(props) {
             7.토보가인{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr7}
-              onChange={handleChange}
+              checked={nwrState.nwr7}
+              onChange={handleNWRChange}
               name="nwr7"
             />
           </div>
@@ -145,8 +164,8 @@ export default function NWRSR(props) {
             10.조메누버리{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr10}
-              onChange={handleChange}
+              checked={nwrState.nwr10}
+              onChange={handleNWRChange}
               name="nwr10"
             />
           </div>
@@ -154,8 +173,8 @@ export default function NWRSR(props) {
             13.로밉띠르저니{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr13}
-              onChange={handleChange}
+              checked={nwrState.nwr13}
+              onChange={handleNWRChange}
               name="nwr13"
             />
           </div>
@@ -171,8 +190,8 @@ export default function NWRSR(props) {
             2. 조나{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr2}
-              onChange={handleChange}
+              checked={nwrState.nwr2}
+              onChange={handleNWRChange}
               name="nwr2"
             />
           </div>
@@ -180,8 +199,8 @@ export default function NWRSR(props) {
             5. 모단기{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr5}
-              onChange={handleChange}
+              checked={nwrState.nwr5}
+              onChange={handleNWRChange}
               name="nwr5"
             />
           </div>
@@ -190,8 +209,8 @@ export default function NWRSR(props) {
             8.푸가태지{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr8}
-              onChange={handleChange}
+              checked={nwrState.nwr8}
+              onChange={handleNWRChange}
               name="nwr8"
             />
           </div>
@@ -200,8 +219,8 @@ export default function NWRSR(props) {
             11.레빌애티머{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr11}
-              onChange={handleChange}
+              checked={nwrState.nwr11}
+              onChange={handleNWRChange}
               name="nwr11"
             />
           </div>
@@ -209,8 +228,8 @@ export default function NWRSR(props) {
             14.보마데낭까두{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr14}
-              onChange={handleChange}
+              checked={nwrState.nwr14}
+              onChange={handleNWRChange}
               name="nwr14"
             />
           </div>
@@ -227,8 +246,8 @@ export default function NWRSR(props) {
             3. 퍼틱{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr3}
-              onChange={handleChange}
+              checked={nwrState.nwr3}
+              onChange={handleNWRChange}
               name="nwr3"
             />
           </div>
@@ -236,8 +255,8 @@ export default function NWRSR(props) {
             6.니아토{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr6}
-              onChange={handleChange}
+              checked={nwrState.nwr6}
+              onChange={handleNWRChange}
               name="nwr6"
             />
           </div>
@@ -245,8 +264,8 @@ export default function NWRSR(props) {
             9.드반거노{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr9}
-              onChange={handleChange}
+              checked={nwrState.nwr9}
+              onChange={handleNWRChange}
               name="nwr9"
             />
           </div>
@@ -254,8 +273,8 @@ export default function NWRSR(props) {
             12.바즘다거니{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr12}
-              onChange={handleChange}
+              checked={nwrState.nwr12}
+              onChange={handleNWRChange}
               name="nwr12"
             />
           </div>
@@ -263,8 +282,8 @@ export default function NWRSR(props) {
             15.미기돋아캐바{" "}
             <Checkbox
               color="primary"
-              checked={state.nwr15}
-              onChange={handleChange}
+              checked={nwrState.nwr15}
+              onChange={handleNWRChange}
               name="nwr15"
             />
           </div>
@@ -309,54 +328,54 @@ export default function NWRSR(props) {
             1. 그림을 연필로 그려요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr1}
-              onChange={handleChange}
-              name="s1"
+              checked={srState.sr1}
+              onChange={handleSRChange}
+              name="sr1"
             />
           </div>
           <div>
             3. 엄마가 치마를 입어요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr3}
-              onChange={handleChange}
-              name="s3"
+              checked={srState.sr3}
+              onChange={handleSRChange}
+              name="sr3"
             />
           </div>
           <div>
             5. 아빠가 힘들어서 하품을 크게 해요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr5}
-              onChange={handleChange}
-              name="s5"
+              checked={srState.sr5}
+              onChange={handleSRChange}
+              name="sr5"
             />
           </div>
           <div>
             7. 동생이 작은 칫솔로 이빨을 닦아요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr7}
-              onChange={handleChange}
-              name="s7"
+              checked={srState.sr7}
+              onChange={handleSRChange}
+              name="sr7"
             />
           </div>
           <div>
             9. 친구가 밖에서 그네를 재밌게 타요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr9}
-              onChange={handleChange}
-              name="s9"
+              checked={srState.sr9}
+              onChange={handleSRChange}
+              name="sr9"
             />
           </div>
           <div>
             11. 동생은 주사를 맞는 것을 싫어해요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr11}
-              onChange={handleChange}
-              name="s11"
+              checked={srState.sr11}
+              onChange={handleSRChange}
+              name="sr11"
             />
           </div>
         </Grid>
@@ -371,54 +390,54 @@ export default function NWRSR(props) {
             2. 동생이 그림책을 봐요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr2}
-              onChange={handleChange}
-              name="s2"
+              checked={srState.sr2}
+              onChange={handleSRChange}
+              name="sr2"
             />
           </div>
           <div>
             4. 엄마가 청소를 하고 걸레를 빨아요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr4}
-              onChange={handleChange}
-              name="s4"
+              checked={srState.sr4}
+              onChange={handleSRChange}
+              name="sr4"
             />
           </div>
           <div>
             6. 동생이 추우면 엄마가 이불을 줘요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr6}
-              onChange={handleChange}
-              name="s6"
+              checked={srState.sr6}
+              onChange={handleSRChange}
+              name="sr6"
             />
           </div>
           <div>
             8. 아빠가 동생한테 맛있는 빵을 줘요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr8}
-              onChange={handleChange}
-              name="s8"
+              checked={srState.sr8}
+              onChange={handleSRChange}
+              name="sr8"
             />
           </div>
           <div>
             10. 아빠가 청소를 하는 엄마를 불러요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr10}
-              onChange={handleChange}
-              name="s10"
+              checked={srState.sr10}
+              onChange={handleSRChange}
+              name="sr10"
             />
           </div>
           <div>
             12. 아빠가 창문을 세게 닫으라고 해요{" "}
             <Checkbox
               color="primary"
-              checked={state.sr12}
-              onChange={handleChange}
-              name="s12"
+              checked={srState.sr12}
+              onChange={handleSRChange}
+              name="sr12"
             />
           </div>
         </Grid>
