@@ -151,10 +151,13 @@ module.exports = {
           if (err) {
             console.log("Something wrong when updating assignee!");
           }
-          return doc;
+
           // doc should be the updated document!
         }
       );
+      const newUser = await User.findById(userId);
+      console.log("newUser", newUser);
+      return newUser;
     },
   },
 };
