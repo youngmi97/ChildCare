@@ -168,7 +168,7 @@ export default function Dashboard() {
                             <Select
                               labelId="assignee"
                               id="assignee"
-                              value={value}
+                              value={prof}
                               onChange={handleChange}
                               style={{ width: "80px", fontSize: "12px" }}
                             >

@@ -124,16 +124,40 @@ export default function NWRSR(props) {
           </div>
 
           <div>
-            4. 까다굳 <Checkbox color="primary" />
+            4. 까다굳{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr4}
+              onChange={handleChange}
+              name="nwr4"
+            />
           </div>
           <div>
-            7.토보가인 <Checkbox color="primary" />
+            7.토보가인{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr7}
+              onChange={handleChange}
+              name="nwr7"
+            />
           </div>
           <div>
-            10.조메누버리 <Checkbox color="primary" />
+            10.조메누버리{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr10}
+              onChange={handleChange}
+              name="nwr10"
+            />
           </div>
           <div>
-            13.로밉띠르저니 <Checkbox color="primary" />
+            13.로밉띠르저니{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr13}
+              onChange={handleChange}
+              name="nwr13"
+            />
           </div>
         </Grid>
         <Grid
@@ -144,21 +168,51 @@ export default function NWRSR(props) {
           xs={4}
         >
           <div>
-            2. 조나 <Checkbox color="primary" />
+            2. 조나{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr2}
+              onChange={handleChange}
+              name="nwr2"
+            />
           </div>
           <div>
-            5. 모단기 <Checkbox color="primary" />
+            5. 모단기{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr5}
+              onChange={handleChange}
+              name="nwr5"
+            />
           </div>
 
           <div>
-            8.푸가태지 <Checkbox color="primary" />
+            8.푸가태지{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr8}
+              onChange={handleChange}
+              name="nwr8"
+            />
           </div>
 
           <div>
-            11.레빌애티머 <Checkbox color="primary" />
+            11.레빌애티머{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr11}
+              onChange={handleChange}
+              name="nwr11"
+            />
           </div>
           <div>
-            14.보마데낭까두 <Checkbox color="primary" />
+            14.보마데낭까두{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr14}
+              onChange={handleChange}
+              name="nwr14"
+            />
           </div>
         </Grid>
 
@@ -170,19 +224,49 @@ export default function NWRSR(props) {
           xs={4}
         >
           <div>
-            3. 퍼틱 <Checkbox color="primary" />
+            3. 퍼틱{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr3}
+              onChange={handleChange}
+              name="nwr3"
+            />
           </div>
           <div>
-            6.니아토 <Checkbox color="primary" />
+            6.니아토{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr6}
+              onChange={handleChange}
+              name="nwr6"
+            />
           </div>
           <div>
-            9.드반거노 <Checkbox color="primary" />
+            9.드반거노{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr9}
+              onChange={handleChange}
+              name="nwr9"
+            />
           </div>
           <div>
-            12.바즘다거니 <Checkbox color="primary" />
+            12.바즘다거니{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr12}
+              onChange={handleChange}
+              name="nwr12"
+            />
           </div>
           <div>
-            15.미기돋아캐바 <Checkbox color="primary" />
+            15.미기돋아캐바{" "}
+            <Checkbox
+              color="primary"
+              checked={state.nwr15}
+              onChange={handleChange}
+              name="nwr15"
+            />
           </div>
         </Grid>
       </Grid>
@@ -222,22 +306,58 @@ export default function NWRSR(props) {
           xs={6}
         >
           <div>
-            1. 그림을 연필로 그려요 <Checkbox color="primary" />
+            1. 그림을 연필로 그려요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr1}
+              onChange={handleChange}
+              name="s1"
+            />
           </div>
           <div>
-            3. 엄마가 치마를 입어요 <Checkbox color="primary" />
+            3. 엄마가 치마를 입어요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr3}
+              onChange={handleChange}
+              name="s3"
+            />
           </div>
           <div>
-            5. 아빠가 힘들어서 하품을 크게 해요 <Checkbox color="primary" />
+            5. 아빠가 힘들어서 하품을 크게 해요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr5}
+              onChange={handleChange}
+              name="s5"
+            />
           </div>
           <div>
-            7. 동생이 작은 칫솔로 이빨을 닦아요 <Checkbox color="primary" />
+            7. 동생이 작은 칫솔로 이빨을 닦아요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr7}
+              onChange={handleChange}
+              name="s7"
+            />
           </div>
           <div>
-            9. 친구가 밖에서 그네를 재밌게 타요 <Checkbox color="primary" />
+            9. 친구가 밖에서 그네를 재밌게 타요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr9}
+              onChange={handleChange}
+              name="s9"
+            />
           </div>
           <div>
-            11. 동생은 주사를 맞는 것을 싫어해요 <Checkbox color="primary" />
+            11. 동생은 주사를 맞는 것을 싫어해요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr11}
+              onChange={handleChange}
+              name="s11"
+            />
           </div>
         </Grid>
         <Grid
@@ -248,22 +368,58 @@ export default function NWRSR(props) {
           xs={6}
         >
           <div>
-            2. 동생이 그림책을 봐요 <Checkbox color="primary" />
+            2. 동생이 그림책을 봐요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr2}
+              onChange={handleChange}
+              name="s2"
+            />
           </div>
           <div>
-            4. 엄마가 청소를 하고 걸레를 빨아요 <Checkbox color="primary" />
+            4. 엄마가 청소를 하고 걸레를 빨아요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr4}
+              onChange={handleChange}
+              name="s4"
+            />
           </div>
           <div>
-            6. 동생이 추우면 엄마가 이불을 줘요 <Checkbox color="primary" />
+            6. 동생이 추우면 엄마가 이불을 줘요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr6}
+              onChange={handleChange}
+              name="s6"
+            />
           </div>
           <div>
-            8. 아빠가 동생한테 맛있는 빵을 줘요 <Checkbox color="primary" />
+            8. 아빠가 동생한테 맛있는 빵을 줘요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr8}
+              onChange={handleChange}
+              name="s8"
+            />
           </div>
           <div>
-            10. 아빠가 청소를 하는 엄마를 불러요 <Checkbox color="primary" />
+            10. 아빠가 청소를 하는 엄마를 불러요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr10}
+              onChange={handleChange}
+              name="s10"
+            />
           </div>
           <div>
-            12. 아빠가 창문을 세게 닫으라고 해요 <Checkbox color="primary" />
+            12. 아빠가 창문을 세게 닫으라고 해요{" "}
+            <Checkbox
+              color="primary"
+              checked={state.sr12}
+              onChange={handleChange}
+              name="s12"
+            />
           </div>
         </Grid>
       </Grid>
