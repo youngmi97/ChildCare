@@ -10,7 +10,7 @@ class Form extends Component {
 
   componentDidMount() {
     const { user } = this.context;
-    // console.log(user);
+    console.log(user);
     // { name: 'Tania', loggedIn: true }
     // this.state.userId = user.id;
   }

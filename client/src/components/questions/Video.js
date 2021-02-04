@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Modal from "./Modal.js";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import ReactPlayer from "react-player";
 import VideoDragDrop from "../VideoDragDrop2";
+import { AuthContext } from "../../context/auth";
+var AWS = require("aws-sdk");
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -66,13 +68,55 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Video(props) {
+  const { user } = useContext(AuthContext);
   const classes = useStyles();
   const [videoFiles, setVideoFiles] = useState([]);
+  const [uploadedFile, setUploadedFile] = useState([]);
   const [uploaded, setUploaded] = useState(false);
+
+  async function callSttPromise(newName) {
+    await new Promise((resolve, reject) => {
+      console.log("S3 Upload Promise");
+      const bucketName = "mp4in";
+      const uploadFileName = newName + ".mp4";
+      // const fileName = newName + ".mp4";
+
+      const payload = {
+        Key: uploadFileName,
+        Bucket: bucketName,
+        Body: uploadedFile[0],
+        ContentType: "video/mp4",
+        ACL: "public-read",
+      };
+
+      // for client env variables, have to add REACT_APP infront
+      var s3 = new AWS.S3({
+        accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+        region: "us-east-1",
+      });
+
+      console.log("S3 Upload Promise1");
+
+      s3.upload(payload, (err, data) => {
+        if (err) {
+          console.log("err", err);
+          reject(err);
+        } else {
+          console.log("data", data);
+          // while data is null, the mp4 is still uploading
+          // when data returns, mp4 url is in data.Location e.g.) https://mp4in.s3.amazonaws.com/firstprof_202121_form.mp4
+          resolve(data.Location);
+        }
+      });
+    });
+  }
 
   // On file select (from the pop up)
   function handleVideoUpload(videoData) {
     props.parentUploadTrigger(videoData);
+    setUploadedFile(videoData);
+
     setUploaded(true);
   }
 
@@ -80,7 +124,33 @@ export default function Video(props) {
   // file upload is complete
   useEffect(() => {
     setVideoFiles(props.videos);
-  }, [props.videos]);
+
+    if (uploadedFile.length != 0) {
+      const api =
+        "https://85sgmxl2m9.execute-api.us-east-1.amazonaws.com/staging2";
+
+      var today = new Date();
+      var date =
+        today.getFullYear().toString() +
+        (today.getMonth() + 1).toString() +
+        today.getDate().toString();
+
+      let newName = user.username + "_" + date + "_" + "form";
+
+      callSttPromise(newName);
+
+      const data = { body: { name: newName } };
+
+      axios
+        .post(api, data)
+        .then((response) => {
+          console.log("response", response);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    }
+  }, [props.videos, uploadedFile]);
 
   return (
     <div>

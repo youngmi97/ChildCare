@@ -15,7 +15,7 @@ import { GET_CHILD_FORM } from "../Mutations";
 import DashboardName from "../dashboard/DashboardName";
 import { AuthContext } from "../context/auth";
 
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const columns = [
@@ -67,7 +67,10 @@ const useStyles = makeStyles({
 });
 
 export default function Dashboard() {
-  const context = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [prof, setProf] = useState("");
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const calcAge = (date) => {
     var year;
@@ -95,14 +98,18 @@ export default function Dashboard() {
   };
   const classes = useStyles();
 
-  const handleChange = (event) => {
-    setProf(event.target.value);
-    //upload new assignee to server
-  };
-
-  const [prof, setProf] = useState("");
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [updateAssignee, { loading1, error1, data1 }] = useMutation(
+    UPDATE_ASSIGNEE,
+    {
+      variables: {
+        userId: user.id,
+        assignee: prof,
+      },
+      onError(err) {
+        console.log("err", err);
+      },
+    }
+  );
 
   const { loading, error, data } = useQuery(GET_USERS);
   const rows = [];
@@ -133,6 +140,20 @@ export default function Dashboard() {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  };
+
+  useEffect(() => {
+    if (prof && user) {
+      console.log("prof", prof);
+      console.log("userId", user.id);
+      console.log("updateAssignee", data1);
+      updateAssignee();
+    }
+  }, [prof]);
+
+  const handleChange = (event) => {
+    setProf(event.target.value);
+    //upload new assignee to server
   };
 
   return (
@@ -211,6 +232,15 @@ const GET_USERS = gql`
       dateOfBirth
       primaryLanguage
       schoolLanguage
+    }
+  }
+`;
+
+const UPDATE_ASSIGNEE = gql`
+  mutation updateAssignee($userId: String!, $assignee: String) {
+    updateAssignee(userId: $userId, assignee: $assignee) {
+      id
+      assignee
     }
   }
 `;

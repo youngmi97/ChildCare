@@ -52,6 +52,7 @@ module.exports = gql`
     email: String!
     token: String!
     username: String!
+    assignee: String
     createdAt: String!
   }
 
@@ -226,6 +227,8 @@ module.exports = gql`
   type Mutation {
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
+
+    updateAssignee(userId: String!, assignee: String): User!
 
     registerProfessional(
       registerInput: RegisterProfessionalInput
