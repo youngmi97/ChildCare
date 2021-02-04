@@ -103,7 +103,7 @@ export default function Dashboard() {
     UPDATE_ASSIGNEE,
     {
       variables: {
-        userId: user.id,
+        userId: childID,
         assignee: prof,
       },
       onError(err) {
@@ -191,7 +191,7 @@ export default function Dashboard() {
                             <Select
                               name={row["id"]}
                               id="assignee"
-                              value={prof}
+                              value={row["professional"]}
                               onChange={handleChange}
                               style={{ width: "80px", fontSize: "12px" }}
                             >

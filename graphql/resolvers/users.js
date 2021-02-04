@@ -151,7 +151,6 @@ module.exports = {
           if (err) {
             console.log("Something wrong when updating assignee!");
           }
-
           // doc should be the updated document!
         }
       );

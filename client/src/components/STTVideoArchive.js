@@ -94,6 +94,7 @@ function STTVideoArchive(props) {
   const { user } = useContext(AuthContext);
 
   const [videoFiles, setVideoFiles] = useState([]);
+  const [currentUrl, setCurrentUrl] = useState("");
 
   function getVideos() {
     var s3 = new AWS.S3({
@@ -129,6 +130,8 @@ function STTVideoArchive(props) {
   const videoCard = (url, dateObject) => {
     function handleVideoChoose(url) {
       console.log("hello", url);
+      setCurrentUrl(url);
+      props.parentChooseUrl(url);
     }
 
     let date = dateObject || "";
@@ -144,12 +147,7 @@ function STTVideoArchive(props) {
         }}
       >
         <CardActionArea>
-          <VideoThumbnail
-            videoUrl={url}
-            thumbnailHandler={(thumbnail) => console.log(thumbnail)}
-            width={128}
-            height={72}
-          />
+          <VideoThumbnail videoUrl={url} width={128} height={72} />
           <CardContent>
             <Typography
               gutterBottom
@@ -200,18 +198,15 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key,
-                    videoFiles[0].LastModified
-                  )
-                : videoCard("")}
-              {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key,
-                    videoFiles[0].LastModified
-                  )
-                : videoCard("")}
+              {videoFiles.map((videoData) => {
+                if (videoData) {
+                  return videoCard(
+                    "https://mp4in.s3.amazonaws.com/" + videoData.Key
+                  );
+                } else {
+                  return videoCard("");
+                }
+              })}
             </Grid>
           </Grid>
           <Grid
@@ -230,16 +225,11 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {/* {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
-                  )
-                : videoCard("")}
               {videoFiles[0]
                 ? videoCard(
                     "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
                   )
-                : videoCard("")} */}
+                : videoCard("")}
             </Grid>
           </Grid>
         </Grid>

@@ -17,6 +17,7 @@ function STT() {
   const { user } = useContext(AuthContext);
   const [videoFiles, setVideoFiles] = useState([]);
   const [vidUrl, setVidUrl] = useState("");
+  const [sttObject, setSttObject] = useState({});
 
   const [childTimeLabel, setChildTimeLabel] = useState([]);
   const [parentTimeLabel, setParentTimeLabel] = useState([]);
@@ -89,6 +90,49 @@ function STT() {
     setChildTimeLabel(timeFrag);
   }
 
+  function handleSetVidUrl(url) {
+    setVidUrl(url);
+
+    //parse the url and get stt .json
+
+    var s3 = new AWS.S3({
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+      region: "us-east-1",
+    });
+
+    const parsedUrl = url.split(".")[3].split("/")[1];
+
+    console.log("parsedUrl", parsedUrl);
+
+    var getParams = {
+      Bucket: "sttresultjson", // your bucket name,
+      Key: parsedUrl + ".json", // path to the object you're looking for
+    };
+
+    s3.getObject(getParams, function (err, data) {
+      // Handle any error and exit
+      if (err) return err;
+
+      let objectData = data.Body.toString("utf-8"); // Use the encoding necessary
+
+      setSttObject(objectData);
+
+      let speakerContent = [];
+      //const segments = objectData.results.speaker_labels.segments;
+
+      // segments.forEach((segment) => {
+      //   speakerContent.push({
+      //     speaker: segment.speaker_label,
+      //     start_time: segment.start_time,
+      //     end_time: end_time,
+      //   });
+      // });
+
+      //const items = objectData.results.items;
+    });
+  }
+
   useEffect(() => {
     if (videoFiles.length != 0) {
       console.log("videoFile data changed");
@@ -143,15 +187,20 @@ function STT() {
       direction="row"
     >
       {/* <SpeechToText /> */}
-      <STTUploadVideo parentUploadTrigger={handleVideoUpload} />
-      <STTVideoArchive />
+      {/* <STTUploadVideo parentUploadTrigger={handleVideoUpload} /> */}
+      <STTVideoArchive parentChooseUrl={handleSetVidUrl} />
       <VideoLabeling
         videos={videoFiles}
         vidUrl={vidUrl}
+        sttObject={sttObject}
         parentTimeLabeled={handleParentTimeLabel}
         childTimeLabeled={handleChildTimeLabel}
       />
-      <STTResults parentLabel={parentTimeLabel} childLabel={childTimeLabel} />
+      <STTResults
+        parentLabel={parentTimeLabel}
+        childLabel={childTimeLabel}
+        sttObject={sttObject}
+      />
     </Grid>
   );
 }
