@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Card } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import "../../index.css";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../context/auth";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -88,53 +90,64 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HomeMain(props) {
+  const { user } = useContext(AuthContext);
   const classes = useStyles();
+  const history = useHistory();
 
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const handleOpen1 = () => {
+    !user ? setOpen(true) : history.push("./form");
+  };
+  const handleOpen2 = () => {
+    !user ? setOpen(true) : window.open("https://dongsunyim.com/dongsun");
+  };
+  const handleOpen3 = () => {
+    !user ? setOpen(true) : history.push("./lectures");
+  };
+  const handleOpen4 = () => {
+    !user ? setOpen(true) : history.push("./lectures");
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const [cardDepth1, setCardDepth1] = useState(true);
-  const [cardDepth2, setCardDepth2] = useState(true);
-  const [cardDepth3, setCardDepth3] = useState(true);
-  const [cardDepth4, setCardDepth4] = useState(true);
+  const [cardDepth1, setCardDepth1] = useState(false);
+  const [cardDepth2, setCardDepth2] = useState(false);
+  const [cardDepth3, setCardDepth3] = useState(false);
+  const [cardDepth4, setCardDepth4] = useState(false);
 
   function mouseCardOn1() {
-    setCardDepth1(false);
-  }
-
-  function mouseCardoff1() {
     setCardDepth1(true);
   }
 
-  function mouseCardOn2() {
-    setCardDepth2(false);
+  function mouseCardoff1() {
+    setCardDepth1(false);
   }
 
-  function mouseCardoff2() {
+  function mouseCardOn2() {
     setCardDepth2(true);
   }
 
-  function mouseCardOn3() {
-    setCardDepth3(false);
+  function mouseCardoff2() {
+    setCardDepth2(false);
   }
 
-  function mouseCardoff3() {
+  function mouseCardOn3() {
     setCardDepth3(true);
   }
 
+  function mouseCardoff3() {
+    setCardDepth3(false);
+  }
+
   function mouseCardOn4() {
-    setCardDepth4(false);
+    setCardDepth4(true);
   }
 
   function mouseCardoff4() {
-    setCardDepth4(true);
+    setCardDepth4(false);
   }
 
   return (
@@ -200,7 +213,7 @@ function HomeMain(props) {
             onMouseOver={mouseCardOn1}
             onMouseOut={mouseCardoff1}
             raised={cardDepth1}
-            onClick={handleOpen}
+            onClick={handleOpen1}
           >
             <Grid container direction="row" xs={12}>
               <Grid
@@ -242,7 +255,7 @@ function HomeMain(props) {
             onMouseOver={mouseCardOn2}
             onMouseOut={mouseCardoff2}
             raised={cardDepth2}
-            onClick={handleOpen}
+            onClick={handleOpen2}
           >
             <Grid container direction="row" xs={12}>
               <Grid
@@ -292,7 +305,7 @@ function HomeMain(props) {
             onMouseOver={mouseCardOn3}
             onMouseOut={mouseCardoff3}
             raised={cardDepth3}
-            onClick={handleOpen}
+            onClick={handleOpen3}
           >
             <Grid container direction="row" xs={12}>
               <Grid
@@ -333,7 +346,7 @@ function HomeMain(props) {
             onMouseOver={mouseCardOn4}
             onMouseOut={mouseCardoff4}
             raised={cardDepth4}
-            onClick={handleOpen}
+            onClick={handleOpen4}
           >
             <Grid container direction="row" xs={12}>
               <Grid
@@ -376,9 +389,9 @@ function HomeMain(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">회원가입후 이용가능합니다</h2>
+            <h2 id="transition-modal-title">회원가입 후 사용해 주세요.</h2>
             <p id="transition-modal-description">
-              이미 회원이시라면 로그인을 해주세요
+              이미 회원이시라면 로그인을 해주세요.
             </p>
           </div>
         </Fade>

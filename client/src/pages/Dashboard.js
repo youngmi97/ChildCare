@@ -13,8 +13,9 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { GET_CHILD_FORM } from "../Mutations";
 import DashboardName from "../dashboard/DashboardName";
+import { AuthContext } from "../context/auth";
 
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const columns = [
@@ -66,6 +67,12 @@ const useStyles = makeStyles({
 });
 
 export default function Dashboard() {
+  const { user } = useContext(AuthContext);
+  const [childID, setChildID] = useState("");
+  const [prof, setProf] = useState("");
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   const calcAge = (date) => {
     var year;
     var month;
@@ -92,11 +99,18 @@ export default function Dashboard() {
   };
   const classes = useStyles();
 
-  const handleChange = (event) => {};
-
-  const [prof, setProf] = useState("");
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [updateAssignee, { loading1, error1, data1 }] = useMutation(
+    UPDATE_ASSIGNEE,
+    {
+      variables: {
+        userId: childID,
+        assignee: prof,
+      },
+      onError(err) {
+        console.log("err", err);
+      },
+    }
+  );
 
   const { loading, error, data } = useQuery(GET_USERS);
   const rows = [];
@@ -105,15 +119,18 @@ export default function Dashboard() {
     console.log(data);
 
     data.getUsers.map((user) => {
-      rows.push(
-        createData(
-          user.name,
-          calcAge(user.dateOfBirth),
-          user.primaryLanguage,
-          user.schoolLanguage,
-          user.id
-        )
-      );
+      if (user.name !== "") {
+        rows.push(
+          createData(
+            user.name,
+            calcAge(user.dateOfBirth),
+            user.primaryLanguage,
+            user.schoolLanguage,
+            user.assignee,
+            user.id
+          )
+        );
+      }
     });
   }
 
@@ -124,6 +141,21 @@ export default function Dashboard() {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  };
+
+  useEffect(() => {
+    if (prof && user) {
+      console.log("prof", prof);
+      console.log("userId", user.id);
+      console.log("updateAssignee", data1);
+      updateAssignee();
+    }
+  }, [prof]);
+
+  const handleChange = (event) => {
+    setChildID(event.target.name);
+    setProf(event.target.value);
+    //upload new assignee to server
   };
 
   return (
@@ -157,9 +189,9 @@ export default function Dashboard() {
                             <DashboardItem id={row["id"]} />
                           ) : column.id === "professional" ? (
                             <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
-                              value={value}
+                              name={row["id"]}
+                              id="assignee"
+                              value={row["professional"]}
                               onChange={handleChange}
                               style={{ width: "80px", fontSize: "12px" }}
                             >
@@ -202,6 +234,15 @@ const GET_USERS = gql`
       dateOfBirth
       primaryLanguage
       schoolLanguage
+    }
+  }
+`;
+
+const UPDATE_ASSIGNEE = gql`
+  mutation updateAssignee($userId: String!, $assignee: String) {
+    updateAssignee(userId: $userId, assignee: $assignee) {
+      id
+      assignee
     }
   }
 `;

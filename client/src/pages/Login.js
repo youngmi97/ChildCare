@@ -169,6 +169,7 @@ const LOGIN_USER = gql`
       email
       username
       createdAt
+      assignee
       token
     }
   }

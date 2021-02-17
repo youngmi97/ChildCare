@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
+import Overall from "../components/assessment/Overall";
 
 const useStyles = makeStyles((theme) => ({
   testCard: {
@@ -129,6 +130,11 @@ export default function Assessment() {
   const [nwrFeedback, setNwrFeedback] = useState("");
   const [ovrFeedback, setOvrFeedback] = useState("");
 
+  const [nwrScore, setNwrScore] = useState(0);
+  const [srScore, setSrScore] = useState(0);
+  console.log(nwrScore);
+  console.log(srScore);
+
   useMemo(() => {
     if (!error && !loading) {
       setGender(data.getChildForm.gender);
@@ -202,6 +208,13 @@ export default function Assessment() {
   const onChange6 = (e) => {
     setOvrFeedback(e.target.value);
   };
+
+  const updateNWR = (value) => {
+    setNwrScore(value);
+  };
+  const updateSR = (value) => {
+    setSrScore(value);
+  };
   console.log();
   console.log(step);
 
@@ -237,9 +250,9 @@ export default function Assessment() {
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -335,16 +348,16 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-            xs={3}
             className={classes.testMenu}
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+            xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
               <Sidebar2 step={step} />
@@ -406,7 +419,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={eduFeedback}
                     />
                   </Grid>
@@ -437,15 +450,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -509,7 +522,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={devFeedback}
                     />
                   </Grid>
@@ -539,15 +552,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -612,7 +625,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={illFeedback}
                     />
                   </Grid>
@@ -643,15 +656,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -710,7 +723,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={famFeedback}
                     />
                   </Grid>
@@ -741,15 +754,15 @@ export default function Assessment() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="flex-start"
           xs={12}
         >
           <Grid
             className={classes.testMenu}
             container
-            direction="column"
+            direction="row"
             justify="center"
-            alignItems="center"
+            alignItems="flex-start"
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
@@ -788,7 +801,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <NWRSR />
+                    <NWRSR updateNWR={updateNWR} updateSR={updateSR} />
                   </Grid>
                   <Grid
                     container
@@ -805,7 +818,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%", marginTop: "40px" }}
                       value={nwrFeedback}
                     />
                   </Grid>
@@ -883,7 +896,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    Hello
+                    <Overall />
                   </Grid>
                   <Grid
                     container
@@ -900,7 +913,7 @@ export default function Assessment() {
                       multiline
                       rows={4}
                       variant="outlined"
-                      style={{ width: "400px" }}
+                      style={{ width: "70%" }}
                       value={ovrFeedback}
                     />
                   </Grid>

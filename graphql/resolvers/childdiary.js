@@ -10,11 +10,20 @@ const week = {
   sunday: "",
 };
 
+const program = {
+  program1: week,
+  program2: week,
+  program3: week,
+  program4: week,
+  program5: week,
+  program6: week,
+};
+
 const emptyReturn = {
   userId: "",
-  selected: week,
-  activity: week,
-  comment: week,
+  selected: program,
+  activity: program,
+  comment: program,
 };
 
 module.exports = {

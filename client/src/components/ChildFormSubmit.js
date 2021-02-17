@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/react-hooks";
 import { SUBMIT_CHILD_FORM } from "../Mutations";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-
 import { AuthContext } from "../context/auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "110px",
+    marginLeft: "90px",
     marginRight: "110px",
     marginBottom: "30px",
     fontSize: "13px",
