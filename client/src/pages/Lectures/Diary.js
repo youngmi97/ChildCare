@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Card, Step } from "@material-ui/core";
+import { Grid, Card, Step, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
@@ -19,15 +19,15 @@ const useStyles = makeStyles((theme) => ({
 
   time: {
     padding: "20px 0px",
-    fontFamily: "'Noto Sans KR' , sans serif;",
     fontSize: "22px",
     fontWeight: "600",
+    color: "#e57f16",
   },
   answer: {
     margin: "10px 110px",
-    fontSize: "15px",
+    marginBottom: "30px",
+    fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -46,11 +46,13 @@ const useStyles = makeStyles((theme) => ({
       color: "#FFB800",
     },
   },
+  answer2: { margin: "10px 110px", fontSize: "18px" },
+
   comment: {
     margin: "15px 130px",
-    fontSize: "15px",
+    fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
+    height: "20vh",
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -374,14 +376,15 @@ export default function Diary(props) {
               xs={12}
               className={classes.answer}
             >
-              <span style={{ marginRight: "20px" }}>활동:</span>
+              <span style={{ marginRight: "30px" }}>활동:</span>
               <TextField
-                style={{ width: "50%" }}
+                style={{ width: "80%" }}
                 placeholder="아이와 함께한 활동을 적어주세요."
                 id="primaryLanguage"
                 autoComplete="off"
                 onChange={handleChange1}
                 value={activity}
+                inputProps={{ style: { fontSize: "18px" } }}
                 //needs change
               />
             </Grid>
@@ -393,7 +396,7 @@ export default function Diary(props) {
               xs={12}
               className={classes.answer}
             >
-              <span style={{ marginRight: "20px" }}>기분:</span>
+              <span style={{ marginRight: "30px" }}>기분:</span>
               <MuiThemeProvider theme={theme1}>
                 <IconButton
                   //needs change
@@ -401,7 +404,7 @@ export default function Diary(props) {
                   id="happy"
                   onClick={handleChange}
                 >
-                  <SentimentVerySatisfiedIcon />
+                  <SentimentVerySatisfiedIcon style={{ fontSize: "30px" }} />
                 </IconButton>
                 <MuiThemeProvider theme={theme2}>
                   <IconButton
@@ -409,7 +412,7 @@ export default function Diary(props) {
                     id="normal"
                     onClick={handleChange}
                   >
-                    <SentimentSatisfiedIcon />
+                    <SentimentSatisfiedIcon style={{ fontSize: "30px" }} />
                   </IconButton>
                   <MuiThemeProvider theme={theme3}>
                     <IconButton
@@ -417,7 +420,9 @@ export default function Diary(props) {
                       id="unhappy"
                       onClick={handleChange}
                     >
-                      <SentimentVeryDissatisfiedIcon />
+                      <SentimentVeryDissatisfiedIcon
+                        style={{ fontSize: "30px" }}
+                      />
                     </IconButton>
                   </MuiThemeProvider>
                 </MuiThemeProvider>
@@ -430,9 +435,11 @@ export default function Diary(props) {
               justify="flex-start"
               alignItems="center"
               xs={12}
-              className={classes.answer}
+              className={classes.answer2}
             >
-              <p style={{ marginRight: "20px" }}>코멘트:</p>
+              <div style={{ marginRight: "20px", marginBottom: "20px" }}>
+                코멘트:
+              </div>
             </Grid>
             <Grid
               container
@@ -446,26 +453,27 @@ export default function Diary(props) {
                 id="comments"
                 label="아이와 함께 보낸 시간에 대해 작성해주세요."
                 multiline
-                rows={4}
                 variant="outlined"
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "100%" }}
                 onChange={handleChange2}
                 value={comment}
+                InputProps={{ style: { fontSize: "18px", height: "100%" } }}
+                InputLabelProps={{ style: { fontSize: "18px" } }}
                 //needs change
               />
             </Grid>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              xs={12}
-              className={classes.buttons}
+            <div
+              style={{
+                width: "100vw",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
             >
-              <button style={btnStyle} onClick={onSubmit}>
-                저장하기
-              </button>
-            </Grid>
+              <Button style={btnStyle} onClick={props.onContinue}>
+                저장하기{" "}
+              </Button>
+            </div>
           </Grid>
         </Grid>
         <Grid
@@ -488,23 +496,14 @@ export default function Diary(props) {
 }
 
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
-};
-
-const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
-  border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "18px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "2vh",
+  marginTop: "3vh",
+  border: "1px solid #e57f16",
 };

@@ -11,40 +11,35 @@ import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import ResultsStartPage from "../components/ResultsStartPage";
+import StackedBar from "../components/charts/StackedBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "50px",
     marginBottom: "50px",
   },
+  chart: { marginLeft: "120px" },
   tag: {
     marginTop: "30px",
-    marginLeft: "50px",
+    marginLeft: "120px",
     fontWeight: "bold",
     fontSize: "16px",
     width: "90px",
     padding: "9px 0px",
-    color: "#FFB800",
-    textAlign: "center",
-    fontFamily: "'Noto Sans KR', sans serif;",
+    color: "#e57f16",
+    textAlign: "flex-start",
   },
-  divider: {
-    borderBottom: "solid 2px #FFEBB8",
-  },
+  divider: {},
   divider2: {
-    borderBottom: "solid 2px #FFEBB8",
     paddingBottom: "30px",
   },
   text: {
     fontSize: "16px",
-    fontFamily: "'Roboto', sans serif;",
   },
   ovr: {
     width: "70%",
     paddingBottom: "70px",
     paddingTop: "30px",
     fontSize: "16px",
-    fontFamily: "'Roboto', sans serif;",
   },
 }));
 
@@ -220,221 +215,115 @@ export default function NewResults() {
             xs={12}
             className={classes.root}
           >
-            <Card
-              style={{ width: "100%", height: "100%", borderRadius: "0px" }}
-            >
-              <Grid container justify="center" className={classes.divider}>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <div className={classes.tag}>기본 정보</div>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                  >
-                    <Scatter
-                      eduScore={eduScore}
-                      devScore={devScore}
-                      illScore={illScore}
-                      famScore={famScore}
-                      width="400"
-                      height="250"
-                    />
-                  </Grid>
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                    className={classes.text}
-                  >
-                    <div>기본정보: {basicFeedback}</div>
-                    <div>교육력: {eduFeedback}</div>
-                    <div>발달력: {devFeedback} </div>
-                    <div>병력: {illFeedback}</div>
-                    <div>가족력: {famFeedback}</div>
-                  </Grid>
-                </Grid>
+            <Grid container justify="center" className={classes.divider}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+              >
+                <div className={classes.tag}>기본 정보</div>
               </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <Scatter
+                  eduScore={eduScore}
+                  devScore={devScore}
+                  illScore={illScore}
+                  famScore={famScore}
+                  width="1000"
+                  height="400"
+                />
+              </Grid>
+            </Grid>
 
-              <Grid container className={classes.divider}>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <div className={classes.tag}>처리 능력</div>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                  >
-                    <Bar nwrScore={nwrScore} srScore={srScore} />
-                  </Grid>
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                    className={classes.text}
-                  >
-                    <p style={{ padding: "20px 50px" }}>{nwrFeedback}</p>
-                  </Grid>
-                </Grid>
+            <Grid container className={classes.divider}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+              >
+                <div className={classes.tag}>처리 능력</div>
               </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <Bar
+                  nwrScore={nwrScore}
+                  srScore={srScore}
+                  width="1000"
+                  height="400"
+                />
+              </Grid>
+            </Grid>
 
-              <Grid container className={classes.divider2}>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <div className={classes.tag}>자발화 분석</div>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                  >
-                    <Grid
-                      container
-                      direction="row"
-                      justify="center"
-                      alignItems="center"
-                      xs={12}
-                    >
-                      <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                        xs={6}
-                      >
-                        <Column parent={parent} child={child} />
-                      </Grid>
-                      <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                        xs={6}
-                      >
-                        <h3>MLU: 4.21단어 </h3>
-                        <h3>Turn-taking: 3.42회</h3>
-                      </Grid>
-                    </Grid>
-
-                    <Grid
-                      container
-                      direction="row"
-                      justify="center"
-                      alignItems="center"
-                      xs={12}
-                    >
-                      <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                        xs={6}
-                      >
-                        <Vertical
-                          event1={event1}
-                          event2={event2}
-                          chartName="이벤트 횟수"
-                          color="yellow"
-                          color2="red"
-                        />
-                      </Grid>
-                      <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                        xs={6}
-                      >
-                        <Vertical
-                          event1={speed1}
-                          event2={speed2}
-                          chartName="발화 속도"
-                          color2="gray"
-                        />
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={6}
-                    className={classes.text}
-                  >
-                    <p style={{ padding: "20px 50px" }}>{videoFeedback}</p>
-                  </Grid>
-                </Grid>
+            <Grid container className={classes.divider2}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+              >
+                <div className={classes.tag}>자발화 분석</div>
               </Grid>
-              <Grid container justify="center">
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <div className={classes.tag}>총평</div>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <p className={classes.ovr}> {ovrFeedback}</p>
-                </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <StackedBar parent={60} child={40} />
+                <Column event1={2} event2={3} />
               </Grid>
-            </Card>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <Column event1={3.4} event2={2.8} />
+              </Grid>
+            </Grid>
+            <Grid container justify="center">
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+              >
+                <div className={classes.tag}>총평</div>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <p className={classes.ovr}> {ovrFeedback}</p>
+              </Grid>
+            </Grid>
           </Grid>
         </div>
       );

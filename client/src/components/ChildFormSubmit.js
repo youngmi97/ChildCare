@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form } from "@material-ui/core";
 import { useMutation } from "@apollo/react-hooks";
 import { SUBMIT_CHILD_FORM } from "../Mutations";
 import { Grid } from "@material-ui/core";
@@ -9,20 +9,18 @@ import { AuthContext } from "../context/auth";
 const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "25px",
-    marginLeft: "90px",
-    marginRight: "90px",
+    marginLeft: "120px",
+    marginRight: "120px",
     fontSize: "25px",
-    fontWeight: "600",
-    fontFamily: "'Noto Sans KR', sans-serif;",
+    color: "#e57f16",
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "90px",
-    marginRight: "110px",
+    marginLeft: "120px",
+    marginRight: "120px",
     marginBottom: "30px",
-    fontSize: "13px",
+    fontSize: "16px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   qna: {
     padding: "15px 0px",
@@ -111,7 +109,7 @@ function ChildFormSubmit(props) {
   };
 
   return (
-    <Grid container>
+    <div style={{ height: "40vh" }}>
       <Grid
         container
         direction="row"
@@ -134,44 +132,50 @@ function ChildFormSubmit(props) {
           설문조사가 끝났습니다. 평가 결과는 제출 후 2주 이내로 나올 예정입니다.
         </p>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          marginTop: "10vh",
+        }}
       >
-        <button style={btnStyle1} onClick={props.onBack}>
+        <Button style={btnStyle1} onClick={props.onBack}>
+          <span style={{ marginRight: "1vw", marginBottom: "1px" }}>{"<"}</span>
           이전 단계로 이동
-        </button>
-        <button style={btnStyle} onClick={myFunction}>
-          제출하기
-        </button>
-      </Grid>
-    </Grid>
+        </Button>
+        <Button style={btnStyle} onClick={props.onContinue}>
+          제출하기{" "}
+          <span style={{ marginLeft: "1vw", marginBottom: "1px" }}>{">"}</span>
+        </Button>
+      </div>
+    </div>
   );
 }
 
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 export default ChildFormSubmit;

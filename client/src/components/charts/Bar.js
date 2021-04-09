@@ -15,8 +15,8 @@ class Scatter extends Component {
     const options = {
       chart: {
         type: "bar",
-        width: 400,
-        height: 250, // bar차트. 아무 설정이 없으면 line chart가 된다.
+        width: 1000,
+        height: 400, // bar차트. 아무 설정이 없으면 line chart가 된다.
       },
       title: {
         text: "",
@@ -30,23 +30,32 @@ class Scatter extends Component {
       xAxis: {
         categories: ["비단어 따라말하기", "문장 따라말하기"],
         labels: {
-          x: 2,
-          y: -35,
+          x: 10,
+          y: -60,
           align: "left",
           style: {
-            fontWeight: "bold",
+            fontSize: "16px",
           },
         },
       },
 
       yAxis: {
         title: null,
+        tickInterval: 20,
         plotLines: [
           {
             color: "#FF0000",
             width: 2,
-            value: 8,
-            label: { text: "평균", rotation: 0, z: 0 },
+            value: 50,
+            label: {
+              text: "평균",
+              rotation: 0,
+              x: 10,
+              z: 0,
+              style: {
+                fontSize: "16px",
+              },
+            },
           },
         ],
       },
@@ -72,7 +81,7 @@ class Scatter extends Component {
     };
     return (
       <Fragment>
-        <div style={{ padding: "50px 0" }}>
+        <div style={{ padding: "30px 0" }}>
           <HighchartsReact highcharts={Highcharts} options={options} />
         </div>
       </Fragment>

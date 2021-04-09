@@ -35,20 +35,18 @@ const styles = (theme) => ({
   },
   title: {
     marginTop: "25px",
-    marginLeft: "90px",
-    marginRight: "90px",
+    marginLeft: "120px",
+    marginRight: "120px",
     fontSize: "25px",
-    fontWeight: "600",
-    fontFamily: "'Noto Sans KR', sans-serif;",
+    color: "#e57f16",
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "110px",
-    marginRight: "110px",
-    marginBottom: "90px",
-    fontSize: "13px",
+    marginLeft: "120px",
+    marginRight: "120px",
+    marginBottom: "30px",
+    fontSize: "16px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
 });
 
@@ -246,53 +244,28 @@ class NewChildForm extends Component {
               direction="row"
               justify="center"
               alignItems="center"
-              xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                1 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      1 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Personal
-                    personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
-                    onContinue={this.onContinue}
-                  />
-                </Grid>
-              </Card>
+                <Personal
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onChange2={this.onChange2}
+                  onContinue={this.onContinue}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -308,51 +281,28 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                2 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      2 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Education
-                    personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <Education
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onChange2={this.onChange2}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -368,51 +318,28 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                3 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      3 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Development
-                    personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <Development
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onChange2={this.onChange2}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -428,51 +355,28 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                4 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      4 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Illness
-                    personal={this.state}
-                    onChange={this.onChange}
-                    onChange2={this.onChange2}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <Illness
+                  personal={this.state}
+                  onChange={this.onChange}
+                  onChange2={this.onChange2}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -488,50 +392,27 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                5 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      5 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Family
-                    personal={this.state}
-                    onChange3={this.onChange3}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <Family
+                  personal={this.state}
+                  onChange3={this.onChange3}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -547,50 +428,27 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                6 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      6 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <Video
-                    parentUploadTrigger={this.handleVideoUpload}
-                    videos={this.state.videoFiles}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <Video
+                  parentUploadTrigger={this.handleVideoUpload}
+                  videos={this.state.videoFiles}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -606,50 +464,27 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                7 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      7 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <NWR
-                    parentUploadTrigger={this.handleNwrUpload}
-                    videos={this.state.nwrFile}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <NWR
+                  parentUploadTrigger={this.handleNwrUpload}
+                  videos={this.state.nwrFile}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -665,50 +500,27 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <div style={{ fontSize: "20px", marginBottom: "3vh" }}>
+                PAGE{" "}
+                <span style={{ color: "#e57f16", margin: "0px 10px" }}>
+                  &#10092;
+                </span>{" "}
+                8 of 8
+              </div>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                >
-                  <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    xs={3}
-                    className={classes.trapezoid}
-                  >
-                    <p
-                      style={{
-                        fontSize: "23px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      8 of 8
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <SR
-                    parentUploadTrigger={this.handleSrUpload}
-                    videos={this.state.srFile}
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                  />
-                </Grid>
-              </Card>
+                <SR
+                  parentUploadTrigger={this.handleSrUpload}
+                  videos={this.state.srFile}
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                />
+              </Grid>
             </Grid>
           </div>
         );
@@ -724,38 +536,34 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.step}
+              ></Grid>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                ></Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="center"
-                  xs={12}
-                >
-                  <ChildFormSubmit
-                    onContinue={this.onContinue}
-                    onBack={this.onBack}
-                    input={this.state}
-                  />
-                </Grid>
-              </Card>
+                <ChildFormSubmit
+                  onContinue={this.onContinue}
+                  onBack={this.onBack}
+                  input={this.state}
+                />
+              </Grid>
             </Grid>
           </div>
         );
       }
       default: {
         return (
-          <div>
+          <div style={{ height: "40vh" }}>
             <Grid
               container
               direction="row"
@@ -764,41 +572,37 @@ class NewChildForm extends Component {
               xs={12}
               className={classes.root}
             >
-              <Card
-                style={{ width: "80%", height: "100%", borderRadius: "0px" }}
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.step}
+              ></Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.title}
               >
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.step}
-                ></Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.title}
-                >
-                  <p>감사합니다.</p>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                  xs={12}
-                  className={classes.subtitle}
-                >
-                  <p>
-                    평가결과를 기다려주세요. 평가가 완료되면 전문가로부터
-                    이메일이 올 것입니다.
-                  </p>
-                </Grid>
-              </Card>
+                <p>감사합니다.</p>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.subtitle}
+              >
+                <p>
+                  평가결과를 기다려주세요. 평가가 완료되면 전문가로부터 이메일이
+                  올 것입니다.
+                </p>
+              </Grid>
             </Grid>
           </div>
         );

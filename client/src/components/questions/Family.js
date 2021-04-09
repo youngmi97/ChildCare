@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 import famTree from "./famTree.png";
@@ -9,24 +9,21 @@ import famTree2 from "./famTree2.png";
 const styles = (theme) => ({
   title: {
     marginTop: "25px",
-    marginLeft: "90px",
-    marginRight: "90px",
+    marginLeft: "120px",
+    marginRight: "120px",
     fontSize: "25px",
-    fontWeight: "600",
-    fontFamily: "'Noto Sans KR', sans-serif;",
+    color: "#e57f16",
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "110px",
-    marginRight: "110px",
+    marginLeft: "120px",
+    marginRight: "120px",
     marginBottom: "30px",
-    fontSize: "13px",
+    fontSize: "16px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   tree: {
-    fontFamily: " 'Roboto KR', sans-serif;",
-    fontSize: "15px",
+    fontSize: "17px",
     fontWeight: "400",
   },
 });
@@ -45,9 +42,9 @@ class Family extends Component {
     brotherSister: false,
   };
 
-  calcFam(members){
-    const memList =  members.split(" ",)
-    console.log(memList)
+  calcFam(members) {
+    const memList = members.split(" ");
+    console.log(memList);
   }
 
   componentDidUpdate() {
@@ -82,7 +79,10 @@ class Family extends Component {
           xs={12}
           className={classes.subtitle}
         >
-          <p>언어문제를 가진 가족을 모두 선택해 주세요.</p>
+          <div>
+            <span style={{ color: "#e57f16" }}>{"<"}</span>언어문제를 가진
+            가족을 모두 선택해 주세요.
+          </div>
         </Grid>
         <Grid
           container
@@ -108,7 +108,7 @@ class Family extends Component {
                 onClick={() =>
                   this.setState({
                     paternalGrandparents: !this.state.paternalGrandparents,
-                  }) 
+                  })
                 }
                 checked={this.state.paternalGrandparents === true}
               />{" "}
@@ -147,7 +147,7 @@ class Family extends Component {
             alignItems="center"
             xs={6}
           >
-            <img src={famTree} width="250px" />
+            <img src={famTree} width="460px" height="60px" />
           </Grid>
 
           <Grid
@@ -157,7 +157,7 @@ class Family extends Component {
             alignItems="center"
             xs={6}
           >
-            <img src={famTree} width="250px" />
+            <img src={famTree} width="460px" height="60px" />
           </Grid>
 
           <Grid
@@ -263,7 +263,7 @@ class Family extends Component {
             alignItems="center"
             xs={3}
           >
-            <img src={famTree1} width="200px" />
+            <img src={famTree1} width="200px" height="50px" />
           </Grid>
 
           <Grid
@@ -273,7 +273,7 @@ class Family extends Component {
             alignItems="center"
             xs={6}
           >
-            <img src={famTree2} width="250px" />
+            <img src={famTree2} width="460px" height="50px" />
           </Grid>
 
           <Grid
@@ -283,7 +283,7 @@ class Family extends Component {
             alignItems="center"
             xs={3}
           >
-            <img src={famTree1} width="200px" />
+            <img src={famTree1} width="200px" height="50px" />
           </Grid>
 
           <Grid
@@ -310,7 +310,7 @@ class Family extends Component {
             </Card>
           </Grid>
           <Grid container xs={6} justify="center" alignItems="center">
-            <img src={famTree} width="250px" />
+            <img src={famTree} width="480px" height="60px" />
           </Grid>
 
           <Grid
@@ -373,45 +373,55 @@ class Family extends Component {
             </Card>
           </Grid>
 
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
+          <div
+            style={{
+              width: "100vw",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              marginTop: "4vh",
+            }}
           >
-            <button style={btnStyle1} onClick={this.props.onBack}>
+            <Button style={btnStyle1} onClick={this.props.onBack}>
+              <span style={{ marginRight: "1vw", marginBottom: "1px" }}>
+                {"<"}
+              </span>
               이전 단계로 이동
-            </button>
-            <button style={btnStyle} onClick={this.props.onContinue}>
-              다음 단계로 이동
-            </button>
-          </Grid>
+            </Button>
+            <Button style={btnStyle} onClick={this.props.onContinue}>
+              다음 단계로 이동{" "}
+              <span style={{ marginLeft: "1vw", marginBottom: "1px" }}>
+                {">"}
+              </span>
+            </Button>
+          </div>
         </Grid>
       </div>
     );
   }
 }
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 const cardStyle = {

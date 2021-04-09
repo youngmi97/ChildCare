@@ -2,16 +2,14 @@ import React, { Component, Fragment } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-class Column extends Component {
+class StackedBar extends Component {
   state = {
-    data: [
-      { name: "이벤트 1", y: this.props.event1 },
-      { name: "이벤트 2", y: this.props.event2 },
-    ],
+    parent: this.props.parent,
+    child: this.props.child,
   };
 
   render() {
-    const series2 = this.state.data; //App.js에서 데이터를 보내줄 예정
+    //App.js에서 데이터를 보내줄 예정
     const options = {
       chart: {
         type: "bar",
@@ -28,15 +26,15 @@ class Column extends Component {
         enabled: false,
       },
       xAxis: {
-        categories: ["이벤트 1", "이벤트 2"],
+        categories: ["비율"],
         labels: "none",
       },
 
       yAxis: {
         title: null,
-        tickInterval: 1,
+        tickInterval: 20,
         min: 0,
-        max: 5,
+        max: 100,
       },
 
       legend: {
@@ -47,19 +45,19 @@ class Column extends Component {
       },
       plotOptions: {
         series: {
-          stacking: "normal",
+          stacking: "percent",
           dataLabels: {
             enabled: false,
           },
           series: {
-            stacking: "normal",
+            stacking: "percent",
             dataLabels: {
               enabled: false,
             },
           },
         },
       },
-      series: [{ name: "기본정보", data: series2 }],
+      series: [{ data: [this.state.child] }, { data: [this.state.parent] }],
     };
     return (
       <Fragment>
@@ -70,4 +68,4 @@ class Column extends Component {
     );
   }
 }
-export default Column;
+export default StackedBar;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal.js";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import ReactPlayer from "react-player";
 import VideoDragDrop from "../VideoDragDrop2";
@@ -10,35 +10,35 @@ import Audio from "./AudioFiles/Audio.js";
 const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "25px",
-    marginLeft: "90px",
-    marginRight: "90px",
+    marginLeft: "120px",
+    marginRight: "120px",
     fontSize: "25px",
-    fontWeight: "600",
-    fontFamily: "'Noto Sans KR', sans-serif;",
+    color: "#e57f16",
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "110px",
-    marginRight: "110px",
+    marginLeft: "120px",
+    marginRight: "120px",
     marginBottom: "30px",
-    fontSize: "13px",
+    fontSize: "16px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   qna: {
-    padding: "15px 0px",
+    padding: "10px 0px",
+    width: "90vw",
   },
   question: {
-    margin: "20px 90px",
+    marginLeft: "120px",
+    marginTop: "10px",
+    marginBottom: "10px",
     fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   answer: {
-    margin: "0px 110px",
+    width: "100vw",
     fontSize: "15px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
+
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -123,14 +123,13 @@ export default function NWR(props) {
         xs={12}
         className={classes.subtitle}
       >
-        <p>
+        <div>
           아동과 5분간 상호작용 영상을 촬영하여 업로드 해주세요. (소꿉놀이,
           의사놀이, 블록놀이 등의 장난감을 활용한 영상)
-        </p>
-        <p>
+          <br />
           성인과 아동의 1:1 영상으로, 두 사람이 화면에 모두 나오게 촬영해
           주세요. 하단의 샘플 영상을 참고해 주세요.{" "}
-        </p>
+        </div>
       </Grid>
 
       <Grid>
@@ -151,7 +150,7 @@ export default function NWR(props) {
           justify="flex-start"
           alignItems="center"
           xs={12}
-          className={classes.answer}
+          className={classes.question}
         >
           <Audio url={url.url1} />
           <Audio url={url.url2} />
@@ -176,7 +175,7 @@ export default function NWR(props) {
           justify="flex-start"
           alignItems="center"
           xs={12}
-          className={classes.answer}
+          className={classes.question}
         >
           <Audio url={url.url3} />
           <Audio url={url.url4} />
@@ -196,7 +195,7 @@ export default function NWR(props) {
         </Grid>
       </Grid>
 
-      <Grid container className={classes.qna}>
+      <Grid>
         <Grid
           container
           direction="row"
@@ -219,55 +218,73 @@ export default function NWR(props) {
           <Grid
             container
             direction="row"
-            justify="flex-start"
+            justify="center"
             alignItems="center"
             xs={12}
           >
-            <VideoDragDrop uploadCallBack={handleVideoUpload} />
+            <div style={{ marginLeft: "7vw", width: "90vw" }}>
+              <VideoDragDrop uploadCallBack={handleVideoUpload} />
+            </div>
+
             {videoFiles[0] ? (
-              <ReactPlayer url={videoFiles[0].preview} controls={true} />
+              <ReactPlayer
+                url={videoFiles[0].preview}
+                controls={true}
+                width="84vw"
+                height="60vh"
+              />
             ) : (
-              <ReactPlayer url={"asd"} controls={true} />
+              <ReactPlayer
+                url={"asd"}
+                controls={true}
+                width="84vw"
+                height="60vh"
+              />
             )}
           </Grid>
         </Grid>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
+      <div
+        style={{
+          width: "100vw",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
-        <button style={btnStyle1} onClick={props.onBack}>
+        <Button style={btnStyle1} onClick={props.onBack}>
+          <span style={{ marginRight: "1vw", marginBottom: "1px" }}>{"<"}</span>
           이전 단계로 이동
-        </button>
-        <button style={btnStyle} onClick={props.onContinue}>
-          다음 단계로 이동
-        </button>
-      </Grid>
+        </Button>
+        <Button style={btnStyle} onClick={props.onContinue}>
+          다음 단계로 이동{" "}
+          <span style={{ marginLeft: "1vw", marginBottom: "1px" }}>{">"}</span>
+        </Button>
+      </div>
     </div>
   );
 }
 
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };

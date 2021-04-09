@@ -65,7 +65,7 @@ function MenuBar() {
         <Menu.Menu position="right">
           <Menu.Item
             style={{ marginRight: "50px" }}
-            name="logout"
+            name="로그아웃"
             // active={activeItem === "home"}
             onClick={logout}
             as={Link}
@@ -130,7 +130,7 @@ function MenuBar() {
           />
           <Menu.Item
             style={{ color: "white", fontWeight: "800" }}
-            name="logout"
+            name="로그아웃"
             // active={activeItem === "home"}
             onClick={logout}
             as={Link}

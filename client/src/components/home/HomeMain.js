@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "scroll",
     padding: "0",
     scrollbarWidth: "none",
+    overflowX: "hidden",
   },
   main1: {
     backgroundImage: "url(/Main1.jpg)",
@@ -206,16 +207,16 @@ function HomeMain(props) {
               display: "flex",
               flexDirection: "row",
               justifyContent: "flex-end",
-              marginLeft: "20vw",
+              marginLeft: "21vw",
               marginTop: "2vh",
             }}
           >
             <Button
-              style={{ fontSize: "1.5vw", color: "#e57f16" }}
+              style={{ fontSize: "1.2vw", color: "#e57f16" }}
               onClick={handleOpen1}
             >
               {" "}
-              > MORE{" "}
+              {">"} MORE{" "}
             </Button>
           </div>
         </div>
@@ -288,13 +289,13 @@ function HomeMain(props) {
           >
             <Button
               style={{
-                fontSize: "1.5vw",
+                fontSize: "1.2vw",
                 color: "#e57f16",
               }}
               onClick={handleOpen3}
             >
               {" "}
-              > MORE{" "}
+              {">"} MORE{" "}
             </Button>
           </div>
         </div>
@@ -363,16 +364,16 @@ function HomeMain(props) {
               display: "flex",
               flexDirection: "row",
               justifyContent: "flex-end",
-              marginLeft: "21vw",
+              marginLeft: "22vw",
               marginTop: "2vh",
             }}
           >
             <Button
-              style={{ fontSize: "1.5vw", color: "#e57f16" }}
+              style={{ fontSize: "1.2vw", color: "#e57f16" }}
               onClick={handleOpen2}
             >
               {" "}
-              > MORE{" "}
+              {">"} MORE{" "}
             </Button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
-import { withStyles } from "@material-ui/core";
+import { withStyles, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -11,35 +11,61 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 const styles = (theme) => ({
   title: {
     marginTop: "25px",
-    marginLeft: "90px",
-    marginRight: "90px",
+    marginLeft: "120px",
+    marginRight: "120px",
     fontSize: "25px",
-    fontWeight: "600",
-    fontFamily: "'Noto Sans KR', sans-serif;",
+    color: "#e57f16",
   },
   subtitle: {
     margin: "10px 0px",
-    marginLeft: "110px",
-    marginRight: "110px",
+    marginLeft: "120px",
+    marginRight: "120px",
     marginBottom: "30px",
-    fontSize: "13px",
+    fontSize: "16px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   qna: {
-    padding: "15px 0px",
+    padding: "10px 0px",
+    width: "90vw",
   },
   question: {
-    margin: "20px 90px",
+    marginLeft: "120px",
+    marginTop: "10px",
+    marginBottom: "10px",
     fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
   },
   answer: {
-    margin: "0px 110px",
+    margin: "0px 30px",
     fontSize: "15px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
+
+    "& label.Mui-focused": {
+      color: "#FFB800",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#FFB800",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
+      },
+      "&:hover fieldset": {
+        borderColor: "yellow",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#FFB800",
+      },
+    },
+    "& .Mui-checked": {
+      color: "#FFB800",
+    },
+  },
+  answer2: {
+    margin: "10px 120px",
+    fontSize: "15px",
+    fontWeight: "normal",
+
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -111,7 +137,10 @@ class Education extends Component {
           xs={12}
           className={classes.subtitle}
         >
-          <p>아동의 교육력에 대해 적어주세요.</p>
+          <div>
+            <span style={{ color: "#e57f16" }}>{"<"}</span>아동의 교육력에 대해
+            적어주세요.
+          </div>
         </Grid>
 
         <Grid>
@@ -123,29 +152,18 @@ class Education extends Component {
             xs={12}
             className={classes.question}
           >
-            <p>1. 아동이 어린이집/유치원/학교에 다니고 있습니까?</p>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
-            xs={12}
-            className={classes.answer}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-            >
+            <div>1. 아동이 어린이집/유치원/학교에 다니고 있습니까?</div>
+            <div className={classes.answer}>
               <FormControl component="fieldset">
                 <RadioGroup
                   name="education"
                   value={this.props.personal.education}
                   onChange={this.handleChange}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "auto",
+                  }}
                 >
                   <FormControlLabel
                     id="education"
@@ -163,7 +181,17 @@ class Education extends Component {
                   />
                 </RadioGroup>
               </FormControl>
-            </Grid>
+            </div>
+          </Grid>
+
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer2}
+          >
             <TextField
               placeholder="기관명"
               style={{ width: "40%" }}
@@ -185,32 +213,21 @@ class Education extends Component {
             xs={12}
             className={classes.question}
           >
-            <p>
+            <div>
               2. 아동이 언어치료, 놀이치료, 기타 재활치료를 받은 경험이
               있습니까?
-            </p>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
-            xs={12}
-            className={classes.answer}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-            >
+            </div>
+            <div className={classes.answer}>
               <FormControl component="fieldset">
                 <RadioGroup
                   name="history"
                   value={this.props.personal.history}
                   onChange={this.handleChange}
+                  style={{
+                    display: "flex",
+                    width: "auto",
+                    flexDirection: "row",
+                  }}
                 >
                   <FormControlLabel
                     id="history"
@@ -228,10 +245,20 @@ class Education extends Component {
                   />
                 </RadioGroup>
               </FormControl>
-            </Grid>
+            </div>
+          </Grid>
+
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer2}
+          >
             <TextField
               placeholder="어떤 종류의 치료였는지 적어주세요."
-              style={{ width: "80%" }}
+              style={{ width: "95%" }}
               onChange={this.props.onChange}
               id="treatmemt"
               value={this.props.personal.treatment}
@@ -250,32 +277,21 @@ class Education extends Component {
             xs={12}
             className={classes.question}
           >
-            <p>
+            <div>
               3. 교사로부터 언어 또는 학업 관련한 문제를 보고 받은 적이
               있습니까?
-            </p>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
-            xs={12}
-            className={classes.answer}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              xs={12}
-            >
+            </div>
+            <div className={classes.answer}>
               <FormControl component="fieldset">
                 <RadioGroup
                   name="teacherFeedback"
                   value={this.props.personal.teacherFeedback}
                   onChange={this.handleChange}
+                  style={{
+                    display: "flex",
+                    width: "auto",
+                    flexDirection: "row",
+                  }}
                 >
                   <FormControlLabel
                     id="teacherFeedback"
@@ -293,10 +309,20 @@ class Education extends Component {
                   />
                 </RadioGroup>
               </FormControl>
-            </Grid>
+            </div>
+          </Grid>
+
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+            xs={12}
+            className={classes.answer2}
+          >
             <TextField
               placeholder="어떤 문제를 보고하였는지 간략하게 적어주세요."
-              style={{ width: "80%" }}
+              style={{ width: "95%" }}
               onChange={this.props.onChange}
               id="teacherFeedback1"
               value={this.props.personal.teacherFeedback1}
@@ -306,45 +332,54 @@ class Education extends Component {
             />
           </Grid>
         </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
+        <div
+          style={{
+            width: "100vw",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
         >
-          <button style={btnStyle1} onClick={this.props.onBack}>
+          <Button style={btnStyle1} onClick={this.props.onBack}>
+            <span style={{ marginRight: "1vw", marginBottom: "1px" }}>
+              {"<"}
+            </span>
             이전 단계로 이동
-          </button>
-          <button style={btnStyle} onClick={this.props.onContinue}>
-            다음 단계로 이동
-          </button>
-        </Grid>
+          </Button>
+          <Button style={btnStyle} onClick={this.props.onContinue}>
+            다음 단계로 이동{" "}
+            <span style={{ marginLeft: "1vw", marginBottom: "1px" }}>
+              {">"}
+            </span>
+          </Button>
+        </div>
       </div>
     );
   }
 }
 
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "16px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "4vh",
+  marginTop: "3vh",
 };
 
 export default withStyles(styles)(Education);

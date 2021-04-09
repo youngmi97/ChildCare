@@ -148,6 +148,7 @@ class Form extends Component {
           overflowY: "scroll",
           padding: "0",
           scrollbarWidth: "none",
+          overflowX: "hidden",
         }}
       >
         <div
@@ -212,8 +213,15 @@ class Form extends Component {
                 marginTop: "4vh",
               }}
             >
-              Services to assess children's language <br />
-              development online and receive results
+              아동의 언어발달 수준이 궁금하거나 <br />
+              언어 발달 지연이 의심되는 경우,
+              <br />
+              온라인 언어발달 평가를 통해 가정에서 <br />
+              전문가의 언어치료 서비스를 받을 수 있습니다.
+              <br />
+              아동의 언어 발달 수준, 사용하는 언어 종류에
+              <br />
+              관계 없이 온라인 평가가 가능합니다.
             </div>
           </div>
         </div>
@@ -223,6 +231,9 @@ class Form extends Component {
           props={this.state.userId}
           client={this.props.client}
         />
+        <div
+          style={{ width: "100vw", height: "15vh", backgroundColor: "#F9BE00" }}
+        ></div>
       </div>
     );
   }
