@@ -12,7 +12,6 @@ import Dashboard from "./Dashboard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "50px",
     marginBottom: "50px",
   },
 }));
@@ -36,14 +35,10 @@ function Home() {
         <Dashboard />
       </Grid>
     ) : (
-      <Grid container direction="row" justify="center" alignItems="center">
-        <HomeMain />
-      </Grid>
+      <HomeMain />
     )
   ) : (
-    <Grid container direction="row" justify="center" alignItems="center">
-      <HomeMain />
-    </Grid>
+    <HomeMain />
   );
 
   return display;

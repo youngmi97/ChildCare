@@ -1,3 +1,8 @@
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+body {
+  font-family: "Nanum Square", sans-serif;
+}
+
 .page-title {
   display: block !important;
   text-align: center;
@@ -7,7 +12,6 @@
 
 .form-container {
   width: 400px;
-  margin: auto;
 }
 
 .ui.teal.button:focus,
@@ -23,13 +27,4 @@
   line-height: 100px;
   transform-origin: 100% 50%;
   animation: main 5s;
-}
-
-@keyframes main {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
 }

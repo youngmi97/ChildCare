@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NewResults() {
   const classes = useStyles();
   const { user } = useContext(AuthContext);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
 
   const onStart = () => {
     setStep(1);
@@ -138,228 +138,305 @@ export default function NewResults() {
     }
     default: {
       return (
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          className={classes.root}
+        <div
+          style={{
+            width: "100vw",
+            height: "100vh",
+            overflowY: "scroll",
+            padding: "0",
+            scrollbarWidth: "none",
+          }}
         >
-          <Card style={{ width: "100%", height: "100%", borderRadius: "0px" }}>
-            <Grid container justify="center" className={classes.divider}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
+          <div
+            style={{
+              backgroundImage: "url(/Results.jpg)",
+              backgroundSize: "100vw 100vh",
+              width: "100vw",
+              height: "93vh",
+              marginTop: "7vh",
+            }}
+          >
+            <div
+              style={{
+                marginLeft: "7vw",
+                paddingTop: "10vh",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "2vw",
+                  fontWeight: "400",
+                  color: "#e57f16",
+                  marginBottom: "3vh",
+                }}
               >
-                <div className={classes.tag}>기본 정보</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
+                online
+              </div>
+              <div
+                style={{
+                  fontSize: "4vw",
+                  color: "#717071",
+                  lineHeight: "8vh",
+                  fontWeight: "300",
+                  marginBottom: "4vh",
+                }}
               >
+                ASSESSMENT
+                <br />
+                RESULTS
+              </div>
+              <div>
+                <hr
+                  style={{
+                    width: "3vw",
+                    border: "none",
+                    borderTop: "0.6vh solid #e57f16",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  fontSize: "1.5vw",
+                  color: "#717071",
+                  lineHeight: "4vh",
+                  fontWeight: "300",
+                  marginTop: "4vh",
+                }}
+              >
+                Providing parental education <br />
+                services for the purpose <br />
+                of enhancing online interaction
+              </div>
+            </div>
+          </div>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={12}
+            className={classes.root}
+          >
+            <Card
+              style={{ width: "100%", height: "100%", borderRadius: "0px" }}
+            >
+              <Grid container justify="center" className={classes.divider}>
                 <Grid
                   container
-                  direction="column"
-                  justify="center"
+                  direction="row"
+                  justify="flex-start"
                   alignItems="center"
-                  xs={6}
+                  xs={12}
                 >
-                  <Scatter
-                    eduScore={eduScore}
-                    devScore={devScore}
-                    illScore={illScore}
-                    famScore={famScore}
-                    width="400"
-                    height="250"
-                  />
+                  <div className={classes.tag}>기본 정보</div>
                 </Grid>
                 <Grid
                   container
-                  direction="column"
+                  direction="row"
                   justify="center"
                   alignItems="center"
-                  xs={6}
-                  className={classes.text}
-                >
-                  <div>기본정보: {basicFeedback}</div>
-                  <div>교육력: {eduFeedback}</div>
-                  <div>발달력: {devFeedback} </div>
-                  <div>병력: {illFeedback}</div>
-                  <div>가족력: {famFeedback}</div>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid container className={classes.divider}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>처리 능력</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-              >
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  xs={6}
-                >
-                  <Bar nwrScore={nwrScore} srScore={srScore} />
-                </Grid>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  xs={6}
-                  className={classes.text}
-                >
-                  <p style={{ padding: "20px 50px" }}>{nwrFeedback}</p>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid container className={classes.divider2}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>자발화 분석</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-              >
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  xs={6}
+                  xs={12}
                 >
                   <Grid
                     container
-                    direction="row"
+                    direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={12}
+                    xs={6}
                   >
-                    <Grid
-                      container
-                      direction="column"
-                      justify="center"
-                      alignItems="center"
-                      xs={6}
-                    >
-                      <Column parent={parent} child={child} />
-                    </Grid>
-                    <Grid
-                      container
-                      direction="column"
-                      justify="center"
-                      alignItems="center"
-                      xs={6}
-                    >
-                      <h3>MLU: 4.21단어 </h3>
-                      <h3>Turn-taking: 3.42회</h3>
-                    </Grid>
+                    <Scatter
+                      eduScore={eduScore}
+                      devScore={devScore}
+                      illScore={illScore}
+                      famScore={famScore}
+                      width="400"
+                      height="250"
+                    />
                   </Grid>
-
                   <Grid
                     container
-                    direction="row"
+                    direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={12}
+                    xs={6}
+                    className={classes.text}
                   >
-                    <Grid
-                      container
-                      direction="column"
-                      justify="center"
-                      alignItems="center"
-                      xs={6}
-                    >
-                      <Vertical
-                        event1={event1}
-                        event2={event2}
-                        chartName="이벤트 횟수"
-                        color="yellow"
-                        color2="red"
-                      />
-                    </Grid>
-                    <Grid
-                      container
-                      direction="column"
-                      justify="center"
-                      alignItems="center"
-                      xs={6}
-                    >
-                      <Vertical
-                        event1={speed1}
-                        event2={speed2}
-                        chartName="발화 속도"
-                        color2="gray"
-                      />
-                    </Grid>
+                    <div>기본정보: {basicFeedback}</div>
+                    <div>교육력: {eduFeedback}</div>
+                    <div>발달력: {devFeedback} </div>
+                    <div>병력: {illFeedback}</div>
+                    <div>가족력: {famFeedback}</div>
                   </Grid>
+                </Grid>
+              </Grid>
+
+              <Grid container className={classes.divider}>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <div className={classes.tag}>처리 능력</div>
                 </Grid>
                 <Grid
                   container
-                  direction="column"
+                  direction="row"
                   justify="center"
                   alignItems="center"
-                  xs={6}
-                  className={classes.text}
+                  xs={12}
                 >
-                  <p style={{ padding: "20px 50px" }}>{videoFeedback}</p>
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={6}
+                  >
+                    <Bar nwrScore={nwrScore} srScore={srScore} />
+                  </Grid>
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={6}
+                    className={classes.text}
+                  >
+                    <p style={{ padding: "20px 50px" }}>{nwrFeedback}</p>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid container justify="center">
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>총평</div>
+
+              <Grid container className={classes.divider2}>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <div className={classes.tag}>자발화 분석</div>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={6}
+                  >
+                    <Grid
+                      container
+                      direction="row"
+                      justify="center"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        xs={6}
+                      >
+                        <Column parent={parent} child={child} />
+                      </Grid>
+                      <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        xs={6}
+                      >
+                        <h3>MLU: 4.21단어 </h3>
+                        <h3>Turn-taking: 3.42회</h3>
+                      </Grid>
+                    </Grid>
+
+                    <Grid
+                      container
+                      direction="row"
+                      justify="center"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        xs={6}
+                      >
+                        <Vertical
+                          event1={event1}
+                          event2={event2}
+                          chartName="이벤트 횟수"
+                          color="yellow"
+                          color2="red"
+                        />
+                      </Grid>
+                      <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        xs={6}
+                      >
+                        <Vertical
+                          event1={speed1}
+                          event2={speed2}
+                          chartName="발화 속도"
+                          color2="gray"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={6}
+                    className={classes.text}
+                  >
+                    <p style={{ padding: "20px 50px" }}>{videoFeedback}</p>
+                  </Grid>
+                </Grid>
               </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-              >
-                <p className={classes.ovr}> {ovrFeedback}</p>
+              <Grid container justify="center">
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <div className={classes.tag}>총평</div>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                >
+                  <p className={classes.ovr}> {ovrFeedback}</p>
+                </Grid>
               </Grid>
-            </Grid>
-          </Card>
-        </Grid>
+            </Card>
+          </Grid>
+        </div>
       );
     }
   }

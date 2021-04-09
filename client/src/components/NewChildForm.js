@@ -60,7 +60,7 @@ class NewChildForm extends Component {
   }
 
   state = {
-    step: 0,
+    step: 1,
     gender: "",
     name: "",
     dateOfBirth: "",

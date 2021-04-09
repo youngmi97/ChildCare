@@ -35,11 +35,9 @@ export default function NWRSR(props) {
   var srResult = 0;
   const handleNWRChange = (event) => {
     setNWRState({ ...nwrState, [event.target.name]: event.target.checked });
-    props.updateNWR(calcNWRScore());
   };
   const handleSRChange = (event) => {
     setSRState({ ...srState, [event.target.name]: event.target.checked });
-    props.updateNWR(calcSRScore());
   };
 
   const [nwrState, setNWRState] = useState({

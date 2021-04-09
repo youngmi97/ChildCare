@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 
 body {
   margin: 0;
-  font-family: "'Noto Sans KR', sans serif;";
+  font-family: "Nanum Square", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

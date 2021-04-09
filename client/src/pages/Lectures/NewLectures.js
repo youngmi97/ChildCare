@@ -83,7 +83,7 @@ export default function NewLectures() {
   const classes = useStyles();
   const [videoFiles, setVideoFiles] = useState([]);
   const [step, setStep] = useState("1");
-  const [start, setStart] = useState(0);
+  const [start, setStart] = useState(1);
   const [uploaded, setUploaded] = useState(false);
   const { user } = useContext(AuthContext);
   const [lectureDiary, setLectureDiary] = useState("lecture");
@@ -189,7 +189,82 @@ export default function NewLectures() {
     }
     default: {
       return (
-        <div>
+        <div
+          style={{
+            width: "100vw",
+            height: "100vh",
+            overflowY: "scroll",
+            padding: "0",
+            scrollbarWidth: "none",
+          }}
+        >
+          <div
+            style={{
+              backgroundImage: "url(/Lectures.jpg)",
+              backgroundSize: "100vw 100vh",
+              width: "100vw",
+              height: "93vh",
+              marginTop: "7vh",
+            }}
+          >
+            <div
+              style={{
+                marginLeft: "7vw",
+                paddingTop: "10vh",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "2vw",
+                  fontWeight: "400",
+                  color: "#e57f16",
+                  marginBottom: "3vh",
+                }}
+              >
+                online
+              </div>
+              <div
+                style={{
+                  fontSize: "4vw",
+                  color: "#717071",
+                  lineHeight: "8vh",
+                  fontWeight: "300",
+                  marginBottom: "4vh",
+                }}
+              >
+                PARENT
+                <br />
+                PROFESSIONAL
+                <br />
+                EDUCATION
+              </div>
+              <div>
+                <hr
+                  style={{
+                    width: "3vw",
+                    border: "none",
+                    borderTop: "0.6vh solid #e57f16",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  fontSize: "1.5vw",
+                  color: "#717071",
+                  lineHeight: "4vh",
+                  fontWeight: "300",
+                  marginTop: "4vh",
+                }}
+              >
+                Providing parental education <br />
+                services for the purpose <br />
+                of enhancing online interaction
+              </div>
+            </div>
+          </div>
           <Grid
             container
             direction="row"

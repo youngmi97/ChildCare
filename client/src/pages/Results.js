@@ -53,6 +53,8 @@ export default function Results() {
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
       setFamScore(parseInt(data.getChildForm.familyScore, 10));
+      setNwrScore(parseInt(data.getChildForm.nwrScore, 10))
+      setSrScore(parseInt(data.getChildForm.srScore, 10))
     }
   }, [data, error, loading]);
 
