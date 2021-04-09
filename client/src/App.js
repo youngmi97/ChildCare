@@ -34,19 +34,18 @@ const App = (props) => {
     <AuthProvider>
       <Router>
         <MenuBar client={props.client} />
-        <Container>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/form" component={Form} client={props.client} />
-          <Route exact path="/results" component={NewResults} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/assessment" component={Assessment} />
-          <Route exact path="/stt" component={STT} />
-          <Route exact path="/lectures" component={NewLectures} />
-          <Route exact path="/diary" component={ViewDiary} />
-          <AuthRoute exact path="/login" component={Login} />
-          <AuthRoute exact path="/register" component={Register} />
-          <Route exact path="/posts/:postId" component={SinglePost} />
-        </Container>
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/form" component={Form} client={props.client} />
+        <Route exact path="/results" component={NewResults} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/assessment" component={Assessment} />
+        <Route exact path="/stt" component={STT} />
+        <Route exact path="/lectures" component={NewLectures} />
+        <Route exact path="/diary" component={ViewDiary} />
+        <AuthRoute exact path="/login" component={Login} />
+        <AuthRoute exact path="/register" component={Register} />
+        <Route exact path="/posts/:postId" component={SinglePost} />
       </Router>
     </AuthProvider>
   );

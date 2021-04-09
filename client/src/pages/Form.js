@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChildForm from "../components/ChildForm";
 import NewChildForm from "../components/NewChildForm";
+
 // import { AuthProvider } from "../context/auth";
 
 import { AuthContext } from "../context/auth";
@@ -140,7 +141,82 @@ class Form extends Component {
   render() {
     //console.log("userId", this.state.userId);
     return (
-      <div>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          overflowY: "scroll",
+          padding: "0",
+          scrollbarWidth: "none",
+        }}
+      >
+        <div
+          style={{
+            backgroundImage: "url(/Main1.jpg)",
+            backgroundSize: "100vw 100vh",
+            width: "100vw",
+            height: "93vh",
+            marginTop: "7vh",
+          }}
+        >
+          <div
+            style={{
+              marginLeft: "7vw",
+              paddingTop: "10vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginLeft: "60vw",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "2vw",
+                fontWeight: "400",
+                color: "#e57f16",
+                marginBottom: "3vh",
+              }}
+            >
+              online
+            </div>
+            <div
+              style={{
+                fontSize: "4vw",
+                color: "#717071",
+                lineHeight: "8vh",
+                fontWeight: "300",
+                marginBottom: "4vh",
+              }}
+            >
+              CHILD
+              <br />
+              LANGUAGE
+              <br />
+              ASSESSMENT
+            </div>
+            <div>
+              <hr
+                style={{
+                  width: "3vw",
+                  border: "none",
+                  borderTop: "0.6vh solid #e57f16",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                fontSize: "1.5vw",
+                color: "#717071",
+                lineHeight: "4vh",
+                fontWeight: "300",
+                marginTop: "4vh",
+              }}
+            >
+              Services to assess children's language <br />
+              development online and receive results
+            </div>
+          </div>
+        </div>
         <NewChildForm
           form={this.state.info}
           newAnswer={this.newAnswer}

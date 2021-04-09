@@ -1,91 +1,62 @@
 import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import "../../index.css";
+import "../../App.css";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  modal: {},
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    marginLeft: "35vw",
+    marginRight: "35vw",
+    marginTop: "37vh",
+    marginBottom: "37vh",
+    width: "30vw",
+    height: "26vh",
+    backgroundImage: "url(/PleaseLogin.jpg)",
+    backgroundSize: "30vw 26vh",
+    outline: "none",
+    border: "1px solid #F9BE00",
   },
-  speechCard: {
-    width: "80%",
-    height: "100",
-    paddingBottom: "30px",
-    marginBottom: "50px",
+  root: {
+    width: "100vw",
+    height: "100vh",
+    overflowY: "scroll",
+    padding: "0",
+    scrollbarWidth: "none",
   },
-  cardTitle: {
-    fontFamily: "'Noto Sans KR', sans serif;",
-    fontSize: "20px",
-    fontWeight: "600",
-    paddingTop: "30px",
+  main1: {
+    backgroundImage: "url(/Main1.jpg)",
+    backgroundSize: "100vw 100vh",
+    width: "100vw",
+    height: "93vh",
   },
-  cardText: {
-    fontFamily: "'Noto Sans KR', sans serif;",
-    fontSize: "16px",
-    fontWeight: "600",
-    color: "gray",
-    width: "80%",
-    textAlign: "right",
+  main2: {
+    marginTop: "7vh",
+    backgroundImage: "url(/Main2.jpg)",
+    backgroundSize: "100vw 100vh",
+    width: "100vw",
+    height: "93vh",
   },
-
-  imageConfig: {
-    width: "70%",
-    marginLeft: "70px",
+  main3: {
+    backgroundImage: "url(/Main3.jpg)",
+    backgroundSize: "100vw 100vh",
+    width: "100vw",
+    height: "93vh",
   },
-  optionCard: {
-    justify: "center",
-    marginTop: "20px",
-    marginLeft: "20px",
-    fontSize: "30px",
+  main4: {
+    backgroundImage: "url(/Main4.jpg)",
+    backgroundSize: "100vw 100vh",
+    width: "100vw",
+    height: "94vh",
   },
-  mainText: {
-    fontFamily: "'Noto Sans', sans serif;",
-    fontSize: "50px",
-    padding: "0px",
-    margin: "0px",
-    fontWeight: "600",
-  },
-
-  textOnline: {
-    fontFamily: "'Noto Sans', sans serif;",
-    fontSize: "35px",
-    color: "gray",
-    padding: "0px",
-    margin: "0px",
-    fontWeight: "600",
-  },
-
-  cardImg: {
-    width: "80%",
-    marginTop: "30px",
-    marginLeft: "20px",
-  },
-
-  firstHalf: {
-    height: "500px",
-    // border: "solid",
-    // borderColor: "#dedede",
-    // borderWidth: "1px",
-  },
-
-  secondHalf: {
-    height: "300px",
-  },
-  secondCardRow: {
-    height: "300px",
+  footer: {
+    height: "15vh",
+    backgroundColor: "#F9BE00",
   },
 }));
 
@@ -113,290 +84,359 @@ function HomeMain(props) {
     setOpen(false);
   };
 
-  const [cardDepth1, setCardDepth1] = useState(false);
-  const [cardDepth2, setCardDepth2] = useState(false);
-  const [cardDepth3, setCardDepth3] = useState(false);
-  const [cardDepth4, setCardDepth4] = useState(false);
-
-  function mouseCardOn1() {
-    setCardDepth1(true);
-  }
-
-  function mouseCardoff1() {
-    setCardDepth1(false);
-  }
-
-  function mouseCardOn2() {
-    setCardDepth2(true);
-  }
-
-  function mouseCardoff2() {
-    setCardDepth2(false);
-  }
-
-  function mouseCardOn3() {
-    setCardDepth3(true);
-  }
-
-  function mouseCardoff3() {
-    setCardDepth3(false);
-  }
-
-  function mouseCardOn4() {
-    setCardDepth4(true);
-  }
-
-  function mouseCardoff4() {
-    setCardDepth4(false);
-  }
-
   return (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      xs={12}
-    >
-      <Grid
-        container
-        className={classes.firstHalf}
-        direction="row"
-        alignItems="center"
-        xs={12}
-      >
-        <Grid
-          container
-          direction="column"
-          justify="center"
-          alignItems="flex-end"
-          xs={12}
-          sm={5}
+    <div className={classes.root}>
+      <div className={classes.main2}>
+        <div
+          style={{
+            marginLeft: "7vw",
+            paddingTop: "10vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
         >
-          <p className={classes.textOnline}>Online</p>
-          <p className={classes.mainText}>LANGUAGE</p>
-          <p className={classes.mainText}>DEVELOPMENT</p>
-          <p className={classes.mainText}>ASSESSMENT</p>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          sm={7}
-        >
-          <img
-            className={classes.imageConfig}
-            src="/mock-illustration.jpg"
-          ></img>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
-      >
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Card
-            justify="center"
-            className={classes.speechCard}
-            onMouseOver={mouseCardOn1}
-            onMouseOut={mouseCardoff1}
-            raised={cardDepth1}
-            onClick={handleOpen1}
+          <div
+            style={{
+              fontSize: "2vw",
+              fontWeight: "400",
+              color: "#e57f16",
+              marginBottom: "3vh",
+            }}
           >
-            <Grid container direction="row" xs={12}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-end"
-                xs={6}
-              >
-                <p className={classes.cardTitle}>언어발달평가</p>
-                <p className={classes.cardText}>
-                  온라인으로 아동의 언어발달을 평가하고 결과를 받을 수 있는
-                  서비스
-                </p>
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-start"
-                xs={6}
-              >
-                <img className={classes.cardImg} src="/checklist.png"></img>
-              </Grid>
-            </Grid>
-          </Card>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Card
-            justify="center"
-            className={classes.speechCard}
-            onMouseOver={mouseCardOn2}
-            onMouseOut={mouseCardoff2}
-            raised={cardDepth2}
-            onClick={handleOpen2}
-          >
-            <Grid container direction="row" xs={12}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-end"
-                xs={6}
-              >
-                <p className={classes.cardTitle}>연구참여신청</p>
-                <p className={classes.cardText}>
-                  이화여대 언어병리학과 아동연구실에서 진행되는 연구대상자로
-                  참여 신청
-                </p>
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-start"
-                xs={6}
-              >
-                <img className={classes.cardImg} src="/participation.png"></img>
-              </Grid>
-            </Grid>
-          </Card>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        xs={12}
-      >
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Card
-            justify="center"
-            className={classes.speechCard}
-            onMouseOver={mouseCardOn3}
-            onMouseOut={mouseCardoff3}
-            raised={cardDepth3}
-            onClick={handleOpen3}
-          >
-            <Grid container direction="row" xs={12}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-end"
-                xs={6}
-              >
-                <p className={classes.cardTitle}>부모교육</p>
-                <p className={classes.cardText}>
-                  온라인으로 상호작용 증진을 목적으로 한 부모교육 서비스 제공
-                </p>
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-start"
-                xs={6}
-              >
-                <img className={classes.cardImg} src="/family.png"></img>
-              </Grid>
-            </Grid>
-          </Card>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          xs={12}
-          md={6}
-        >
-          <Card
-            justify="center"
-            className={classes.speechCard}
-            onMouseOver={mouseCardOn4}
-            onMouseOut={mouseCardoff4}
-            raised={cardDepth4}
-            onClick={handleOpen4}
-          >
-            <Grid container direction="row" xs={12}>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-end"
-                xs={6}
-              >
-                <p className={classes.cardTitle}>전문가교육</p>
-                <p className={classes.cardText}>
-                  온라인으로 아동 관련 직종에 종사하는 전문가를 대상으로 한 교육
-                  서비스 제공
-                </p>
-              </Grid>
-              <Grid
-                container
-                direction="column"
-                justify="center"
-                alignItems="flex-start"
-                xs={6}
-              >
-                <img className={classes.cardImg} src="/teacher.png"></img>
-              </Grid>
-            </Grid>
-          </Card>
-        </Grid>
-      </Grid>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">회원가입 후 사용해 주세요.</h2>
-            <p id="transition-modal-description">
-              이미 회원이시라면 로그인을 해주세요.
-            </p>
+            online
           </div>
-        </Fade>
-      </Modal>
-    </Grid>
+          <div
+            style={{
+              fontSize: "4vw",
+              color: "#717071",
+              lineHeight: "8vh",
+              fontWeight: "300",
+              marginBottom: "4vh",
+            }}
+          >
+            LANGUAGE
+            <br />
+            DEVELOPMENT
+            <br />
+            ASSESSMENT
+          </div>
+          <div>
+            <hr
+              style={{
+                width: "3vw",
+                border: "none",
+                borderTop: "0.6vh solid #e57f16",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              fontSize: "1.5vw",
+              color: "#717071",
+              lineHeight: "4vh",
+              fontWeight: "300",
+              marginTop: "4vh",
+            }}
+          >
+            We study how children learn language and <br />
+            how lange learning can down
+          </div>
+        </div>
+      </div>
+      <div className={classes.main1}>
+        <div
+          style={{
+            marginLeft: "7vw",
+            paddingTop: "10vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            marginLeft: "60vw",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "2vw",
+              fontWeight: "400",
+              color: "#e57f16",
+              marginBottom: "3vh",
+            }}
+          >
+            online
+          </div>
+          <div
+            style={{
+              fontSize: "4vw",
+              color: "#717071",
+              lineHeight: "8vh",
+              fontWeight: "300",
+              marginBottom: "4vh",
+            }}
+          >
+            CHILD
+            <br />
+            LANGUAGE
+            <br />
+            ASSESSMENT
+          </div>
+          <div>
+            <hr
+              style={{
+                width: "3vw",
+                border: "none",
+                borderTop: "0.6vh solid #e57f16",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              fontSize: "1.5vw",
+              color: "#717071",
+              lineHeight: "4vh",
+              fontWeight: "300",
+              marginTop: "4vh",
+            }}
+          >
+            Services to assess children's language <br />
+            development online and receive results
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              marginLeft: "20vw",
+              marginTop: "2vh",
+            }}
+          >
+            <Button
+              style={{ fontSize: "1.5vw", color: "#e57f16" }}
+              onClick={handleOpen1}
+            >
+              {" "}
+              > MORE{" "}
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className={classes.main3}>
+        <div
+          style={{
+            marginLeft: "7vw",
+            paddingTop: "10vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "2vw",
+              fontWeight: "400",
+              color: "#e57f16",
+              marginBottom: "3vh",
+            }}
+          >
+            online
+          </div>
+          <div
+            style={{
+              fontSize: "4vw",
+              color: "#717071",
+              lineHeight: "8vh",
+              fontWeight: "300",
+              marginBottom: "4vh",
+            }}
+          >
+            PARENT
+            <br />
+            PROFESSIONAL
+            <br />
+            EDUCATION
+          </div>
+          <div>
+            <hr
+              style={{
+                width: "3vw",
+                border: "none",
+                borderTop: "0.6vh solid #e57f16",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              fontSize: "1.5vw",
+              color: "#717071",
+              lineHeight: "4vh",
+              fontWeight: "300",
+              marginTop: "4vh",
+            }}
+          >
+            Providing parental education <br />
+            services for the purpose <br />
+            of enhancing online interaction
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              marginLeft: "15vw",
+              marginTop: "2vh",
+            }}
+          >
+            <Button
+              style={{
+                fontSize: "1.5vw",
+                color: "#e57f16",
+              }}
+              onClick={handleOpen3}
+            >
+              {" "}
+              > MORE{" "}
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className={classes.main4}>
+        <div
+          style={{
+            marginLeft: "7vw",
+            paddingTop: "10vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            marginLeft: "60vw",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "2vw",
+              fontWeight: "400",
+              color: "#e57f16",
+              marginBottom: "3vh",
+            }}
+          >
+            online
+          </div>
+          <div
+            style={{
+              fontSize: "4vw",
+              color: "#717071",
+              lineHeight: "8vh",
+              fontWeight: "300",
+              marginBottom: "4vh",
+            }}
+          >
+            PARTICIPATION
+            <br />
+            IN RESEARCH
+          </div>
+          <div>
+            <hr
+              style={{
+                width: "3vw",
+                border: "none",
+                borderTop: "0.6vh solid #e57f16",
+              }}
+            />
+          </div>
+          <div
+            style={{
+              fontSize: "1.5vw",
+              color: "#717071",
+              lineHeight: "4vh",
+              fontWeight: "300",
+              marginTop: "4vh",
+            }}
+          >
+            Application for participation as a subject <br />
+            of research conducted in the language
+            <br />
+            pathology department children's
+            <br />
+            research lab of Ehwa Woman's University
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              marginLeft: "21vw",
+              marginTop: "2vh",
+            }}
+          >
+            <Button
+              style={{ fontSize: "1.5vw", color: "#e57f16" }}
+              onClick={handleOpen2}
+            >
+              {" "}
+              > MORE{" "}
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className={classes.footer}></div>
+      <div className={classes.modal}>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <div
+                style={{
+                  fontSize: "1.5vw",
+                  color: "#e57f16",
+                  marginLeft: "1.2vw",
+                  marginTop: "4vh",
+                }}
+              >
+                서비스 확인이 필요합니다.
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#717071",
+                  fontSize: "1.2vw",
+                  marginTop: "2vh",
+                  lineHeight: "1.45",
+                }}
+              >
+                현재 해당 서비스는 이용이 불가능합니다. <br /> 아래 연락처로
+                문의 부탁드립니다.
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "2vh",
+                }}
+              >
+                연락처 : sunyim@isay.com
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "1.2vh",
+                }}
+              >
+                전화 : 02.3277.6720
+              </div>
+            </div>
+          </Fade>
+        </Modal>
+      </div>
+    </div>
   );
 }
 

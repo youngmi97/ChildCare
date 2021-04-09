@@ -209,12 +209,13 @@ export default function Assessment() {
     setOvrFeedback(e.target.value);
   };
 
-  const updateNWR = (value) => {
+  const onNWRChange = (value) => {
     setNwrScore(value);
   };
-  const updateSR = (value) => {
+  const onSRChange = (value) => {
     setSrScore(value);
   };
+
   console.log();
   console.log(step);
 
@@ -801,7 +802,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <NWRSR updateNWR={updateNWR} updateSR={updateSR} />
+                    <NWRSR onNWRChange={onNWRChange} onSRChange={onSRChange} />
                   </Grid>
                   <Grid
                     container
