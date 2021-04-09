@@ -51,12 +51,8 @@ class Column extends Component {
           dataLabels: {
             enabled: false,
           },
-          series: {
-            stacking: "normal",
-            dataLabels: {
-              enabled: false,
-            },
-          },
+          colorByPoint: true,
+          colors: this.props.colors,
         },
       },
       series: [{ name: "기본정보", data: series2 }],

@@ -281,6 +281,7 @@ export default function NewResults() {
               >
                 <div className={classes.tag}>자발화 분석</div>
               </Grid>
+
               <Grid
                 container
                 direction="row"
@@ -290,8 +291,8 @@ export default function NewResults() {
                 className={classes.chart}
               >
                 <StackedBar parent={60} child={40} />
-                <Column event1={2} event2={3} />
               </Grid>
+              <div style={{ marginLeft: "120px" }}>이벤트 횟수</div>
               <Grid
                 container
                 direction="row"
@@ -300,9 +301,26 @@ export default function NewResults() {
                 xs={12}
                 className={classes.chart}
               >
-                <Column event1={3.4} event2={2.8} />
+                <Column event1={2} event2={3} colors={["#F9BE00", "#F53535"]} />
+              </Grid>
+
+              <div style={{ marginLeft: "120px" }}>발화속도</div>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+                xs={12}
+                className={classes.chart}
+              >
+                <Column
+                  event1={3.4}
+                  event2={2.8}
+                  colors={["#3BB9FF", "#AEAEAE"]}
+                />
               </Grid>
             </Grid>
+
             <Grid container justify="center">
               <Grid
                 container
@@ -325,6 +343,76 @@ export default function NewResults() {
               </Grid>
             </Grid>
           </Grid>
+          <div
+            style={{
+              width: "100vw",
+              height: "15vh",
+              backgroundColor: "#F9BE00",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "flex-end",
+                marginLeft: "15vw",
+                paddingTop: "2vh",
+              }}
+            >
+              <img src="/002.png" width="60px" height="60px" />
+              <div
+                style={{
+                  fontSize: "15px",
+                  color: "white",
+                  marginBottom: "12px",
+                  marginLeft: "30px",
+                  fontWeight: "600",
+                }}
+              >
+                개인정보 처리방침
+              </div>
+              <div
+                style={{
+                  fontSize: "15px",
+                  marginBottom: "12px",
+                  marginLeft: "30px",
+                  fontWeight: "600",
+                }}
+              >
+                이용 약관
+              </div>
+              <div
+                style={{
+                  fontSize: "16px",
+                  marginBottom: "12px",
+                  marginLeft: "30px",
+                  fontWeight: "600",
+                }}
+              >
+                윤리 경영
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "flex-end",
+                marginLeft: "15vw",
+                fontWeight: "bold",
+                fontSize: "16px",
+                marginTop: "1.2vh",
+              }}
+            >
+              <div>대표전화 02.3277.6720 </div>
+              <div style={{ margin: "0px 1vw" }}>|</div>
+              <div>대표이메일 sunyim@isay.com </div>
+              <div style={{ margin: "0px 1vw" }}>|</div>
+              <div>
+                서울 서대문구 이화여대길 52 이화여자대학교, 교육관 A동 502호 I
+                SAY LAB{" "}
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

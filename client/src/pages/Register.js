@@ -14,8 +14,9 @@ import PersonPinIcon from "@material-ui/icons/PersonPin";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
-    maxWidth: 500,
+    marginTop: "15vh",
+    width: "50vw",
+    marginLeft: "25vw",
   },
 });
 
@@ -249,8 +250,8 @@ function Register(props) {
   );
 
   return (
-    <div className="form-container">
-      <Paper elevation={1} className={classes.root}>
+    <div className={classes.root}>
+      <Paper elevation={1}>
         <Tabs
           value={userType}
           onChange={handleToggleUser}

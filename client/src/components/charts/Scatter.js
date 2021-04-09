@@ -5,10 +5,10 @@ import HighchartsReact from "highcharts-react-official";
 class Scatter extends Component {
   state = {
     data: [
-      { name: "교육력", y: this.props.eduScore },
-      { name: "발달력", y: this.props.devScore },
-      { name: "병력", y: this.props.illScore },
-      { name: "가족력", y: this.props.famScore },
+      { name: "교육력", y: 1 },
+      { name: "발달력", y: 4 },
+      { name: "병력", y: 2 },
+      { name: "가족력", y: 5 },
     ],
   };
 
@@ -31,7 +31,15 @@ class Scatter extends Component {
       },
       xAxis: {
         categories: ["교육력", "발달력", "병력", "가족력"],
-        labels: "none",
+        labels: {
+          x: 20,
+          align: "left",
+          style: {
+            fontSize: "14px",
+            color: "white",
+            fontWeight: "600",
+          },
+        },
       },
 
       yAxis: {
@@ -49,7 +57,17 @@ class Scatter extends Component {
       },
       plotOptions: {
         bar: {
-          color: "#1589FF",
+          zones: [
+            {
+              value: 2.01, // Values up to 10 (not including) ...
+              color: "#AEAEAE", // ... have the color blue.
+            },
+            {
+              value: 4.01,
+              color: "#F9BE00", // Values from 10 (including) and up have the color red
+            },
+            { color: "#F53535" },
+          ],
         },
 
         series: {

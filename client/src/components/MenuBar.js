@@ -58,8 +58,7 @@ function MenuBar() {
           }}
           href="/dashboard"
         >
-          {" "}
-          i-Say Lab
+          <img src="/002.png" width="50px" height="50px" />
         </a>
 
         <Menu.Menu position="right">
@@ -100,7 +99,7 @@ function MenuBar() {
           href="/"
         >
           {" "}
-          i-Say Lab
+          <img src="/002.png" width="50px" height="50px" />
         </a>
 
         <Menu.Menu position="right" style={{ marginRight: "30px" }}>
@@ -166,7 +165,7 @@ function MenuBar() {
         href="/"
       >
         {" "}
-        i-Say Lab{" "}
+        <img src="/002.png" width="50px" height="50px" />
       </a>
 
       <Menu.Menu position="right" style={{ marginRight: "30px" }}>

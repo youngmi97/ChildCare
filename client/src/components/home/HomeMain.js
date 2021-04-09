@@ -378,7 +378,70 @@ function HomeMain(props) {
           </div>
         </div>
       </div>
-      <div className={classes.footer}></div>
+      <div className={classes.footer}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            marginLeft: "15vw",
+            paddingTop: "2vh",
+          }}
+        >
+          <img src="/002.png" width="60px" height="60px" />
+          <div
+            style={{
+              fontSize: "15px",
+              color: "white",
+              marginBottom: "12px",
+              marginLeft: "30px",
+              fontWeight: "600",
+            }}
+          >
+            개인정보 처리방침
+          </div>
+          <div
+            style={{
+              fontSize: "15px",
+              marginBottom: "12px",
+              marginLeft: "30px",
+              fontWeight: "600",
+            }}
+          >
+            이용 약관
+          </div>
+          <div
+            style={{
+              fontSize: "16px",
+              marginBottom: "12px",
+              marginLeft: "30px",
+              fontWeight: "600",
+            }}
+          >
+            윤리 경영
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            marginLeft: "15vw",
+            fontWeight: "bold",
+            fontSize: "16px",
+            marginTop: "1.2vh",
+          }}
+        >
+          <div>대표전화 02.3277.6720 </div>
+          <div style={{ margin: "0px 1vw" }}>|</div>
+          <div>대표이메일 sunyim@isay.com </div>
+          <div style={{ margin: "0px 1vw" }}>|</div>
+          <div>
+            서울 서대문구 이화여대길 52 이화여자대학교, 교육관 A동 502호 I SAY
+            LAB{" "}
+          </div>
+        </div>
+      </div>
       <div className={classes.modal}>
         <Modal
           open={open}

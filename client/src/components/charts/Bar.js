@@ -31,10 +31,11 @@ class Scatter extends Component {
         categories: ["비단어 따라말하기", "문장 따라말하기"],
         labels: {
           x: 10,
-          y: -60,
+
           align: "left",
           style: {
             fontSize: "16px",
+            color: "white",
           },
         },
       },
@@ -50,7 +51,7 @@ class Scatter extends Component {
             label: {
               text: "평균",
               rotation: 0,
-              x: 10,
+              x: 12,
               z: 0,
               style: {
                 fontSize: "16px",
@@ -70,14 +71,15 @@ class Scatter extends Component {
         series: {
           stacking: "normal",
           dataLabels: {
-            enabled: true,
+            enabled: false,
           },
           bar: {
             threshold: 20,
           },
+          color: "#4863A0",
         },
       },
-      series: [{ name: "기본정보", data: series2 }],
+      series: [{ name: "기본정보", data: series2 }, { color: "#4863A0" }],
     };
     return (
       <Fragment>

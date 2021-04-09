@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Highcharts from "highcharts";
+import Highcharts, { Point } from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 class StackedBar extends Component {
@@ -46,18 +46,41 @@ class StackedBar extends Component {
       plotOptions: {
         series: {
           stacking: "percent",
-          dataLabels: {
-            enabled: false,
-          },
-          series: {
-            stacking: "percent",
-            dataLabels: {
-              enabled: false,
+          dataLabels: [
+            {
+              enabled: true,
             },
-          },
+          ],
         },
       },
-      series: [{ data: [this.state.child] }, { data: [this.state.parent] }],
+      series: [
+        {
+          dataLabels: [
+            {
+              format: "아동",
+              style: {
+                fontSize: "14px",
+                color: "#FFFFFF",
+                textDecoration: "none",
+              },
+            },
+          ],
+          data: [this.state.child],
+          color: "#4863A0",
+          name: "아동",
+        },
+        {
+          dataLabels: [
+            {
+              format: "부모",
+              style: { fontSize: "14px", color: "#FFFFFF" },
+            },
+          ],
+          data: [this.state.parent],
+          color: "#F9BE00",
+          name: "부모",
+        },
+      ],
     };
     return (
       <Fragment>
