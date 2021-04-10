@@ -31,6 +31,12 @@ function MenuBar() {
   const handleOpen4 = () => {
     !user ? setOpen(true) : history.push("./results");
   };
+  const handleOpen5 = () => {
+    history.push("./login");
+  };
+  const handleOpen6 = () => {
+    history.push("./register");
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -104,25 +110,25 @@ function MenuBar() {
 
         <Menu.Menu position="right" style={{ marginRight: "30px" }}>
           <Menu.Item
-            style={{ color: "white", fontWeight: "500" }}
+            style={{ color: "white", fontWeight: "600" }}
             name="언어발달평가"
             active={activeItem === "언어발달 평가"}
             onClick={handleOpen1}
           />
           <Menu.Item
-            style={{ color: "white", fontWeight: "500" }}
+            style={{ color: "white", fontWeight: "600" }}
             name="부모 전문가 교육"
             active={activeItem === "부모 전문가 교육"}
             onClick={handleOpen3}
           />
           <Menu.Item
-            style={{ color: "white", fontWeight: "500" }}
+            style={{ color: "white", fontWeight: "600" }}
             name="평가결과"
             active={activeItem === "평가결과"}
             onClick={handleOpen4}
           />
           <Menu.Item
-            style={{ color: "white", fontWeight: "500" }}
+            style={{ color: "white", fontWeight: "600" }}
             name="연구참여"
             active={activeItem === "연구참여"}
             onClick={handleOpen2}
@@ -170,44 +176,40 @@ function MenuBar() {
 
       <Menu.Menu position="right" style={{ marginRight: "30px" }}>
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="언어발달평가"
           active={activeItem === "언어발달 평가"}
           onClick={handleOpen1}
         />
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="부모 전문가 교육"
           active={activeItem === "부모 전문가 교육"}
           onClick={handleOpen3}
         />
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="평가결과"
           active={activeItem === "평가결과"}
           onClick={handleOpen4}
         />
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="연구참여"
           active={activeItem === "연구참여"}
           onClick={handleOpen2}
         />
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="로그인"
           active={activeItem === "login"}
-          onClick={handleItemClick}
-          as={Link}
-          to="/login"
+          onClick={handleOpen5}
         />
         <Menu.Item
-          style={{ color: "white", fontWeight: "500" }}
+          style={{ color: "white", fontWeight: "600" }}
           name="회원가입"
           active={activeItem === "register"}
-          onClick={handleItemClick}
-          as={Link}
-          to="/register"
+          onClick={handleOpen6}
         />
       </Menu.Menu>
     </Menu>
@@ -222,9 +224,6 @@ function MenuBar() {
           onClose={handleClose}
           closeAfterTransition
           BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
         >
           <Fade in={open}>
             <div

@@ -342,7 +342,7 @@ export default function NewLectures() {
           <div
             style={{
               width: "100vw",
-              height: "15vh",
+              height: "20vh",
               backgroundColor: "#F9BE00",
             }}
           >
@@ -352,13 +352,14 @@ export default function NewLectures() {
                 flexDirection: "row",
                 alignItems: "flex-end",
                 marginLeft: "15vw",
-                paddingTop: "2vh",
+                paddingTop: "3vh",
+                marginBottom: "3vh",
               }}
             >
               <img src="/002.png" width="60px" height="60px" />
               <div
                 style={{
-                  fontSize: "15px",
+                  fontSize: "16px",
                   color: "white",
                   marginBottom: "12px",
                   marginLeft: "30px",
@@ -369,7 +370,7 @@ export default function NewLectures() {
               </div>
               <div
                 style={{
-                  fontSize: "15px",
+                  fontSize: "16px",
                   marginBottom: "12px",
                   marginLeft: "30px",
                   fontWeight: "600",

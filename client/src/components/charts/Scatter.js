@@ -5,10 +5,10 @@ import HighchartsReact from "highcharts-react-official";
 class Scatter extends Component {
   state = {
     data: [
-      { name: "교육력", y: 1 },
-      { name: "발달력", y: 4 },
-      { name: "병력", y: 2 },
-      { name: "가족력", y: 5 },
+      { name: "교육력", y: this.props.eduScore },
+      { name: "발달력", y: this.props.devScore },
+      { name: "병력", y: this.props.illScore },
+      { name: "가족력", y: this.props.famScore },
     ],
   };
 

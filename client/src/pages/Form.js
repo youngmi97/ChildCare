@@ -232,7 +232,7 @@ class Form extends Component {
           client={this.props.client}
         />
         <div
-          style={{ width: "100vw", height: "15vh", backgroundColor: "#F9BE00" }}
+          style={{ width: "100vw", height: "20vh", backgroundColor: "#F9BE00" }}
         >
           <div
             style={{
@@ -240,13 +240,14 @@ class Form extends Component {
               flexDirection: "row",
               alignItems: "flex-end",
               marginLeft: "15vw",
-              paddingTop: "2vh",
+              paddingTop: "3vh",
+              marginBottom: "3vh",
             }}
           >
             <img src="/002.png" width="60px" height="60px" />
             <div
               style={{
-                fontSize: "15px",
+                fontSize: "16px",
                 color: "white",
                 marginBottom: "12px",
                 marginLeft: "30px",
@@ -257,7 +258,7 @@ class Form extends Component {
             </div>
             <div
               style={{
-                fontSize: "15px",
+                fontSize: "16px",
                 marginBottom: "12px",
                 marginLeft: "30px",
                 fontWeight: "600",

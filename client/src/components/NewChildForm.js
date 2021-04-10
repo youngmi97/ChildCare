@@ -588,7 +588,7 @@ class NewChildForm extends Component {
                 xs={12}
                 className={classes.title}
               >
-                <p>감사합니다.</p>
+                <p style={{ marginBottom: "4vh" }}>감사합니다.</p>
               </Grid>
               <Grid
                 container

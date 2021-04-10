@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     height: "94vh",
   },
   footer: {
-    height: "15vh",
+    height: "20vh",
     backgroundColor: "#F9BE00",
   },
 }));
@@ -385,13 +385,14 @@ function HomeMain(props) {
             flexDirection: "row",
             alignItems: "flex-end",
             marginLeft: "15vw",
-            paddingTop: "2vh",
+            paddingTop: "3vh",
+            marginBottom: "3vh",
           }}
         >
           <img src="/002.png" width="60px" height="60px" />
           <div
             style={{
-              fontSize: "15px",
+              fontSize: "16px",
               color: "white",
               marginBottom: "12px",
               marginLeft: "30px",
@@ -402,7 +403,7 @@ function HomeMain(props) {
           </div>
           <div
             style={{
-              fontSize: "15px",
+              fontSize: "16px",
               marginBottom: "12px",
               marginLeft: "30px",
               fontWeight: "600",
@@ -448,9 +449,6 @@ function HomeMain(props) {
           onClose={handleClose}
           closeAfterTransition
           BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
         >
           <Fade in={open}>
             <div className={classes.paper}>
