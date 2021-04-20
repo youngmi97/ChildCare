@@ -55,9 +55,12 @@ export default function NewResults() {
   //const [formData, setFormData] = useState({});
 
   //console.log("user Id", user.id);
-  const { loading, error, data } = useQuery(GET_CHILD_FORM, {
-    variables: { userId: user.id },
-  });
+  const { loading: loading, error: error, data: data } = useQuery(
+    GET_CHILD_FORM,
+    {
+      variables: { userId: user.id },
+    }
+  );
 
   const { loading: loading2, error: error2, data: data2 } = useQuery(
     GET_PROF_COMMENTS,
@@ -69,13 +72,13 @@ export default function NewResults() {
   if (loading) {
     console.log("loading");
   } else {
-    console.log("got data", data);
+    console.log("got GET_CHILD_FORM data", data);
   }
 
   if (loading2) {
     console.log("loading2");
   } else {
-    console.log("got data2", data2);
+    console.log("got GET_PROF_COMMENTS data2", data2);
   }
 
   const [eduScore, setEduScore] = useState(1);
@@ -99,8 +102,10 @@ export default function NewResults() {
   const [videoFeedback, setVideoFeedback] = useState("");
   const [ovrFeedback, setOvrFeedback] = useState("");
 
-  useMemo(() => {
+  useEffect(() => {
     if (!error && !loading) {
+      console.log("set VALUE", parseInt(data.getChildForm.educationScore, 10));
+
       setEduScore(parseInt(data.getChildForm.educationScore, 10));
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
@@ -118,7 +123,6 @@ export default function NewResults() {
 
   useEffect(() => {
     if (!error2 && !loading2) {
-      console.log("data2", data2);
       setBasicFeedback(data2.getProfComment.perFeedback);
       setEduFeedback(data2.getProfComment.eduFeedback);
       setDevFeedback(data2.getProfComment.devFeedback);

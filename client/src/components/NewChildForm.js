@@ -128,7 +128,7 @@ class NewChildForm extends Component {
   };
 
   onContinue = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     this.props.newAnswer(
       this.state.gender,
       this.state.name,
