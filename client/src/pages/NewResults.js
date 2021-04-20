@@ -78,10 +78,10 @@ export default function NewResults() {
     console.log("got data2", data2);
   }
 
-  const [eduScore, setEduScore] = useState(1);
-  const [devScore, setDevScore] = useState(4);
-  const [illScore, setIllScore] = useState(2);
-  const [famScore, setFamScore] = useState(5);
+  const [eduScore, setEduScore] = useState(0);
+  const [devScore, setDevScore] = useState(0);
+  const [illScore, setIllScore] = useState(0);
+  const [famScore, setFamScore] = useState(0);
   const [nwrScore, setNwrScore] = useState(90);
   const [srScore, setSrScore] = useState(70);
   const [parent, setParent] = useState(70);
