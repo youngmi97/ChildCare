@@ -112,7 +112,9 @@ export default function Dashboard() {
     }
   );
 
-  const { loading, error, data } = useQuery(GET_USERS);
+  const { loading, error, data } = useQuery(GET_USERS, {
+    fetchPolicy: "network-first",
+  });
   const rows = [];
 
   if (!error && !loading) {

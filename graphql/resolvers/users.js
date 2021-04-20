@@ -34,22 +34,25 @@ module.exports = {
         const filteredUsers = users.map(async (user) => {
           const userChildForm = await ChildForm.find({ userId: user._id });
 
-          const name = userChildForm.length > 0 ? userChildForm[0].name : "";
-          const dateOfBirth =
-            userChildForm.length > 0 ? userChildForm[0].dateOfBirth : "";
-          const primaryLanguage =
-            userChildForm.length > 0 ? userChildForm[0].primaryLanguage : "";
-          const schoolLanguage =
-            userChildForm.length > 0 ? userChildForm[0].schoolLanguage : "";
-          return {
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            name: name,
-            dateOfBirth: dateOfBirth,
-            primaryLanguage: primaryLanguage,
-            schoolLanguage: schoolLanguage,
-          };
+          if (userChildForm) {
+            const name = userChildForm.length > 0 ? userChildForm[0].name : "";
+
+            const dateOfBirth =
+              userChildForm.length > 0 ? userChildForm[0].dateOfBirth : "";
+            const primaryLanguage =
+              userChildForm.length > 0 ? userChildForm[0].primaryLanguage : "";
+            const schoolLanguage =
+              userChildForm.length > 0 ? userChildForm[0].schoolLanguage : "";
+            return {
+              id: user._id,
+              username: user.username,
+              email: user.email,
+              name: name,
+              dateOfBirth: dateOfBirth,
+              primaryLanguage: primaryLanguage,
+              schoolLanguage: schoolLanguage,
+            };
+          }
         });
 
         // console.log("filteredUsers", filteredUsers);
