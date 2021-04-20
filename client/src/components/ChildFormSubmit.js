@@ -145,7 +145,13 @@ function ChildFormSubmit(props) {
           <span style={{ marginRight: "1vw", marginBottom: "1px" }}>{"<"}</span>
           이전 단계로 이동
         </Button>
-        <Button style={btnStyle} onClick={props.onContinue}>
+        <Button
+          style={btnStyle}
+          onClick={() => {
+            props.onContinue();
+            myFunction();
+          }}
+        >
           제출하기{" "}
           <span style={{ marginLeft: "1vw", marginBottom: "1px" }}>{">"}</span>
         </Button>
