@@ -10,6 +10,8 @@ const professionalComment = new Schema({
   famFeedback: String,
   nwrFeedback: String,
   ovrFeedback: String,
+  nwrScore: Number,
+  srScore: Number,
 });
 
 module.exports = model("ProfComment", professionalComment);

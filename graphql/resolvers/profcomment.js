@@ -37,6 +37,8 @@ module.exports = {
         famFeedback: parsedShit.famFeedback,
         nwrFeedback: parsedShit.nwrFeedback,
         ovrFeedback: parsedShit.ovrFeedback,
+        nwrScore: parsedShit.nwrScore,
+        srScore: parsedShit.srScore,
       });
       console.log(newProfComment);
       await newProfComment.save();
