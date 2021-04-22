@@ -3,4 +3,8 @@
 package-lock.json
 서하책읽기.mp4
 ./childcaredemo-59692beeceb4.json
+<<<<<<< HEAD
 aws-exports.js
+=======
+aws-exports.js
+>>>>>>> ff298d8171061ccb90ab55eba92531905ea4a60a
