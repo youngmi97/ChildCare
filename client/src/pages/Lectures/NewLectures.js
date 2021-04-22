@@ -75,9 +75,37 @@ export default function NewLectures() {
   const [uploaded, setUploaded] = useState(false);
   const { user } = useContext(AuthContext);
   const [lectureDiary, setLectureDiary] = useState("lecture");
+  const [program, setProgram] = useState("program1");
 
   const onStart = () => {
     setStart(1);
+  };
+
+  const calcProgram = (value) => {
+    switch (value) {
+      case "1":
+        setProgram("program1");
+        break;
+      case "2":
+        setProgram("program2");
+        break;
+
+      case "3":
+        setProgram("program3");
+        break;
+
+      case "4":
+        setProgram("program4");
+        break;
+
+      case "5":
+        setProgram("program5");
+        break;
+
+      case "6":
+        setProgram("program6");
+        break;
+    }
   };
 
   const videoList = [
@@ -101,6 +129,8 @@ export default function NewLectures() {
   ];
   function handleChange(newValue) {
     setStep(newValue);
+    calcProgram(newValue);
+    setVideoFiles([]);
   }
 
   function handleVideoUpload(videoData) {
@@ -163,14 +193,14 @@ export default function NewLectures() {
                   url={videoFiles[0].preview}
                   controls={true}
                   width="84vw"
-                  height="60vh"
+                  height="80vh"
                 />
               ) : (
                 <ReactPlayer
                   url={"asd"}
                   controls={true}
                   width="84vw"
-                  height="60vh"
+                  height="80vh"
                 />
               )}
             </Grid>
@@ -178,7 +208,7 @@ export default function NewLectures() {
         </Grid>
       </div>
     ) : (
-      <Diary step={step} />
+      <Diary step={step} program={program} />
     );
   };
   switch (start) {

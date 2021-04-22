@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Modal from "@material-ui/core/Modal";
@@ -14,6 +14,7 @@ function MenuBar() {
   const pathname = window.location.pathname;
   const [open, setOpen] = useState(false);
   const history = useHistory();
+  const [prof, setProf] = useState(false);
 
   const path = pathname === "/" ? "home" : pathname.substr(1);
   const [activeItem, setActiveItem] = useState(path);

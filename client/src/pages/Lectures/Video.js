@@ -105,7 +105,7 @@ export default function Video(props) {
             url={props.url}
             controls={true}
             width="84vw"
-            height="60vh"
+            height="80vh"
           />
         </Grid>
       </Grid>

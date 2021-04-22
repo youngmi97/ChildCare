@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Grid, Card, Step, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +11,11 @@ import IconButton from "@material-ui/core/IconButton";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { UPDATE_DIARY, GET_USER_DIARY } from "../../Mutations";
+import { useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
+import { AuthContext } from "../../context/auth";
+import { PresignedPost } from "aws-sdk/clients/s3";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -93,177 +98,51 @@ const theme3 = createMuiTheme({
 });
 
 export default function Diary(props) {
-  const [currentDay, setCurrentDay] = useState(1);
-  const [diaryData, setDiaryData] = useState({
-    selected: {
-      program1: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
+  const { user } = useContext(AuthContext);
+  const [currentDay, setCurrentDay] = useState("monday");
+  const [day, setDay] = useState(1);
+  const [program, setProgram] = useState("program1");
+  const [selected, setSelected] = useState("happy");
+  const [activity, setActivity] = useState("");
+  const [comment, setComment] = useState("");
+  const [loadedData, setLoadedData] = useState(null);
+
+  const [onUpdateDiary, { data, loading, error }] = useMutation(UPDATE_DIARY);
+
+  const { loading: loading2, error: error2, data: data2 } = useQuery(
+    GET_USER_DIARY,
+    {
+      variables: { userId: user.id },
+    }
+  );
+
+  if (loading2) {
+    console.log("loading");
+  } else {
+    console.log("GET_USER_DIARY", data2);
+    console.log(currentDay);
+    console.log(data2.getChildDiaries.activity[program][currentDay]);
+  }
+
+  const onSave = () => {
+    onUpdateDiary({
+      variables: {
+        userId: user.id,
+        program: props.program,
+        day: currentDay,
+        activity: activity,
+        selected: selected,
+        comment: comment,
       },
-      prorgam2: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program3: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program4: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program5: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program6: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-    },
-    activity: {
-      program1: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      prorgam2: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program3: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program4: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program5: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program6: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-    },
-    comment: {
-      program1: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      prorgam2: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program3: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program4: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program5: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-      program6: {
-        monday: "",
-        tuesday: "",
-        wednesday: "",
-        thursday: "",
-        friday: "",
-        saturday: "",
-        sunday: "",
-      },
-    },
-  });
+    });
+  };
+
+  const setValues = () => {
+    console.log("setvalues");
+    setActivity(loadedData.activity[props.program][currentDay]);
+    setComment(loadedData.comment[props.program][currentDay]);
+    setSelected(loadedData.selected[props.program][currentDay]);
+  };
 
   /*const calcDate = (inDate) => {
     const month = inDate.getMonth() + 1;
@@ -290,18 +169,21 @@ export default function Diary(props) {
   };*/
 
   const onLeft = () => {
-    setCurrentDay(currentDay - 1);
+    if (day > 1) {
+      setDay(day - 1);
+      calcDay(day - 1);
+    }
   };
 
   const onRight = () => {
-    setCurrentDay(currentDay + 1);
+    if (day < 7) {
+      setDay(day + 1);
+      calcDay(day + 1);
+    }
   };
 
   const classes = useStyles();
 
-  const [selected, setSelected] = useState("happy");
-  const [activity, setActivity] = useState("");
-  const [comment, setComment] = useState("");
   const [step, setStep] = useState(props.step);
 
   const handleChange = (event) => {
@@ -314,9 +196,47 @@ export default function Diary(props) {
     setComment(event.currentTarget.value);
   };
 
+  const calcDay = (day) => {
+    switch (day) {
+      case 1:
+        setCurrentDay("monday");
+        break;
+      case 2:
+        setCurrentDay("tuesday");
+        break;
+      case 3:
+        setCurrentDay("wednesday");
+        break;
+      case 4:
+        setCurrentDay("thursday");
+        break;
+      case 5:
+        setCurrentDay("friday");
+        break;
+      case 6:
+        setCurrentDay("saturday");
+        break;
+      case 7:
+        setCurrentDay("sunday");
+        break;
+    }
+  };
+
   useEffect(() => {
-    setCurrentDay(1);
-  }, [props.step]);
+    if (!error2 && !loading2) {
+      setLoadedData(data2.getChildDiaries);
+    }
+    if (loadedData) {
+      setValues();
+    }
+    if (data) {
+      console.log(data);
+      setLoadedData(data.createChildDiary);
+    }
+    console.log(program, day, currentDay);
+    console.log(activity, comment, selected);
+    console.log(props.step);
+  }, [props.step, day, data2, error2, loading2, loadedData, data]);
 
   const onSubmit = () => {};
 
@@ -366,7 +286,7 @@ export default function Diary(props) {
               xs={12}
               className={classes.time}
             >
-              <p> Day {currentDay}</p>
+              <p> Day {day}</p>
             </Grid>
             <Grid
               container
@@ -470,7 +390,7 @@ export default function Diary(props) {
                 justifyContent: "center",
               }}
             >
-              <Button style={btnStyle} onClick={props.onContinue}>
+              <Button style={btnStyle} onClick={onSave}>
                 저장하기{" "}
               </Button>
             </div>

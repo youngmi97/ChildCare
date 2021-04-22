@@ -58,11 +58,13 @@ function createData(name, age, childLang, parentLang, professional, id) {
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
+    width: "90%",
+    marginTop: "10vh",
+    marginLeft: "5%",
   },
 
   container: {
-    maxHeight: 440,
+    maxHeight: "80vh",
   },
 });
 

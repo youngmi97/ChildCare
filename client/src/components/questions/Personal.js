@@ -236,7 +236,7 @@ class Personal extends Component {
             <div>3. 생년 월일</div>
             <div style={{ width: "20vw", marginLeft: "2vw" }}>
               <TextField
-                placeholder="아동의 생년월일을 적어주세요."
+                placeholder="아동의 생년월일을 적어주세요. 예)20190412"
                 onChange={this.props.onChange}
                 id="dateOfBirth"
                 value={this.props.personal.dateOfBirth}

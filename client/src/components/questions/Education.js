@@ -260,7 +260,7 @@ class Education extends Component {
               placeholder="어떤 종류의 치료였는지 적어주세요."
               style={{ width: "95%" }}
               onChange={this.props.onChange}
-              id="treatmemt"
+              id="treatment"
               value={this.props.personal.treatment}
               autoComplete="off"
               fullWidth
