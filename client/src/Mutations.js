@@ -140,7 +140,40 @@ const GET_PROF_COMMENTS = gql`
       famFeedback
       nwrFeedback
       ovrFeedback
+      srScore
     }
+  }
+`;
+
+const CREATE_PROF_COMMENTS = gql`
+  mutation createProfComment(
+    $userId: String!
+    $profId: String!
+    $perFeedback: String
+    $eduFeedback: String
+    $devFeedback: String
+    $illFeedback: String
+    $famFeedback: String
+    $nwrFeedback: String
+    $ovrFeedback: String
+    $nwrScore: Int
+    $srScore: Int
+  ) {
+    createProfComment(
+      profComment: {
+        userId: $userId
+        profId: $profId
+        perFeedback: $perFeedback
+        eduFeedback: $eduFeedback
+        devFeedback: $devFeedback
+        illFeedback: $illFeedback
+        famFeedback: $famFeedback
+        nwrFeedback: $nwrFeedback
+        ovrFeedback: $ovrFeedback
+        nwrScore: $nwrScore
+        srScore: $srScore
+      }
+    )
   }
 `;
 
@@ -518,4 +551,5 @@ export {
   GET_PROF_COMMENTS,
   GET_USER_DIARY,
   UPDATE_DIARY,
+  CREATE_PROF_COMMENTS,
 };

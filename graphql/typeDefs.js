@@ -28,6 +28,8 @@ module.exports = gql`
     famFeedback: String
     nwrFeedback: String
     ovrFeedback: String
+    nwrScore: Int
+    srScore: Int
   }
 
   input ProfCommentInput {
@@ -40,6 +42,8 @@ module.exports = gql`
     famFeedback: String
     nwrFeedback: String
     ovrFeedback: String
+    nwrScore: Int
+    srScore: Int
   }
 
   type Like {

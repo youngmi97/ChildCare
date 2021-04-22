@@ -1,7 +1,7 @@
 import React, { useContext, useState, useMemo } from "react";
 import { AuthContext } from "../context/auth";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_CHILD_FORM } from "../Mutations";
+import { GET_CHILD_FORM, CREATE_PROF_COMMENTS } from "../Mutations";
 import Sidebar2 from "../components/Sidebar2";
 import TextField from "@material-ui/core/TextField";
 import Personal from "../components/assessment/Personal";
@@ -27,20 +27,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "110px",
   },
   root: {
-    "& label.Mui-focused": {
-      color: "#FFB800",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#FFB800",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "gray",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#FFB800",
-      },
-    },
+    marginTop: "10vh",
   },
 }));
 
@@ -209,18 +196,10 @@ export default function Assessment() {
     setOvrFeedback(e.target.value);
   };
 
-  const onNWRChange = (value) => {
-    setNwrScore(value);
-  };
-  const onSRChange = (value) => {
-    setSrScore(value);
-  };
-
   console.log();
-  console.log(step);
 
   const [onChildFormSubmit, { data2, loading2, error2 }] = useMutation(
-    SAVE_PROFESSIONAL_COMMENTS
+    CREATE_PROF_COMMENTS
   );
 
   const onSubmit = () => {
@@ -228,6 +207,8 @@ export default function Assessment() {
       variables: {
         userId: location.state.user,
         profId: user.id,
+        nwrScore: nwrScore,
+        srScore: srScore,
         perFeedback: perFeedback,
         eduFeedback: eduFeedback,
         devFeedback: devFeedback,
@@ -238,6 +219,13 @@ export default function Assessment() {
       },
     });
   };
+
+  if (loading2) {
+    console.log("loading");
+  } else {
+    console.log(data2);
+  }
+
   switch (step) {
     case 1:
       return (
@@ -247,6 +235,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -351,6 +340,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -453,6 +443,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -555,6 +546,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -659,6 +651,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -757,6 +750,7 @@ export default function Assessment() {
           justify="center"
           alignItems="flex-start"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -802,7 +796,7 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <NWRSR onNWRChange={onNWRChange} onSRChange={onSRChange} />
+                    <NWRSR setNwrScore={setNwrScore} setSrScore={setSrScore} />
                   </Grid>
                   <Grid
                     container
@@ -852,6 +846,7 @@ export default function Assessment() {
           justify="center"
           alignItems="center"
           xs={12}
+          className={classes.root}
         >
           <Grid
             className={classes.testMenu}
@@ -947,6 +942,7 @@ export default function Assessment() {
           justify="center"
           alignItems="center"
           xs={12}
+          className={classes.root}
         >
           <button style={btnStyle1} onClick={onClick1}>
             이전 단계로 이동
@@ -972,6 +968,7 @@ export default function Assessment() {
           justify="center"
           alignItems="center"
           xs={12}
+          className={classes.root}
         >
           <p>평가결과가 제출되었습니다.</p>
         </Grid>

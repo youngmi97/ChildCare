@@ -33,6 +33,25 @@ export default function NWRSR(props) {
   const classes = useStyles();
   var nwrResult = 0;
   var srResult = 0;
+
+  const calcNWRScore = () => {
+    Object.values(nwrState).map((value) => {
+      if (value === true) {
+        nwrResult = nwrResult + 1;
+      }
+    });
+    return nwrResult;
+  };
+
+  const calcSRScore = () => {
+    Object.values(srState).map((value) => {
+      if (value === true) {
+        srResult = srResult + 1;
+      }
+    });
+    return srResult;
+  };
+
   const handleNWRChange = (event) => {
     setNWRState({ ...nwrState, [event.target.name]: event.target.checked });
   };
@@ -73,25 +92,8 @@ export default function NWRSR(props) {
     sr12: false,
   });
 
-  const calcNWRScore = () => {
-    Object.values(nwrState).map((value) => {
-      if (value === true) {
-        nwrResult = nwrResult + 1;
-      }
-    });
-    return nwrResult;
-  };
-
-  const calcSRScore = () => {
-    Object.values(srState).map((value) => {
-      if (value === true) {
-        srResult = srResult + 1;
-      }
-    });
-    return srResult;
-  };
-  console.log(calcNWRScore());
-  console.log(calcSRScore());
+  props.setNwrScore(calcNWRScore());
+  props.setSrScore(calcSRScore());
 
   return (
     <div style={{ margin: "0px" }}>
