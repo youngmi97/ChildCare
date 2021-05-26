@@ -9,6 +9,10 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 //import VisibilityIcon from '@material-ui/icons/Visibility';
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/auth";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import EmailForm from "../components/EmailForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,8 +26,17 @@ export default function IconButtons(props) {
   const history = useHistory();
 
   const { user } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
 
   const classes = useStyles();
+
+  const openEmail = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -49,12 +62,24 @@ export default function IconButtons(props) {
           }
         />
       </IconButton>
-      <IconButton color="secondary">
+      <IconButton color="secondary" onClick={openEmail}>
         <EmailIcon />
       </IconButton>
       <IconButton color="default">
         <DeleteIcon />
       </IconButton>
+      <div className={classes.paper}>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+        >
+          <Fade in={open}>
+            <EmailForm email={props.email} />
+          </Fade>
+        </Modal>
+      </div>
     </div>
   );
 }
