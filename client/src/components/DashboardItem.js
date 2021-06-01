@@ -13,6 +13,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import EmailForm from "../components/EmailForm";
+import DeleteUser from "./DeleteUser";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,7 @@ export default function IconButtons(props) {
 
   const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
 
   const classes = useStyles();
 
@@ -37,6 +39,8 @@ export default function IconButtons(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleDelete = () => {};
 
   return (
     <div className={classes.root}>
@@ -65,7 +69,7 @@ export default function IconButtons(props) {
       <IconButton color="secondary" onClick={openEmail}>
         <EmailIcon />
       </IconButton>
-      <IconButton color="default">
+      <IconButton color="default" onClick={() => setDeleteOpen(true)}>
         <DeleteIcon />
       </IconButton>
       <div className={classes.paper}>
@@ -77,6 +81,18 @@ export default function IconButtons(props) {
         >
           <Fade in={open}>
             <EmailForm email={props.email} />
+          </Fade>
+        </Modal>
+      </div>
+      <div className={classes.paper}>
+        <Modal
+          open={deleteOpen}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+        >
+          <Fade in={deleteOpen}>
+            <DeleteUser setDeleteOpen={setDeleteOpen} />
           </Fade>
         </Modal>
       </div>

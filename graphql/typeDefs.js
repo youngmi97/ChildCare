@@ -76,6 +76,7 @@ module.exports = gql`
     dateOfBirth: String!
     primaryLanguage: String!
     schoolLanguage: String!
+    assignee: String!
   }
 
   input RegisterInput {

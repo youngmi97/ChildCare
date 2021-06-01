@@ -14,6 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { GET_CHILD_FORM } from "../Mutations";
 import DashboardName from "../dashboard/DashboardName";
 import { AuthContext } from "../context/auth";
+import { Checkbox } from "@material-ui/core";
 
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -50,6 +51,18 @@ const columns = [
     minWidth: 100,
     align: "center",
   },
+  {
+    id: "assessment",
+    label: "평가",
+    minWidth: 100,
+    align: "center",
+  },
+  {
+    id: "assessment",
+    label: "영상 권한",
+    minWidth: 100,
+    align: "center",
+  },
 
   {
     id: "function",
@@ -59,8 +72,28 @@ const columns = [
   },
 ];
 
-function createData(name, age, childLang, parentLang, professional, id, email) {
-  return { name, age, childLang, parentLang, professional, id, email };
+function createData(
+  name,
+  age,
+  childLang,
+  parentLang,
+  professional,
+  id,
+  email,
+  assessment,
+  authorized
+) {
+  return {
+    name,
+    age,
+    childLang,
+    parentLang,
+    professional,
+    id,
+    email,
+    assessment,
+    authorized,
+  };
 }
 
 const useStyles = makeStyles({
@@ -215,6 +248,10 @@ export default function Dashboard() {
                                 <MenuItem value={"박원정"}>박원정</MenuItem>
                                 <MenuItem value={"김신영"}>김신영</MenuItem>
                               </Select>
+                            ) : column.id === "assessment" ? (
+                              <Checkbox />
+                            ) : column.id === "authorized" ? (
+                              <Checkbox />
                             ) : (
                               value
                             )}
