@@ -161,5 +161,9 @@ module.exports = {
       console.log("newUser", newUser);
       return newUser;
     },
+    async deleteUser(_, { username }) {
+      console.log("deleteUser");
+      return true;
+    },
   },
 };
