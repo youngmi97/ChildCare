@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { Grid, Card } from "@material-ui/core";
+import React, { useEffect, useState, useContext } from "react";
+import { Grid, Card, Step, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
@@ -12,8 +11,10 @@ import IconButton from "@material-ui/core/IconButton";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { useMutation, useQuery, useLazyQuery } from "@apollo/react-hooks";
-import { GET_USER_DIARY, UPDATE_DIARY } from "../Mutations";
+import { UPDATE_DIARY, GET_USER_DIARY } from "../Mutations";
+import { useMutation } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
+import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,15 +23,15 @@ const useStyles = makeStyles((theme) => ({
 
   time: {
     padding: "20px 0px",
-    fontFamily: "'Noto Sans KR' , sans serif;",
     fontSize: "22px",
     fontWeight: "600",
+    color: "#e57f16",
   },
   answer: {
     margin: "10px 110px",
-    fontSize: "15px",
+    marginBottom: "30px",
+    fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -49,11 +50,13 @@ const useStyles = makeStyles((theme) => ({
       color: "#FFB800",
     },
   },
+  answer2: { margin: "10px 110px", fontSize: "18px" },
+
   comment: {
     margin: "15px 130px",
-    fontSize: "15px",
+    fontSize: "18px",
     fontWeight: "normal",
-    fontFamily: "'Roboto KR', sans-serif;",
+    height: "20vh",
     "& label.Mui-focused": {
       color: "#FFB800",
     },
@@ -93,35 +96,64 @@ const theme3 = createMuiTheme({
   },
 });
 
-export default function ViewDiary(props) {
-  const [currentDate, setCurrentDate] = useState(new Date());
+export default function Diary(props) {
   const location = useLocation();
-
-  // const [
-  //   getDiary,
-  //   { loading: loading2, error: error2, data: data2 },
-  // ] = useLazyQuery(GET_USER_DIARY, {
-  //   variables: {
-  //     userId: location.state.user,
-  //   },
-  // });
-  // getDiary();
-
-  const [currentDiary, setCurrentDiary] = useState({});
-
+  const [currentDay, setCurrentDay] = useState("monday");
+  const [day, setDay] = useState(1);
+  const [program, setProgram] = useState("program1");
   const [selected, setSelected] = useState("happy");
   const [activity, setActivity] = useState("");
   const [comment, setComment] = useState("");
+  const [loadedData, setLoadedData] = useState(null);
 
-  const calcDate = (inDate) => {
+  const [onUpdateDiary, { data, loading, error }] = useMutation(UPDATE_DIARY);
+
+  console.log(location);
+
+  const { loading: loading2, error: error2, data: data2 } = useQuery(
+    GET_USER_DIARY,
+    {
+      variables: { userId: location.state.user },
+    }
+  );
+
+  if (loading2) {
+    console.log("loading");
+  } else {
+    console.log("GET_USER_DIARY", data2);
+    console.log(currentDay);
+    console.log(data2.getChildDiaries.activity[program][currentDay]);
+  }
+
+  const onSave = () => {
+    onUpdateDiary({
+      variables: {
+        userId: location.state.user,
+        program: program,
+        day: currentDay,
+        activity: activity,
+        selected: selected,
+        comment: comment,
+      },
+    });
+  };
+
+  const setValues = () => {
+    console.log("setvalues");
+    setActivity(loadedData.activity[program][currentDay]);
+    setComment(loadedData.comment[program][currentDay]);
+    setSelected(loadedData.selected[program][currentDay]);
+  };
+
+  /*const calcDate = (inDate) => {
     const month = inDate.getMonth() + 1;
     const date = inDate.getDate();
     const day = calcDay(inDate.getDay());
 
     return month + "월 " + date + "일 " + day;
-  };
+  };*/
 
-  const calcDay = (inDay) => {
+  /* const calcDay = (inDay) => {
     return inDay === 0
       ? "일요일"
       : inDay === 1
@@ -135,36 +167,25 @@ export default function ViewDiary(props) {
       : inDay === 5
       ? "금요일"
       : "토요일";
-  };
+  };*/
 
   const onLeft = () => {
-    currentDate.setDate(currentDate.getDate() - 1);
-    setDate(calcDate(currentDate));
+    if (day > 1) {
+      setDay(day - 1);
+      calcDay(day - 1);
+    }
   };
 
   const onRight = () => {
-    currentDate.setDate(currentDate.getDate() + 1);
-    setDate(calcDate(currentDate));
+    if (day < 7) {
+      setDay(day + 1);
+      calcDay(day + 1);
+    }
   };
 
-  const [updateDiary, { loading, error, data }] = useMutation(UPDATE_DIARY, {
-    variables: {
-      userId: location.state.user,
-      program: "program1",
-      day: "monday",
-      activity: activity,
-      selected: selected,
-      comment: comment,
-    },
-  });
-
-  const saveDiary = () => {
-    updateDiary();
-    console.log("saveDiary", data);
-  };
-
-  const [date, setDate] = useState(calcDate(currentDate));
   const classes = useStyles();
+
+  const [step, setStep] = useState(props.step);
 
   const handleChange = (event) => {
     setSelected(event.currentTarget.id);
@@ -176,12 +197,50 @@ export default function ViewDiary(props) {
     setComment(event.currentTarget.value);
   };
 
-  useEffect(() => {
-    if (!loading && !error) {
-      console.log("update Diary ", data);
-      setCurrentDiary(data);
+  const calcDay = (day) => {
+    switch (day) {
+      case 1:
+        setCurrentDay("monday");
+        break;
+      case 2:
+        setCurrentDay("tuesday");
+        break;
+      case 3:
+        setCurrentDay("wednesday");
+        break;
+      case 4:
+        setCurrentDay("thursday");
+        break;
+      case 5:
+        setCurrentDay("friday");
+        break;
+      case 6:
+        setCurrentDay("saturday");
+        break;
+      case 7:
+        setCurrentDay("sunday");
+        break;
     }
-  }, [selected, activity, comment, date, loading, error, data]);
+  };
+
+  useEffect(() => {
+    if (!error2 && !loading2) {
+      setLoadedData(data2.getChildDiaries);
+    }
+    if (loadedData) {
+      console.log("loaded", loadedData, currentDay, program);
+      setValues();
+    }
+    if (data) {
+      console.log(data);
+      setLoadedData(data.createChildDiary);
+    }
+    console.log(program, day, currentDay);
+    console.log(activity, comment, selected);
+    console.log(props.step);
+  }, [props.step, day, data2, error2, loading2, loadedData, data]);
+
+  const onSubmit = () => {};
 
   return (
     <div>
@@ -200,8 +259,11 @@ export default function ViewDiary(props) {
           alignItems="center"
           xs={1}
         >
-          <IconButton>
-            <NavigateBeforeIcon fontSize="large" onClick={onLeft} />
+          <IconButton
+            disabled={currentDay === 1 ? true : false}
+            onClick={onLeft}
+          >
+            <NavigateBeforeIcon fontSize="large" />
           </IconButton>
         </Grid>
         <Grid
@@ -211,123 +273,130 @@ export default function ViewDiary(props) {
           alignItems="center"
           xs={10}
         >
-          <Card style={{ width: "90%", height: "100%" }}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={12}
+          >
             <Grid
               container
               direction="row"
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.time}
             >
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-                className={classes.time}
-              >
-                <p> {date}</p>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.answer}
-              >
-                <span style={{ marginRight: "20px" }}>활동:</span>
-                <TextField
-                  style={{ width: "50%" }}
-                  placeholder="아이와 함께한 활동을 적어주세요."
-                  id="primaryLanguage"
-                  autoComplete="off"
-                  onChange={handleChange1}
-                  value={activity}
-                />
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.answer}
-              >
-                <span style={{ marginRight: "20px" }}>기분:</span>
-                <MuiThemeProvider theme={theme1}>
+              <p> Day {day}</p>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+              className={classes.answer}
+            >
+              <span style={{ marginRight: "30px" }}>활동:</span>
+              <TextField
+                style={{ width: "80%" }}
+                placeholder="아이와 함께한 활동을 적어주세요."
+                id="primaryLanguage"
+                autoComplete="off"
+                onChange={handleChange1}
+                value={activity}
+                inputProps={{ style: { fontSize: "18px" } }}
+                //needs change
+              />
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+              className={classes.answer}
+            >
+              <span style={{ marginRight: "30px" }}>기분:</span>
+              <MuiThemeProvider theme={theme1}>
+                <IconButton
+                  //needs change
+                  color={selected === "happy" ? "secondary" : ""}
+                  id="happy"
+                  onClick={handleChange}
+                >
+                  <SentimentVerySatisfiedIcon style={{ fontSize: "30px" }} />
+                </IconButton>
+                <MuiThemeProvider theme={theme2}>
                   <IconButton
-                    color={selected === "happy" ? "secondary" : ""}
-                    id="happy"
+                    color={selected === "normal" ? "secondary" : ""}
+                    id="normal"
                     onClick={handleChange}
                   >
-                    <SentimentVerySatisfiedIcon />
+                    <SentimentSatisfiedIcon style={{ fontSize: "30px" }} />
                   </IconButton>
-                  <MuiThemeProvider theme={theme2}>
+                  <MuiThemeProvider theme={theme3}>
                     <IconButton
-                      color={selected === "normal" ? "secondary" : ""}
-                      id="normal"
+                      color={selected === "unhappy" ? "secondary" : ""}
+                      id="unhappy"
                       onClick={handleChange}
                     >
-                      <SentimentSatisfiedIcon />
+                      <SentimentVeryDissatisfiedIcon
+                        style={{ fontSize: "30px" }}
+                      />
                     </IconButton>
-                    <MuiThemeProvider theme={theme3}>
-                      <IconButton
-                        color={selected === "unhappy" ? "secondary" : ""}
-                        id="unhappy"
-                        onClick={handleChange}
-                      >
-                        <SentimentVeryDissatisfiedIcon />
-                      </IconButton>
-                    </MuiThemeProvider>
                   </MuiThemeProvider>
                 </MuiThemeProvider>
-                <span style={{ marginLeft: "20px" }}>{selected}</span>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.answer}
-              >
-                <p style={{ marginRight: "20px" }}>코멘트:</p>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.comment}
-              >
-                <TextField
-                  id="comments"
-                  label="아이와 함께 보낸 시간에 대해 작성해주세요."
-                  multiline
-                  rows={4}
-                  variant="outlined"
-                  style={{ width: "100%" }}
-                  onChange={handleChange2}
-                  value={comment}
-                />
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-                className={classes.buttons}
-              >
-                <button style={btnStyle} onClick={saveDiary}>
-                  저장하기
-                </button>
-              </Grid>
+              </MuiThemeProvider>
+              <span style={{ marginLeft: "20px" }}>{selected}</span>
             </Grid>
-          </Card>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+              className={classes.answer2}
+            >
+              <div style={{ marginRight: "20px", marginBottom: "20px" }}>
+                코멘트:
+              </div>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              xs={12}
+              className={classes.comment}
+            >
+              <TextField
+                id="comments"
+                label="아이와 함께 보낸 시간에 대해 작성해주세요."
+                multiline
+                variant="outlined"
+                style={{ width: "100%", height: "100%" }}
+                onChange={handleChange2}
+                value={comment}
+                InputProps={{ style: { fontSize: "18px", height: "100%" } }}
+                InputLabelProps={{ style: { fontSize: "18px" } }}
+                //needs change
+              />
+            </Grid>
+            <div
+              style={{
+                width: "100vw",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Button style={btnStyle} onClick={onSave}>
+                저장하기{" "}
+              </Button>
+            </div>
+          </Grid>
         </Grid>
         <Grid
           container
@@ -336,8 +405,11 @@ export default function ViewDiary(props) {
           alignItems="center"
           xs={1}
         >
-          <IconButton>
-            <NavigateNextIcon fontSize="large" onClick={onRight} />
+          <IconButton
+            disabled={currentDay === 7 ? true : false}
+            onClick={onRight}
+          >
+            <NavigateNextIcon fontSize="large" />
           </IconButton>
         </Grid>
       </Grid>
@@ -346,23 +418,14 @@ export default function ViewDiary(props) {
 }
 
 const btnStyle = {
-  margin: "50px",
-  backgroundColor: "#FFEBB8",
-  width: "150px",
-  height: "50px",
+  padding: "20px 50px",
+  width: "auto",
+  height: "auto",
   border: "none",
-  fontSize: "13px",
-  outlineColor: "#FFB800",
-  fontWeight: "600",
-};
-
-const btnStyle1 = {
-  margin: "50px",
-  backgroundColor: "#E4E4E4",
-  width: "150px",
-  height: "50px",
-  border: "none",
-  fontSize: "13px",
-  outlineColor: "#626567",
-  fontWeight: "600",
+  fontSize: "18px",
+  color: "#e57f16",
+  fontWeight: "500",
+  marginBottom: "2vh",
+  marginTop: "3vh",
+  border: "1px solid #e57f16",
 };

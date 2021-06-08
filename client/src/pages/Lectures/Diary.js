@@ -15,7 +15,6 @@ import { UPDATE_DIARY, GET_USER_DIARY } from "../../Mutations";
 import { useMutation } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/react-hooks";
 import { AuthContext } from "../../context/auth";
-import { PresignedPost } from "aws-sdk/clients/s3";
 
 const useStyles = makeStyles((theme) => ({
   root: {
