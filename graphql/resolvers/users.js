@@ -161,9 +161,15 @@ module.exports = {
       console.log("newUser", newUser);
       return newUser;
     },
-    async deleteUser(_, { username }) {
+    async deleteUser(_, { userId }) {
       console.log("deleteUser");
-      return true;
+      User.findOneAndDelete({ _id: userId }, function (err) {
+        if (!err) {
+          return true;
+        } else {
+          return false;
+        }
+      });
     },
   },
 };
