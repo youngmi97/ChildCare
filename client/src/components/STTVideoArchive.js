@@ -16,8 +16,9 @@ import {
   CardMedia,
   CardContent,
 } from "@material-ui/core";
-import VideoDragDrop from "./VideoDragDrop";
+
 import "../index.css";
+import { useStateWithCallbackLazy } from "use-state-with-callback";
 var AWS = require("aws-sdk");
 
 const useStyles = makeStyles((theme) => ({
@@ -93,10 +94,12 @@ function STTVideoArchive(props) {
   const classes = useStyles();
   const { user } = useContext(AuthContext);
 
-  const [videoFiles, setVideoFiles] = useState([]);
+  const [update, setUpdate] = useState(false);
+  const [videoFiles, setVideoFiles] = useStateWithCallbackLazy([]);
   const [currentUrl, setCurrentUrl] = useState("");
 
   function getVideos() {
+    console.log("accessKey", process.env.REACT_APP_AWS_ACCESS_KEY_ID);
     var s3 = new AWS.S3({
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
@@ -111,10 +114,13 @@ function STTVideoArchive(props) {
         },
         function (err, data) {
           if (err) throw err;
+          console.log("mp4in data", data);
 
-          const objectExists = data.Contents.length > 0;
-          console.log(data.Contents);
-          setVideoFiles(data.Contents);
+          //const objectExists = data.Contents.length > 0;
+
+          setVideoFiles(data.Contents, () => {
+            setUpdate(true);
+          });
 
           // have to retrieve the thumbnail from the list of urls
         }
@@ -161,7 +167,7 @@ function STTVideoArchive(props) {
         </CardActionArea>
       </Card>
     );
-  };
+  }; // end of videoCard
 
   return (
     <Grid
@@ -198,7 +204,20 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {videoFiles.map((videoData) => {
+              {update ? (
+                videoFiles.map((videoData) => {
+                  if (videoData) {
+                    return videoCard(
+                      "https://mp4in.s3.amazonaws.com/" + videoData.Key
+                    );
+                  } else {
+                    return videoCard("");
+                  }
+                })
+              ) : (
+                <div></div>
+              )}
+              {/* {videoFiles.map((videoData) => {
                 if (videoData) {
                   return videoCard(
                     "https://mp4in.s3.amazonaws.com/" + videoData.Key
@@ -206,7 +225,7 @@ function STTVideoArchive(props) {
                 } else {
                   return videoCard("");
                 }
-              })}
+              })} */}
             </Grid>
           </Grid>
           <Grid

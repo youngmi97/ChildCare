@@ -120,6 +120,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function STTResults() {
+  console.log("STTResults");
   const classes = useStyles();
   const [labeledTimeList, setLabeledTimeList] = useState([]);
   const [detectedTimeList, setDetectedTimeList] = useState([]);
@@ -248,7 +249,7 @@ function STTResults() {
             xs={4}
           >
             <ReactAudioPlayer
-              src="../demoAudio/demoTrimmed2.wav"
+              src=""
               autoplay
               controls
               onCanPlay={() => console.log("audio has been loaded")}
