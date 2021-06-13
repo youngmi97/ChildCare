@@ -78,6 +78,8 @@ export default function NewLectures() {
   const [lectureDiary, setLectureDiary] = useState("lecture");
   const [program, setProgram] = useState("program1");
 
+  console.log("user", user);
+
   const onStart = () => {
     setStart(1);
   };
