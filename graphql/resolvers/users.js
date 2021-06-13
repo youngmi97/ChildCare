@@ -122,12 +122,14 @@ module.exports = {
       // hash password and create an auth token
       password = await bcrypt.hash(password, 12);
       const assignee = "";
+      const canWatch = "false";
 
       const newUser = new User({
         email,
         username,
         password,
         assignee,
+        canWatch,
         createdAt: new Date().toISOString(),
       });
 
@@ -153,6 +155,27 @@ module.exports = {
         (err, doc) => {
           if (err) {
             console.log("Something wrong when updating assignee!");
+          }
+          // doc should be the updated document!
+        }
+      );
+      const newUser = await User.findById(userId);
+      console.log("newUser", newUser);
+      return newUser;
+    },
+    async updateCanWatch(_, { userId, canWatch }) {
+      console.log("update canWatch called");
+      User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $set: {
+            canWatch: canWatch,
+          },
+        },
+        { new: true },
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating canWatch!");
           }
           // doc should be the updated document!
         }

@@ -57,6 +57,7 @@ module.exports = gql`
     token: String!
     username: String!
     assignee: String
+    canWatch: String
     createdAt: String!
   }
 
@@ -235,6 +236,7 @@ module.exports = gql`
     deleteUser(userId: String!): Boolean!
 
     updateAssignee(userId: String!, assignee: String): User!
+    updateCanWatch(userId: String!, canWatch: String): User!
 
     registerProfessional(
       registerInput: RegisterProfessionalInput
