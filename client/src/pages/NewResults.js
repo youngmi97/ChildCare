@@ -7,11 +7,12 @@ import Vertical from "../components/charts/Vertical";
 import { AuthContext } from "../context/auth";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_CHILD_FORM, GET_PROF_COMMENTS } from "../Mutations";
-import { Grid } from "@material-ui/core";
+import { Grid, CircularProgress } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import ResultsStartPage from "../components/ResultsStartPage";
 import StackedBar from "../components/charts/StackedBar";
+import MenuBar from "../components/MenuBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,19 +56,21 @@ export default function NewResults() {
   //const [formData, setFormData] = useState({});
 
   //console.log("user Id", user.id);
-  const { loading: loading, error: error, data: data } = useQuery(
-    GET_CHILD_FORM,
-    {
-      variables: { userId: user.id },
-    }
-  );
+  const {
+    loading: loading,
+    error: error,
+    data: data,
+  } = useQuery(GET_CHILD_FORM, {
+    variables: { userId: user.id },
+  });
 
-  const { loading: loading2, error: error2, data: data2 } = useQuery(
-    GET_PROF_COMMENTS,
-    {
-      variables: { userId: user.id },
-    }
-  );
+  const {
+    loading: loading2,
+    error: error2,
+    data: data2,
+  } = useQuery(GET_PROF_COMMENTS, {
+    variables: { userId: user.id },
+  });
 
   if (loading) {
     console.log("loading");
@@ -85,8 +88,8 @@ export default function NewResults() {
   const [devScore, setDevScore] = useState(0);
   const [illScore, setIllScore] = useState(0);
   const [famScore, setFamScore] = useState(0);
-  const [nwrScore, setNwrScore] = useState(90);
-  const [srScore, setSrScore] = useState(70);
+  const [nwrScore, setNwrScore] = useState(null);
+  const [srScore, setSrScore] = useState(null);
   const [parent, setParent] = useState(70);
   const [child, setChild] = useState(30);
   const [event1, setEvent1] = useState(2);
@@ -101,6 +104,8 @@ export default function NewResults() {
   const [nwrFeedback, setNwrFeedback] = useState("");
   const [videoFeedback, setVideoFeedback] = useState("");
   const [ovrFeedback, setOvrFeedback] = useState("");
+  const [loaded1, setLoaded1] = useState(false);
+  const [loaded2, setLoaded2] = useState(false);
 
   useEffect(() => {
     if (!error && !loading) {
@@ -110,6 +115,7 @@ export default function NewResults() {
       setDevScore(parseInt(data.getChildForm.developmentScore, 10));
       setIllScore(parseInt(data.getChildForm.illnessScore, 10));
       setFamScore(parseInt(data.getChildForm.familyScore, 10));
+      setLoaded1(true);
       //setBasicFeedback()
       //setEduFeedback()
       //setDevFeedback()
@@ -129,6 +135,9 @@ export default function NewResults() {
       setIllFeedback(data2.getProfComment.illFeedback);
       setFamFeedback(data2.getProfComment.famFeedback);
       setOvrFeedback(data2.getProfComment.ovrFeedback);
+      setNwrScore((data2.getProfComment.nwrScore / 15) * 100);
+      setSrScore((data2.getProfComment.srScore / 12) * 100);
+      setLoaded2(true);
     }
   }, [data2, error2, loading2]);
   switch (step) {
@@ -136,7 +145,7 @@ export default function NewResults() {
       return <ResultsStartPage onStart={onStart} />;
     }
     default: {
-      return (
+      return loaded1 && loaded2 ? (
         <div
           style={{
             width: "100vw",
@@ -146,6 +155,7 @@ export default function NewResults() {
             scrollbarWidth: "none",
           }}
         >
+          <MenuBar />
           <div
             style={{
               backgroundImage: "url(/Results.jpg)",
@@ -418,6 +428,10 @@ export default function NewResults() {
               </div>
             </div>
           </div>
+        </div>
+      ) : (
+        <div>
+          <CircularProgress />
         </div>
       );
     }

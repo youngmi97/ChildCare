@@ -91,7 +91,7 @@ export default function Lectures() {
           {videoFiles[0] ? (
             <ReactPlayer url={videoFiles[0].preview} controls={true} />
           ) : (
-            <ReactPlayer url={"asd"} controls={true} />
+            <ReactPlayer controls={true} />
           )}
         </Grid>
       </Card>

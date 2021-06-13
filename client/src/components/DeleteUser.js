@@ -1,7 +1,20 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import gql from "graphql-tag";
 
 export default function DeleteUser(props) {
+  console.log(props.id);
+
+  const [deleteUser, { loading1, error1, data1 }] = useMutation(DELETE_USER, {
+    variables: {
+      userId: props.id,
+    },
+    onError(err) {
+      console.log("err", err);
+    },
+  });
+
   return (
     <div
       style={{
@@ -17,7 +30,7 @@ export default function DeleteUser(props) {
         fontSize: "17px",
       }}
     >
-      <div>해당 사용자를 삭제 하시겠습니까?</div>
+      <div style={{ margin: "0px 1vw" }}>해당 사용자를 삭제 하시겠습니까?</div>
       <div>
         <Button
           style={{
@@ -26,6 +39,7 @@ export default function DeleteUser(props) {
             color: "white",
             margin: "0px 1vw",
           }}
+          onClick={() => deleteUser()}
         >
           예
         </Button>
@@ -44,3 +58,11 @@ export default function DeleteUser(props) {
     </div>
   );
 }
+
+const DELETE_USER = gql`
+  mutation deleteUser($userId: String!) {
+    deleteUser(userId: $userId) {
+      id
+    }
+  }
+`;

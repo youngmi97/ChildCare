@@ -92,7 +92,7 @@ export default function IconButtons(props) {
           BackdropComponent={Backdrop}
         >
           <Fade in={deleteOpen}>
-            <DeleteUser setDeleteOpen={setDeleteOpen} />
+            <DeleteUser setDeleteOpen={setDeleteOpen} id={props.id} />
           </Fade>
         </Modal>
       </div>

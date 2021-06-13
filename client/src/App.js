@@ -25,16 +25,16 @@ import { AuthContext } from "./context/auth";
 import Diary from "./pages/Lectures/Diary";
 import NewLectures from "./pages/Lectures/NewLectures";
 import ViewDiary from "./pages/ViewDiary";
+import Admin from "./components/Admin";
 
 const App = (props) => {
   const { user } = useContext(AuthContext);
   //console.log("user prof", user);
+  console.log(user);
 
   return (
     <AuthProvider>
       <Router>
-        <MenuBar client={props.client} />
-
         <Route exact path="/" component={Home} />
         <Route exact path="/form" component={Form} client={props.client} />
         <Route exact path="/results" component={NewResults} />
@@ -43,6 +43,7 @@ const App = (props) => {
         <Route exact path="/stt" component={STT} />
         <Route exact path="/lectures" component={NewLectures} />
         <Route exact path="/diary" component={ViewDiary} />
+        <Route exact path="/admin" component={Admin} />
         <AuthRoute exact path="/login" component={Login} />
         <AuthRoute exact path="/register" component={Register} />
         <Route exact path="/posts/:postId" component={SinglePost} />

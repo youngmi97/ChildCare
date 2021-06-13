@@ -21,7 +21,8 @@ import Overall from "../components/assessment/Overall";
 
 const useStyles = makeStyles((theme) => ({
   testCard: {
-    marginTop: "70px",
+    marginTop: "30px",
+    marginBottom: "30px",
   },
   testMenu: {
     marginTop: "110px",
@@ -64,12 +65,6 @@ export default function Assessment() {
   const { loading, error, data } = useQuery(GET_CHILD_FORM, {
     variables: { userId: location.state.user },
   });
-
-  if (loading) {
-    console.log("loading");
-  } else {
-    console.log("got data", data);
-  }
 
   const [gender, setGender] = useState("");
   const [name, setName] = useState("");
@@ -119,8 +114,41 @@ export default function Assessment() {
 
   const [nwrScore, setNwrScore] = useState(0);
   const [srScore, setSrScore] = useState(0);
-  console.log(nwrScore);
-  console.log(srScore);
+
+  const [nwrState, setNWRState] = useState({
+    nwr1: false,
+    nwr2: false,
+    nwr3: false,
+    nwr4: false,
+    nwr5: false,
+    nwr6: false,
+    nwr7: false,
+    nwr8: false,
+    nwr9: false,
+    nwr10: false,
+    nwr11: false,
+    nwr12: false,
+    nwr13: false,
+    nwr14: false,
+    nwr15: false,
+  });
+
+  const [srState, setSRState] = useState({
+    sr1: false,
+    sr2: false,
+    sr3: false,
+    sr4: false,
+    sr5: false,
+    sr6: false,
+    sr7: false,
+    sr8: false,
+    sr9: false,
+    sr10: false,
+    sr11: false,
+    sr12: false,
+  });
+  console.log(nwrScore, nwrState);
+  console.log(srScore, srState);
 
   useMemo(() => {
     if (!error && !loading) {
@@ -198,9 +226,8 @@ export default function Assessment() {
 
   console.log();
 
-  const [onChildFormSubmit, { data2, loading2, error2 }] = useMutation(
-    CREATE_PROF_COMMENTS
-  );
+  const [onChildFormSubmit, { data2, loading2, error2 }] =
+    useMutation(CREATE_PROF_COMMENTS);
 
   const onSubmit = () => {
     onChildFormSubmit({
@@ -246,7 +273,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -351,7 +378,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -454,7 +481,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -557,7 +584,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -662,7 +689,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -761,7 +788,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid
@@ -796,7 +823,14 @@ export default function Assessment() {
                     alignItems="center"
                     xs={12}
                   >
-                    <NWRSR setNwrScore={setNwrScore} setSrScore={setSrScore} />
+                    <NWRSR
+                      setNwrScore={setNwrScore}
+                      setSrScore={setSrScore}
+                      setNWRState={setNWRState}
+                      setSRState={setSRState}
+                      nwrState={nwrState}
+                      srState={srState}
+                    />
                   </Grid>
                   <Grid
                     container
@@ -857,7 +891,7 @@ export default function Assessment() {
             xs={3}
           >
             <div style={{ width: "70%", textAlign: "center" }}>
-              <Sidebar2 step={step} />
+              <Sidebar2 step={step} setStep={setStep} />
             </div>
           </Grid>
           <Grid

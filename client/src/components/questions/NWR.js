@@ -234,12 +234,7 @@ export default function NWR(props) {
                 height="60vh"
               />
             ) : (
-              <ReactPlayer
-                url={"asd"}
-                controls={true}
-                width="84vw"
-                height="60vh"
-              />
+              <ReactPlayer controls={true} width="84vw" height="60vh" />
             )}
           </Grid>
         </Grid>

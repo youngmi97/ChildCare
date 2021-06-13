@@ -34,8 +34,10 @@ export default function NWRSR(props) {
   var nwrResult = 0;
   var srResult = 0;
 
+  const nwrState = props.nwrState;
+  const srState = props.srState;
   const calcNWRScore = () => {
-    Object.values(nwrState).map((value) => {
+    Object.values(props.nwrState).map((value) => {
       if (value === true) {
         nwrResult = nwrResult + 1;
       }
@@ -44,7 +46,7 @@ export default function NWRSR(props) {
   };
 
   const calcSRScore = () => {
-    Object.values(srState).map((value) => {
+    Object.values(props.srState).map((value) => {
       if (value === true) {
         srResult = srResult + 1;
       }
@@ -53,48 +55,25 @@ export default function NWRSR(props) {
   };
 
   const handleNWRChange = (event) => {
-    setNWRState({ ...nwrState, [event.target.name]: event.target.checked });
+    props.setNWRState({
+      ...props.nwrState,
+      [event.target.name]: event.target.checked,
+    });
   };
   const handleSRChange = (event) => {
-    setSRState({ ...srState, [event.target.name]: event.target.checked });
+    props.setSRState({
+      ...props.srState,
+      [event.target.name]: event.target.checked,
+    });
   };
-
-  const [nwrState, setNWRState] = useState({
-    nwr1: false,
-    nwr2: false,
-    nwr3: false,
-    nwr4: false,
-    nwr5: false,
-    nwr6: false,
-    nwr7: false,
-    nwr8: false,
-    nwr9: false,
-    nwr10: false,
-    nwr11: false,
-    nwr12: false,
-    nwr13: false,
-    nwr14: false,
-    nwr15: false,
-  });
-
-  const [srState, setSRState] = useState({
-    sr1: false,
-    sr2: false,
-    sr3: false,
-    sr4: false,
-    sr5: false,
-    sr6: false,
-    sr7: false,
-    sr8: false,
-    sr9: false,
-    sr10: false,
-    sr11: false,
-    sr12: false,
-  });
 
   props.setNwrScore(calcNWRScore());
   props.setSrScore(calcSRScore());
 
+  useEffect(() => {
+    console.log(props.nwrState);
+    console.log(props.srState);
+  }, [props.nwrState, props.srState]);
   return (
     <div style={{ margin: "0px" }}>
       <Grid

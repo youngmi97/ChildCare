@@ -12,6 +12,7 @@ import NWR from "./questions/NWR";
 import SR from "./questions/SR";
 import ChildFormSubmit from "./ChildFormSubmit";
 import StartPage from "./questions/StartPage";
+import MenuBar from "../components/MenuBar";
 
 const styles = (theme) => ({
   root: {
@@ -234,11 +235,17 @@ class NewChildForm extends Component {
 
     switch (step) {
       case 0: {
-        return <StartPage onStart={this.onStart} />;
+        return (
+          <div>
+            <MenuBar />
+            <StartPage onStart={this.onStart} />
+          </div>
+        );
       }
       case 1: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -273,6 +280,7 @@ class NewChildForm extends Component {
       case 2: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -310,6 +318,7 @@ class NewChildForm extends Component {
       case 3: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -347,6 +356,7 @@ class NewChildForm extends Component {
       case 4: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -384,6 +394,7 @@ class NewChildForm extends Component {
       case 5: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -420,6 +431,7 @@ class NewChildForm extends Component {
       case 6: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -456,6 +468,7 @@ class NewChildForm extends Component {
       case 7: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -492,6 +505,7 @@ class NewChildForm extends Component {
       case 8: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -528,6 +542,7 @@ class NewChildForm extends Component {
       case 9: {
         return (
           <div>
+            <MenuBar />
             <Grid
               container
               direction="row"
@@ -563,47 +578,50 @@ class NewChildForm extends Component {
       }
       default: {
         return (
-          <div style={{ height: "40vh" }}>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              xs={12}
-              className={classes.root}
-            >
+          <div>
+            <MenuBar />
+            <div style={{ height: "40vh" }}>
               <Grid
                 container
                 direction="row"
-                justify="flex-start"
+                justify="center"
                 alignItems="center"
                 xs={12}
-                className={classes.step}
-              ></Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.title}
+                className={classes.root}
               >
-                <p style={{ marginBottom: "4vh" }}>감사합니다.</p>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.step}
+                ></Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.title}
+                >
+                  <p style={{ marginBottom: "4vh" }}>감사합니다.</p>
+                </Grid>
+                <Grid
+                  container
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.subtitle}
+                >
+                  <p>
+                    평가결과를 기다려주세요. 평가가 완료되면 전문가로부터
+                    이메일이 올 것입니다.
+                  </p>
+                </Grid>
               </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.subtitle}
-              >
-                <p>
-                  평가결과를 기다려주세요. 평가가 완료되면 전문가로부터 이메일이
-                  올 것입니다.
-                </p>
-              </Grid>
-            </Grid>
+            </div>
           </div>
         );
       }

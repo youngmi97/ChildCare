@@ -10,6 +10,7 @@ import { AuthContext } from "../../context/auth";
 import { Button } from "@material-ui/core";
 import Diary from "./Diary";
 import LecturesStartPage from "./LecturesStartPage";
+import MenuBar from "../../components/MenuBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -196,12 +197,7 @@ export default function NewLectures() {
                   height="80vh"
                 />
               ) : (
-                <ReactPlayer
-                  url={"asd"}
-                  controls={true}
-                  width="84vw"
-                  height="80vh"
-                />
+                <ReactPlayer controls={true} width="84vw" height="80vh" />
               )}
             </Grid>
           </Grid>
@@ -226,6 +222,7 @@ export default function NewLectures() {
             scrollbarWidth: "none",
           }}
         >
+          <MenuBar />
           <div
             style={{
               backgroundImage: "url(/Lectures.jpg)",

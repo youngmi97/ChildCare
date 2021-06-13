@@ -141,6 +141,7 @@ const GET_PROF_COMMENTS = gql`
       nwrFeedback
       ovrFeedback
       srScore
+      nwrScore
     }
   }
 `;

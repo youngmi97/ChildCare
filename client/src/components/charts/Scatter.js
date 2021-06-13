@@ -3,15 +3,6 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 class Scatter extends Component {
-  componentDidUpdate() {
-    this.state.data = [
-      { name: "교육력", y: this.props.eduScore },
-      { name: "발달력", y: this.props.devScore },
-      { name: "병력", y: this.props.illScore },
-      { name: "가족력", y: this.props.famScore },
-    ];
-  }
-
   state = {
     data: [
       { name: "교육력", y: this.props.eduScore },
@@ -20,6 +11,15 @@ class Scatter extends Component {
       { name: "가족력", y: this.props.famScore },
     ],
   };
+
+  componentDidUpdate() {
+    this.state.data = [
+      { name: "교육력", y: this.props.eduScore },
+      { name: "발달력", y: this.props.devScore },
+      { name: "병력", y: this.props.illScore },
+      { name: "가족력", y: this.props.famScore },
+    ];
+  }
 
   render() {
     const series2 = this.state.data; //App.js에서 데이터를 보내줄 예정

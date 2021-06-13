@@ -4,6 +4,7 @@ import { Grid, Card, Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import MenuBar from "../MenuBar";
 import "../../App.css";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth";
@@ -87,6 +88,7 @@ function HomeMain(props) {
 
   return (
     <div className={classes.root}>
+      <MenuBar />
       <div className={classes.main2}>
         <div
           style={{

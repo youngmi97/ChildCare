@@ -10,6 +10,13 @@ class Scatter extends Component {
     ],
   };
 
+  componentDidUpdate() {
+    console.log("updated");
+    this.state.data = [
+      { name: "비단어 따라말하기", y: this.props.nwrScore },
+      { name: "문장 따라말하기", y: this.props.srScore },
+    ];
+  }
   render() {
     const series2 = this.state.data; //App.js에서 데이터를 보내줄 예정
     const options = {
@@ -43,6 +50,7 @@ class Scatter extends Component {
       yAxis: {
         title: null,
         tickInterval: 20,
+        max: 100,
         plotLines: [
           {
             color: "#FF0000",
