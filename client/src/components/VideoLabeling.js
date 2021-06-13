@@ -122,6 +122,7 @@ function useKeyPress(targetKey) {
 }
 
 function VideoLabeling(props) {
+  console.log("VideoLabeling");
   const classes = useStyles();
   const ref = useRef(null);
 
