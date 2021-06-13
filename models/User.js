@@ -17,6 +17,7 @@ const userSchema = new Schema({
   password: String,
   email: String,
   assignee: String,
+  canWatch: String,
   createdAt: String,
 });
 
