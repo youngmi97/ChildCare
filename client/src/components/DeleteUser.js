@@ -3,6 +3,8 @@ import { Button } from "@material-ui/core";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
+//6080f43aba8a882c9a129a9e
+
 export default function DeleteUser(props) {
   console.log(props.id);
 
