@@ -77,6 +77,7 @@ export default function NewLectures() {
   const { user } = useContext(AuthContext);
   const [lectureDiary, setLectureDiary] = useState("lecture");
   const [program, setProgram] = useState("program1");
+  const [authorized, setAuthorized] = useState(false);
 
   console.log("user", user);
 
@@ -292,82 +293,134 @@ export default function NewLectures() {
               </div>
             </div>
           </div>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
-            className={classes.root}
-          >
-            <div>
-              <Button
-                style={
-                  lectureDiary === "lecture"
-                    ? {
-                        fontSize: "22px",
-                        fontWeight: "400",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        color: "#e57f16",
-                      }
-                    : {
-                        fontSize: "22px",
-                        fontWeight: "400",
-                        fontColor: "lightgray",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "none",
-                      }
-                }
-                className={classes.lectures}
-                onClick={() => setLectureDiary("lecture")}
-              >
-                교육
-              </Button>
-            </div>
-            <div
-              style={{ fontSize: "22px", fontWeight: "400", margin: "0px 1vw" }}
-            >
-              |
-            </div>
-            <div>
-              <Button
-                style={
-                  lectureDiary === "diary"
-                    ? {
-                        fontSize: "22px",
-                        fontWeight: "400",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        color: "#e57f16",
-                      }
-                    : {
-                        fontSize: "22px",
-                        fontWeight: "400",
-                        borderRadius: "0",
-                        padding: "0px 20px",
-                        borderBottom: "none",
-                      }
-                }
-                className={classes.lectures}
-                onClick={() => setLectureDiary("diary")}
-              >
-                일기
-              </Button>
-            </div>
-
+          {authorized ? (
             <Grid
               container
               direction="row"
               justify="center"
               alignItems="center"
               xs={12}
+              className={classes.root}
             >
-              <ButtonBar step={step} onChange={handleChange} />
+              <div>
+                <Button
+                  style={
+                    lectureDiary === "lecture"
+                      ? {
+                          fontSize: "22px",
+                          fontWeight: "400",
+                          borderRadius: "0",
+                          padding: "0px 20px",
+                          color: "#e57f16",
+                        }
+                      : {
+                          fontSize: "22px",
+                          fontWeight: "400",
+                          fontColor: "lightgray",
+                          borderRadius: "0",
+                          padding: "0px 20px",
+                          borderBottom: "none",
+                        }
+                  }
+                  className={classes.lectures}
+                  onClick={() => setLectureDiary("lecture")}
+                >
+                  교육
+                </Button>
+              </div>
+              <div
+                style={{
+                  fontSize: "22px",
+                  fontWeight: "400",
+                  margin: "0px 1vw",
+                }}
+              >
+                |
+              </div>
+              <div>
+                <Button
+                  style={
+                    lectureDiary === "diary"
+                      ? {
+                          fontSize: "22px",
+                          fontWeight: "400",
+                          borderRadius: "0",
+                          padding: "0px 20px",
+                          color: "#e57f16",
+                        }
+                      : {
+                          fontSize: "22px",
+                          fontWeight: "400",
+                          borderRadius: "0",
+                          padding: "0px 20px",
+                          borderBottom: "none",
+                        }
+                  }
+                  className={classes.lectures}
+                  onClick={() => setLectureDiary("diary")}
+                >
+                  일기
+                </Button>
+              </div>
+
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={12}
+              >
+                <ButtonBar step={step} onChange={handleChange} />
+              </Grid>
+              {whatToRender()}
             </Grid>
-            {whatToRender()}
-          </Grid>
+          ) : (
+            <div style={{ marginBottom: "10vh", marginLeft: "5vw" }}>
+              <div
+                style={{
+                  fontSize: "1.5vw",
+                  color: "#e57f16",
+                  marginLeft: "1.2vw",
+                  marginTop: "10vh",
+                }}
+              >
+                서비스 확인이 필요합니다.
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#717071",
+                  fontSize: "1.2vw",
+                  marginTop: "2vh",
+                  lineHeight: "1.45",
+                }}
+              >
+                현재 해당 서비스는 이용이 불가능합니다. <br /> 아래 연락처로
+                문의 부탁드립니다.
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "2vh",
+                }}
+              >
+                연락처 : sunyim@isay.com
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "1.2vh",
+                }}
+              >
+                전화 : 02.3277.6720
+              </div>
+            </div>
+          )}
+
           <div
             style={{
               width: "100vw",
