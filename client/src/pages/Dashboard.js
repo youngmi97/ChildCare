@@ -108,7 +108,8 @@ export default function Dashboard() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [updated, setUpdated] = useState(false);
-  const [updateCanWatch] = useMutation(UPDATE_CANWATCH);
+  const [updateCanWatch, { loading: mutationLoading, error: mutationError }] =
+    useMutation(UPDATE_CANWATCH);
 
   const calcAge = (date) => {
     var year;
@@ -263,7 +264,7 @@ export default function Dashboard() {
                                   );
                                   updateCanWatch({
                                     variables: {
-                                      id: row["id"],
+                                      userId: row["id"],
                                       canWatch: e.target.checked.toString(),
                                     },
                                   });
@@ -321,7 +322,7 @@ const UPDATE_ASSIGNEE = gql`
 `;
 const UPDATE_CANWATCH = gql`
   mutation updateCanWatch($userId: String!, $canWatch: String) {
-    updateAssignee(userId: $userId, canWatch: $canWatch) {
+    updateCanWatch(userId: $userId, canWatch: $canWatch) {
       id
       canWatch
     }
