@@ -171,6 +171,7 @@ const LOGIN_USER = gql`
       username
       createdAt
       assignee
+      canWatch
       token
       canWatch
     }

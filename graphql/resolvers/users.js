@@ -186,13 +186,11 @@ module.exports = {
     },
     async deleteUser(_, { userId }) {
       console.log("deleteUser");
-      User.findOneAndDelete({ _id: userId }, function (err) {
-        if (!err) {
-          return true;
-        } else {
-          return false;
-        }
-      });
+      const goneUser = await User.findOneAndDelete(
+        { _id: userId },
+        function (err) {}
+      );
+      return goneUser;
     },
   },
 };
