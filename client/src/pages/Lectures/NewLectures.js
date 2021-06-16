@@ -151,6 +151,12 @@ export default function NewLectures() {
     }
   }, [videoFiles]);
 
+  useEffect(() => {
+    if (user.canWatch === "true") {
+      setAuthorized(true);
+    }
+  });
+
   const whatToRender = () => {
     return lectureDiary === "lecture" ? (
       <div>

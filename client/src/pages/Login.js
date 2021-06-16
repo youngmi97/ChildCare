@@ -41,7 +41,7 @@ function Login(props) {
     update(_, { data: { login: userData } }) {
       context.login(userData);
       props.history.push("/");
-      console.log("executing USER login");
+      console.log("executing USER login", userData);
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
@@ -173,6 +173,7 @@ const LOGIN_USER = gql`
       assignee
       canWatch
       token
+      canWatch
     }
   }
 `;

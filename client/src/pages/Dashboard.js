@@ -300,3 +300,11 @@ const UPDATE_ASSIGNEE = gql`
     }
   }
 `;
+const UPDATE_CANWATCH = gql`
+  mutation updateCanWatch($userId: String!, $canWatch: String) {
+    updateAssignee(userId: $userId, canWatch: $canWatch) {
+      id
+      canWatch
+    }
+  }
+`;
