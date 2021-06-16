@@ -52,6 +52,7 @@ module.exports = {
               dateOfBirth: dateOfBirth,
               primaryLanguage: primaryLanguage,
               schoolLanguage: schoolLanguage,
+              assignee: user.assignee,
             };
           }
         });
