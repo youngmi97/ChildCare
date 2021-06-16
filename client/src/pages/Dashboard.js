@@ -108,7 +108,7 @@ export default function Dashboard() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [updated, setUpdated] = useState(false);
-  const location = useLocation();
+  const [updateCanWatch] = useMutation(UPDATE_CANWATCH);
 
   const calcAge = (date) => {
     var year;
@@ -245,7 +245,7 @@ export default function Dashboard() {
                               <Select
                                 name={row["id"]}
                                 id="assignee"
-                                value={row["professional"]}
+                                defaultValue={row["professional"]}
                                 onChange={handleChange}
                                 style={{ width: "80px", fontSize: "12px" }}
                               >
@@ -257,7 +257,16 @@ export default function Dashboard() {
                               <Checkbox
                                 defaultChecked={row["authorized"] === "false"}
                                 onChange={(e) => {
-                                  console.log(e.target.checked, row["id"]);
+                                  console.log(
+                                    e.target.checked.toString(),
+                                    row["id"]
+                                  );
+                                  updateCanWatch({
+                                    variables: {
+                                      id: row["id"],
+                                      canWatch: e.target.checked.toString(),
+                                    },
+                                  });
                                 }}
                               />
                             ) : (
@@ -297,6 +306,7 @@ const GET_USERS = gql`
       dateOfBirth
       primaryLanguage
       schoolLanguage
+      assignee
     }
   }
 `;
