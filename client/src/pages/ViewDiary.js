@@ -110,12 +110,13 @@ export default function Diary(props) {
 
   console.log(location);
 
-  const { loading: loading2, error: error2, data: data2 } = useQuery(
-    GET_USER_DIARY,
-    {
-      variables: { userId: location.state.user },
-    }
-  );
+  const {
+    loading: loading2,
+    error: error2,
+    data: data2,
+  } = useQuery(GET_USER_DIARY, {
+    variables: { userId: location.state.user },
+  });
 
   if (loading2) {
     console.log("loading");
@@ -384,18 +385,6 @@ export default function Diary(props) {
                 //needs change
               />
             </Grid>
-            <div
-              style={{
-                width: "100vw",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <Button style={btnStyle} onClick={onSave}>
-                저장하기{" "}
-              </Button>
-            </div>
           </Grid>
         </Grid>
         <Grid

@@ -79,6 +79,8 @@ export default function NewLectures() {
   const [program, setProgram] = useState("program1");
   const [authorized, setAuthorized] = useState(false);
 
+  console.log("user", user.canWatch);
+
   const onStart = () => {
     setStart(1);
   };
@@ -146,6 +148,12 @@ export default function NewLectures() {
       console.log(videoFiles[0].preview);
     }
   }, [videoFiles]);
+
+  useEffect(() => {
+    if (user.canWatch === "true") {
+      setAuthorized(true);
+    }
+  });
 
   const whatToRender = () => {
     return lectureDiary === "lecture" ? (
