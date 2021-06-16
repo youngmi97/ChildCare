@@ -144,7 +144,7 @@ function STTVideoArchive(props) {
       },
       function (err, data) {
         if (err) throw err;
-        console.log("sttresultjson data", data);
+        console.log("sttresultjson data", data.Contents);
 
         //const objectExists = data.Contents.length > 0;
 
