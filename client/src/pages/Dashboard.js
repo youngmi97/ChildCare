@@ -15,7 +15,7 @@ import { GET_CHILD_FORM } from "../Mutations";
 import DashboardName from "../dashboard/DashboardName";
 import { AuthContext } from "../context/auth";
 import { Checkbox } from "@material-ui/core";
-
+import { useLocation } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
@@ -51,14 +51,9 @@ const columns = [
     minWidth: 100,
     align: "center",
   },
+
   {
-    id: "assessment",
-    label: "평가",
-    minWidth: 100,
-    align: "center",
-  },
-  {
-    id: "assessment",
+    id: "authorized",
     label: "영상 권한",
     minWidth: 100,
     align: "center",
@@ -80,7 +75,6 @@ function createData(
   professional,
   id,
   email,
-  assessment,
   authorized
 ) {
   return {
@@ -91,7 +85,6 @@ function createData(
     professional,
     id,
     email,
-    assessment,
     authorized,
   };
 }
@@ -114,6 +107,8 @@ export default function Dashboard() {
   const [prof, setProf] = useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [updated, setUpdated] = useState(false);
+  const location = useLocation();
 
   const calcAge = (date) => {
     var year;
@@ -172,7 +167,8 @@ export default function Dashboard() {
             user.schoolLanguage,
             user.assignee,
             user.id,
-            user.email
+            user.email,
+            user.canWatch
           )
         );
       }
@@ -196,6 +192,14 @@ export default function Dashboard() {
       updateAssignee();
     }
   }, [prof]);
+
+  useEffect(() => {
+    console.log("updated", updated);
+    if (updated === true) {
+      setTimeout(window.location.reload(), 2000);
+    }
+    setUpdated(false);
+  }, [updated]);
 
   const handleChange = (event) => {
     setChildID(event.target.name);
@@ -235,6 +239,7 @@ export default function Dashboard() {
                               <DashboardItem
                                 id={row["id"]}
                                 email={row["email"]}
+                                setUpdated={setUpdated}
                               />
                             ) : column.id === "professional" ? (
                               <Select
@@ -248,8 +253,6 @@ export default function Dashboard() {
                                 <MenuItem value={"박원정"}>박원정</MenuItem>
                                 <MenuItem value={"김신영"}>김신영</MenuItem>
                               </Select>
-                            ) : column.id === "assessment" ? (
-                              <Checkbox />
                             ) : column.id === "authorized" ? (
                               <Checkbox />
                             ) : (
