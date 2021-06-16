@@ -79,7 +79,7 @@ export default function NewLectures() {
   const [program, setProgram] = useState("program1");
   const [authorized, setAuthorized] = useState(false);
 
-  console.log("user", user);
+  let currentUser = user;
 
   const onStart = () => {
     setStart(1);
@@ -144,6 +144,8 @@ export default function NewLectures() {
   }
 
   useEffect(() => {
+    currentUser = JSON.parse(localStorage.getItem("user"));
+    console.log("currentUser", currentUser);
     if (videoFiles.length != 0) {
       console.log(videoFiles[0].preview);
     }
