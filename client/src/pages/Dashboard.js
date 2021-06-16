@@ -254,7 +254,12 @@ export default function Dashboard() {
                                 <MenuItem value={"김신영"}>김신영</MenuItem>
                               </Select>
                             ) : column.id === "authorized" ? (
-                              <Checkbox />
+                              <Checkbox
+                                defaultChecked={row["authorized"] === "false"}
+                                onChange={(e) => {
+                                  console.log(e.target.checked, row["id"]);
+                                }}
+                              />
                             ) : (
                               value
                             )}
