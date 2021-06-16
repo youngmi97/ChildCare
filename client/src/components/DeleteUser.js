@@ -41,7 +41,11 @@ export default function DeleteUser(props) {
             color: "white",
             margin: "0px 1vw",
           }}
-          onClick={() => deleteUser()}
+          onClick={() => {
+            deleteUser();
+            props.setDeleteOpen(false);
+            props.setUpdated(true);
+          }}
         >
           예
         </Button>

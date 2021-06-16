@@ -150,7 +150,7 @@ export default function NewLectures() {
   }, [videoFiles]);
 
   useEffect(() => {
-    if (user.canWatch === "true") {
+    if (user.canWatch === "false") {
       setAuthorized(true);
     }
   });
