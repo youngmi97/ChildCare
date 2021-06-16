@@ -48,6 +48,7 @@ module.exports = {
               username: user.username,
               email: user.email,
               name: name,
+              canWatch: user.canWatch,
               dateOfBirth: dateOfBirth,
               primaryLanguage: primaryLanguage,
               schoolLanguage: schoolLanguage,

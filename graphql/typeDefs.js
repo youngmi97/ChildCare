@@ -74,6 +74,7 @@ module.exports = gql`
     username: String!
     email: String!
     name: String!
+    canWatch: String
     dateOfBirth: String!
     primaryLanguage: String!
     schoolLanguage: String!

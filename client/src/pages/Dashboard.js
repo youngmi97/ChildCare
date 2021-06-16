@@ -288,6 +288,7 @@ const GET_USERS = gql`
       username
       email
       name
+      canWatch
       dateOfBirth
       primaryLanguage
       schoolLanguage

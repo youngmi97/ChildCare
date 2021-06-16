@@ -93,13 +93,14 @@ const useStyles = makeStyles((theme) => ({
 function STTVideoArchive(props) {
   const classes = useStyles();
   const { user } = useContext(AuthContext);
+  console.log("DASHBOARD USER: ", user);
 
   const [update, setUpdate] = useState(false);
   const [videoFiles, setVideoFiles] = useStateWithCallbackLazy([]);
+  const [scriptFiles, setScriptFiles] = useStateWithCallbackLazy([]);
   const [currentUrl, setCurrentUrl] = useState("");
 
   function getVideos() {
-    console.log("accessKey", process.env.REACT_APP_AWS_ACCESS_KEY_ID);
     var s3 = new AWS.S3({
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
@@ -128,8 +129,37 @@ function STTVideoArchive(props) {
     }
   }
 
+  //function to retrieve scripts
+  function getTranscripts() {
+    var s3 = new AWS.S3({
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+      region: "us-east-1",
+    });
+
+    s3.listObjectsV2(
+      {
+        Bucket: "sttresultjson",
+        Prefix: user.username,
+      },
+      function (err, data) {
+        if (err) throw err;
+        console.log("sttresultjson data", data.Contents);
+
+        //const objectExists = data.Contents.length > 0;
+
+        // setScriptFiles(data.Contents, () => {
+        //   setUpdate(true);
+        // });
+
+        // have to retrieve the thumbnail from the list of urls
+      }
+    );
+  }
+
   useEffect(() => {
     getVideos();
+    getTranscripts();
     console.log("videoFiles", videoFiles);
   }, []);
 
@@ -244,11 +274,19 @@ function STTVideoArchive(props) {
               alignItems="start"
               xs={12}
             >
-              {videoFiles[0]
-                ? videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoFiles[0].Key
-                  )
-                : videoCard("")}
+              {update ? (
+                videoFiles.map((videoData) => {
+                  if (videoData) {
+                    return videoCard(
+                      "https://mp4in.s3.amazonaws.com/" + videoData.Key
+                    );
+                  } else {
+                    return videoCard("");
+                  }
+                })
+              ) : (
+                <div></div>
+              )}
             </Grid>
           </Grid>
         </Grid>

@@ -2,7 +2,7 @@ import React, { useReducer, createContext } from "react";
 import jwtDecode from "jwt-decode";
 
 const initialState = {
-  user: null,
+  user: localStorage.getItem("user"),
 };
 
 // how to update this for professional
@@ -27,7 +27,7 @@ function authReducer(state, action) {
   switch (action.type) {
     case "LOGIN":
       action.payload.prof = false;
-      console.log("payload", action.payload);
+      localStorage.setItem("user", JSON.stringify(action.payload));
       return {
         ...state,
         user: action.payload,
@@ -42,7 +42,7 @@ function authReducer(state, action) {
     // Add additional field for 'user' state for professionals
     case "LOGIN_PROF":
       action.payload.prof = true;
-      console.log("payload", action.payload);
+      localStorage.setItem("user", JSON.stringify(action.payload));
       return {
         ...state,
         user: action.payload,
