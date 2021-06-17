@@ -144,15 +144,16 @@ function STTVideoArchive(props) {
       },
       function (err, data) {
         if (err) throw err;
-        console.log("sttresultjson data", data.Contents);
+        console.log("sttresultjson data", data.Contents[0].Key);
 
-        //const objectExists = data.Contents.length > 0;
+        const blobUrl =
+          "https://sttresultjson.s3.amazonaws.com/" + data.Contents[0].Key;
 
-        // setScriptFiles(data.Contents, () => {
-        //   setUpdate(true);
-        // });
-
-        // have to retrieve the thumbnail from the list of urls
+        fetch(blobUrl)
+          .then((r) => r.text())
+          .then((text) => {
+            console.log("text decoded:", JSON.parse(text).results);
+          });
       }
     );
   }
@@ -247,15 +248,6 @@ function STTVideoArchive(props) {
               ) : (
                 <div></div>
               )}
-              {/* {videoFiles.map((videoData) => {
-                if (videoData) {
-                  return videoCard(
-                    "https://mp4in.s3.amazonaws.com/" + videoData.Key
-                  );
-                } else {
-                  return videoCard("");
-                }
-              })} */}
             </Grid>
           </Grid>
           <Grid
