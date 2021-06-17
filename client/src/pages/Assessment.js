@@ -233,7 +233,7 @@ export default function Assessment() {
     onChildFormSubmit({
       variables: {
         userId: location.state.user,
-        profId: user.id,
+        profId: "60caa5744640e222e8f1074e",
         nwrScore: nwrScore,
         srScore: srScore,
         perFeedback: perFeedback,

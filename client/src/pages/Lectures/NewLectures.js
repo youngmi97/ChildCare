@@ -152,10 +152,10 @@ export default function NewLectures() {
   }, [videoFiles]);
 
   useEffect(() => {
-    if (user.canWatch === "false") {
+    if (currentUser.canWatch === "false") {
       setAuthorized(true);
     }
-  });
+  }, [currentUser]);
 
   const whatToRender = () => {
     return lectureDiary === "lecture" ? (
@@ -169,53 +169,51 @@ export default function NewLectures() {
           <Grid
             container
             direction="row"
-            justify="flex-tart"
-            alignItems="center"
-            xs={12}
-            className={classes.question}
-          >
-            <p>
-              <span style={{ fontWeight: "600", color: "#e57f16" }}>
-                Step 3.
-              </span>{" "}
-              부모-아동 상호작용 영상을 5분 분량으로 촬영하여 업로드해주세요
-            </p>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
             justify="flex-start"
             alignItems="center"
             xs={12}
             className={classes.answer}
-          >
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              xs={12}
-            >
-              <div style={{ marginLeft: "7vw", width: "90vw" }}>
-                <VideoDragDrop uploadCallBack={handleVideoUpload} />
-              </div>
-              {videoFiles[0] ? (
-                <ReactPlayer
-                  url={videoFiles[0].preview}
-                  controls={true}
-                  width="84vw"
-                  height="80vh"
-                />
-              ) : (
-                <ReactPlayer controls={true} width="84vw" height="80vh" />
-              )}
-            </Grid>
-          </Grid>
+          ></Grid>
         </Grid>
       </div>
     ) : (
-      <Diary step={step} program={program} />
+      <div>
+        <Diary step={step} program={program} />
+        <Grid
+          container
+          direction="row"
+          justify="flex-tart"
+          alignItems="center"
+          xs={12}
+          className={classes.question}
+        >
+          <p>
+            <span style={{ fontWeight: "600", color: "#e57f16" }}>Step 2</span>{" "}
+            부모-아동 상호작용 영상을 5분 분량으로 촬영하여 업로드해주세요
+          </p>
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <div style={{ marginLeft: "7vw", width: "90vw" }}>
+            <VideoDragDrop uploadCallBack={handleVideoUpload} />
+          </div>
+          {videoFiles[0] ? (
+            <ReactPlayer
+              url={videoFiles[0].preview}
+              controls={true}
+              width="84vw"
+              height="80vh"
+            />
+          ) : (
+            <ReactPlayer controls={true} width="84vw" height="80vh" />
+          )}
+        </Grid>
+      </div>
     );
   };
   switch (start) {
