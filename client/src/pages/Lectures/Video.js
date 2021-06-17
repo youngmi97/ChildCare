@@ -109,21 +109,6 @@ export default function Video(props) {
           />
         </Grid>
       </Grid>
-      <Grid container className={classes.qna}>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-          xs={12}
-          className={classes.question}
-        >
-          <p>
-            <span style={{ fontWeight: "600", color: "#e57f16" }}>Step 2.</span>{" "}
-            전달받은 Zoom 링크를 통해 접속해주세요
-          </p>
-        </Grid>
-      </Grid>
     </div>
   );
 }

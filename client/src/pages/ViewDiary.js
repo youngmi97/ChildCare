@@ -15,6 +15,7 @@ import { UPDATE_DIARY, GET_USER_DIARY } from "../Mutations";
 import { useMutation } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/react-hooks";
 import { useLocation } from "react-router-dom";
+import ButtonBar from "./Lectures/ButtonBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,8 +107,6 @@ export default function Diary(props) {
   const [comment, setComment] = useState("");
   const [loadedData, setLoadedData] = useState(null);
 
-  const [onUpdateDiary, { data, loading, error }] = useMutation(UPDATE_DIARY);
-
   console.log(location);
 
   const {
@@ -125,19 +124,6 @@ export default function Diary(props) {
     console.log(currentDay);
     console.log(data2.getChildDiaries.activity[program][currentDay]);
   }
-
-  const onSave = () => {
-    onUpdateDiary({
-      variables: {
-        userId: location.state.user,
-        program: program,
-        day: currentDay,
-        activity: activity,
-        selected: selected,
-        comment: comment,
-      },
-    });
-  };
 
   const setValues = () => {
     console.log("setvalues");
@@ -186,16 +172,33 @@ export default function Diary(props) {
 
   const classes = useStyles();
 
-  const [step, setStep] = useState(props.step);
+  const [step, setStep] = useState("1");
 
-  const handleChange = (event) => {
-    setSelected(event.currentTarget.id);
-  };
-  const handleChange1 = (event) => {
-    setActivity(event.currentTarget.value);
-  };
-  const handleChange2 = (event) => {
-    setComment(event.currentTarget.value);
+  const calcProgram = (value) => {
+    switch (value) {
+      case "1":
+        setProgram("program1");
+        break;
+      case "2":
+        setProgram("program2");
+        break;
+
+      case "3":
+        setProgram("program3");
+        break;
+
+      case "4":
+        setProgram("program4");
+        break;
+
+      case "5":
+        setProgram("program5");
+        break;
+
+      case "6":
+        setProgram("program6");
+        break;
+    }
   };
 
   const calcDay = (day) => {
@@ -223,6 +226,10 @@ export default function Diary(props) {
         break;
     }
   };
+  function handleChange(newValue) {
+    setStep(newValue);
+    calcProgram(newValue);
+  }
 
   useEffect(() => {
     if (!error2 && !loading2) {
@@ -232,16 +239,11 @@ export default function Diary(props) {
       console.log("loaded", loadedData, currentDay, program);
       setValues();
     }
-    if (data) {
-      console.log(data);
-      setLoadedData(data.createChildDiary);
-    }
+
     console.log(program, day, currentDay);
     console.log(activity, comment, selected);
-    console.log(props.step);
-  }, [props.step, day, data2, error2, loading2, loadedData, data]);
-
-  const onSubmit = () => {};
+    console.log(step);
+  }, [step, day, data2, error2, loading2, loadedData]);
 
   return (
     <div>
@@ -253,6 +255,15 @@ export default function Diary(props) {
         xs={12}
         className={classes.root}
       >
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <ButtonBar step={step} onChange={handleChange} />
+        </Grid>
         <Grid
           container
           direction="column"
@@ -305,7 +316,6 @@ export default function Diary(props) {
                 placeholder="아이와 함께한 활동을 적어주세요."
                 id="primaryLanguage"
                 autoComplete="off"
-                onChange={handleChange1}
                 value={activity}
                 inputProps={{ style: { fontSize: "18px" } }}
                 //needs change
@@ -325,7 +335,6 @@ export default function Diary(props) {
                   //needs change
                   color={selected === "happy" ? "secondary" : ""}
                   id="happy"
-                  onClick={handleChange}
                 >
                   <SentimentVerySatisfiedIcon style={{ fontSize: "30px" }} />
                 </IconButton>
@@ -333,7 +342,6 @@ export default function Diary(props) {
                   <IconButton
                     color={selected === "normal" ? "secondary" : ""}
                     id="normal"
-                    onClick={handleChange}
                   >
                     <SentimentSatisfiedIcon style={{ fontSize: "30px" }} />
                   </IconButton>
@@ -341,7 +349,6 @@ export default function Diary(props) {
                     <IconButton
                       color={selected === "unhappy" ? "secondary" : ""}
                       id="unhappy"
-                      onClick={handleChange}
                     >
                       <SentimentVeryDissatisfiedIcon
                         style={{ fontSize: "30px" }}
@@ -378,7 +385,6 @@ export default function Diary(props) {
                 multiline
                 variant="outlined"
                 style={{ width: "100%", height: "100%" }}
-                onChange={handleChange2}
                 value={comment}
                 InputProps={{ style: { fontSize: "18px", height: "100%" } }}
                 InputLabelProps={{ style: { fontSize: "18px" } }}

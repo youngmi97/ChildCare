@@ -110,6 +110,8 @@ export default function Dashboard() {
   const [updated, setUpdated] = useState(false);
   const [updateCanWatch, { loading: mutationLoading, error: mutationError }] =
     useMutation(UPDATE_CANWATCH);
+  const [updateAssignee, { loading: mutationLoading2, error: mutationError2 }] =
+    useMutation(UPDATE_ASSIGNEE);
 
   const calcAge = (date) => {
     var year;
@@ -136,19 +138,6 @@ export default function Dashboard() {
     return childYear + "년" + childMonth + "개월";
   };
   const classes = useStyles();
-
-  const [updateAssignee, { loading1, error1, data1 }] = useMutation(
-    UPDATE_ASSIGNEE,
-    {
-      variables: {
-        userId: childID,
-        assignee: prof,
-      },
-      onError(err) {
-        console.log("err", err);
-      },
-    }
-  );
 
   const { loading, error, data } = useQuery(GET_USERS, {
     fetchPolicy: "network-first",
@@ -184,15 +173,6 @@ export default function Dashboard() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
-  useEffect(() => {
-    if (prof && user) {
-      console.log("prof", prof);
-      console.log("userId", user.id);
-      console.log("updateAssignee", data1);
-      updateAssignee();
-    }
-  }, [prof]);
 
   useEffect(() => {
     console.log("updated", updated);
@@ -247,7 +227,14 @@ export default function Dashboard() {
                                 name={row["id"]}
                                 id="assignee"
                                 defaultValue={row["professional"]}
-                                onChange={handleChange}
+                                onChange={(e) => {
+                                  updateAssignee({
+                                    variables: {
+                                      userId: row["id"],
+                                      assignee: e.target.value,
+                                    },
+                                  });
+                                }}
                                 style={{ width: "80px", fontSize: "12px" }}
                               >
                                 <MenuItem value={"임동선"}>임동선</MenuItem>
@@ -256,7 +243,7 @@ export default function Dashboard() {
                               </Select>
                             ) : column.id === "authorized" ? (
                               <Checkbox
-                                defaultChecked={row["authorized"] === "false"}
+                                defaultChecked={row["authorized"] === "true"}
                                 onChange={(e) => {
                                   console.log(
                                     e.target.checked.toString(),

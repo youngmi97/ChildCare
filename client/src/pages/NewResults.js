@@ -84,10 +84,10 @@ export default function NewResults() {
     console.log("got GET_PROF_COMMENTS data2", data2);
   }
 
-  const [eduScore, setEduScore] = useState(0);
-  const [devScore, setDevScore] = useState(0);
-  const [illScore, setIllScore] = useState(0);
-  const [famScore, setFamScore] = useState(0);
+  const [eduScore, setEduScore] = useState(null);
+  const [devScore, setDevScore] = useState(null);
+  const [illScore, setIllScore] = useState(null);
+  const [famScore, setFamScore] = useState(null);
   const [nwrScore, setNwrScore] = useState(null);
   const [srScore, setSrScore] = useState(null);
   const [parent, setParent] = useState(70);
@@ -96,13 +96,7 @@ export default function NewResults() {
   const [event2, setEvent2] = useState(3);
   const [speed1, setSpeed1] = useState(3.4);
   const [speed2, setSpeed2] = useState(1.6);
-  const [basicFeedback, setBasicFeedback] = useState("");
-  const [eduFeedback, setEduFeedback] = useState("");
-  const [devFeedback, setDevFeedback] = useState("");
-  const [illFeedback, setIllFeedback] = useState("");
-  const [famFeedback, setFamFeedback] = useState("");
-  const [nwrFeedback, setNwrFeedback] = useState("");
-  const [videoFeedback, setVideoFeedback] = useState("");
+
   const [ovrFeedback, setOvrFeedback] = useState("");
   const [loaded1, setLoaded1] = useState(false);
   const [loaded2, setLoaded2] = useState(false);
@@ -129,11 +123,6 @@ export default function NewResults() {
 
   useEffect(() => {
     if (!error2 && !loading2) {
-      setBasicFeedback(data2.getProfComment.perFeedback);
-      setEduFeedback(data2.getProfComment.eduFeedback);
-      setDevFeedback(data2.getProfComment.devFeedback);
-      setIllFeedback(data2.getProfComment.illFeedback);
-      setFamFeedback(data2.getProfComment.famFeedback);
       setOvrFeedback(data2.getProfComment.ovrFeedback);
       setNwrScore((data2.getProfComment.nwrScore / 15) * 100);
       setSrScore((data2.getProfComment.srScore / 12) * 100);
@@ -145,7 +134,7 @@ export default function NewResults() {
       return <ResultsStartPage onStart={onStart} />;
     }
     default: {
-      return loaded1 && loaded2 ? (
+      return (
         <div
           style={{
             width: "100vw",
@@ -221,142 +210,160 @@ export default function NewResults() {
               </div>
             </div>
           </div>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            xs={12}
-            className={classes.root}
-          >
-            <Grid container justify="center" className={classes.divider}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>기본 정보</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <Scatter
-                  eduScore={eduScore}
-                  devScore={devScore}
-                  illScore={illScore}
-                  famScore={famScore}
-                  width="1000"
-                  height="400"
-                />
-              </Grid>
-            </Grid>
+          {data ? (
+            loaded1 ? (
+              loaded2 ? (
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                  xs={12}
+                  className={classes.root}
+                >
+                  <Grid container justify="center" className={classes.divider}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <div className={classes.tag}>기본 정보</div>
+                    </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <Scatter
+                        eduScore={eduScore}
+                        devScore={devScore}
+                        illScore={illScore}
+                        famScore={famScore}
+                        width="1000"
+                        height="400"
+                      />
+                    </Grid>
+                  </Grid>
 
-            <Grid container className={classes.divider}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>처리 능력</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <Bar
-                  nwrScore={nwrScore}
-                  srScore={srScore}
-                  width="1000"
-                  height="400"
-                />
-              </Grid>
-            </Grid>
+                  <Grid container className={classes.divider}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <div className={classes.tag}>처리 능력</div>
+                    </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <Bar
+                        nwrScore={nwrScore}
+                        srScore={srScore}
+                        width="1000"
+                        height="400"
+                      />
+                    </Grid>
+                  </Grid>
 
-            <Grid container className={classes.divider2}>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>자발화 분석</div>
-              </Grid>
+                  <Grid container className={classes.divider2}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <div className={classes.tag}>자발화 분석</div>
+                    </Grid>
 
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <StackedBar parent={60} child={40} />
-              </Grid>
-              <div style={{ marginLeft: "120px" }}>이벤트 횟수</div>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <Column event1={2} event2={3} colors={["#F9BE00", "#F53535"]} />
-              </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <StackedBar parent={60} child={40} />
+                    </Grid>
+                    <div style={{ marginLeft: "120px" }}>이벤트 횟수</div>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <Column
+                        event1={2}
+                        event2={3}
+                        colors={["#F9BE00", "#F53535"]}
+                      />
+                    </Grid>
 
-              <div style={{ marginLeft: "120px" }}>발화속도</div>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <Column
-                  event1={3.4}
-                  event2={2.8}
-                  colors={["#3BB9FF", "#AEAEAE"]}
-                />
-              </Grid>
-            </Grid>
+                    <div style={{ marginLeft: "120px" }}>발화속도</div>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <Column
+                        event1={3.4}
+                        event2={2.8}
+                        colors={["#3BB9FF", "#AEAEAE"]}
+                      />
+                    </Grid>
+                  </Grid>
 
-            <Grid container justify="center">
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-              >
-                <div className={classes.tag}>총평</div>
-              </Grid>
-              <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="center"
-                xs={12}
-                className={classes.chart}
-              >
-                <p className={classes.ovr}> {ovrFeedback}</p>
-              </Grid>
-            </Grid>
-          </Grid>
+                  <Grid container justify="center">
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                    >
+                      <div className={classes.tag}>총평</div>
+                    </Grid>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="flex-start"
+                      alignItems="center"
+                      xs={12}
+                      className={classes.chart}
+                    >
+                      <p className={classes.ovr}> {ovrFeedback}</p>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              ) : (
+                <div>평가를 기다려주세요.</div>
+              )
+            ) : (
+              <div>
+                <CircularProgress />
+              </div>
+            )
+          ) : (
+            <div>언어평가 미완료</div>
+          )}
           <div
             style={{
               width: "100vw",
@@ -428,10 +435,6 @@ export default function NewResults() {
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div>
-          <CircularProgress />
         </div>
       );
     }
