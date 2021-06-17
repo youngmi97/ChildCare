@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
@@ -11,8 +11,6 @@ import TextField from "@material-ui/core/TextField";
 import ReactAudioPlayer from "react-audio-player";
 import Vertical from "./charts/Vertical";
 import Column from "./charts/Column";
-
-var sampleResult = require("../demoTranscript/sttchildlang2.json");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -119,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function STTResults() {
+function STTResults(props) {
   console.log("STTResults");
   const classes = useStyles();
   const [labeledTimeList, setLabeledTimeList] = useState([]);
@@ -141,15 +139,16 @@ function STTResults() {
   // How Are we going to MERGE the Labeled Regions and the Detected Regions ????
 
   // Parent : Child
-  const [speechRatio, setSpeechRatio] = useState({ parent: 70, child: 30 });
   const [speechRate, setSpeechRate] = useState({ parent: 3.1, child: 5.2 });
   //console.log("speechRatio", speechRatio.parent);
   //console.log("sample json", sampleResult.status);
 
-  const speaker_segments = sampleResult.results.speaker_labels.segments;
-  const text_items = sampleResult.results.items;
-  //console.log("speaker_segments", speaker_segments);
-  //console.log("text_items", text_items);
+  const speaker_segments = props.speakerSegments;
+  const text_items = props.sttObject.items;
+  console.log("speaker_segments", speaker_segments);
+  console.log("text_items", text_items);
+
+  console.log("Ratio", props.speechRatio);
 
   // ----- Forming the Speech Cards -----
   // 1. Combine time splices with same speaker tag

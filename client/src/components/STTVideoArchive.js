@@ -97,7 +97,6 @@ function STTVideoArchive(props) {
 
   const [update, setUpdate] = useState(false);
   const [videoFiles, setVideoFiles] = useStateWithCallbackLazy([]);
-  const [scriptFiles, setScriptFiles] = useStateWithCallbackLazy([]);
   const [currentUrl, setCurrentUrl] = useState("");
 
   function getVideos() {
@@ -152,7 +151,11 @@ function STTVideoArchive(props) {
         fetch(blobUrl)
           .then((r) => r.text())
           .then((text) => {
-            console.log("text decoded:", JSON.parse(text).results);
+            props.setSttObject(JSON.parse(text).results);
+            props.setSpeakerSegments(
+              JSON.parse(text).results.speaker_labels.segments
+            );
+            setUpdate(true);
           });
       }
     );
@@ -166,15 +169,12 @@ function STTVideoArchive(props) {
 
   const videoCard = (url, dateObject) => {
     function handleVideoChoose(url) {
-      console.log("hello", url);
       setCurrentUrl(url);
       props.parentChooseUrl(url);
     }
 
     let date = dateObject || "";
     let dateString = date.toString();
-
-    console.log("dateObject", date.toString());
 
     return (
       <Card
