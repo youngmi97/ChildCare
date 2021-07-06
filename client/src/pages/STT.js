@@ -18,6 +18,9 @@ function STT() {
   const [videoFiles, setVideoFiles] = useState([]);
   const [vidUrl, setVidUrl] = useState("");
   const [sttObject, setSttObject] = useState({});
+  const [speakerSegments, setSpeakerSegments] = useState([]);
+
+  const [speechRatio, setSpeechRatio] = useState({ parent: 0, child: 0 });
 
   const [childTimeLabel, setChildTimeLabel] = useState([]);
   const [parentTimeLabel, setParentTimeLabel] = useState([]);
@@ -37,7 +40,7 @@ function STT() {
         ACL: "public-read",
       };
 
-      // for client env variables, have to add REACT_APP infront
+      // for client env variables, have to add REACT_APP in front
       var s3 = new AWS.S3({
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -90,47 +93,27 @@ function STT() {
     setChildTimeLabel(timeFrag);
   }
 
+  function handleSetSttObject(object) {
+    console.log("stt object", object);
+    setSttObject(object);
+  }
+  async function handleSetSpeakerSegments(segments) {
+    console.log("speaker segments", segments);
+
+    let newSpeechRatio = { parent: 0, child: 0 };
+    await segments.forEach((segment) => {
+      if (segment.speaker_label === "spk_0") {
+        newSpeechRatio.parent++;
+      } else {
+        newSpeechRatio.child++;
+      }
+    });
+    setSpeakerSegments(segments);
+    setSpeechRatio(newSpeechRatio);
+  }
+
   function handleSetVidUrl(url) {
     setVidUrl(url);
-
-    //parse the url and get stt .json
-
-    var s3 = new AWS.S3({
-      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-      region: "us-east-1",
-    });
-
-    const parsedUrl = url.split(".")[3].split("/")[1];
-
-    console.log("parsedUrl", parsedUrl);
-
-    var getParams = {
-      Bucket: "sttresultjson", // your bucket name,
-      Key: parsedUrl + ".json", // path to the object you're looking for
-    };
-
-    s3.getObject(getParams, function (err, data) {
-      // Handle any error and exit
-      if (err) return err;
-
-      let objectData = data.Body.toString("utf-8"); // Use the encoding necessary
-
-      setSttObject(objectData);
-
-      let speakerContent = [];
-      //const segments = objectData.results.speaker_labels.segments;
-
-      // segments.forEach((segment) => {
-      //   speakerContent.push({
-      //     speaker: segment.speaker_label,
-      //     start_time: segment.start_time,
-      //     end_time: end_time,
-      //   });
-      // });
-
-      //const items = objectData.results.items;
-    });
   }
 
   useEffect(() => {
@@ -188,7 +171,11 @@ function STT() {
     >
       {/* <SpeechToText /> */}
       {/* <STTUploadVideo parentUploadTrigger={handleVideoUpload} /> */}
-      <STTVideoArchive parentChooseUrl={handleSetVidUrl} />
+      <STTVideoArchive
+        parentChooseUrl={handleSetVidUrl}
+        setSttObject={handleSetSttObject}
+        setSpeakerSegments={handleSetSpeakerSegments}
+      />
       <VideoLabeling
         videos={videoFiles}
         vidUrl={vidUrl}
@@ -200,6 +187,8 @@ function STT() {
         parentLabel={parentTimeLabel}
         childLabel={childTimeLabel}
         sttObject={sttObject}
+        speakerSegments={speakerSegments}
+        speechRatio={speechRatio}
       />
     </Grid>
   );
