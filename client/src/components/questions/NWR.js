@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NWR(props) {
   const url = {
+    url0: "/NWR/instruction_NWR.m4a",
     url1: "/NWR/0(연습1)따무.mp3",
     url2: "/NWR/0(연습2)뿌커디.mp3",
     url3: "/NWR/1.누베.mp3",
@@ -124,15 +125,39 @@ export default function NWR(props) {
         className={classes.subtitle}
       >
         <div>
-          아동과 5분간 상호작용 영상을 촬영하여 업로드 해주세요. (소꿉놀이,
-          의사놀이, 블록놀이 등의 장난감을 활용한 영상)
+          검사의 지시사항을 먼저 들려주시고, 이후 음성 파일들을 연습문항부터
+          아동에게 차례로 들려주시면서 따라 말하게 해주세요. <br />
+          문항의 처음부터 끝까지 하나의 영상으로 촬영해서 업로드해주시면 됩니다.
+          화면 안에 아동의 얼굴(특히 입)이 전부 보이도록 정면에서 촬영해주세요.
           <br />
-          성인과 아동의 1:1 영상으로, 두 사람이 화면에 모두 나오게 촬영해
-          주세요. 하단의 샘플 영상을 참고해 주세요.{" "}
+          또한 아동의 목소리가 잘 녹음될 수 있도록 촬영해주세요. 모든 문항은
+          아동에게 “한 번만” 들려주고 바로 따라 말하게 해야 정확하게 평가됩니다.
+          <br /> 아동이 틀리거나 잘 따라 말하지 못해도 그대로 녹화해서
+          업로드해주세요.
         </div>
       </Grid>
 
       <Grid>
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          xs={12}
+          className={classes.question}
+        >
+          <p>지시사항</p>
+        </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          xs={12}
+          className={classes.question}
+        >
+          <Audio url={url.url0} />
+        </Grid>
         <Grid
           container
           direction="row"

@@ -70,37 +70,7 @@ function Login(props) {
     }
   }
 
-  const LoginForm = userType ? (
-    <Form
-      onSubmit={onSubmit}
-      noValidate
-      className={loadingProf ? "loading" : ""}
-      style={{ paddingTop: "20px" }}
-    >
-      <h1>전문가 로그인</h1>
-      <Form.Input
-        label="Username"
-        placeholder="Username.."
-        name="username"
-        type="text"
-        value={values.username}
-        error={errors.username ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Password"
-        placeholder="Password.."
-        name="password"
-        type="password"
-        value={values.password}
-        error={errors.password ? true : false}
-        onChange={onChange}
-      />
-      <Button type="submit" primary>
-        로그인
-      </Button>
-    </Form>
-  ) : (
+  const LoginForm = (
     <Form
       onSubmit={onSubmit}
       noValidate
@@ -131,23 +101,8 @@ function Login(props) {
       </Button>
     </Form>
   );
-
   return (
     <div className={classes.root}>
-      <Paper elevation={1}>
-        <Tabs
-          value={userType}
-          onChange={handleToggleUser}
-          variant="fullWidth"
-          indicatorColor="primary"
-          textColor="primary"
-          aria-label="icon label tabs example"
-        >
-          <Tab icon={<PersonPinIcon />} label="사용자" />
-          <Tab icon={<PersonPinIcon />} label="전문가" />
-        </Tabs>
-      </Paper>
-
       {LoginForm}
 
       {Object.keys(errors).length > 0 && (

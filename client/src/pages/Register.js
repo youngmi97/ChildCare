@@ -87,119 +87,7 @@ function Register(props) {
     }
   }
 
-  const RegisterForm = userType ? (
-    <Form
-      onSubmit={onSubmit}
-      noValidate
-      className={loadingProf ? "loading" : ""}
-      style={{ paddingTop: "20px" }}
-    >
-      <h1>전문가 회원가입</h1>
-      <Form.Input
-        label="Username"
-        placeholder="Username.."
-        name="username"
-        type="text"
-        value={values.username}
-        error={errors.username ? true : false}
-        onChange={onChange}
-      />
-
-      <Form.Input
-        label="Password"
-        placeholder="Password.."
-        name="password"
-        type="password"
-        value={values.password}
-        error={errors.password ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Confirm Password"
-        placeholder="Confirm Password.."
-        name="confirmPassword"
-        type="password"
-        value={values.confirmPassword}
-        error={errors.confirmPassword ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Name"
-        placeholder="Name.."
-        name="name"
-        type="text"
-        value={values.name}
-        error={errors.name ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Gender"
-        placeholder="Gender.."
-        name="gender"
-        type="text"
-        value={values.gender}
-        error={errors.gender ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Birthday"
-        placeholder="Birthday.."
-        name="birthday"
-        type="text"
-        value={values.birthday}
-        error={errors.birthday ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Address"
-        placeholder="Address.."
-        name="address"
-        type="text"
-        value={values.address}
-        error={errors.address ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Occupation"
-        placeholder="Occupation.."
-        name="occupation"
-        type="text"
-        value={values.occupation}
-        error={errors.occupation ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Institution"
-        placeholder="Institution.."
-        name="institution"
-        type="text"
-        value={values.institution}
-        error={errors.institution ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Objective"
-        placeholder="Objective.."
-        name="objective"
-        type="text"
-        value={values.objective}
-        error={errors.objective ? true : false}
-        onChange={onChange}
-      />
-      <Form.Input
-        label="Email"
-        placeholder="Email.."
-        name="email"
-        type="email"
-        value={values.email}
-        error={errors.email ? true : false}
-        onChange={onChange}
-      />
-      <Button type="submit" primary>
-        회원가입
-      </Button>
-    </Form>
-  ) : (
+  const RegisterForm = (
     <Form
       onSubmit={onSubmit}
       noValidate
@@ -248,23 +136,8 @@ function Register(props) {
       </Button>
     </Form>
   );
-
   return (
     <div className={classes.root}>
-      <Paper elevation={1}>
-        <Tabs
-          value={userType}
-          onChange={handleToggleUser}
-          variant="fullWidth"
-          indicatorColor="primary"
-          textColor="primary"
-          aria-label="icon label tabs example"
-        >
-          <Tab icon={<PersonPinIcon />} label="사용자" />
-          <Tab icon={<PersonPinIcon />} label="전문가" />
-        </Tabs>
-      </Paper>
-
       {RegisterForm}
       {Object.keys(errors).length > 0 && (
         <div className="ui error message">
