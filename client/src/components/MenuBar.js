@@ -15,22 +15,23 @@ function MenuBar() {
   const [open, setOpen] = useState(false);
   const history = useHistory();
   const [prof, setProf] = useState(false);
+  const [message, setMessage] = useState("");
 
   const path = pathname === "/" ? "home" : pathname.substr(1);
   const [activeItem, setActiveItem] = useState(path);
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
   const handleOpen1 = () => {
-    !user ? setOpen(true) : history.push("./form");
+    !user ? openModal(1) : history.push("./form");
   };
   const handleOpen2 = () => {
-    !user ? setOpen(true) : window.open("https://dongsunyim.com/dongsun");
+    !user ? openModal(2) : window.open("https://dongsunyim.com/dongsun");
   };
   const handleOpen3 = () => {
-    !user ? setOpen(true) : history.push("./lectures");
+    !user ? openModal(3) : history.push("./lectures");
   };
   const handleOpen4 = () => {
-    !user ? setOpen(true) : history.push("./results");
+    !user ? openModal(4) : history.push("./results");
   };
   const handleOpen5 = () => {
     history.push("./login");
@@ -41,6 +42,32 @@ function MenuBar() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const openModal = (num) => {
+    setOpen(true);
+    switch (num) {
+      case 1:
+        setMessage(
+          "아동의 언어발달 수준이 궁금하거나 언어 발달 지연이 의심되는 경우, 온라인 언어발달 평가를 통해 가정에서 전문가의 언어치료 서비스를 받을 수 있습니다. 아동의 언어 발달 수준, 사용하는 언어 종류에 관계없이 온라인 평가가 가능합니다."
+        );
+        break;
+      case 2:
+        setMessage(
+          "이화여자대학교 언어병리학과 아동언어연구실 (Child Language Lab)에서 진행하고 있는 다양한 연구에 참여하여 아동의 언어와 인지에 관련된 활동을 경험해 볼 수 있습니다(http://dongsunyim.com)."
+        );
+        break;
+      case 3:
+        setMessage(
+          "아동과의 상호작용을 통해 아동에게 양질의 언어 자극을 주는 기술, 아동의 언어발달을 극대화하는 기술을 체계적인 연구 결과들을 기반으로 전문가가 교육합니다."
+        );
+        break;
+      case 4:
+        setMessage(
+          "회원 가입 후 아동에 대한 정보를 입력하고 평가에 필요한 간단한 영상들을 업로드하면, 전문가가 분석 및 평가를 실시하여 2주 후 보고서를 받아보실 수 있습니다."
+        );
+        break;
+    }
   };
 
   const menuBar = user ? (
@@ -241,48 +268,17 @@ function MenuBar() {
                 border: "1px solid #F9BE00",
               }}
             >
-              <div
+              <p
                 style={{
-                  fontSize: "1.5vw",
+                  fontSize: "17px",
                   color: "#e57f16",
                   marginLeft: "1.2vw",
+                  marginRight: "6vw",
                   marginTop: "4vh",
                 }}
               >
-                서비스 확인이 필요합니다.
-              </div>
-              <div
-                style={{
-                  marginLeft: "1.2vw",
-                  color: "#717071",
-                  fontSize: "1.2vw",
-                  marginTop: "2vh",
-                  lineHeight: "1.45",
-                }}
-              >
-                현재 해당 서비스는 이용이 불가능합니다. <br /> 아래 연락처로
-                문의 부탁드립니다.
-              </div>
-              <div
-                style={{
-                  marginLeft: "1.2vw",
-                  color: "#313031",
-                  fontSize: "1.2vw",
-                  marginTop: "2vh",
-                }}
-              >
-                연락처 : sunyim@isay.com
-              </div>
-              <div
-                style={{
-                  marginLeft: "1.2vw",
-                  color: "#313031",
-                  fontSize: "1.2vw",
-                  marginTop: "1.2vh",
-                }}
-              >
-                전화 : 02.3277.6720
-              </div>
+                {message}
+              </p>
             </div>
           </Fade>
         </Modal>

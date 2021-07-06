@@ -362,7 +362,40 @@ export default function NewResults() {
               </div>
             )
           ) : (
-            <div>언어평가 미완료</div>
+            <div style={{ marginBottom: "10vh", marginLeft: "5vw" }}>
+              <div
+                style={{
+                  fontSize: "1.5vw",
+                  color: "#e57f16",
+                  marginLeft: "1.2vw",
+                  marginTop: "10vh",
+                  marginBottom: "5vh",
+                }}
+              >
+                평가 결과를 기다리는 중입니다.
+              </div>
+
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "2vh",
+                }}
+              >
+                연락처 : sunyim@isay.com
+              </div>
+              <div
+                style={{
+                  marginLeft: "1.2vw",
+                  color: "#313031",
+                  fontSize: "1.2vw",
+                  marginTop: "1.2vh",
+                }}
+              >
+                전화 : 02.3277.6720
+              </div>
+            </div>
           )}
           <div
             style={{
