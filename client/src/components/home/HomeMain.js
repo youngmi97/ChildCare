@@ -462,7 +462,7 @@ function HomeMain(props) {
             marginTop: "1.2vh",
           }}
         >
-          <div>대표전화 010.0000.0000 </div>
+          <div>대표전화 02.3277.6720 </div>
           <div style={{ margin: "0px 1vw" }}>|</div>
           <div>대표이메일 sunyim@isay.com </div>
           <div style={{ margin: "0px 1vw" }}>|</div>
