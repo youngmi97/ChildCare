@@ -27,17 +27,29 @@ export default function Development(props) {
       <div>
         <p>
           <span style={spanStyle}>걷기: </span>
-          {walkingAge === "Slow" ? "느렸다" : "평균이였다"}
+          {walkingAge === "Slow"
+            ? "느렸다"
+            : walkingAge === "Average"
+            ? "평균이였다"
+            : "빨랐다"}
         </p>
 
         <p>
           <span style={spanStyle}>단어 사용: </span>
-          {speakingAge === "Slow" ? "느렸다" : "평균이였다"}
+          {speakingAge === "Slow"
+            ? "느렸다"
+            : speakingAge === "Average"
+            ? "평균이였다"
+            : "빨랐다"}
         </p>
 
         <p>
           <span style={spanStyle}>문장 사용: </span>
-          {speakingAgeSentence === "Slow" ? "느렸다" : "평균이였다"}
+          {speakingAgeSentence === "Slow"
+            ? "느렸다"
+            : speakingAgeSentence === "Average"
+            ? "평균이였다"
+            : "빨랐다"}
         </p>
 
         <p>

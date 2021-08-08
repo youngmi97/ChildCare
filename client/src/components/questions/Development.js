@@ -180,6 +180,14 @@ class Development extends Component {
                     label="평균이었다"
                     onChange={this.props.onChange2}
                   />
+
+                  <FormControlLabel
+                    id="walkingAge"
+                    value="Fast"
+                    control={<Radio />}
+                    label="빨랐다"
+                    onChange={this.props.onChange2}
+                  />
                 </RadioGroup>
               </FormControl>
             </div>
@@ -224,6 +232,13 @@ class Development extends Component {
                     label="평균이었다"
                     onChange={this.props.onChange2}
                   />
+                  <FormControlLabel
+                    id="speakingAge"
+                    value="Fast"
+                    control={<Radio />}
+                    label="빨랐다"
+                    onChange={this.props.onChange2}
+                  />
                 </RadioGroup>
               </FormControl>
             </div>
@@ -266,6 +281,13 @@ class Development extends Component {
                     value="Average"
                     control={<Radio />}
                     label="평균이었다"
+                    onChange={this.props.onChange2}
+                  />
+                  <FormControlLabel
+                    id="speakingAgeSentence"
+                    value="Fast"
+                    control={<Radio />}
+                    label="빨랐다"
                     onChange={this.props.onChange2}
                   />
                 </RadioGroup>

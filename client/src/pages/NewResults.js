@@ -354,7 +354,40 @@ export default function NewResults() {
                   </Grid>
                 </Grid>
               ) : (
-                <div>평가를 기다려주세요.</div>
+                <div style={{ marginBottom: "10vh", marginLeft: "5vw" }}>
+                  <div
+                    style={{
+                      fontSize: "1.5vw",
+                      color: "#e57f16",
+                      marginLeft: "1.2vw",
+                      marginTop: "10vh",
+                      marginBottom: "5vh",
+                    }}
+                  >
+                    평가 결과를 기다리는 중입니다.
+                  </div>
+
+                  <div
+                    style={{
+                      marginLeft: "1.2vw",
+                      color: "#313031",
+                      fontSize: "1.2vw",
+                      marginTop: "2vh",
+                    }}
+                  >
+                    연락처 : sunyim@isay.com
+                  </div>
+                  <div
+                    style={{
+                      marginLeft: "1.2vw",
+                      color: "#313031",
+                      fontSize: "1.2vw",
+                      marginTop: "1.2vh",
+                    }}
+                  >
+                    전화 : 010.0000.0000
+                  </div>
+                </div>
               )
             ) : (
               <div>
@@ -372,7 +405,7 @@ export default function NewResults() {
                   marginBottom: "5vh",
                 }}
               >
-                평가 결과를 기다리는 중입니다.
+                언어발달 평가를 먼저 완료해 주세요.
               </div>
 
               <div
@@ -393,7 +426,7 @@ export default function NewResults() {
                   marginTop: "1.2vh",
                 }}
               >
-                전화 : 02.3277.6720
+                전화 : 010.0000.0000
               </div>
             </div>
           )}
@@ -458,7 +491,7 @@ export default function NewResults() {
                 marginTop: "1.2vh",
               }}
             >
-              <div>대표전화 02.3277.6720 </div>
+              <div>대표전화 010.0000.0000 </div>
               <div style={{ margin: "0px 1vw" }}>|</div>
               <div>대표이메일 sunyim@isay.com </div>
               <div style={{ margin: "0px 1vw" }}>|</div>
