@@ -140,22 +140,24 @@ function STTVideoArchive(props) {
         Bucket: "sttresultjson",
         Prefix: props.username,
       },
-      function (err, data) {
+      async function (err, data) {
         if (err) throw err;
         console.log("sttresultjson data", data.Contents[0].Key);
 
         const blobUrl =
           "https://sttresultjson.s3.amazonaws.com/" + data.Contents[0].Key;
 
-        fetch(blobUrl)
+        await fetch(blobUrl)
           .then((r) => r.text())
           .then((text) => {
+            //console.log("blob text: ", text);
             props.setSttObject(JSON.parse(text).results);
             props.setSpeakerSegments(
               JSON.parse(text).results.speaker_labels.segments
             );
             setUpdate(true);
-          });
+          })
+          .catch((err) => console.log("fetch err: ", err));
       }
     );
   }
