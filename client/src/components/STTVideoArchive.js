@@ -92,8 +92,7 @@ const useStyles = makeStyles((theme) => ({
 
 function STTVideoArchive(props) {
   const classes = useStyles();
-  const { user } = useContext(AuthContext);
-  console.log("DASHBOARD USER: ", user);
+  console.log("DASHBOARD USER: ", props.username);
 
   const [update, setUpdate] = useState(false);
   const [videoFiles, setVideoFiles] = useStateWithCallbackLazy([]);
@@ -106,11 +105,11 @@ function STTVideoArchive(props) {
       region: "us-east-1",
     });
 
-    if (user) {
+    if (props.username) {
       s3.listObjectsV2(
         {
           Bucket: "mp4in",
-          Prefix: user.username,
+          Prefix: props.username,
         },
         function (err, data) {
           if (err) throw err;
@@ -139,7 +138,7 @@ function STTVideoArchive(props) {
     s3.listObjectsV2(
       {
         Bucket: "sttresultjson",
-        Prefix: user.username,
+        Prefix: props.username,
       },
       function (err, data) {
         if (err) throw err;

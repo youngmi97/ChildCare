@@ -13,8 +13,7 @@ var AWS = require("aws-sdk");
 
 const axios = require("axios");
 
-function STT() {
-  const { user } = useContext(AuthContext);
+function STT(props) {
   const [videoFiles, setVideoFiles] = useState([]);
   const [vidUrl, setVidUrl] = useState("");
   const [sttObject, setSttObject] = useState({});
@@ -129,12 +128,10 @@ function STT() {
         (today.getMonth() + 1).toString() +
         today.getDate().toString();
 
-      console.log("date", date);
-      console.log("user", user);
-
       //[id]_[date]_[type].mp4
       //type: "form" or "lesson"
-      let newName = user.username + "_" + date + "_" + "form";
+
+      let newName = props.location.state.username + "_" + date + "_" + "form";
 
       const data = { body: { name: newName } };
 
@@ -175,6 +172,7 @@ function STT() {
         parentChooseUrl={handleSetVidUrl}
         setSttObject={handleSetSttObject}
         setSpeakerSegments={handleSetSpeakerSegments}
+        username={props.location.state.username}
       />
       <VideoLabeling
         videos={videoFiles}
