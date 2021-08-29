@@ -3,7 +3,7 @@ import { TextField, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 export default function Admin() {
-  const password = "1";
+  const password = "32776720";
   const history = useHistory();
 
   const [input, setInput] = useState("");
@@ -12,7 +12,13 @@ export default function Admin() {
     setInput(e.target.value);
   };
 
-  const handleClick = (e) => {};
+  const handleClick = (e) => {
+    if (input === password) {
+      history.push("dashboard");
+    } else {
+      console.log("Incorrect Password");
+    }
+  };
 
   const handleEnter = (e) => {
     if (e.key === "Enter") {
