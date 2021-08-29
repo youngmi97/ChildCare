@@ -29,7 +29,7 @@ function DeleteButton({ postId, commentId, callback }) {
     },
   });
   return (
-    <>
+    <div>
       <MyPopup content={commentId ? "Delete comment" : "Delete post"}>
         <Button
           as="div"
@@ -45,7 +45,7 @@ function DeleteButton({ postId, commentId, callback }) {
         onCancel={() => setConfirmOpen(false)}
         onConfirm={deletePostOrMutation}
       />
-    </>
+    </div>
   );
 }
 

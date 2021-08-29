@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 export default function IconButtons(props) {
   const history = useHistory();
 
-  const { user } = useContext(AuthContext);
+  console.log("DASHBOARD ITEM", props.username);
   const [open, setOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
@@ -55,7 +55,10 @@ export default function IconButtons(props) {
       <IconButton color="primary">
         <VideoLibraryIcon
           onClick={() =>
-            history.push({ pathname: "./stt", state: { user: props.id } })
+            history.push({
+              pathname: "./stt",
+              state: { username: props.username, id: props.id },
+            })
           }
         />
       </IconButton>

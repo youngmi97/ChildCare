@@ -75,7 +75,8 @@ function createData(
   professional,
   id,
   email,
-  authorized
+  authorized,
+  username
 ) {
   return {
     name,
@@ -86,6 +87,7 @@ function createData(
     id,
     email,
     authorized,
+    username,
   };
 }
 
@@ -102,7 +104,6 @@ const useStyles = makeStyles({
 });
 
 export default function Dashboard() {
-  const { user } = useContext(AuthContext);
   const [childID, setChildID] = useState("");
   const [prof, setProf] = useState("");
   const [page, setPage] = React.useState(0);
@@ -158,7 +159,8 @@ export default function Dashboard() {
             user.assignee,
             user.id,
             user.email,
-            user.canWatch
+            user.canWatch,
+            user.username
           )
         );
       }
@@ -220,6 +222,7 @@ export default function Dashboard() {
                               <DashboardItem
                                 id={row["id"]}
                                 email={row["email"]}
+                                username={row["username"]}
                                 setUpdated={setUpdated}
                               />
                             ) : column.id === "professional" ? (
