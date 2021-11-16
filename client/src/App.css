@@ -1,6 +1,6 @@
-@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 body {
-  font-family: "Nanum Square", sans-serif;
+  font-family: 'Nanum Square', sans-serif;
 }
 
 .page-title {
@@ -27,4 +27,33 @@ body {
   line-height: 100px;
   transform-origin: 100% 50%;
   animation: main 5s;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'payboocBold';
+  src: url('./fonts/paybooc Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocExtraBold';
+  src: url('./fonts/paybooc ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocLight';
+  src: url('./fonts/paybooc Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocMedium';
+  src: url('./fonts/paybooc Medium.ttf') format('truetype');
 }

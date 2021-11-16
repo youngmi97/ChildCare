@@ -1,503 +1,370 @@
-import React, { useState, useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Card, Button } from "@material-ui/core";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import MenuBar from "../MenuBar";
-import "../../App.css";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../../context/auth";
+import React, { useState, useContext, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import MenuBar from '../MenuBar'
+import '../../App.css'
+import styled from 'styled-components'
+import BackgroundImage from './Main2.jpg'
+import Welcome from './welcome.jpg'
+import { Typography, Divider, Button } from 'antd'
+import { useHistory } from 'react-router-dom'
+import { HomeOutlined, ReadOutlined, AlertOutlined } from '@ant-design/icons'
+import { withRouter } from 'react-router'
+import Fade from 'react-reveal/Fade'
+import FadeIn from 'react-fade-in'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   modal: {},
-  paper: {
-    marginLeft: "35vw",
-    marginRight: "35vw",
-    marginTop: "37vh",
-    marginBottom: "37vh",
-    width: "30vw",
-    height: "26vh",
-    backgroundImage: "url(/PleaseLogin.jpg)",
-    backgroundSize: "30vw 26vh",
-    outline: "none",
-    border: "1px solid #F9BE00",
-  },
-  root: {
-    width: "100vw",
-    height: "100vh",
-    overflowY: "scroll",
-    padding: "0",
-    scrollbarWidth: "none",
-    overflowX: "hidden",
-  },
-  main1: {
-    backgroundImage: "url(/Main1.jpg)",
-    backgroundSize: "100vw 100vh",
-    width: "100vw",
-    height: "93vh",
-  },
-  main2: {
-    marginTop: "7vh",
-    backgroundImage: "url(/Main2.jpg)",
-    backgroundSize: "100vw 100vh",
-    width: "100vw",
-    height: "93vh",
-  },
-  main3: {
-    backgroundImage: "url(/Main3.jpg)",
-    backgroundSize: "100vw 100vh",
-    width: "100vw",
-    height: "93vh",
-  },
-  main4: {
-    backgroundImage: "url(/Main4.jpg)",
-    backgroundSize: "100vw 100vh",
-    width: "100vw",
-    height: "94vh",
-  },
   footer: {
-    height: "20vh",
-    backgroundColor: "#F9BE00",
+    height: '20vh',
+    backgroundColor: '#F9BE00',
+    fontFamily: 'payboocBold',
   },
-}));
+}))
 
-function HomeMain(props) {
-  const { user } = useContext(AuthContext);
-  const classes = useStyles();
-  const history = useHistory();
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200vh;
+  width: 100%;
+`
 
-  const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
+const ImageWrapper = styled.image`
+  background: url(${props => props.src});
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+`
 
-  const handleOpen1 = () => {
-    !user ? openModal(1) : history.push("./form");
-  };
-  const handleOpen2 = () => {
-    !user ? openModal(2) : window.open("https://dongsunyim.com/dongsun");
-  };
-  const handleOpen3 = () => {
-    !user ? openModal(3) : history.push("./lectures");
-  };
-  const handleOpen4 = () => {
-    !user ? openModal(4) : history.push("./lectures");
-  };
+const TextWrapper = styled.div`
+  color: ${props => props.color || 'black'};
+  font-size: ${props => props.size || 12}px;
+  font-weight: ${props => props.weight || 'bold'};
+  margin-top: ${props => props.margin || '30px'};
+  font-family: 'payboocExtraBold';
+  @media (max-width: 1024px) {
+    font-size: ${props => props.size - 10 || 12}px;
+  }
+`
 
-  const openModal = (num) => {
-    setOpen(true);
-    switch (num) {
-      case 1:
-        setMessage(
-          "아동의 언어발달 수준이 궁금하거나 언어 발달 지연이 의심되는 경우, 온라인 언어발달 평가를 통해 가정에서 전문가의 언어치료 서비스를 받을 수 있습니다. 아동의 언어 발달 수준, 사용하는 언어 종류에 관계없이 온라인 평가가 가능합니다."
-        );
-        break;
-      case 2:
-        setMessage(
-          "이화여자대학교 언어병리학과 아동언어연구실 (Child Language Lab)에서 진행하고 있는 다양한 연구에 참여하여 아동의 언어와 인지에 관련된 활동을 경험해 볼 수 있습니다(http://dongsunyim.com)."
-        );
-        break;
-      case 3:
-        setMessage(
-          "아동과의 상호작용을 통해 아동에게 양질의 언어 자극을 주는 기술, 아동의 언어발달을 극대화하는 기술을 체계적인 연구 결과들을 기반으로 전문가가 교육합니다."
-        );
-        break;
-      case 4:
-        setMessage(
-          "회원 가입 후 아동에 대한 정보를 입력하고 평가에 필요한 간단한 영상들을 업로드하면, 전문가가 분석 및 평가를 실시하여 2주 후 보고서를 받아보실 수 있습니다."
-        );
-        break;
-    }
-  };
+const DetailWrapper = styled.div`
+  background-color: rgba(237, 237, 237, 0.3);
+  font-size: 13px;
+  height: auto;
+  width: 600px;
+  margin-top: 10%;
+  padding: 10px;
+  font-weight: bold;
+  white-space: pre-wrap;
+  font-family: 'payboocBold';
+  @media (max-width: 1024px) {
+    width: 400px;
+  }
+`
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+const WelcomeWrapper = styled.div`
+  width: 70%;
+  height: 400px;
+  display: flex;
+  margin-top: 10%;
+  background-color: rgba(237, 237, 237, 0.7);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`
+
+const WelcomeImage = styled.image`
+  background: url(${props => props.src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 400px;
+  border-radius: 10px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
+
+const WelcomeText = styled.div`
+  width: 50%;
+  height: 400px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(237, 237, 237, 0);
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`
+
+const CategoryWrapper = styled.div`
+  width: 70%;
+  height: 400px;
+  display: flex;
+  margin-top: 10%;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 5%;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10%;
+`
+
+const BannerWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+`
+
+const Banner = styled.div`
+  background-color: rgba(237, 237, 237, 0.7);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+`
+
+function HomeMain({ match }) {
+  const [lang, setLang] = useState(match.params.lang)
+  console.log(lang)
+  const { Title, Paragraph, Text, Link } = Typography
+  const classes = useStyles()
+  const history = useHistory()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
+  useEffect(() => {
+    setLang(match.params.lang)
+  }, [match.params.lang])
 
   return (
-    <div className={classes.root}>
-      <MenuBar />
-      <div className={classes.main2}>
-        <div
-          style={{
-            marginLeft: "7vw",
-            paddingTop: "10vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "2vw",
-              fontWeight: "400",
-              color: "#e57f16",
-              marginBottom: "3vh",
-            }}
-          >
-            online
-          </div>
-          <div
-            style={{
-              fontSize: "4vw",
-              color: "#717071",
-              lineHeight: "8vh",
-              fontWeight: "300",
-              marginBottom: "4vh",
-            }}
-          >
-            LANGUAGE
-            <br />
-            DEVELOPMENT
-            <br />
-            ASSESSMENT
-          </div>
-          <div>
-            <hr
-              style={{
-                width: "3vw",
-                border: "none",
-                borderTop: "0.6vh solid #e57f16",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: "1.5vw",
-              color: "#717071",
-              lineHeight: "4vh",
-              fontWeight: "300",
-              marginTop: "4vh",
-            }}
-          >
-            We study how children learn language and <br />
-            how lange learning can down
-          </div>
-        </div>
-      </div>
-      <div className={classes.main1}>
-        <div
-          style={{
-            marginLeft: "7vw",
-            paddingTop: "10vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            marginLeft: "60vw",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "2vw",
-              fontWeight: "400",
-              color: "#e57f16",
-              marginBottom: "3vh",
-            }}
-          >
-            online
-          </div>
-          <div
-            style={{
-              fontSize: "4vw",
-              color: "#717071",
-              lineHeight: "8vh",
-              fontWeight: "300",
-              marginBottom: "4vh",
-            }}
-          >
-            CHILD
-            <br />
-            LANGUAGE
-            <br />
-            ASSESSMENT
-          </div>
-          <div>
-            <hr
-              style={{
-                width: "3vw",
-                border: "none",
-                borderTop: "0.6vh solid #e57f16",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: "1.5vw",
-              color: "#717071",
-              lineHeight: "4vh",
-              fontWeight: "300",
-              marginTop: "4vh",
-            }}
-          >
-            Services to assess children's language <br />
-            development online and receive results
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-              marginLeft: "21vw",
-              marginTop: "2vh",
-            }}
-          >
-            <Button
-              style={{ fontSize: "1.2vw", color: "#e57f16" }}
-              onClick={handleOpen1}
-            >
-              {" "}
-              {">"} MORE{" "}
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className={classes.main3}>
-        <div
-          style={{
-            marginLeft: "7vw",
-            paddingTop: "10vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "2vw",
-              fontWeight: "400",
-              color: "#e57f16",
-              marginBottom: "3vh",
-            }}
-          >
-            online
-          </div>
-          <div
-            style={{
-              fontSize: "4vw",
-              color: "#717071",
-              lineHeight: "8vh",
-              fontWeight: "300",
-              marginBottom: "4vh",
-            }}
-          >
-            PARENT
-            <br />
-            PROFESSIONAL
-            <br />
-            EDUCATION
-          </div>
-          <div>
-            <hr
-              style={{
-                width: "3vw",
-                border: "none",
-                borderTop: "0.6vh solid #e57f16",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: "1.5vw",
-              color: "#717071",
-              lineHeight: "4vh",
-              fontWeight: "300",
-              marginTop: "4vh",
-            }}
-          >
-            Providing parental education <br />
-            services for the purpose <br />
-            of enhancing online interaction
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              marginLeft: "15vw",
-              marginTop: "2vh",
-            }}
-          >
-            <Button
-              style={{
-                fontSize: "1.2vw",
-                color: "#e57f16",
-              }}
-              onClick={handleOpen3}
-            >
-              {" "}
-              {">"} MORE{" "}
-            </Button>
-          </div>
-        </div>
-      </div>
-      <div className={classes.main4}>
-        <div
-          style={{
-            marginLeft: "7vw",
-            paddingTop: "10vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            marginLeft: "60vw",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "2vw",
-              fontWeight: "400",
-              color: "#e57f16",
-              marginBottom: "3vh",
-            }}
-          >
-            online
-          </div>
-          <div
-            style={{
-              fontSize: "4vw",
-              color: "#717071",
-              lineHeight: "8vh",
-              fontWeight: "300",
-              marginBottom: "4vh",
-            }}
-          >
-            PARTICIPATION
-            <br />
-            IN RESEARCH
-          </div>
-          <div>
-            <hr
-              style={{
-                width: "3vw",
-                border: "none",
-                borderTop: "0.6vh solid #e57f16",
-              }}
-            />
-          </div>
-          <div
-            style={{
-              fontSize: "1.5vw",
-              color: "#717071",
-              lineHeight: "4vh",
-              fontWeight: "300",
-              marginTop: "4vh",
-            }}
-          >
-            Application for participation as a subject <br />
-            of research conducted in the language
-            <br />
-            pathology department children's
-            <br />
-            research lab of Ehwa Woman's University
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end",
-              marginLeft: "22vw",
-              marginTop: "2vh",
-            }}
-          >
-            <Button
-              style={{ fontSize: "1.2vw", color: "#e57f16" }}
-              onClick={handleOpen2}
-            >
-              {" "}
-              {">"} MORE{" "}
-            </Button>
-          </div>
-        </div>
-      </div>
+    <div>
+      <Wrapper>
+        <MenuBar change={lang} />
+        <ImageWrapper src={BackgroundImage}>
+          <Fade bottom cascade>
+            <TextWrapper size="27" margin="10%">
+              {' '}
+              {lang == 'kor'
+                ? '아이들의 꿈은 언어로부터 시작됩니다'
+                : 'Children’s dreams start with language'}
+            </TextWrapper>
+            <TextWrapper size="35" color="#F9BE00">
+              {' '}
+              {lang == 'kor'
+                ? ' 아이들의 꿈이 시작되는 곳 I Say LAB'
+                : 'I Say Lab, A place where children’s dreams begin'}
+            </TextWrapper>
+            <DetailWrapper>
+              {lang == 'kor'
+                ? '아이세이 언어연구소는 언어발달을 역동적으로 습득하는 시기에 아동이타고난 잠재력과 다양한 언어적 활동을 통해 아동의 환경을 최적화하여,아동의 언어 및 뇌인지 발달이 극대화되고 학습에 연결될 수 있는 방법을 끊임없이 연구하고 있는 Think Tank(지식공동체)입니다.'
+                : 'I Say Lab is a Think Tank (Communities of Practice) constantly discovering ways to maximize children’s language and cognitive brain Development. We aim to connect children to learning by optimizing the child’s environment and their innate potential through various linguistic activities at a time when language development is dynamically acquired.'}
+              <br /> <br />
+              <br />
+              {lang == 'kor'
+                ? ' 아이세이 언어연구소는 언어를 한참 배우고 언어 활동을 좋아하는 아동또는 언어발달이 조금 느린 아동, 두 언어를 사용하는 이중언어 아동모두를 환영합니다. 아이세이 언어연구소는 모든 아동들이 즐겁게 언어를사용하는 방법을 배우고, 타인과의 의사소통에서 자신의 잠재력을 온전히발휘할 수 있도록 돕는 역할을 하고자 합니다. 다년 간의 연구를 통해축적한 이론적 배경과 특허 기반 프로그램은 아이세이 언어연구소에서만 제공할 수 있는 특화된 기술로, 아동의 언어 능력의 정확한 평가와 효과적인 언어 지원 서비스를 제공합니다.'
+                : 'I Say Lab welcomes all children who are actively learning language and interested in language activities, including children who are slow in language development, and bilingual children who speak two languages. I Say Lab aims to help all children learn how to use language in a fun way and to reach their full potential in communicating with others. I Say Lab provides specialized technologies and patent-based programs developed through many years of research and in alignment with theoretical backgrounds, offering an accurate evaluation of children’s language skills and effective language support services.'}
+            </DetailWrapper>
+          </Fade>
+        </ImageWrapper>
+
+        <WelcomeWrapper>
+          <WelcomeImage src={Welcome} />
+
+          <WelcomeText>
+            {' '}
+            <Fade bottom cascade>
+              <Typography>
+                <Title
+                  level={3}
+                  style={{
+                    marginBottom: '50px',
+                    fontFamily: 'payboocExtraBold',
+                  }}>
+                  {lang == 'kor'
+                    ? ' ISayLab에 오신것을 환영합니다'
+                    : 'Welcome To ISayLab'}
+                </Title>
+                <Paragraph>
+                  <Title
+                    level={5}
+                    style={{
+                      marginBottom: '20px',
+                      fontFamily: 'payboocLight',
+                    }}>
+                    {lang == 'kor'
+                      ? ' 한국연구재단의 지원으로 다년 간 책읽기 연구를 진행해온 연구팀이 국내외 우수한 학술지들에 발표한 연구 결과를 아낌없이 공유합니다. 임동선 교수를 비롯한 여러 연구진에 대해서 알아보세요.'
+                      : 'The research team, who have been conducting research on reading for many years with the support of the National Research Foundation of Korea, incorporates the research findings published in excellent international and domestic academic journals into this program. Learn about Professor Dongsun Yim  and other researchers.'}
+                  </Title>
+                </Paragraph>
+                <Button
+                  onClick={() => history.push(`/lab`)}
+                  style={{
+                    borderColor: 'goldenrod',
+                    color: 'goldenrod',
+                    fontWeight: 'bold',
+                    fontFamily: 'payboocMedium',
+                  }}>
+                  {lang == 'kor' ? '더알아보기' : 'Learn More'}
+                </Button>
+              </Typography>
+            </Fade>
+          </WelcomeText>
+        </WelcomeWrapper>
+
+        <CategoryWrapper>
+          <Fade bottom cascade>
+            <Typography>
+              <Title
+                level={3}
+                style={{
+                  marginBottom: '50px',
+                  fontFamily: 'payboocExtraBold',
+                }}>
+                {lang == 'kor'
+                  ? 'ISayLab에 대하여 더 알아보세요!'
+                  : 'Learn More about ISayLab!'}
+              </Title>
+              <Title
+                level={5}
+                style={{
+                  marginBottom: '50px',
+                  fontFamily: 'payboocMedium',
+                }}>
+                {lang == 'kor'
+                  ? '아이세이 언어연구소의 연구원, 프로그램을 알아보세요. 아래의 배너를 클릭하여 정보를 확인해 보세요.'
+                  : 'Find out about researchers and programs at the ISayLab. Click the banner below to check the information.'}
+              </Title>
+            </Typography>
+          </Fade>
+          <BannerWrapper>
+            <Fade bottom cascade>
+              <Banner onClick={() => history.push(`/lab/kor`)}>
+                <HomeOutlined
+                  style={{
+                    fontSize: '26px',
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    marginBottom: '5px',
+                  }}>
+                  {' '}
+                  연구소{' '}
+                </p>
+                <p style={{ fontFamily: 'payboocBold' }}> Lab </p>
+              </Banner>
+              <Banner onClick={() => history.push(`/program/kor`)}>
+                <ReadOutlined
+                  style={{
+                    fontSize: '26px',
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    marginBottom: '5px',
+                  }}>
+                  {' '}
+                  프로그램{' '}
+                </p>
+                <p style={{ fontFamily: 'payboocBold' }}> Program </p>
+              </Banner>
+
+              <Banner onClick={() => history.push(`/board/kor`)}>
+                <AlertOutlined
+                  style={{
+                    fontSize: '26px',
+                    marginBottom: '10px',
+                    marginTop: '10px',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    marginBottom: '5px',
+                  }}>
+                  {' '}
+                  공지사항{' '}
+                </p>
+                <p style={{ fontFamily: 'payboocBold' }}> News </p>
+              </Banner>
+            </Fade>
+          </BannerWrapper>
+        </CategoryWrapper>
+      </Wrapper>
+
       <div className={classes.footer}>
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "flex-end",
-            marginLeft: "15vw",
-            paddingTop: "3vh",
-            marginBottom: "3vh",
-          }}
-        >
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingTop: '3vh',
+            marginBottom: '3vh',
+          }}>
           <img src="/002.png" width="60px" height="60px" />
           <div
             style={{
-              fontSize: "16px",
-              color: "white",
-              marginBottom: "12px",
-              marginLeft: "30px",
-              fontWeight: "600",
-            }}
-          >
+              fontSize: '16px',
+              color: 'white',
+              marginBottom: '12px',
+              marginLeft: '30px',
+              fontWeight: '600',
+            }}>
             개인정보 처리방침
           </div>
           <div
             style={{
-              fontSize: "16px",
-              marginBottom: "12px",
-              marginLeft: "30px",
-              fontWeight: "600",
-            }}
-          >
+              fontSize: '16px',
+              marginBottom: '12px',
+              marginLeft: '30px',
+              fontWeight: '600',
+            }}>
             이용 약관
           </div>
           <div
             style={{
-              fontSize: "16px",
-              marginBottom: "12px",
-              marginLeft: "30px",
-              fontWeight: "600",
-            }}
-          >
+              fontSize: '16px',
+              marginBottom: '12px',
+              marginLeft: '30px',
+              fontWeight: '600',
+            }}>
             윤리 경영
           </div>
         </div>
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "flex-end",
-            marginLeft: "15vw",
-            fontWeight: "bold",
-            fontSize: "16px",
-            marginTop: "1.2vh",
-          }}
-        >
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-end',
+            fontWeight: 'bold',
+            fontSize: '16px',
+            marginTop: '1.2vh',
+            justifyContent: 'center',
+          }}>
           <div>대표전화 02.3277.6720 </div>
-          <div style={{ margin: "0px 1vw" }}>|</div>
+          <div style={{ margin: '0px 1vw' }}>|</div>
           <div>대표이메일 sunyim@isay.com </div>
-          <div style={{ margin: "0px 1vw" }}>|</div>
-          <div>
-            서울 서대문구 이화여대길 52 이화여자대학교, 교육관 A동 502호 I SAY
-            LAB{" "}
-          </div>
+          <div style={{ margin: '0px 1vw' }}>|</div>
+          <div>이화여자대학교 교육관A동 502호 </div>
         </div>
       </div>
-      <div className={classes.modal}>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-        >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <p
-                style={{
-                  fontSize: "17px",
-                  color: "#e57f16",
-                  marginLeft: "1.2vw",
-                  marginRight: "6vw",
-                  marginTop: "4vh",
-                }}
-              >
-                {message}
-              </p>
-            </div>
-          </Fade>
-        </Modal>
-      </div>
     </div>
-  );
+  )
 }
 
-export default HomeMain;
+export default withRouter(HomeMain)
