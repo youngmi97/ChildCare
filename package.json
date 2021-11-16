@@ -12,7 +12,8 @@
     "start": "nodemon index",
     "server": "npm start",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -52,12 +53,14 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.8",
-    "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "post-cli": "^1.0.5",
     "react-audio-player": "^0.14.0",
     "react-player": "^2.6.2",
     "styled-components": "^5.3.3",
     "tailwindcss": "^2.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
