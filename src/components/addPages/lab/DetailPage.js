@@ -16,7 +16,6 @@ import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
 import img11 from './parking/1.1.JPG'
 import img12 from './parking/1.2.JPG'
-import img13 from './parking/1.3.JPG'
 import img20 from './parking/2.0.png'
 import img21 from './parking/2.1.JPG'
 import img22 from './parking/2.2.JPG'
@@ -189,7 +188,7 @@ const RowImage = styled.div`
 `
 
 const images = [{ url: ewha1 }, { url: ewha2 }, { url: ewha3 }, { url: ewha4 }]
-const images1 = [{ url: img11 }, { url: img12 }, { url: img13 }]
+const images1 = [{ url: img11 }, { url: img12 }]
 const images2 = [
   { url: img21 },
   { url: img22 },
