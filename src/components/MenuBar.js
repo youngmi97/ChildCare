@@ -16,12 +16,11 @@ function MenuBar({ change }) {
   const history = useHistory()
   const [prof, setProf] = useState(false)
   const [message, setMessage] = useState('')
-  const [langState, setLangState] = useState(now)
-
-  const path = pathname === '/' ? 'home' : pathname.substr(1)
-  const [activeItem, setActiveItem] = useState(path)
   console.log(window.location.pathname.split('/'))
   let now = window.location.pathname.split('/')[1]
+  const [langState, setLangState] = useState(now)
+  const path = pathname === '/' ? 'home' : pathname.substr(1)
+  const [activeItem, setActiveItem] = useState(path)
 
   const onLanguage = () => {
     setTimeout(() => {
