@@ -59,7 +59,7 @@ function MenuBar({ change }) {
             fontSize: '25px',
             fontWeight: '600',
           }}
-          href="/">
+          href="/main/kor">
           {' '}
           <img src="/002.png" width="50px" height="50px" />
         </a>
@@ -135,7 +135,7 @@ function MenuBar({ change }) {
             fontSize: '25px',
             fontWeight: '600',
           }}
-          href="/">
+          href="/main/eng">
           {' '}
           <img src="/002.png" width="50px" height="50px" />
         </a>

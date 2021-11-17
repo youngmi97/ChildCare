@@ -206,7 +206,7 @@ function HomeMain({ match }) {
                   </Title>
                 </Paragraph>
                 <Button
-                  onClick={() => history.push(`/lab`)}
+                  onClick={() => history.push(`/lab/kor`)}
                   style={{
                     borderColor: 'goldenrod',
                     color: 'goldenrod',

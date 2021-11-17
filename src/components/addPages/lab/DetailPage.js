@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import FadeIn from 'react-fade-in'
-import ProfessorImage from './professor.jpg'
+import ProfessorImage from './dongsunyim.jpeg'
 import ProfessorImage3 from './professor3.jpg'
 import ewha1 from './ewha1.jpeg'
 import ewha2 from './ewha2.jpg'
@@ -14,12 +14,26 @@ import Parking from './parking.png'
 import ParkingEng from './parkingEng.png'
 import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
-import img11 from './parking/1.1.jpg'
-import img12 from './parking/1.2.jpg'
-import img13 from './parking/1.3.jpg'
+import img11 from './parking/1.1.JPG'
+import img12 from './parking/1.2.JPG'
+import img13 from './parking/1.3.JPG'
 import img20 from './parking/2.0.png'
+import img21 from './parking/2.1.JPG'
+import img22 from './parking/2.2.JPG'
+import img23 from './parking/2.3.JPG'
+import img24 from './parking/2.4.jpg'
+import img25 from './parking/2.5.jpg'
 import img30 from './parking/3.0.png'
+import img31 from './parking/3.1.JPG'
+import img32 from './parking/3.2.jpg'
+import img33 from './parking/3.3.JPG'
+import img34 from './parking/3.4.JPG'
+import img35 from './parking/3.5.jpg'
 import img40 from './parking/4.0.png'
+import img41 from './parking/4.1.JPG'
+import img42 from './parking/4.2.JPG'
+import img43 from './parking/4.3.JPG'
+import img44 from './parking/4.4.JPG'
 import img20eng from './parking/2.0eng.png'
 import img30eng from './parking/3.0eng.png'
 import img40eng from './parking/4.0eng.png'
@@ -111,8 +125,8 @@ const WelcomeImage = styled.image`
   background-repeat: no-repeat;
   width: 300px;
   height: 400px;
-  border-radius: 10px;
   margin-bottom: 10px;
+  margin-right: 30px;
 `
 
 const DicImage = styled.image`
@@ -149,7 +163,7 @@ const ParkingImage = styled.image`
   }
 `
 const WelcomeText = styled.div`
-  width: 60%;
+  width: 50%;
   height: 100%;
   border-radius: 10px;
   background-color: white;
@@ -176,7 +190,15 @@ const RowImage = styled.div`
 
 const images = [{ url: ewha1 }, { url: ewha2 }, { url: ewha3 }, { url: ewha4 }]
 const images1 = [{ url: img11 }, { url: img12 }, { url: img13 }]
-
+const images2 = [
+  { url: img21 },
+  { url: img22 },
+  { url: img23 },
+  { url: img24 },
+  { url: img25 },
+]
+const images3 = [{ url: img31 }, { url: img33 }, { url: img34 }]
+const images4 = [{ url: img41 }, { url: img42 }, { url: img43 }, { url: img44 }]
 function DetailPage({ num, lang }) {
   const { Title, Paragraph, Text, Link } = Typography
 
@@ -337,7 +359,7 @@ function DetailPage({ num, lang }) {
                   }}>
                   {lang == 'kor'
                     ? '임동선(대표, 언어재활사)'
-                    : 'Dongsun Yim (CEO, Speech-Language Pathologist) '}
+                    : 'Dongsun Yim (CEO) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -406,7 +428,7 @@ function DetailPage({ num, lang }) {
               <ColumnWrapper>
                 <WelcomeImage src={ProfessorImage3} />
                 <Title
-                  level={4}
+                  level={5}
                   style={{
                     fontFamily: 'payboocExtraBold',
                     textAlign: 'center',
@@ -665,7 +687,7 @@ function DetailPage({ num, lang }) {
                 <SimpleImageSlider
                   width={280}
                   height={400}
-                  images={images1}
+                  images={images2}
                   showBullets={true}
                   showNavs={true}
                   style={{ marginTop: '10px', marginBottom: '10px' }}
@@ -692,7 +714,7 @@ function DetailPage({ num, lang }) {
                 <SimpleImageSlider
                   width={280}
                   height={400}
-                  images={images1}
+                  images={images3}
                   showBullets={true}
                   showNavs={true}
                   style={{ marginTop: '10px', marginBottom: '10px' }}
@@ -719,7 +741,7 @@ function DetailPage({ num, lang }) {
                 <SimpleImageSlider
                   width={280}
                   height={400}
-                  images={images1}
+                  images={images4}
                   showBullets={true}
                   showNavs={true}
                   style={{ marginTop: '10px', marginBottom: '10px' }}

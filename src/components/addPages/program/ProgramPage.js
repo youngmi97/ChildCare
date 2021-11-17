@@ -105,12 +105,15 @@ function ProgramPage({ match }) {
             <TextColumnWrapper>
               <TextWrapper size="25">
                 {' '}
-                프로그램 소개 <br />
+                {lang == 'kor' ? ' 프로그램 소개' : 'Program'}
+                <br />
                 <br />{' '}
               </TextWrapper>
               <TextWrapper size="17">
                 {' '}
-                ISayLab의 프로그램을 소개합니다.{' '}
+                {lang == 'kor'
+                  ? ' ISayLab의 프로그램을 소개합니다.'
+                  : 'Look around the ISayLab`s program.'}{' '}
               </TextWrapper>
             </TextColumnWrapper>
           </ImageWrapper>
@@ -131,7 +134,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              언어발달 평가 및 언어지원
+              {lang == 'kor'
+                ? '언어발달 평가 및 언어지원'
+                : 'Language development evaluation'}
             </Button>
             <Button
               onClick={() => {
@@ -148,7 +153,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              언어발달 전문가와 함께 하는 책읽기
+              {lang == 'kor'
+                ? '언어발달 전문가와 함께 하는 책읽기'
+                : 'Book reading with experts'}
             </Button>
             <Button
               onClick={() => {
@@ -165,7 +172,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              자녀의 언어발달을 촉진하기 위한 부모 코칭
+              {lang == 'kor'
+                ? '자녀의 언어발달을 촉진하기 위한 부모 코칭'
+                : 'Parent coaching '}
             </Button>
             <Button
               onClick={() => {
@@ -182,7 +191,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              언어발달 관련 영역 전문가 교육
+              {lang == 'kor'
+                ? '언어발달 관련 영역 전문가 교육'
+                : 'Language area expert training'}
             </Button>
             <Button
               onClick={() => {
@@ -199,7 +210,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              주말프로그램: 책과 함께하는 휴식 시간
+              {lang == 'kor'
+                ? '주말프로그램: 책과 함께하는 휴식 시간'
+                : 'Weekend: Break Time with Books'}
             </Button>
             <Button
               onClick={() => {
@@ -216,7 +229,9 @@ function ProgramPage({ match }) {
                 backgroundColor: '#F9BE00',
                 marginBottom: '1px',
               }}>
-              특별프로그램: 여름/겨울방학 책읽기 캠프
+              {lang == 'kor'
+                ? ' 특별프로그램: 여름/겨울방학 책읽기 캠프'
+                : 'Special: Summer/Winter Vacation Reading Camp'}
             </Button>
           </ColumnWrapper>
         </RowWrapper>

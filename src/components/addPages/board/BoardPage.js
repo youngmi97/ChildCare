@@ -152,12 +152,15 @@ function BoardPage({ match }) {
             <TextColumnWrapper>
               <TextWrapper size="25">
                 {' '}
-                연구소 게시판 <br />
+                {lang == 'kor' ? ' 연구소 게시판' : 'Board'}
+                <br />
                 <br />{' '}
               </TextWrapper>
               <TextWrapper size="18">
                 {' '}
-                ISayLab 새로운 소식을 확인해보세요.{' '}
+                {lang == 'kor'
+                  ? ' ISayLab 새로운 소식을 확인해보세요.'
+                  : 'Check out ISayLAb`s news.'}{' '}
               </TextWrapper>
             </TextColumnWrapper>
           </ImageWrapper>
