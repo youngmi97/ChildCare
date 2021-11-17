@@ -16,6 +16,7 @@ import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
 import img11 from './parking/1.1.JPG'
 import img12 from './parking/1.2.JPG'
+import img13 from './parking/1.3.JPG'
 import img20 from './parking/2.0.png'
 import img21 from './parking/2.1.JPG'
 import img22 from './parking/2.2.JPG'
@@ -24,10 +25,8 @@ import img24 from './parking/2.4.jpg'
 import img25 from './parking/2.5.jpg'
 import img30 from './parking/3.0.png'
 import img31 from './parking/3.1.JPG'
-import img32 from './parking/3.2.jpg'
 import img33 from './parking/3.3.JPG'
 import img34 from './parking/3.4.JPG'
-import img35 from './parking/3.5.jpg'
 import img40 from './parking/4.0.png'
 import img41 from './parking/4.1.JPG'
 import img42 from './parking/4.2.JPG'
@@ -188,7 +187,7 @@ const RowImage = styled.div`
 `
 
 const images = [{ url: ewha1 }, { url: ewha2 }, { url: ewha3 }, { url: ewha4 }]
-const images1 = [{ url: img11 }, { url: img12 }]
+const images1 = [{ url: img11 }, { url: img12 }, { url: img13 }]
 const images2 = [
   { url: img21 },
   { url: img22 },
