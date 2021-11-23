@@ -141,7 +141,6 @@ function HomeMain({ match }) {
   const { Title, Paragraph, Text, Link } = Typography
   const classes = useStyles()
   const history = useHistory()
-
   useEffect(() => {
     window.scrollTo(0, 0)
   })

@@ -583,8 +583,8 @@ function DetailPage({ num, lang }) {
           <DirectionWrapper>
             <FadeIn>
               <RowImage>
-                <DicImage src={dic1} />
-                <DicImage src={dic2} />
+                <DicImage src={'https://ifh.cc/g/SEydLP.png'} />
+                <DicImage src={'https://ifh.cc/g/hdCvBZ.png'} />
               </RowImage>
             </FadeIn>
           </DirectionWrapper>
@@ -601,7 +601,13 @@ function DetailPage({ num, lang }) {
         <ContentsWrapper>
           <ParkingWrapper>
             <ColumnWrapper>
-              <ParkingImage src={lang == 'kor' ? Parking : ParkingEng} />
+              <ParkingImage
+                src={
+                  lang == 'kor'
+                    ? 'https://ifh.cc/g/igxQUV.png'
+                    : 'https://ifh.cc/g/LkGufO.png'
+                }
+              />
             </ColumnWrapper>
 
             <ParkingText style={{ marginTop: '20px' }}>
