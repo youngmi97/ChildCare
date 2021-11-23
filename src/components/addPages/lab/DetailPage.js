@@ -52,6 +52,7 @@ const ContentsWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  margin-bottom: 5%;
 `
 const ContentsWrapper2 = styled.div`
   display: flex;
@@ -186,7 +187,12 @@ const RowImage = styled.div`
   align-items: center;
 `
 
-const images = [{ url: ewha1 }, { url: ewha2 }, { url: ewha3 }, { url: ewha4 }]
+const images = [
+  { url: 'https://ifh.cc/g/SEydLP.png' },
+  { url: 'https://ifh.cc/g/SEydLP.png' },
+  { url: 'https://ifh.cc/g/SEydLP.png' },
+  { url: 'https://ifh.cc/g/SEydLP.png' },
+]
 const images1 = [{ url: img11 }, { url: img12 }, { url: img13 }]
 const images2 = [
   { url: img21 },
@@ -197,9 +203,9 @@ const images2 = [
 ]
 const images3 = [{ url: img31 }, { url: img33 }, { url: img34 }]
 const images4 = [{ url: img41 }, { url: img42 }, { url: img43 }, { url: img44 }]
+
 function DetailPage({ num, lang }) {
   const { Title, Paragraph, Text, Link } = Typography
-
   if (num == 1) {
     return (
       <Wrapper>
@@ -348,7 +354,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={ProfessorImage} />
+                <WelcomeImage src={'https://ifh.cc/g/HPaLuK.jpg'} />
                 <Title
                   level={5}
                   style={{
