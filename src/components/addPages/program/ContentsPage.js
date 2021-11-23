@@ -422,7 +422,7 @@ function ContentsPage({ num, lang }) {
                 </li>
                 <li>
                   {lang == 'kor'
-                    ? '월~금 3시간, 3주 간 진행(주차 선택 가능)'
+                    ? '월~금 매일 3시간(오전), 3주 간 진행(주차 선택 가능)'
                     : 'The program runs for 3 hours a day for 3 weeks from Monday to Friday (Program week can be selected)'}
                 </li>
                 <li>

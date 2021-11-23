@@ -249,34 +249,6 @@ function ProgramPage({ match }) {
             marginBottom: '3vh',
           }}>
           <img src="/002.png" width="60px" height="60px" />
-          <div
-            style={{
-              fontSize: '16px',
-              color: 'white',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            개인정보 처리방침
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            이용 약관
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            윤리 경영
-          </div>
         </div>
         <div
           style={{
@@ -288,11 +260,11 @@ function ProgramPage({ match }) {
             marginTop: '1.2vh',
             justifyContent: 'center',
           }}>
-          <div>대표전화 02.3277.6720 </div>
+          <div>대표이메일 isaylab2020@gmail.com</div>
           <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>대표이메일 sunyim@isay.com </div>
-          <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>이화여자대학교 교육관A동 502호 </div>
+          <div>
+            주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층{' '}
+          </div>
         </div>
       </div>
     </div>

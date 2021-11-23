@@ -97,7 +97,7 @@ function MenuBar({ change }) {
               fontWeight: '600',
               fontFamily: 'payboocExtraBold',
             }}
-            name="게시판"
+            name="연구소 소식"
             onClick={() => history.push(`/board/kor`)}
           />
           <Menu.Item
@@ -173,7 +173,7 @@ function MenuBar({ change }) {
               fontWeight: '600',
               fontFamily: 'payboocExtraBold',
             }}
-            name="Board"
+            name="News"
             onClick={() => history.push(`/board/eng`)}
           />
           <Menu.Item

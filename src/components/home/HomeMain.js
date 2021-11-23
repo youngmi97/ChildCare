@@ -8,6 +8,7 @@ import Welcome from './welcome.jpg'
 import { Typography, Divider, Button } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { HomeOutlined, ReadOutlined, AlertOutlined } from '@ant-design/icons'
+import { FcHome, FcNews, FcGenealogy } from 'react-icons/fc'
 import { withRouter } from 'react-router'
 import Fade from 'react-reveal/Fade'
 import FadeIn from 'react-fade-in'
@@ -128,6 +129,10 @@ const Banner = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  &:hover {
+    background-color: #f9be00;
+    cursor: pointer;
+  }
 `
 
 function HomeMain({ match }) {
@@ -165,12 +170,12 @@ function HomeMain({ match }) {
             </TextWrapper>
             <DetailWrapper>
               {lang == 'kor'
-                ? '아이세이 언어연구소는 언어발달을 역동적으로 습득하는 시기에 아동이타고난 잠재력과 다양한 언어적 활동을 통해 아동의 환경을 최적화하여,아동의 언어 및 뇌인지 발달이 극대화되고 학습에 연결될 수 있는 방법을 끊임없이 연구하고 있는 Think Tank(지식공동체)입니다.'
+                ? '아이세이 언어연구소는 언어발달을 역동적으로 습득하는 시기에 아동이 타고난 잠재력과 다양한 언어적 활동을 통해 아동의 환경을 최적화하여,아동의 언어 및 뇌인지 발달이 극대화되고 학습에 연결될 수 있는 방법을 끊임없이 연구하고 있는 Think Tank(지식공동체)입니다.'
                 : 'I Say Lab is a Think Tank (Communities of Practice) constantly discovering ways to maximize children’s language and cognitive brain Development. We aim to connect children to learning by optimizing the child’s environment and their innate potential through various linguistic activities at a time when language development is dynamically acquired.'}
               <br /> <br />
               <br />
               {lang == 'kor'
-                ? ' 아이세이 언어연구소는 언어를 한참 배우고 언어 활동을 좋아하는 아동또는 언어발달이 조금 느린 아동, 두 언어를 사용하는 이중언어 아동모두를 환영합니다. 아이세이 언어연구소는 모든 아동들이 즐겁게 언어를사용하는 방법을 배우고, 타인과의 의사소통에서 자신의 잠재력을 온전히발휘할 수 있도록 돕는 역할을 하고자 합니다. 다년 간의 연구를 통해축적한 이론적 배경과 특허 기반 프로그램은 아이세이 언어연구소에서만 제공할 수 있는 특화된 기술로, 아동의 언어 능력의 정확한 평가와 효과적인 언어 지원 서비스를 제공합니다.'
+                ? ' 아이세이 언어연구소는 언어를 한참 배우고 언어 활동을 좋아하는 아동 또는 언어발달이 조금 느린 아동, 두 언어를 사용하는 이중언어 아동 모두를 환영합니다. 아이세이 언어연구소는 모든 아동들이 즐겁게 언어를 사용하는 방법을 배우고, 타인과의 의사소통에서 자신의 잠재력을 온전히 발휘할 수 있도록 돕는 역할을 하고자 합니다. 다년 간의 연구를 통해 축적한 이론적 배경과 특허 기반 프로그램은 아이세이 언어연구소에서만 제공할 수 있는 특화된 기술로, 아동의 언어 능력의 정확한 평가와 효과적인 언어 지원 서비스를 제공합니다.'
                 : 'I Say Lab welcomes all children who are actively learning language and interested in language activities, including children who are slow in language development, and bilingual children who speak two languages. I Say Lab aims to help all children learn how to use language in a fun way and to reach their full potential in communicating with others. I Say Lab provides specialized technologies and patent-based programs developed through many years of research and in alignment with theoretical backgrounds, offering an accurate evaluation of children’s language skills and effective language support services.'}
             </DetailWrapper>
           </Fade>
@@ -201,7 +206,7 @@ function HomeMain({ match }) {
                       fontFamily: 'payboocLight',
                     }}>
                     {lang == 'kor'
-                      ? ' 한국연구재단의 지원으로 다년 간 책읽기 연구를 진행해온 연구팀이 국내외 우수한 학술지들에 발표한 연구 결과를 아낌없이 공유합니다. 임동선 교수를 비롯한 여러 연구진에 대해서 알아보세요.'
+                      ? '한국연구재단의 지원으로 다년 간 언어발달 및 언어처리 능력에 대한 연구를 진행해 온 연구팀이 국내외 우수한 학술지에 발표한 연구 결과를 아낌없이 공유합니다. 임동선 교수님을 비롯한 여러 연구진에 대해서 알아보세요.'
                       : 'The research team, who have been conducting research on reading for many years with the support of the National Research Foundation of Korea, incorporates the research findings published in excellent international and domestic academic journals into this program. Learn about Professor Dongsun Yim  and other researchers.'}
                   </Title>
                 </Paragraph>
@@ -248,11 +253,11 @@ function HomeMain({ match }) {
           <BannerWrapper>
             <Fade bottom cascade>
               <Banner onClick={() => history.push(`/lab/kor`)}>
-                <HomeOutlined
+                <FcHome
                   style={{
-                    fontSize: '26px',
-                    marginBottom: '10px',
+                    fontSize: '40px',
                     marginTop: '10px',
+                    marginLeft: '30px',
                   }}
                 />
                 <p
@@ -266,11 +271,11 @@ function HomeMain({ match }) {
                 <p style={{ fontFamily: 'payboocBold' }}> Lab </p>
               </Banner>
               <Banner onClick={() => history.push(`/program/kor`)}>
-                <ReadOutlined
+                <FcGenealogy
                   style={{
-                    fontSize: '26px',
-                    marginBottom: '10px',
+                    fontSize: '40px',
                     marginTop: '10px',
+                    marginLeft: '30px',
                   }}
                 />
                 <p
@@ -285,11 +290,11 @@ function HomeMain({ match }) {
               </Banner>
 
               <Banner onClick={() => history.push(`/board/kor`)}>
-                <AlertOutlined
+                <FcNews
                   style={{
-                    fontSize: '26px',
-                    marginBottom: '10px',
+                    fontSize: '40px',
                     marginTop: '10px',
+                    marginLeft: '30px',
                   }}
                 />
                 <p
@@ -317,34 +322,6 @@ function HomeMain({ match }) {
             marginBottom: '3vh',
           }}>
           <img src="/002.png" width="60px" height="60px" />
-          <div
-            style={{
-              fontSize: '16px',
-              color: 'white',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            개인정보 처리방침
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            이용 약관
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            윤리 경영
-          </div>
         </div>
         <div
           style={{
@@ -356,11 +333,11 @@ function HomeMain({ match }) {
             marginTop: '1.2vh',
             justifyContent: 'center',
           }}>
-          <div>대표전화 02.3277.6720 </div>
+          <div>대표이메일 isaylab2020@gmail.com</div>
           <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>대표이메일 sunyim@isay.com </div>
-          <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>이화여자대학교 교육관A동 502호 </div>
+          <div>
+            주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층{' '}
+          </div>
         </div>
       </div>
     </div>

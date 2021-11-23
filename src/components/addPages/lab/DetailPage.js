@@ -14,7 +14,8 @@ import Parking from './parking.png'
 import ParkingEng from './parkingEng.png'
 import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
-
+import img11 from './parking/1.1.JPG'
+import img12 from './parking/1.2.JPG'
 import img13 from './parking/1.3.JPG'
 import img20 from './parking/2.0.png'
 import img21 from './parking/2.1.JPG'
@@ -186,7 +187,7 @@ const RowImage = styled.div`
 `
 
 const images = [{ url: ewha1 }, { url: ewha2 }, { url: ewha3 }, { url: ewha4 }]
-const images1 = [{ url: img13 }]
+const images1 = [{ url: img11 }, { url: img12 }, { url: img13 }]
 const images2 = [
   { url: img21 },
   { url: img22 },
@@ -349,14 +350,14 @@ function DetailPage({ num, lang }) {
               <ColumnWrapper>
                 <WelcomeImage src={ProfessorImage} />
                 <Title
-                  level={4}
+                  level={5}
                   style={{
                     fontFamily: 'payboocExtraBold',
                     textAlign: 'center',
                   }}>
                   {lang == 'kor'
-                    ? '임동선(대표, 언어재활사)'
-                    : 'Dongsun Yim (CEO) '}
+                    ? '임동선(대표, CCC-SLP, 1급 언어재활사)'
+                    : 'Dongsun Yim (CEO, CCC-SLP, Lv1-SLP  ) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -431,8 +432,8 @@ function DetailPage({ num, lang }) {
                     textAlign: 'center',
                   }}>
                   {lang == 'kor'
-                    ? '김신영(사내이사)'
-                    : 'Shinyoung Kim (Executive Director) '}
+                    ? '김신영(1급 언어재활사)'
+                    : 'Shinyoung Kim (Lv1-SLP) '}
                 </Title>
               </ColumnWrapper>
             </Fade>

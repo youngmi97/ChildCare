@@ -227,34 +227,6 @@ function BoardPage({ match }) {
             marginBottom: '3vh',
           }}>
           <img src="/002.png" width="60px" height="60px" />
-          <div
-            style={{
-              fontSize: '16px',
-              color: 'white',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            개인정보 처리방침
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            이용 약관
-          </div>
-          <div
-            style={{
-              fontSize: '16px',
-              marginBottom: '12px',
-              marginLeft: '30px',
-              fontWeight: '600',
-            }}>
-            윤리 경영
-          </div>
         </div>
         <div
           style={{
@@ -266,11 +238,11 @@ function BoardPage({ match }) {
             marginTop: '1.2vh',
             justifyContent: 'center',
           }}>
-          <div>대표전화 02.3277.6720 </div>
+          <div>대표이메일 isaylab2020@gmail.com</div>
           <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>대표이메일 sunyim@isay.com </div>
-          <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>이화여자대학교 교육관A동 502호 </div>
+          <div>
+            주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층{' '}
+          </div>
         </div>
       </div>
     </div>
@@ -299,7 +271,7 @@ let newsData = [
     contents:
       '2020년 11월 이화여자대학교 기술지주회사 자회사로서 이화여자대학교에서 작은 연구소로 시작한 I Say Lab이 강남구 압구정동으로 확장 이전하여 새롭게 시작합니다. 찾아오시는 모든 분들이 늘 설레고 즐거운 마음으로 오실 수 있는 I Say Lab이 되기를 기대하는 마음으로, 아이들과 부모님들이 모두 편안하고 친밀하게 느낄 수 있는 공간으로 새단장했습니다. I Say Lab의 문을 열고 들어오시면 최고의 언어발달 전문가들이 진심을 다해 맞이해드릴 것입니다.',
     contentsEng:
-      'I Say Lab, which started as a small research institute at Ewha Womans University as a subsidiary of Ewha Womans University`s technology holding company in November 2020, will expand and move to Apgujeong-dong, Gangnam-gu.With anticipation of making I Say Lab a place where everyone can visit with excitement and joy, we have refurbished it into a space where both children and parents can enjoy and feel comfortable.When you enter the I Say Lab, the best language development experts will greet you with all their hearts.',
+      'I Say Lab, which started as a small research institute at Ewha Womans University as a subsidiary of Ewha Womans University`s technology holding company in November 2020, will expand and move to Apgujeong-dong, Gangnam-gu. With anticipation of making I Say Lab a place where everyone can visit with excitement and joy, we have refurbished it into a space where both children and parents can enjoy and feel comfortable. When you enter the I Say Lab, the best language development experts will greet you with all their hearts.',
   },
   {
     date: '2021-12-01',
@@ -307,8 +279,8 @@ let newsData = [
     theme: '아이세이 연구소',
     title: '주차 안내(Parking guide)',
     contents:
-      'I Say Lab은 금강아케이드(서울특별시 강남구 압구정로 29길 68) 2층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 주차와 관련된 구체적인 내용은 I Say Lab 홈페이지의 첫 화면에서 ‘찾아오시는 길’과 ‘주차 안내‘ 메뉴를 확인해 주시기 바랍니다.',
+      'I Say Lab은 금강아케이드(서울특별시 강남구 압구정로 29길 68) 2층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 주차와 관련된 구체적인 내용은 I Say Lab 홈페이지에서 ‘연구소 소개’의 ‘오시는 길‘ 메뉴를 확인해 주시기 바랍니다.',
     contentsEng:
-      'I Say Lab is located on the second floor of Geumgang Arcade (68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul), and there are commercial or free parking spaces around the building.For more parking information, please check the “Directions" and "Parking Guide" menus on the first screen of the I Say Lab website.',
+      'I Say Lab is located on the second floor of Geumgang Arcade (68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul), and there are commercial or free parking spaces around the building. For more parking information, please check the “Directions" and "Parking Guide" menus on the first screen of the I Say Lab website.',
   },
 ]
