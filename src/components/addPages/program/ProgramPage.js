@@ -70,6 +70,7 @@ const TextWrapper = styled.div`
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
   margin-right: 30px;
+  margin-bottom: 5%;
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: row;

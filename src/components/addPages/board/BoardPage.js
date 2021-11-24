@@ -5,7 +5,6 @@ import '../../../App.css'
 import styled from 'styled-components'
 import 'antd/dist/antd.css'
 import { Button, Table, Modal, Typography } from 'antd'
-import BackgroundImage from './Main1.jpg'
 import Fade from 'react-reveal/Fade'
 
 const useStyles = makeStyles(theme => ({
@@ -148,7 +147,7 @@ function BoardPage({ match }) {
       <Wrapper>
         <MenuBar change={lang} />
         <RowWrapper>
-          <ImageWrapper src={BackgroundImage}>
+          <ImageWrapper src={'https://ifh.cc/g/whcUsM.jpg'}>
             <TextColumnWrapper>
               <TextWrapper size="25">
                 {' '}

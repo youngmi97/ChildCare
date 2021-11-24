@@ -1,16 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-import Modal from '@material-ui/core/Modal'
-import Backdrop from '@material-ui/core/Backdrop'
-import Fade from '@material-ui/core/Fade'
 
 import { useHistory } from 'react-router-dom'
 
-import { AuthContext } from '../context/auth'
-
 function MenuBar({ change }) {
-  const { user, logout } = useContext(AuthContext)
   const pathname = window.location.pathname
   const [open, setOpen] = useState(false)
   const history = useHistory()
@@ -20,7 +13,6 @@ function MenuBar({ change }) {
   let now = window.location.pathname.split('/')[1]
   const [langState, setLangState] = useState(now)
   const path = pathname === '/' ? 'home' : pathname.substr(1)
-  const [activeItem, setActiveItem] = useState(path)
 
   const onLanguage = () => {
     setTimeout(() => {
@@ -57,10 +49,14 @@ function MenuBar({ change }) {
             color: '#FFFFFF',
             fontSize: '25px',
             fontWeight: '600',
-          }}
-          href="/main/kor">
+          }}>
           {' '}
-          <img src="/002.png" width="50px" height="50px" />
+          <img
+            src="/002.png"
+            width="50px"
+            height="50px"
+            onClick={() => history.push(`/main/kor`)}
+          />
         </a>
 
         <Menu.Menu position="right" style={{ marginRight: '30px' }}>

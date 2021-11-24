@@ -36,7 +36,7 @@ class AmchartsEng extends Component {
         category: '',
         year: '4',
         size: 12,
-        text: 'Commercialization and Technology development',
+        text: 'Technology development',
       },
       {
         category: '',

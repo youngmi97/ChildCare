@@ -1,8 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Modal from '@material-ui/core/Modal'
-import Backdrop from '@material-ui/core/Backdrop'
-import Fade from '@material-ui/core/Fade'
 import MenuBar from '../../MenuBar'
 import '../../../App.css'
 import styled from 'styled-components'
@@ -69,6 +66,7 @@ const TextWrapper = styled.div`
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
   margin-right: 30px;
+  margin-bottom: 5%;
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: row;

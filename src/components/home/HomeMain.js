@@ -11,7 +11,6 @@ import { HomeOutlined, ReadOutlined, AlertOutlined } from '@ant-design/icons'
 import { FcHome, FcNews, FcGenealogy } from 'react-icons/fc'
 import { withRouter } from 'react-router'
 import Fade from 'react-reveal/Fade'
-import FadeIn from 'react-fade-in'
 
 const useStyles = makeStyles(theme => ({
   modal: {},
@@ -37,14 +36,14 @@ const ImageWrapper = styled.image`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 50px;
 `
 
 const TextWrapper = styled.div`
   color: ${props => props.color || 'black'};
   font-size: ${props => props.size || 12}px;
   font-weight: ${props => props.weight || 'bold'};
-  margin-top: ${props => props.margin || '30px'};
+  margin-top: ${props => props.margin || '50px'};
   font-family: 'payboocExtraBold';
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 10 || 12}px;

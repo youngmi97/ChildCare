@@ -15,6 +15,7 @@ function ContentsPage({ num, lang }) {
                 ? '언어발달 평가 및 언어지원 프로그램'
                 : 'Language development evaluation and language support program '}
             </Title>
+            <br /> <br />
             <Paragraph>
               <Title level={5}>
                 {lang == 'kor'
@@ -22,7 +23,6 @@ function ContentsPage({ num, lang }) {
                   : 'A team of experts with master`s and doctoral degrees from the Department of Communication Disorders at Ewha Womans University provides personalized language support services based on abundant clinical experience and research findings published in excellent domestic and foreign academic journals.The CEO of I Say Lab with level 1 Korean SLP certificates, and American Speech-Language Learning Association (CCC-SLP) certificates, as well as experts with nationally recognized speech-language therapy certificates in Korea, work together to provide optimal language therapy education services tailored to each child. I Say Lab offers the most effective and efficient speech therapy education services provided by excellent professionals.'}
               </Title>
             </Paragraph>
-            <br />
             <br />
             <Divider />
             <Paragraph>
@@ -64,6 +64,8 @@ function ContentsPage({ num, lang }) {
                 ? '언어발달 전문가와 함께 하는 책읽기 프로그램 (한국어 및 영어)'
                 : 'Book reading program with language development experts (Korean and English) '}
             </Title>
+            <br />
+            <br />
             <Paragraph>
               <Title level={5}>
                 {lang == 'kor'
@@ -72,7 +74,7 @@ function ContentsPage({ num, lang }) {
               </Title>
             </Paragraph>
             <br />
-            <br />
+
             <Divider />
             <Paragraph>
               <Title level={3}>
@@ -159,6 +161,8 @@ function ContentsPage({ num, lang }) {
               ? '자녀의 언어발달을 촉진하기 위한 부모 코칭 프로그램'
               : 'Parent coaching program to promote children`s language development '}
           </Title>
+          <br />
+          <br />
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
@@ -166,7 +170,7 @@ function ContentsPage({ num, lang }) {
                 : 'Based on abundant research and clinical experience, this program provides parents with specific methods that can help their child`s language development in everyday life. I Say Lab will inform you how to maximize language development in daily life and how to use storybooks that are easy to carry and access at home and educational institutions for children`s language development. The program is not limited to only parents with children but also available to prospective parents who are about to give birth, and it will help all parents interested in their children`s language development, including parents of children in bilingual environments such as multicultural families and parents of children who are delayed in language development compared to their peers.'}
             </Title>
           </Paragraph>
-          <br />
+
           <br />
           <Divider />
           <Paragraph>
@@ -242,6 +246,8 @@ function ContentsPage({ num, lang }) {
               ? '언어발달 관련 영역 전문가 교육 프로그램'
               : 'Language development-related area expert training program'}
           </Title>
+          <br />
+          <br />
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
@@ -250,7 +256,7 @@ function ContentsPage({ num, lang }) {
             </Title>
           </Paragraph>
           <br />
-          <br />
+
           <Divider />
           <Paragraph>
             <Title level={3}>
@@ -278,7 +284,7 @@ function ContentsPage({ num, lang }) {
               </ul>
             </Paragraph>
           </Paragraph>
-          <br />
+
           <br />
           <Divider />
           <Paragraph>
@@ -314,6 +320,8 @@ function ContentsPage({ num, lang }) {
               ? '주말 프로그램: 책과 함께하는 휴식 시간'
               : 'Weekend Program: Break Time with Books'}
           </Title>
+          <br />
+          <br />
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
@@ -322,7 +330,7 @@ function ContentsPage({ num, lang }) {
             </Title>
           </Paragraph>
           <br />
-          <br />
+
           <Divider />
           <Paragraph>
             <Paragraph>
@@ -391,6 +399,8 @@ function ContentsPage({ num, lang }) {
               ? '특별 프로그램: 여름/겨울방학 책읽기 캠프 (한국어 및 영어)'
               : 'Special Program: Summer/Winter Vacation Reading Camp (Korean and English)'}
           </Title>
+          <br />
+          <br />
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
@@ -399,7 +409,7 @@ function ContentsPage({ num, lang }) {
             </Title>
           </Paragraph>
           <br />
-          <br />
+
           <Divider />
           <Paragraph>
             <Paragraph>
