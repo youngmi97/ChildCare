@@ -51,13 +51,12 @@ const TextWrapper = styled.div`
 `
 
 const DetailWrapper = styled.div`
-  background-color: rgba(237, 237, 237, 0.3);
+  background-color: rgba(237, 237, 237, 0.7);
   font-size: 13px;
   height: auto;
   width: 600px;
   margin-top: 10%;
   padding: 10px;
-  font-weight: bold;
   white-space: pre-wrap;
   font-family: 'payboocBold';
   @media (max-width: 1024px) {

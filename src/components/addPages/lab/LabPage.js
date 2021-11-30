@@ -28,13 +28,14 @@ const Wrapper = styled.div`
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  width: 70%;
-  height: 310px;
+  width: 83%;
+  height: 370px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  background-position: center;
   background-color: #f7f7f7;
 `
 
@@ -48,16 +49,17 @@ const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 30%;
+  width: 15%;
+  margin-right: 1%;
   height: 100%;
 `
 const TextColumnWrapper = styled.div`
-  display: flex;
+   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
   background-color: rgba(0, 0, 0, 0);
   height: 50px;
-  width: 50%;
-  padding: 40px;
+  font-family: 'payboocExtraBold';
 `
 
 const TextWrapper = styled.div`
@@ -65,12 +67,12 @@ const TextWrapper = styled.div`
   font-size: ${props => props.size || 12}px;
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
-  margin-right: 30px;
-  margin-bottom: 5%;
-  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 20px;
+  background-color: rgba(249, 189, 0, 0.8);
+  padding:5px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 5 || 12}px;
   }
@@ -90,34 +92,38 @@ function LabPage({ match }) {
         <MenuBar change={lang} />
         <RowWrapper>
           <ImageWrapper src={BackgroundImage}>
-            <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
-              <TextWrapper size="25">
-                {' '}
-                {lang == 'kor' ? '연구소 소개' : 'About Lab'} <br />
-                <br />{' '}
-              </TextWrapper>
-              <TextWrapper size="18">
-                {' '}
-                {lang == 'kor'
-                  ? ' ISayLab 연구소를 소개합니다.'
-                  : 'Welcome To ISayLab'}
-              </TextWrapper>
-            </TextColumnWrapper>
+           
+           
           </ImageWrapper>
           <ColumnWrapper>
+            <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
+              <TextWrapper size="19">
+                {' '}
+                {lang == 'kor' ? '연구소 소개: ' : 'About Lab : '} 
+            
+                {' '}<br />
+                <br />
+                {lang == 'kor'
+                  ? ' ISayLab을 '
+                  : 'Welcome To '}
+             
+                  {lang == 'kor'
+                  ? '소개합니다.'
+                  : 'ISayLab'}
+              </TextWrapper>
+            </TextColumnWrapper>
             <Button
               block
               onClick={() => {
                 setNumState(1)
               }}
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '60px',
+                color: 'black',
+                height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
+                fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구소 소개' : 'Lab'}
@@ -128,13 +134,12 @@ function LabPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '60px',
+                color: 'black',
+                height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
+                fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구원 소개' : 'Researchers'}
@@ -145,13 +150,12 @@ function LabPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '60px',
+                color: 'black',
+                height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
+                fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구소 전경' : 'Photo'}
@@ -162,13 +166,12 @@ function LabPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '60px',
+                color: 'black',
+                height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
+                fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '이용안내' : 'Service'}
@@ -179,13 +182,12 @@ function LabPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '60px',
+                color: 'black',
+                height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
+                fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '오시는 길' : 'Directions'}

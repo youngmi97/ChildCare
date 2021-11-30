@@ -6,7 +6,7 @@ import ProfessorImage3 from './professor3.jpg'
 import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
 import img11 from './parking/1.1.JPG'
-import img12 from './parking/1.3.JPG'
+import img12 from './parking/1.2.JPG'
 import img13 from './parking/1.3.JPG'
 import img20 from './parking/2.0.png'
 import img21 from './parking/2.1.JPG'
@@ -340,34 +340,7 @@ function DetailPage({ num, lang }) {
             {lang == 'kor' ? <AmChartEx /> : <AmchartsEng />}
           </ChartWrapper>
         </ContentsWrapper>
-        <ContentsWrapper2>
-          <Fade cascade>
-            <Paragraph style={{ fontSize: '16px' }}>
-              <ul style={{ fontFamily: 'payboocBold' }}>
-                <li style={{ marginBottom: '10px' }}>
-                  {lang == 'kor'
-                    ? '2018.12. 맞춤형 기술사업화 지원사업 선정 및 비즈니스모델 컨설팅(이화여자대학교 산학협력단)'
-                    : '2018.12. Selected as a customized technology commercialization support project and conducted business model consulting (Ewha Womans University-Industry Collaboration Foundation)'}
-                </li>
-                <li style={{ marginBottom: '10px' }}>
-                  {lang == 'kor'
-                    ? '대학 창의적 자산 실용화 지원사업 선정(세종대학교 산학협력단), 사업비 지원'
-                    : 'Selected as a university creative asset commercialization support project and received business expense support (Sejong University Industry Academy Cooperation Foundation) '}
-                </li>
-                <li style={{ marginBottom: '10px' }}>
-                  {lang == 'kor'
-                    ? '2020.09.01. 예비창업패키지 선정(중소벤처기업부), 사업비 지원'
-                    : '2020.09.01. Selected as a preliminary start-up package and received business expense support (Ministry of SMEs and Startups) '}
-                </li>
-                <li style={{ marginBottom: '10px' }}>
-                  {lang == 'kor'
-                    ? '2020.11.25. 설립(이화여자대학교 기술지주회사 자회사)'
-                    : '2020.11.25. Established business (Subsidiary of Ewha Womans University Technology Holding Company)'}
-                </li>
-              </ul>
-            </Paragraph>
-          </Fade>
-        </ContentsWrapper2>
+        
         <Divider />
         <ContentsWrapper2>
           <Typography>
@@ -847,19 +820,19 @@ function DetailPage({ num, lang }) {
                     }}>
                     {lang == 'kor' ? '1. 공영유료주차장' : '1. Commercial lot'}
                   </Text>
-                  <br />
+                  <br />   <br />
                   <Text style={{ marginBottom: '10px', fontSize: '16px' }}>
                     {lang == 'kor'
                       ? '2. 아이세이연구소 앞 도로 주차'
                       : '2. Parallel parking in front of I Say Lab (No fee)'}
                   </Text>
-                  <br />
+                  <br />   <br />
                   <Text style={{ marginBottom: '10px', fontSize: '16px' }}>
                     {lang == 'kor'
                       ? '3. 압구정 초등학교 앞 도로 주차 '
                       : '3. Parallel parking in front of Apgujeong Elementary School (No fee)'}
                   </Text>
-                  <br />
+                  <br />   <br />
                   <Text style={{ marginBottom: '10px', fontSize: '16px' }}>
                     {lang == 'kor'
                       ? '4. 금강쇼핑센터 앞 도로 주차'

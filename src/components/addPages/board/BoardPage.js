@@ -6,6 +6,19 @@ import styled from 'styled-components'
 import 'antd/dist/antd.css'
 import { Button, Table, Modal, Typography } from 'antd'
 import Fade from 'react-reveal/Fade'
+import BackgroundImage from './Main1.jpg'
+
+const ImageWrapper = styled.image`
+  background: url(${props => props.src});
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 310px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #f7f7f7;
+`
 
 const useStyles = makeStyles(theme => ({
   modal: {},
@@ -24,17 +37,7 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const ImageWrapper = styled.image`
-  background: url(${props => props.src});
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 310px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  background-color: #f7f7f7;
-`
+
 
 const RowWrapper = styled.div`
   display: flex;
@@ -59,7 +62,7 @@ const TextColumnWrapper = styled.div`
 `
 
 const TextWrapper = styled.div`
-  color: ${props => props.color || 'white'};
+  color: ${props => props.color || 'black'};
   font-size: ${props => props.size || 12}px;
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
@@ -147,7 +150,7 @@ function BoardPage({ match }) {
       <Wrapper>
         <MenuBar change={lang} />
         <RowWrapper>
-          <ImageWrapper src={'https://ifh.cc/g/whcUsM.jpg'}>
+        <ImageWrapper src={BackgroundImage}>
             <TextColumnWrapper>
               <TextWrapper size="25">
                 {' '}

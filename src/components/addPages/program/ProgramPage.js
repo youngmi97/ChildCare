@@ -31,14 +31,15 @@ const Wrapper = styled.div`
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  width: 70%;
-  height: 310px;
+  width: 75%;
+  height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  background-color: #f7f7f7;
+  background-color: #E7E6E1;
+  background-position:center ;
 `
 
 const RowWrapper = styled.div`
@@ -51,16 +52,16 @@ const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 30%;
+  width: 23%;
+  margin-right: 1%;
   height: 100%;
 `
 const TextColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 60px;
   background-color: rgba(0, 0, 0, 0);
   height: 50px;
-  width: 53%;
-  padding: 40px;
   font-family: 'payboocExtraBold';
 `
 
@@ -70,11 +71,12 @@ const TextWrapper = styled.div`
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
   margin-right: 30px;
-  margin-bottom: 5%;
-  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 20px;
+  background-color: rgba(249, 189, 0, 0.8);
+  padding:5px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 5 || 12}px;
   }
@@ -103,36 +105,34 @@ function ProgramPage({ match }) {
         <MenuBar change={lang} />
         <RowWrapper>
           <ImageWrapper src={BackgroundImage}>
-            <TextColumnWrapper>
-              <TextWrapper size="25">
-                {' '}
-                {lang == 'kor' ? ' 프로그램 소개' : 'Program'}
-                <br />
-                <br />{' '}
-              </TextWrapper>
-              <TextWrapper size="17">
-                {' '}
-                {lang == 'kor'
-                  ? ' ISayLab의 프로그램을 소개합니다.'
-                  : 'Look around the ISayLab`s program.'}{' '}
-              </TextWrapper>
-            </TextColumnWrapper>
+            
+            
           </ImageWrapper>
 
           <ColumnWrapper>
+            <TextColumnWrapper>
+              <TextWrapper size="18">
+                {lang == 'kor' ? ' 프로그램 소개 :' : 'Program :'}
+            <br />
+              <br />
+         
+                {lang == 'kor'
+                  ? ' ISayLab의 프로그램을 소개합니다.'
+                  : 'Look around the program.'}{' '}
+              </TextWrapper>
+            </TextColumnWrapper>
             <Button
               block
               onClick={() => {
                 setNumState(1)
               }}
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '50px',
+                color: 'black',
+                height: '45px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -145,13 +145,12 @@ function ProgramPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '50px',
+                color: 'black',
+                height: '45px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -164,13 +163,12 @@ function ProgramPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '50px',
+                color: 'black',
+                height: '45px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -183,13 +181,12 @@ function ProgramPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
+                color: 'black',
                 height: '50px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -202,13 +199,12 @@ function ProgramPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '50px',
+                color: 'black',
+                height: '45px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -221,18 +217,17 @@ function ProgramPage({ match }) {
               }}
               block
               style={{
-                color: 'white',
-                borderColor: '#F9BE00',
-                height: '50px',
+                color: 'black',
+                height: '45px',
                 borderRadius: '10px',
-                fontFamily: 'payboocBold',
-                fontSize: '15px',
-                backgroundColor: '#F9BE00',
+                fontFamily: 'payboocExtraBold',
+                fontSize: '13px',
+                backgroundColor: 'rgba(241, 245, 249, 0.7)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
                 ? ' 특별프로그램: 여름/겨울방학 책읽기 캠프'
-                : 'Special: Summer/Winter Vacation Reading Camp'}
+                : 'Special: Vacation Reading Camp'}
             </Button>
           </ColumnWrapper>
         </RowWrapper>
