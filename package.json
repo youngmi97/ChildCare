@@ -7,7 +7,8 @@
     "npm": ">=7.0.0"
   },
   "dependencies": {
-    "@amcharts/amcharts4": "^4.10.22",
+    "@amcharts/amcharts4": "^4.10.23",
+    "@amcharts/amcharts4-geodata": "^4.1.22",
     "@ant-design/icons": "^4.7.0",
     "@apollo/client": "^3.2.3",
     "@apollo/react-hooks": "^4.0.0",

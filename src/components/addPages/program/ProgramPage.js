@@ -112,7 +112,7 @@ function ProgramPage({ match }) {
           <ColumnWrapper>
             <TextColumnWrapper>
               <TextWrapper size="18">
-                {lang == 'kor' ? ' 프로그램 소개 :' : 'Program :'}
+                {lang == 'kor' ? ' 프로그램 소개 ' : 'Program '}
             <br />
               <br />
          

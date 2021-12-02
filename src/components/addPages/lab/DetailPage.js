@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import FadeIn from 'react-fade-in'
-import ProfessorImage3 from './professor3.jpg'
 import img10 from './parking/1.0.png'
 import img10eng from './parking/1.0eng.png'
 import img11 from './parking/1.1.JPG'
@@ -38,6 +37,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
+  margin-bottom: 5%;
 `
 const ContentsWrapper = styled.div`
   display: flex;
@@ -154,7 +154,7 @@ const WelcomeImage = styled.image`
   background-size: contain;
   background-repeat: no-repeat;
   width: 300px;
-  height: 400px;
+  height: 360px;
   margin-right: 40px;
 `
 
@@ -519,7 +519,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={ProfessorImage3} />
+                <WelcomeImage src={'https://ifh.cc/g/vt5Ker.jpg'} />
                 <Title
                   level={5}
                   style={{

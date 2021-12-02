@@ -1,191 +1,170 @@
 import React, { Component } from 'react'
 import * as am4core from '@amcharts/amcharts4/core'
-import * as am4charts from '@amcharts/amcharts4/charts'
-import * as am4plugins_timeline from '@amcharts/amcharts4/plugins/timeline'
+import * as am4maps from '@amcharts/amcharts4/maps'
+import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 import am4themes_animated from '@amcharts/amcharts4/themes/animated'
 
 class AmchartsEX extends Component {
   componentDidMount() {
-    am4core.useTheme(am4themes_animated)
-    var chart = am4core.create('chartdiv', am4plugins_timeline.CurveChart)
-    chart.curveContainer.padding(0, 100, 0, 120)
-    chart.maskBullets = false
-
-    var colorSet = new am4core.ColorSet()
-
-    chart.data = [
-      {
-        category: '',
-        year: '1',
-        size: 13,
-        text: '차별화된 언어치료서비스',
-      },
-      {
-        category: '',
-        year: '2',
-        size: 5,
-        text: '이중언어아동 특화서비스',
-      },
-      {
-        category: '',
-        year: '3',
-        size: 9,
-        text: '맞춤형 교육 프로그램',
-      },
-      {
-        category: '',
-        year: '4',
-        size: 12,
-        text: '사업화및 기술개발 네트워크 ',
-      },
-      {
-        category: '',
-        year: '5',
-        size: 3,
-        text: '접근성높은 유비쿼터스 서비스',
-      },
-    ]
-
-    chart.dateFormatter.inputDateFormat = 'yyyy'
-
-    chart.fontSize = 15
-    chart.tooltipContainer.fontSize = 11
-
-    var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis())
-    categoryAxis.dataFields.category = 'category'
-    categoryAxis.renderer.grid.template.disabled = true
-
-    var dateAxis = chart.xAxes.push(new am4charts.DateAxis())
-    dateAxis.renderer.points = [
-      { x: -400, y: 0 },
-      { x: 0, y: 50 },
-      { x: 400, y: 0 },
-    ]
-    dateAxis.renderer.polyspline.tensionX = 0.8
-    dateAxis.renderer.grid.template.disabled = true
-    dateAxis.renderer.line.strokeDasharray = '1,4'
-    dateAxis.baseInterval = { period: 'day', count: 1 } // otherwise initial animation will be not smooth
-
-    dateAxis.renderer.labels.template.disabled = true
-
-    var series = chart.series.push(new am4plugins_timeline.CurveLineSeries())
-    series.strokeOpacity = 0
-    series.dataFields.dateX = 'year'
-    series.dataFields.categoryY = 'category'
-    series.dataFields.value = 'size'
-    series.baseAxis = categoryAxis
-
-    var interfaceColors = new am4core.InterfaceColorSet()
-
-    series.tooltip.pointerOrientation = 'down'
-
-    var distance = 100
-    var angle = 60
-
-    var bullet = series.bullets.push(new am4charts.Bullet())
-
-    var line = bullet.createChild(am4core.Line)
-    line.adapter.add('stroke', function (fill, target) {
-      if (target.dataItem) {
-        return chart.colors.getIndex(target.dataItem.index + 28)
-      }
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    // Create map instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+    
+    // Set map definition
+    chart.geodata = am4geodata_worldLow;
+    
+    // Set projection
+    chart.projection = new am4maps.projections.Miller();
+    
+    // Create map polygon series
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    
+    // Exclude Antartica
+    polygonSeries.exclude = ["AQ"];
+    
+    // Make map load polygon (like country names) data from GeoJSON
+    polygonSeries.useGeodata = true;
+    
+    // Configure series
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.polygon.fillOpacity = 0.6;
+    
+    
+    // Create hover state and set alternative fill color
+    var hs = polygonTemplate.states.create("hover");
+    hs.properties.fill = chart.colors.getIndex(0);
+    
+    // Add image series
+    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+    imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+    imageSeries.mapImages.template.tooltipText = "{title}";
+    imageSeries.mapImages.template.propertyFields.url = "url";
+    
+    var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+    circle.radius = 3;
+    circle.propertyFields.fill = "color";
+    circle.nonScaling = true;
+    
+    var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+    circle2.radius = 3;
+    circle2.propertyFields.fill = "color";
+    
+    
+    circle2.events.on("inited", function(event){
+      animateBullet(event.target);
     })
+    
+    
+    function animateBullet(circle) {
+        var animation = circle.animate([{ property: "scale", from: 1 / chart.zoomLevel, to: 5 / chart.zoomLevel }, { property: "opacity", from: 1, to: 0 }], 1000, am4core.ease.circleOut);
+        animation.events.on("animationended", function(event){
+          animateBullet(event.target.object);
+        })
+    }
+    
+    var colorSet = new am4core.ColorSet();
+    
+    imageSeries.data = [ {
+      "title": "Brussels",
+      "latitude": 50.8371,
+      "longitude": 4.3676,
+      "color":colorSet.next()
+    }, {
+      "title": "Copenhagen",
+      "latitude": 55.6763,
+      "longitude": 12.5681,
+      "color":colorSet.next()
+    }, {
+      "title": "Paris",
+      "latitude": 48.8567,
+      "longitude": 2.3510,
+      "color":colorSet.next()
+    }, {
+      "title": "Reykjavik",
+      "latitude": 64.1353,
+      "longitude": -21.8952,
+      "color":colorSet.next()
+    }, {
+      "title": "Moscow",
+      "latitude": 55.7558,
+      "longitude": 37.6176,
+      "color":colorSet.next()
+    }, {
+      "title": "Madrid",
+      "latitude": 40.4167,
+      "longitude": -3.7033,
+      "color":colorSet.next()
+    }, {
+      "title": "London",
+      "latitude": 51.5002,
+      "longitude": -0.1262,
+      "url": "http://www.google.co.uk",
+      "color":colorSet.next()
+    }, {
+      "title": "Peking",
+      "latitude": 39.9056,
+      "longitude": 116.3958,
+      "color":colorSet.next()
+    }, {
+      "title": "New Delhi",
+      "latitude": 28.6353,
+      "longitude": 77.2250,
+      "color":colorSet.next()
+    }, {
+      "title": "Tokyo",
+      "latitude": 35.6785,
+      "longitude": 139.6823,
+      "url": "http://www.google.co.jp",
+      "color":colorSet.next()
+    }, {
+      "title": "Ankara",
+      "latitude": 39.9439,
+      "longitude": 32.8560,
+      "color":colorSet.next()
+    }, {
+      "title": "Buenos Aires",
+      "latitude": -34.6118,
+      "longitude": -58.4173,
+      "color":colorSet.next()
+    }, {
+      "title": "Brasilia",
+      "latitude": -15.7801,
+      "longitude": -47.9292,
+      "color":colorSet.next()
+    }, {
+      "title": "Ottawa",
+      "latitude": 45.4235,
+      "longitude": -75.6979,
+      "color":colorSet.next()
+    }, {
+      "title": "Washington",
+      "latitude": 38.8921,
+      "longitude": -77.0241,
+      "color":colorSet.next()
+    }, {
+      "title": "Kinshasa",
+      "latitude": -4.3369,
+      "longitude": 15.3271,
+      "color":colorSet.next()
+    }, {
+      "title": "Cairo",
+      "latitude": 30.0571,
+      "longitude": 31.2272,
+      "color":colorSet.next()
+    }, {
+      "title": "Pretoria",
+      "latitude": -25.7463,
+      "longitude": 28.1876,
+      "color":colorSet.next()
+    } ];
 
-    line.x1 = 0
-    line.y1 = 0
-    line.y2 = 0
-    line.x2 = distance - 10
-    line.strokeDasharray = '1,3'
-
-    var circle = bullet.createChild(am4core.Circle)
-    circle.radius = 30
-    circle.fillOpacity = 1
-    circle.strokeOpacity = 0
-
-    var circleHoverState = circle.states.create('hover')
-    circleHoverState.properties.scale = 1.3
-
-    series.heatRules.push({
-      target: circle,
-      min: 20,
-      max: 50,
-      property: 'radius',
-    })
-    circle.adapter.add('fill', function (fill, target) {
-      if (target.dataItem) {
-        return chart.colors.getIndex(target.dataItem.index + 28)
-      }
-    })
-    circle.tooltipText = '{year}.{text}'
-    circle.adapter.add('tooltipY', function (tooltipY, target) {
-      return -target.pixelRadius - 4
-    })
-
-    var yearLabel = bullet.createChild(am4core.Label)
-    yearLabel.text = '{year}'
-    yearLabel.strokeOpacity = 0
-    yearLabel.fill = am4core.color('#fff')
-    yearLabel.horizontalCenter = 'middle'
-    yearLabel.verticalCenter = 'middle'
-    yearLabel.interactionsEnabled = false
-
-    var label = bullet.createChild(am4core.Label)
-    label.propertyFields.text = 'text'
-    label.strokeOpacity = 0
-    label.horizontalCenter = 'right'
-    label.verticalCenter = 'middle'
-    label.fontSize = 13
-    label.fontFamily = 'payboocBold'
-
-    label.adapter.add('opacity', function (opacity, target) {
-      if (target.dataItem) {
-        var index = target.dataItem.index
-        var line = target.parent.children.getIndex(0)
-
-        if (index % 2 == 0) {
-          target.y = -distance * am4core.math.sin(-angle)
-          target.x = -distance * am4core.math.cos(-angle)
-          line.rotation = -angle - 180
-          target.rotation = -angle
-        } else {
-          target.y = -distance * am4core.math.sin(angle)
-          target.x = -distance * am4core.math.cos(angle)
-          line.rotation = angle - 180
-          target.rotation = angle
-        }
-      }
-      return 1
-    })
-
-    var outerCircle = bullet.createChild(am4core.Circle)
-    outerCircle.radius = 30
-    outerCircle.fillOpacity = 0
-    outerCircle.strokeOpacity = 0
-    outerCircle.strokeDasharray = '1,3'
-
-    var hoverState = outerCircle.states.create('hover')
-    hoverState.properties.strokeOpacity = 0.8
-    hoverState.properties.scale = 1.5
-
-    outerCircle.events.on('over', function (event) {
-      var circle = event.target.parent.children.getIndex(1)
-      circle.isHover = true
-      event.target.stroke = circle.fill
-      event.target.radius = circle.pixelRadius
-      event.target.animate(
-        { property: 'rotation', from: 0, to: 360 },
-        4000,
-        am4core.ease.sinInOut
-      )
-    })
-
-    outerCircle.events.on('out', function (event) {
-      var circle = event.target.parent.children.getIndex(1)
-      circle.isHover = false
-    })
   }
   render() {
-    return <div id="chartdiv" style={{ width: '80%', height: '600px' }} />
+    return <div id="chartdiv" style={{ width: '100%', height: '500px' }} />
   }
 }
 

@@ -5,6 +5,7 @@ import '../../App.css'
 import styled from 'styled-components'
 import BackgroundImage from './Main2.jpg'
 import Welcome from './welcome.jpg'
+
 import { Typography, Divider, Button } from 'antd'
 import { useHistory } from 'react-router-dom'
 import { HomeOutlined, ReadOutlined, AlertOutlined } from '@ant-design/icons'
@@ -73,6 +74,7 @@ const WelcomeWrapper = styled.div`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10%;
 `
 
 const WelcomeImage = styled.image`
@@ -82,6 +84,19 @@ const WelcomeImage = styled.image`
   background-position: center;
   width: 50%;
   height: 400px;
+  border-radius: 10px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`
+
+const WelcomeImage2 = styled.image`
+  background: url(${props => props.src});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 200px;
   border-radius: 10px;
   @media (max-width: 1024px) {
     display: none;
@@ -105,13 +120,12 @@ const CategoryWrapper = styled.div`
   width: 70%;
   height: 400px;
   display: flex;
-  margin-top: 10%;
   border-radius: 10px;
   flex-direction: column;
   padding: 5%;
   align-items: center;
   text-align: center;
-  margin-bottom: 10%;
+  margin-bottom: 1%;
 `
 
 const BannerWrapper = styled.div`
@@ -307,6 +321,50 @@ function HomeMain({ match }) {
             </Fade>
           </BannerWrapper>
         </CategoryWrapper>
+
+        <WelcomeWrapper>
+          <WelcomeImage2 src={"https://www.dongsunyim.com/assets/images/front-matter/logo-icon-fill@2x.png"} />
+
+          <WelcomeText>
+            {' '}
+            <Fade bottom cascade>
+              <Typography>
+                <Title
+                  level={3}
+                  style={{
+                    marginBottom: '50px',
+                    fontFamily: 'payboocExtraBold',
+                  }}>
+                  {lang == 'kor'
+                    ? '아동언어연구실을 더 알아보세요!'
+                    : 'Learn More about Child-Language Lab.'}
+                </Title>
+                <Paragraph>
+                  <Title
+                    level={5}
+                    style={{
+                      marginBottom: '20px',
+                      fontFamily: 'payboocLight',
+                    }}>
+                    {lang == 'kor'
+                      ? '아동언어연구실에서는 아이들이 언어를 배우는 방법과 언어 학습이 어떻게 무너질 수 있는지에 대해 연구합니다. 저희의 목표는 언어 학습에 대한 인지 언어 이론에 대한 우리의 시각을 넓히고 언어 장애가 있는 아이들에게 더 정확한 평가와 더 효과적인 개입 서비스를 제공하는 것입니다.'
+                      : 'We study how children learn language and also how language learning can break down.  Our aim is to broaden our perspective on cognitive-linguistic theories of language learning and to achieve more accurate assessment and more effective intervention services for children who have language difficulties.'}
+                  </Title>
+                </Paragraph>
+                <Button
+                  onClick={() => window.open('https://www.dongsunyim.com/')}
+                  style={{
+                    borderColor: 'darkgreen',
+                    color: 'darkgreen',
+                    fontWeight: 'bold',
+                    fontFamily: 'payboocMedium',
+                  }}>
+                  {lang == 'kor' ? '더알아보기' : 'Learn More'}
+                </Button>
+              </Typography>
+            </Fade>
+          </WelcomeText>
+        </WelcomeWrapper>
       </Wrapper>
 
       <div className={classes.footer}>

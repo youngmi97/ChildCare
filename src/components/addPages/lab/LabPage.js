@@ -99,7 +99,7 @@ function LabPage({ match }) {
             <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
               <TextWrapper size="19">
                 {' '}
-                {lang == 'kor' ? '연구소 소개: ' : 'About Lab : '} 
+                {lang == 'kor' ? '연구소 소개 ' : 'About Lab  '} 
             
                 {' '}<br />
                 <br />
