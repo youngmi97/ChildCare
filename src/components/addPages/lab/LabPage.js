@@ -30,7 +30,8 @@ const ImageWrapper = styled.image`
   background: url(${props => props.src});
   background-size: cover;
   background-repeat: no-repeat;
-  width: 83%;
+  width: 100%;
+
   height: 370px;
   display: flex;
   flex-direction: row;
@@ -68,7 +69,7 @@ const TextWrapper = styled.div`
   font-weight: ${props => props.weight || 'bold'};
   margin-top: 10px;
   margin-bottom: 20px;
-  background-color: rgba(249, 189, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   padding:5px;
   display: flex;
   flex-direction: row;
@@ -93,8 +94,6 @@ function LabPage({ match }) {
         <RowWrapper>
           <ImageWrapper src={BackgroundImage}>
            
-           
-          </ImageWrapper>
           <ColumnWrapper>
             <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
               <TextWrapper size="19">
@@ -123,7 +122,8 @@ function LabPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구소 소개' : 'Lab'}
@@ -139,7 +139,8 @@ function LabPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구원 소개' : 'Researchers'}
@@ -155,7 +156,8 @@ function LabPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '연구소 전경' : 'Photo'}
@@ -171,7 +173,8 @@ function LabPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '이용안내' : 'Service'}
@@ -187,12 +190,15 @@ function LabPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '15px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+               backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor' ? '오시는 길' : 'Directions'}
             </Button>
           </ColumnWrapper>
+          </ImageWrapper>
+          
         </RowWrapper>
         <DetailPage num={numState} lang={lang} />
       </Wrapper>

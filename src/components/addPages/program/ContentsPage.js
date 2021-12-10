@@ -55,7 +55,7 @@ function ContentsPage({ num, lang }) {
               </ul>
               </Title>
               
-              <img src={Pic1} style={{width:'400px',marginLeft:'20px'}}/>
+              <img src={Pic1} style={{width:'500px',marginLeft:'20px'}}/>
             </Paragraph>
           </Fade>
         </Typography>

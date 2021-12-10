@@ -33,7 +33,7 @@ const ImageWrapper = styled.image`
   background: url(${props => props.src});
   background-size: cover;
   background-repeat: no-repeat;
-  width: 75%;
+  width: 100%;
   height: 400px;
   display: flex;
   flex-direction: row;
@@ -72,7 +72,7 @@ const TextWrapper = styled.div`
   margin-top: 10px;
   margin-right: 30px;
   margin-bottom: 20px;
-  background-color: rgba(249, 189, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   padding:5px;
   display: flex;
   flex-direction: row;
@@ -106,16 +106,12 @@ function ProgramPage({ match }) {
         <RowWrapper>
           <ImageWrapper src={BackgroundImage}>
             
-            
-          </ImageWrapper>
-
           <ColumnWrapper>
             <TextColumnWrapper>
-              <TextWrapper size="18">
-                {lang == 'kor' ? ' 프로그램 소개 ' : 'Program '}
-            <br />
-              <br />
-         
+              <TextWrapper size="19">
+                {lang == 'kor' ? ' 프로그램 소개 ' : 'Program :'}
+       
+  <br /> <br />
                 {lang == 'kor'
                   ? ' ISayLab의 프로그램을 소개합니다.'
                   : 'Look around the program.'}{' '}
@@ -132,7 +128,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -150,7 +147,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -168,7 +166,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -186,7 +185,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -204,7 +204,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -222,7 +223,8 @@ function ProgramPage({ match }) {
                 borderRadius: '10px',
                 fontFamily: 'payboocExtraBold',
                 fontSize: '13px',
-                backgroundColor: 'rgba(241, 245, 249, 0.7)',
+                backgroundColor: 'rgba(249, 189, 0, 0.8)',
+                borderColor: 'rgba(241, 245, 249, 1)',
                 marginBottom: '1px',
               }}>
               {lang == 'kor'
@@ -230,6 +232,9 @@ function ProgramPage({ match }) {
                 : 'Special: Vacation Reading Camp'}
             </Button>
           </ColumnWrapper>
+          </ImageWrapper>
+
+         
         </RowWrapper>
         <ContentsWrapper>
           <DetailPage num={numState} lang={lang} />
