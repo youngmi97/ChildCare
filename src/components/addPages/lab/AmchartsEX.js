@@ -41,16 +41,16 @@ class AmchartsEX extends Component {
     var imageSeries = chart.series.push(new am4maps.MapImageSeries());
     imageSeries.mapImages.template.propertyFields.longitude = "longitude";
     imageSeries.mapImages.template.propertyFields.latitude = "latitude";
-    imageSeries.mapImages.template.tooltipText = "{title}";
+    imageSeries.mapImages.template.tooltipText = "{contents}";
     imageSeries.mapImages.template.propertyFields.url = "url";
     
     var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle.radius = 3;
+    circle.radius = 5;
     circle.propertyFields.fill = "color";
     circle.nonScaling = true;
     
     var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
-    circle2.radius = 3;
+    circle2.radius = 5;
     circle2.propertyFields.fill = "color";
     
     
@@ -69,97 +69,32 @@ class AmchartsEX extends Component {
     var colorSet = new am4core.ColorSet();
     
     imageSeries.data = [ {
-      "title": "Brussels",
-      "latitude": 50.8371,
-      "longitude": 4.3676,
-      "color":colorSet.next()
+      "title": "Canada",
+      "latitude": 59.8371,
+      "longitude": -120.3676,
+      "color":colorSet.getIndex(12),
+      "contents": "- University of Toronto"
     }, {
-      "title": "Copenhagen",
-      "latitude": 55.6763,
-      "longitude": 12.5681,
-      "color":colorSet.next()
-    }, {
-      "title": "Paris",
-      "latitude": 48.8567,
-      "longitude": 2.3510,
-      "color":colorSet.next()
-    }, {
-      "title": "Reykjavik",
-      "latitude": 64.1353,
-      "longitude": -21.8952,
-      "color":colorSet.next()
-    }, {
-      "title": "Moscow",
-      "latitude": 55.7558,
-      "longitude": 37.6176,
-      "color":colorSet.next()
-    }, {
-      "title": "Madrid",
-      "latitude": 40.4167,
-      "longitude": -3.7033,
-      "color":colorSet.next()
-    }, {
-      "title": "London",
-      "latitude": 51.5002,
-      "longitude": -0.1262,
-      "url": "http://www.google.co.uk",
-      "color":colorSet.next()
-    }, {
-      "title": "Peking",
-      "latitude": 39.9056,
-      "longitude": 116.3958,
-      "color":colorSet.next()
-    }, {
-      "title": "New Delhi",
-      "latitude": 28.6353,
-      "longitude": 77.2250,
-      "color":colorSet.next()
-    }, {
-      "title": "Tokyo",
-      "latitude": 35.6785,
-      "longitude": 139.6823,
-      "url": "http://www.google.co.jp",
-      "color":colorSet.next()
-    }, {
-      "title": "Ankara",
-      "latitude": 39.9439,
-      "longitude": 32.8560,
-      "color":colorSet.next()
-    }, {
-      "title": "Buenos Aires",
-      "latitude": -34.6118,
-      "longitude": -58.4173,
-      "color":colorSet.next()
-    }, {
-      "title": "Brasilia",
-      "latitude": -15.7801,
-      "longitude": -47.9292,
-      "color":colorSet.next()
-    }, {
-      "title": "Ottawa",
-      "latitude": 45.4235,
-      "longitude": -75.6979,
-      "color":colorSet.next()
-    }, {
-      "title": "Washington",
+      "title": "USA",
       "latitude": 38.8921,
-      "longitude": -77.0241,
-      "color":colorSet.next()
+      "longitude": -97.0241,
+      "color":colorSet.getIndex(10),
+      "contents":"- Stanford University(Language and Cognition Lab)"+"\n - Northwestern University"+"\n - Hofstra University(NY)"+"\n - Richmond street school"
     }, {
-      "title": "Kinshasa",
-      "latitude": -4.3369,
-      "longitude": 15.3271,
-      "color":colorSet.next()
+      "title": "Portugal",
+      "latitude": 40.3369,
+      "longitude": -8.3271,
+      "color":colorSet.getIndex(8),
+      "contents":"- Interactive Technologies Institute, University od Lisbon"
     }, {
-      "title": "Cairo",
-      "latitude": 30.0571,
-      "longitude": 31.2272,
-      "color":colorSet.next()
-    }, {
-      "title": "Pretoria",
-      "latitude": -25.7463,
-      "longitude": 28.1876,
-      "color":colorSet.next()
+      "title": "Korea",
+      "latitude": 36.4571,
+      "longitude":127.6272,
+      "color":colorSet.getIndex(5),
+      'contents':"- Samsung Medical Center(삼성 서울병원)"+"\n -Early childhood education centers in Seoul and Gyeonggi-do (서울 및 경기도 소재 유아교육기관)"+
+      "\n - Seoul Foreign School (서울외국인학교)"+"\n - Seoul International School (서울국제학교)" +"\n - North London Collegiate School Jeju (NLCS 제주)"+ 
+      "\n - Chadwick International School (채드윅 송도 국제학교)"+"\n - Dulwich College Seoul (덜위치칼리지 서울영국학교)"+"\n - Postech (포항공과대학교)"+"\n - Korean Institute of Brief Family Therapy (한국단기가족치료연구소)"
+      +"\n - Seoul Seobu Distirct Office of Education (서울특별시 서부교육지원청)"
     } ];
 
   }

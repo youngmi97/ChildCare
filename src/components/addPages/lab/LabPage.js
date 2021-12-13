@@ -31,7 +31,6 @@ const ImageWrapper = styled.image`
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-
   height: 370px;
   display: flex;
   flex-direction: row;
@@ -93,8 +92,7 @@ function LabPage({ match }) {
         <MenuBar change={lang} />
         <RowWrapper>
           <ImageWrapper src={BackgroundImage}>
-           
-          <ColumnWrapper>
+            <ColumnWrapper>
             <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
               <TextWrapper size="19">
                 {' '}
@@ -197,8 +195,9 @@ function LabPage({ match }) {
               {lang == 'kor' ? '오시는 길' : 'Directions'}
             </Button>
           </ColumnWrapper>
+         
           </ImageWrapper>
-          
+         
         </RowWrapper>
         <DetailPage num={numState} lang={lang} />
       </Wrapper>

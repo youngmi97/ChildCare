@@ -339,6 +339,17 @@ function DetailPage({ num, lang }) {
           <ChartWrapper>
             {lang == 'kor' ? <AmChartEx /> : <AmchartsEng />}
           </ChartWrapper>
+          <Paragraph
+                style={{
+                  fontFamily: 'payboocBold',
+                  marginBottom: '3%',
+                }}>
+ 
+                  {lang == 'kor'
+                    ? '* 빛나는 곳에 마우스를 올리면 협력업체를 확인하실 수 있습니다. '
+                    : '* If you mouse up in the shining place, you can check the partner company.'}
+
+              </Paragraph>
         </ContentsWrapper>
         
         <Divider />
