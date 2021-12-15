@@ -28,6 +28,10 @@ const Wrapper = styled.div`
   align-items: center;
   min-height: 200vh;
   width: 100%;
+
+  @media (max-width: 430px) {
+    overflow-x: hidden;
+  }
 `
 
 const ImageWrapper = styled.image`
@@ -38,6 +42,20 @@ const ImageWrapper = styled.image`
   display: flex;
   flex-direction: column;
   padding: 50px;
+
+  @media (max-width: 430px) {
+    padding: 10px;
+    padding-bottom: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 100%;
+    .title {
+      width: 22rem;
+      margin-top: 30px;
+      letter-spacing: 1px;
+      line-height: normal;
+    }
+  }
 `
 
 const TextWrapper = styled.div`
@@ -46,8 +64,13 @@ const TextWrapper = styled.div`
   font-weight: ${props => props.weight || 'bold'};
   margin-top: ${props => props.margin || '50px'};
   font-family: 'payboocExtraBold';
+
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 10 || 12}px;
+  }
+  @media (max-width: 430px) {
+    font-size: ${props => props.size - 12}px;
+    padding-left: 30px;
   }
 `
 
@@ -60,8 +83,16 @@ const DetailWrapper = styled.div`
   padding: 10px;
   white-space: pre-wrap;
   font-family: 'payboocBold';
+
   @media (max-width: 1024px) {
     width: 400px;
+  }
+  @media (max-width: 430px) {
+    width: 100%;
+    padding: 20px;
+    font-size: 10px;
+    height: auto;
+    background-color: rgba(237, 237, 237, 0.5);
   }
 `
 
@@ -75,6 +106,22 @@ const WelcomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 10%;
+
+  @media (max-width: 430px) {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width:90%;
+    padding: 30px;
+    padding-top: 50px;
+    height: 350px;
+    flex-direction: column;
+
+    .contents {
+      line-height: 25px;
+      font-size: 11px;
+    }
+  }
 `
 
 const WelcomeImage = styled.image`
@@ -85,6 +132,7 @@ const WelcomeImage = styled.image`
   width: 50%;
   height: 400px;
   border-radius: 10px;
+
   @media (max-width: 1024px) {
     display: none;
   }
@@ -98,13 +146,19 @@ const WelcomeImage2 = styled.image`
   width: 50%;
   height: 200px;
   border-radius: 10px;
+
   @media (max-width: 1024px) {
     display: none;
+  }
+  @media (max-width: 430px) {
+    display: block;
+    margin-bottom: 50px;
   }
 `
 
 const WelcomeText = styled.div`
   width: 50%;
+  padding: 30px;
   height: 400px;
   margin: 20px;
   display: flex;
@@ -113,6 +167,10 @@ const WelcomeText = styled.div`
   background-color: rgba(237, 237, 237, 0);
   @media (max-width: 1024px) {
     width: 100%;
+  }
+  @media (max-width: 430px) {
+    padding: 0;
+    margin: 0px;
   }
 `
 
@@ -126,6 +184,20 @@ const CategoryWrapper = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 1%;
+
+  @media (max-width: 430px) {
+    height: auto;
+    width: 80%;
+    padding: 50px 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    .contents {
+      line-height: 25px;
+      font-size: 13px;
+      text-align: center;
+    }
+  }
 `
 
 const BannerWrapper = styled.div`
@@ -145,6 +217,11 @@ const Banner = styled.div`
     background-color: #f9be00;
     cursor: pointer;
   }
+
+  @media (max-width: 430px) {
+    margin: 10px;
+    margin-bottom: 0px;
+  }
 `
 
 function HomeMain({ match }) {
@@ -153,6 +230,27 @@ function HomeMain({ match }) {
   const { Title, Paragraph, Text, Link } = Typography
   const classes = useStyles()
   const history = useHistory()
+
+  //모바일 여부 감지
+  const [isMobile, setIsMobile] = useState(false)
+  const resizingHandler = () => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+  useEffect(() => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    }
+
+    window.addEventListener('resize', resizingHandler)
+    return () => {
+      window.removeEventListener('resize', resizingHandler)
+    }
+  }, [])
+
   useEffect(() => {
     window.scrollTo(0, 0)
   })
@@ -167,16 +265,16 @@ function HomeMain({ match }) {
         <MenuBar change={lang} />
         <ImageWrapper src={BackgroundImage}>
           <Fade bottom cascade>
-            <TextWrapper size="27" margin="10%">
+            <TextWrapper className="title" size="27" margin="10%">
               {' '}
               {lang == 'kor'
                 ? '아이들의 꿈은 언어로부터 시작됩니다'
                 : 'Children’s dreams start with language'}
             </TextWrapper>
-            <TextWrapper size="35" color="#F9BE00">
+            <TextWrapper className="title" size="35" color="#F9BE00">
               {' '}
               {lang == 'kor'
-                ? ' 아이들의 꿈이 시작되는 곳 I Say LAB'
+                ? ' 아이들의 꿈이 시작되는 곳\nI Say LAB'
                 : 'I Say Lab, A place where children’s dreams begin'}
             </TextWrapper>
             <DetailWrapper>
@@ -186,7 +284,7 @@ function HomeMain({ match }) {
               <br /> <br />
               <br />
               {lang == 'kor'
-                ? ' 아이세이 언어연구소는 언어를 한참 배우고 언어 활동을 좋아하는 아동 또는 언어발달이 조금 느린 아동, 두 언어를 사용하는 이중언어 아동 모두를 환영합니다. 아이세이 언어연구소는 모든 아동들이 즐겁게 언어를 사용하는 방법을 배우고, 타인과의 의사소통에서 자신의 잠재력을 온전히 발휘할 수 있도록 돕는 역할을 하고자 합니다. 다년 간의 연구를 통해 축적한 이론적 배경과 특허 기반 프로그램은 아이세이 언어연구소에서만 제공할 수 있는 특화된 기술로, 아동의 언어 능력의 정확한 평가와 효과적인 언어 지원 서비스를 제공합니다.'
+                ? ' 아이세이 언어연구소는 언어를 한참 배우고 언어 활동을 좋아하는 아동 또는 언어발달이 조금 느린 아동, 두 언어를 사용하는 이중언어 아동 모두를 환영합니다.  아이세이 언어연구소는 모든 아동들이 즐겁게 언어를 사용하는 방법을 배우고, 타인과의 의사소통에서 자신의 잠재력을 온전히 발휘할 수 있도록 돕는 역할을 하고자 합니다. 다년 간의 연구를 통해 축적한 이론적 배경과 특허 기반 프로그램은 아이세이 언어연구소에서만 제공할 수 있는 특화된 기술로, 아동의 언어 능력의 정확한 평가와 효과적인 언어 지원 서비스를 제공합니다.'
                 : 'I Say Lab welcomes all children who are actively learning language and interested in language activities, including children who are slow in language development, and bilingual children who speak two languages. I Say Lab aims to help all children learn how to use language in a fun way and to reach their full potential in communicating with others. I Say Lab provides specialized technologies and patent-based programs developed through many years of research and in alignment with theoretical backgrounds, offering an accurate evaluation of children’s language skills and effective language support services.'}
             </DetailWrapper>
           </Fade>
@@ -194,31 +292,49 @@ function HomeMain({ match }) {
 
         <WelcomeWrapper>
           <WelcomeImage src={Welcome} />
-
           <WelcomeText>
             {' '}
             <Fade bottom cascade>
-              <Typography>
+              <Typography >
                 <Title
-                  level={3}
-                  style={{
-                    marginBottom: '50px',
-                    fontFamily: 'payboocExtraBold',
-                  }}>
+                  level={isMobile ? 4 : 3}
+                  style={
+                    isMobile
+                      ? {
+                          marginBottom: '20px',
+                          fontFamily: 'payboocExtraBold',
+                        }
+                      : { marginBottom: '50px', fontFamily: 'payboocExtraBold' }
+                  }
+                >
                   {lang == 'kor'
                     ? ' ISayLab에 오신것을 환영합니다'
                     : 'Welcome To ISayLab'}
                 </Title>
                 <Paragraph>
                   <Title
+                    className="contents"
                     level={5}
                     style={{
                       marginBottom: '20px',
                       fontFamily: 'payboocLight',
-                    }}>
+                    }}
+                  >
                     {lang == 'kor'
-                      ? '한국연구재단의 지원으로 다년 간 언어발달 및 언어처리 능력에 대한 연구를 진행해 온 연구팀이 국내외 우수한 학술지에 발표한 연구 결과를 아낌없이 공유합니다. 임동선 교수님을 비롯한 여러 연구진에 대해서 알아보세요.'
-                      : 'The research team, who have been conducting research on reading for many years with the support of the National Research Foundation of Korea, incorporates the research findings published in excellent international and domestic academic journals into this program. Learn about Professor Dongsun Yim  and other researchers.'}
+                      ? ' 한국연구재단의 지원으로 다년 간 언어발달 및 언어처리 능력에 대한 연구를 진행해 온 연구팀이 국내외 우수한 학술지에 발표한 연구 결과를 아낌없이 공유합니다.'
+                      : ' The research team, who have been conducting research on reading for many years with the support of the National Research Foundation of Korea, incorporates the research findings published in excellent international and domestic academic journals into this program.'}
+                  </Title>
+                  <Title
+                    className="contents"
+                    level={5}
+                    style={{
+                      marginBottom: '20px',
+                      fontFamily: 'payboocLight',
+                    }}
+                  >
+                    {lang == 'kor'
+                      ? '임동선 교수님을 비롯한 여러 연구진에 대해서 알아보세요.'
+                      : 'Learn about Professor Dongsun Yim  and other researchers.'}
                   </Title>
                 </Paragraph>
                 <Button
@@ -228,7 +344,9 @@ function HomeMain({ match }) {
                     color: 'goldenrod',
                     fontWeight: 'bold',
                     fontFamily: 'payboocMedium',
-                  }}>
+                    marginTop: '30px',
+                  }}
+                >
                   {lang == 'kor' ? '더알아보기' : 'Learn More'}
                 </Button>
               </Typography>
@@ -240,24 +358,34 @@ function HomeMain({ match }) {
           <Fade bottom cascade>
             <Typography>
               <Title
-                level={3}
-                style={{
-                  marginBottom: '50px',
-                  fontFamily: 'payboocExtraBold',
-                }}>
+                level={isMobile ? 4 : 3}
+                style={
+                  isMobile
+                    ? {
+                        marginBottom: '50px',
+                        fontFamily: 'payboocExtraBold',
+                      }
+                    : {
+                        marginBottom: '50px',
+                        fontFamily: 'payboocExtraBold',
+                      }
+                }
+              >
                 {lang == 'kor'
                   ? 'ISayLab에 대하여 더 알아보세요!'
                   : 'Learn More about ISayLab!'}
               </Title>
               <Title
+                className="contents"
                 level={5}
                 style={{
                   marginBottom: '50px',
                   fontFamily: 'payboocMedium',
-                }}>
+                }}
+              >
                 {lang == 'kor'
-                  ? '아이세이 언어연구소의 연구원, 프로그램을 알아보세요. 아래의 배너를 클릭하여 정보를 확인해 보세요.'
-                  : 'Find out about researchers and programs at the ISayLab. Click the banner below to check the information.'}
+                  ? ' 아이세이 언어연구소의 연구원, 프로그램을 알아보세요. 아래의 배너를 클릭하여 정보를 확인해 보세요.'
+                  : ' Find out about researchers and programs at the ISayLab. Click the banner below to check the information.'}
               </Title>
             </Typography>
           </Fade>
@@ -275,7 +403,8 @@ function HomeMain({ match }) {
                   style={{
                     fontFamily: 'payboocExtraBold',
                     marginBottom: '5px',
-                  }}>
+                  }}
+                >
                   {' '}
                   연구소{' '}
                 </p>
@@ -293,7 +422,8 @@ function HomeMain({ match }) {
                   style={{
                     fontFamily: 'payboocExtraBold',
                     marginBottom: '5px',
-                  }}>
+                  }}
+                >
                   {' '}
                   프로그램{' '}
                 </p>
@@ -312,7 +442,8 @@ function HomeMain({ match }) {
                   style={{
                     fontFamily: 'payboocExtraBold',
                     marginBottom: '5px',
-                  }}>
+                  }}
+                >
                   {' '}
                   공지사항{' '}
                 </p>
@@ -323,32 +454,55 @@ function HomeMain({ match }) {
         </CategoryWrapper>
 
         <WelcomeWrapper>
-          <WelcomeImage2 src={"https://www.dongsunyim.com/assets/images/front-matter/logo-icon-fill@2x.png"} />
+          {isMobile ? (
+            <></>
+          ) : (
+            <WelcomeImage2
+              src={
+                'https://www.dongsunyim.com/assets/images/front-matter/logo-icon-fill@2x.png'
+              }
+            />
+          )}
 
           <WelcomeText>
             {' '}
             <Fade bottom cascade>
               <Typography>
                 <Title
-                  level={3}
+                  level={isMobile ? 4 : 3}
                   style={{
                     marginBottom: '50px',
                     fontFamily: 'payboocExtraBold',
-                  }}>
+                  }}
+                >
                   {lang == 'kor'
                     ? '아동언어연구실을 더 알아보세요!'
                     : 'Learn More about Child-Language Lab.'}
                 </Title>
                 <Paragraph>
                   <Title
+                    className="contents"
                     level={5}
                     style={{
                       marginBottom: '20px',
                       fontFamily: 'payboocLight',
-                    }}>
+                    }}
+                  >
                     {lang == 'kor'
-                      ? '아동언어연구실에서는 아이들이 언어를 배우는 방법과 언어 학습이 어떻게 무너질 수 있는지에 대해 연구합니다. 저희의 목표는 언어 학습에 대한 인지 언어 이론에 대한 우리의 시각을 넓히고 언어 장애가 있는 아이들에게 더 정확한 평가와 더 효과적인 개입 서비스를 제공하는 것입니다.'
-                      : 'We study how children learn language and also how language learning can break down.  Our aim is to broaden our perspective on cognitive-linguistic theories of language learning and to achieve more accurate assessment and more effective intervention services for children who have language difficulties.'}
+                      ? ' 아동언어연구실에서는 아이들이 언어를 배우는 방법과 언어 학습이 어떻게 무너질 수 있는지에 대해 연구합니다.'
+                      : ' We study how children learn language and also how language learning can break down.'}
+                  </Title>
+                  <Title
+                    className="contents"
+                    level={5}
+                    style={{
+                      marginBottom: '20px',
+                      fontFamily: 'payboocLight',
+                    }}
+                  >
+                    {lang == 'kor'
+                      ? ' 저희의 목표는 언어 학습에 대한 인지 언어 이론에 대한 우리의 시각을 넓히고 언어 장애가 있는 아이들에게 더 정확한 평가와 더 효과적인 개입 서비스를 제공하는 것입니다.'
+                      : ' Our aim is to broaden our perspective on cognitive-linguistic theories of language learning and to achieve more accurate assessment and more effective intervention services for children who have language difficulties.'}
                   </Title>
                 </Paragraph>
                 <Button
@@ -358,43 +512,24 @@ function HomeMain({ match }) {
                     color: 'darkgreen',
                     fontWeight: 'bold',
                     fontFamily: 'payboocMedium',
-                  }}>
+                  }}
+                >
                   {lang == 'kor' ? '더알아보기' : 'Learn More'}
                 </Button>
               </Typography>
             </Fade>
           </WelcomeText>
+          {isMobile ? (
+            <WelcomeImage2
+              src={
+                'https://www.dongsunyim.com/assets/images/front-matter/logo-icon-fill@2x.png'
+              }
+            />
+          ) : (
+            <></>
+          )}
         </WelcomeWrapper>
       </Wrapper>
-
-      <div className={classes.footer}>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            paddingTop: '3vh',
-            marginBottom: '3vh',
-          }}>
-          <img src="/002.png" width="60px" height="60px" />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-end',
-            fontWeight: 'bold',
-            fontSize: '16px',
-            marginTop: '1.2vh',
-            justifyContent: 'center',
-          }}>
-          <div>대표이메일 isaylab2020@gmail.com</div>
-          <div style={{ margin: '0px 1vw' }}>|</div>
-          <div>
-            주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층{' '}
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

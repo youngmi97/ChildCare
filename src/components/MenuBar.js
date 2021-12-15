@@ -26,164 +26,124 @@ function MenuBar({ change }) {
       history.push(`/${now}/eng`)
     }, 100)
   }
-  const menuBar =
-    change == 'kor' ? (
-      <Menu
-        secondary
-        pointing
-        size="massive"
-        fixed="top"
-        style={{
-          height: '7vh',
-          backgroundColor: '#F9BE00',
-          padding: '5px',
-          margin: '0px',
-          borderBottom: 'none',
-          fontSize: '1.8vh',
-          alignItems: 'center',
-        }}>
-        <a
-          style={{
-            marginRight: '30px',
-            marginLeft: '50px',
-            color: '#FFFFFF',
-            fontSize: '25px',
-            fontWeight: '600',
-          }}>
-          {' '}
-          <img
-            src="/002.png"
-            width="50px"
-            height="50px"
-            onClick={() => history.push(`/main/kor`)}
-          />
-        </a>
 
-        <Menu.Menu position="right" style={{ marginRight: '30px' }}>
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="홈"
-            onClick={() => history.push(`/main/kor`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="연구소소개"
-            onClick={() => history.push(`/lab/kor`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="프로그램소개"
-            onClick={() => history.push(`/program/kor`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="연구소 소식"
-            onClick={() => history.push(`/board/kor`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            onClick={onLanguage2}
-            name="Eng"
-          />
+  //모바일 여부 감지
+  const [isMobile, setIsMobile] = useState(false)
+  const resizingHandler = () => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+  useEffect(() => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    }
+
+    window.addEventListener('resize', resizingHandler)
+    return () => {
+      window.removeEventListener('resize', resizingHandler)
+    }
+  }, [])
+
+  const menuBar = (
+    <Menu
+      secondary
+      pointing
+      size="massive"
+      fixed="top"
+      style={{
+        height: '7vh',
+        backgroundColor: '#F9BE00',
+        padding: '5px',
+        margin: '0px',
+        borderBottom: 'none',
+        fontSize: '1.8vh',
+        alignItems: 'center',
+      }}
+    >
+      {isMobile ? (
+        <Menu.Menu position="left" style={{ marginRight: '30px' }}>
+          hamberger
         </Menu.Menu>
-      </Menu>
-    ) : (
-      <Menu
-        secondary
-        pointing
-        size="massive"
-        fixed="top"
+      ) : (
+        <></>
+      )}
+
+      <a
         style={{
-          height: '7vh',
-          backgroundColor: '#F9BE00',
-          padding: '5px',
-          margin: '0px',
-          borderBottom: 'none',
-          fontSize: '1.8vh',
-          alignItems: 'center',
-        }}>
-        <a
+          marginRight: '30px',
+          marginLeft: '50px',
+          color: '#FFFFFF',
+          fontSize: '25px',
+          fontWeight: '600',
+        }}
+      >
+        {' '}
+        <img
+          src="/002.png"
+          width="50px"
+          height="50px"
+          onClick={() => history.push(`/main/kor`)}
+        />
+      </a>
+
+      <Menu.Menu position="right" style={{ marginRight: '30px' }}>
+        {isMobile ? (
+          <></>
+        ) : (
+          <>
+            <Menu.Item
+              style={{
+                color: 'white',
+                fontWeight: '600',
+                fontFamily: 'payboocExtraBold',
+              }}
+              name={change == 'kor' ? '홈' : 'Home'}
+              onClick={() => history.push(`/main/${change}`)}
+            />
+            <Menu.Item
+              style={{
+                color: 'white',
+                fontWeight: '600',
+                fontFamily: 'payboocExtraBold',
+              }}
+              name={change == 'kor' ? '연구소 소개' : 'Lab'}
+              onClick={() => history.push(`/lab/${change}`)}
+            />
+            <Menu.Item
+              style={{
+                color: 'white',
+                fontWeight: '600',
+                fontFamily: 'payboocExtraBold',
+              }}
+              name={change == 'kor' ? '프로그램 소개' : 'Program'}
+              onClick={() => history.push(`/program/${change}`)}
+            />
+            <Menu.Item
+              style={{
+                color: 'white',
+                fontWeight: '600',
+                fontFamily: 'payboocExtraBold',
+              }}
+              name={change == 'kor' ? '연구소 소식' : 'News'}
+              onClick={() => history.push(`/board/${change}`)}
+            />
+          </>
+        )}
+        <Menu.Item
           style={{
-            marginRight: '30px',
-            marginLeft: '50px',
-            color: '#FFFFFF',
-            fontSize: '25px',
+            color: 'white',
             fontWeight: '600',
+            fontFamily: 'payboocExtraBold',
           }}
-          href="/main/eng">
-          {' '}
-          <img src="/002.png" width="50px" height="50px" />
-        </a>
-
-        <Menu.Menu position="right" style={{ marginRight: '30px' }}>
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="Home"
-            onClick={() => history.push(`/main/eng`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="Lab"
-            onClick={() => history.push(`/lab/eng`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="Program"
-            onClick={() => history.push(`/program/eng`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="News"
-            onClick={() => history.push(`/board/eng`)}
-          />
-          <Menu.Item
-            style={{
-              color: 'white',
-              fontWeight: '600',
-              fontFamily: 'payboocExtraBold',
-            }}
-            name="한국어"
-            onClick={onLanguage}
-          />
-        </Menu.Menu>
-      </Menu>
-    )
+          onClick={change == 'kor' ? onLanguage2 : onLanguage}
+          name={change == 'kor' ? 'Eng' : '한국어'}
+        />
+      </Menu.Menu>
+    </Menu>
+  )
 
   return <div style={{ height: '70px', margin: '0px' }}>{menuBar}</div>
 }
