@@ -11,7 +11,7 @@ function MenuBar({ change }) {
   const history = useHistory()
   const [prof, setProf] = useState(false)
   const [message, setMessage] = useState('')
-  console.log(window.location.pathname.split('/'))
+  // console.log(window.location.pathname.split('/'))
   let now = window.location.pathname.split('/')[1]
   const [langState, setLangState] = useState(now)
   const path = pathname === '/' ? 'home' : pathname.substr(1)
@@ -134,7 +134,7 @@ function MenuBar({ change }) {
     </Menu>
   )
 
-  //MARK : Mobile
+  // MARK: Mobile
   const Slide = styled.div`
     .show-slide {
       position: fixed;
@@ -159,6 +159,10 @@ function MenuBar({ change }) {
       to {
         left: 0px;
       }
+    }
+
+    .lab-menu {
+      margin-left: 15px;
     }
   `
   const SlideItem = styled.div`
@@ -211,16 +215,67 @@ function MenuBar({ change }) {
       <Slide>
         <div className={isOpen ? 'show-slide' : 'hide-slide'}>
           <SlideItem onClick={() => history.push(`/main/${change}`)}>
-            {change == 'kor' ? '홈' : 'Home'}
+            {change == 'kor' ? '> 홈' : '> Home'}
           </SlideItem>
-          <SlideItem onClick={() => history.push(`/lab/${change}`)}>
-            {change == 'kor' ? '연구소 소개' : 'Lab'}
+          <SlideItem
+            onClick={() =>
+              history.push({ pathname: `/lab/${change}`, state: { detail: 1 } })
+            }
+          >
+            {change == 'kor' ? '> 연구소 소개' : '> Lab'}
           </SlideItem>
+
+          <div className="lab-menu">
+            <SlideItem
+              onClick={() =>
+                history.push({
+                  pathname: `/lab/${change}`,
+                  state: { detail: 2 },
+                })
+              }
+            >
+              {change == 'kor' ? '연구원 소개' : 'Researchers'}
+            </SlideItem>
+            <SlideItem
+              onClick={() =>
+                history.push({
+                  pathname: `/lab/${change}`,
+                  state: { detail: 3 },
+                })
+              }
+            >
+              {' '}
+              {change == 'kor' ? '연구소 전경' : 'Photo'}
+            </SlideItem>
+            <SlideItem
+              onClick={() =>
+                history.push({
+                  pathname: `/lab/${change}`,
+                  state: { detail: 4 },
+                })
+              }
+            >
+              {' '}
+              {change == 'kor' ? '이용안내' : 'Service'}
+            </SlideItem>
+            <SlideItem
+              onClick={() =>
+                history.push({
+                  pathname: `/lab/${change}`,
+                  state: { detail: 5 },
+                })
+              }
+            >
+              {' '}
+              {change == 'kor' ? '오시는 길' : 'Directions'}
+            </SlideItem>
+          </div>
+
           <SlideItem onClick={() => history.push(`/program/${change}`)}>
-            {change == 'kor' ? '프로그램 소개' : 'Program'}
+            {change == 'kor' ? '> 프로그램 소개' : '> Program'}
           </SlideItem>
           <SlideItem onClick={() => history.push(`/board/${change}`)}>
-            {change == 'kor' ? '연구소 소식' : 'News'}
+            {change == 'kor' ? '> 연구소 소식' : '> News'}
           </SlideItem>
         </div>
       </Slide>

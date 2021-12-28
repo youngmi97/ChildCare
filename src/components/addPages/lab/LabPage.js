@@ -8,6 +8,7 @@ import { Button } from 'antd'
 import BackgroundImage from './Main1.jpeg'
 import DetailPage from './DetailPage'
 import { withRouter } from 'react-router'
+import { useHistory, useLocation } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   modal: {},
@@ -24,6 +25,10 @@ const Wrapper = styled.div`
   align-items: center;
   min-height: 150vh;
   width: 100%;
+
+  @media (max-width: 430px) {
+    overflow-x: hidden;
+  }
 `
 
 const ImageWrapper = styled.image`
@@ -35,7 +40,6 @@ const ImageWrapper = styled.image`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
 `
 
 const RowWrapper = styled.div`
@@ -43,12 +47,16 @@ const RowWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 430px) {
+    display: none;
+  }
 `
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   width: 20%;
   height: 100%;
 `
@@ -72,12 +80,33 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 5 || 12}px;
   }
 `
 
 function LabPage({ match }) {
+  //모바일 여부 감지
+  const [isMobile, setIsMobile] = useState(false)
+  const resizingHandler = () => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+  useEffect(() => {
+    if (window.innerWidth <= 430) {
+      setIsMobile(true)
+    }
+
+    window.addEventListener('resize', resizingHandler)
+    return () => {
+      window.removeEventListener('resize', resizingHandler)
+    }
+  }, [])
+
   const [lang, setLang] = useState(match.params.lang)
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -85,6 +114,10 @@ function LabPage({ match }) {
   const classes = useStyles()
   const [numState, setNumState] = useState(1)
   useEffect(() => setLang(match.params.lang), [match.params.lang])
+
+  const location = useLocation(1)
+  console.log(location.state)
+
   return (
     <div>
       <Wrapper>
@@ -94,7 +127,6 @@ function LabPage({ match }) {
             <ColumnWrapper>
               <TextColumnWrapper style={{ fontFamily: 'payboocExtraBold' }}>
                 <TextWrapper size="19">
-                  {' '}
                   {lang == 'kor' ? '연구소 소개 ' : 'About Lab  '} <br />
                   <br />
                   {lang == 'kor' ? ' ISayLab을 ' : 'Welcome To '}
@@ -109,7 +141,7 @@ function LabPage({ match }) {
                 style={{
                   color: 'black',
                   height: '50px',
-                  width:'80%',
+                  width: '80%',
                   borderRadius: '10px',
                   fontFamily: 'payboocExtraBold',
                   fontSize: '15px',
@@ -128,7 +160,7 @@ function LabPage({ match }) {
                 style={{
                   color: 'black',
                   height: '50px',
-                  width:'80%',
+                  width: '80%',
                   borderRadius: '10px',
                   fontFamily: 'payboocExtraBold',
                   fontSize: '15px',
@@ -147,7 +179,7 @@ function LabPage({ match }) {
                 style={{
                   color: 'black',
                   height: '50px',
-                  width:'80%',
+                  width: '80%',
                   borderRadius: '10px',
                   fontFamily: 'payboocExtraBold',
                   fontSize: '15px',
@@ -167,7 +199,7 @@ function LabPage({ match }) {
                   color: 'black',
                   height: '50px',
                   borderRadius: '10px',
-                  width:'80%',
+                  width: '80%',
                   fontFamily: 'payboocExtraBold',
                   fontSize: '15px',
                   backgroundColor: 'rgba(249, 189, 0, 0.8)',
@@ -188,7 +220,7 @@ function LabPage({ match }) {
                   borderRadius: '10px',
                   fontFamily: 'payboocExtraBold',
                   fontSize: '15px',
-                  width:'80%',
+                  width: '80%',
                   backgroundColor: 'rgba(249, 189, 0, 0.8)',
                   borderColor: 'rgba(241, 245, 249, 1)',
                   marginBottom: '1px',
@@ -199,7 +231,11 @@ function LabPage({ match }) {
             </ColumnWrapper>
           </ImageWrapper>
         </RowWrapper>
-        <DetailPage num={numState} lang={lang} />
+        <DetailPage
+          num={isMobile ? location.state.detail : numState}
+          lang={lang}
+        />
+        <ImageWrapper src={BackgroundImage} />
       </Wrapper>
     </div>
   )
