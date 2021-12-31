@@ -7,6 +7,7 @@ import 'antd/dist/antd.css'
 import { Button, Table, Modal, Typography } from 'antd'
 import Fade from 'react-reveal/Fade'
 import BackgroundImage from './Main1.jpg'
+import ExImage from '../lab/parking/1.0.png'
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
@@ -18,6 +19,10 @@ const ImageWrapper = styled.image`
   flex-direction: row;
   justify-content: flex-end;
   background-color: #f7f7f7;
+
+  @media (max-width: 430px) {
+    height: auto;
+  }
 `
 
 const useStyles = makeStyles(theme => ({
@@ -57,6 +62,11 @@ const TextColumnWrapper = styled.div`
   height: 50px;
   width: 50%;
   padding: 40px;
+
+  @media (max-width: 430px) {
+    width: 100%;
+    padding: 100px 0px;
+  }
 `
 
 const TextWrapper = styled.div`
@@ -69,8 +79,15 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+
   @media (max-width: 1024px) {
     font-size: ${props => props.size - 5 || 12}px;
+  }
+
+  @media (max-width: 430px) {
+    margin: 0px;
+    justify-content: center;
+    font-size: ${props => props.size - 6 || 12}px;
   }
 `
 const ContentsWrapper = styled.div`
@@ -79,6 +96,11 @@ const ContentsWrapper = styled.div`
   justify-content: flex-start;
   width: 80%;
   padding-top: 30px;
+
+  @media (max-width: 430px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 function BoardPage({ match }) {
@@ -160,7 +182,7 @@ function BoardPage({ match }) {
               <TextWrapper size="18">
                 {' '}
                 {lang == 'kor'
-                  ? ' ISayLab 새로운 소식을 확인해보세요.'
+                  ? ' ISayLab의 새로운 소식을 확인해보세요.'
                   : 'Check out ISayLAb`s news.'}{' '}
               </TextWrapper>
             </TextColumnWrapper>
@@ -193,6 +215,7 @@ function BoardPage({ match }) {
             >
               {newsState.member.title}
             </Title>
+            <img src={newsState.member.image} style={{width:'80%'}}/>
             <Paragraph
               style={{
                 fontFamily: 'payboocMedium',
@@ -257,6 +280,7 @@ let newsData = [
     source: 2,
     theme: '아이세이 연구소',
     title: '주차 안내(Parking guide)',
+    image:ExImage,
     contents:
       'I Say Lab은 금강아케이드(서울특별시 강남구 압구정로 29길 68) 2층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 주차와 관련된 구체적인 내용은 I Say Lab 홈페이지에서 ‘연구소 소개’의 ‘오시는 길‘ 메뉴를 확인해 주시기 바랍니다.',
     contentsEng:
