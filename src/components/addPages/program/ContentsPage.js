@@ -503,7 +503,7 @@ function ContentsPage({ num, lang }) {
         <Fade bottom cascade>
           <Title level={2}>
             {lang == 'kor'
-              ? '특별 프로그램: 여름/겨울방학 책읽기 캠프 (한국어 및 영어)'
+              ? '특별 프로그램: 봄/여름/겨울방학 책읽기 캠프 (한국어 및 영어)'
               : 'Special Program: Summer/Winter Vacation Reading Camp (Korean and English)'}
           </Title>
           <br />
@@ -511,7 +511,7 @@ function ContentsPage({ num, lang }) {
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
-                ? '책, 그리고 친구들과 함께 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 말하기를 배울 수 있는 시간이 될 것입니다. I Say Lab에서는 여름방학과 겨울방학에 책읽기 캠프를 진행합니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
+                ? '책, 그리고 친구들과 함께 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 언어 활동을 할 수 있는 시간이 될 것입니다. I Say Lab에서는 봄/여름/겨울방학에 책읽기 캠프를 진행합니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
                 : 'Through books and with friends, children can improve communication skills and learn to speak in a fun way by experiencing various activities under the guidance of a language development expert. I Say Lab holds a book reading camp during summer and winter vacation. Parents can choose between Korean and English programs according to their children`s interests and needs. Book reading camp will provide an opportunity for children to grow language, communication, and emotions with language development experts and peers. '}
             </Title>
           </Paragraph>
