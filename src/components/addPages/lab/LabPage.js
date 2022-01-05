@@ -169,7 +169,7 @@ function LabPage({ match }) {
                   marginBottom: '1px',
                 }}
               >
-                {lang == 'kor' ? '연구원 소개' : 'Researchers'}
+                {lang == 'kor' ? '연구원 소개' : 'Clinicians'}
               </Button>
               <Button
                 onClick={() => {
