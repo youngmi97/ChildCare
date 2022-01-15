@@ -624,8 +624,8 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '국제논문 및 국내논문 총 102건 게재: SCI급(9건) 및 SCOPUS(44건), KCI(49건)'
-                        : 'Published in a total of 102 international and domestic journals: SCI (9), SCOPUS (44), KCI (49)'}
+                        ? '국제논문 및 국내논문 총 128건 게재'
+                        : 'Published in a total of 182 international and domestic journals'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -634,8 +634,13 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '우수 연구 수상 총 15건'
-                        : 'Received 15 Outstanding Research Awards'}
+                        ? '우수 연구 수상 총 16건'
+                        : 'Received 16 Outstanding Research Awards'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 연구 우수 교원으로 선정(2014년)'
+                        : 'Selected as Excellent Researcher at Ewha Womans University (2021)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -649,7 +654,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '한국형 온라인 공개 강좌인 K-MOOC 강의는 우수 강좌 Blue Ribbon상 수상(2020, 2021년)'
+                        ? '한국형 온라인 공개 강좌인 K-MOOC 우수 강좌 Blue Ribbon상 수상(2020, 2021년)'
                         : 'Awarded the Blue Ribbon Award for excellent lectures in the K-MOOC lecture, a Korean-style open online course (2020, 2021)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
