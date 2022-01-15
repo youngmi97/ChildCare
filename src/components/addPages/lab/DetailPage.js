@@ -582,7 +582,7 @@ function DetailPage({ num, lang }) {
             marginBottom: '3%',
           }}
         >
-          {lang == 'kor' ? '연구원 소개' : 'Researchers'}
+          {lang == 'kor' ? '연구원 소개' : 'Clinicians'}
         </Title>
 
         <ContentsWrapper>
