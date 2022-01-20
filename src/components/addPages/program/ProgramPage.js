@@ -243,8 +243,8 @@ function ProgramPage({ match }) {
                 }}
               >
                 {lang == 'kor'
-                  ? '주말프로그램: 책과 함께하는 휴식 시간'
-                  : 'Weekend: Break Time with Books'}
+                  ? '책과 함께하는 휴식 시간'
+                  : 'Break Time with Books'}
               </Button>
               <Button
                 onClick={() => {
