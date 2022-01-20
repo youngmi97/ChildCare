@@ -308,7 +308,7 @@ const images4 = [{ url: img41 }, { url: img42 }, { url: img43 }, { url: img44 }]
 const steps = [
   {
     title: '예약',
-    content: '모든 상담 및 평가는 예약제로 운영됩니다.',
+    content: '모든 상담 및 평가는 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)을 통한 예약제로 운영됩니다.',
     Ftitle: '예약',
   },
   {
@@ -426,7 +426,7 @@ function DetailPage({ num, lang }) {
             marginBottom: '3%',
           }}
         >
-          {lang == 'kor' ? '협력업체' : 'Partner Company '}
+          {lang == 'kor' ? '함께하는 학교 및 기관' : 'Partner '}
         </Title>
         <Collab />
       </Wrapper>
