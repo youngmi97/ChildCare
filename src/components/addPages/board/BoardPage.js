@@ -259,9 +259,9 @@ let newsData = [
     theme: '아이세이 연구소',
     title: '공지사항 (Notice) ',
     contents:
-      '교육 및 프로그램 참여 비용은 전화(070-***-****) 또는 이메일(isaylab2020@gmail.com)로 문의주시기 바랍니다.결제는 신용카드, 계좌이체, 현금 결제 모두 가능하며, 계좌이체 또는 현금 결제 시 현금영수증을 발급해드립니다. * 본 기관은 바우처 제공 기관이 아닙니다.',
+      '교육 및 프로그램 참여 비용은 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)로 문의주시기 바랍니다.결제는 신용카드, 계좌이체, 현금 결제 모두 가능하며, 계좌이체 또는 현금 결제 시 현금영수증을 발급해드립니다. * 본 기관은 바우처 제공 기관이 아닙니다.',
     contentsEng:
-      'If you would like to inquire about the cost of the program, please call (070-*****) or email (isaylab2020@gmail.com). Payment can be made by credit card, account transfer, or cash payment, and a cash receipt will be issued for account transfer or cash payment. * This institution is not a voucher provider.',
+      'If you would like to inquire about the cost of the program, please call (02-540-5242) or email (isaylab2020@gmail.com). Payment can be made by credit card, account transfer, or cash payment, and a cash receipt will be issued for account transfer or cash payment. * This institution is not a voucher provider.',
   },
   {
     date: '2021-12-01',
