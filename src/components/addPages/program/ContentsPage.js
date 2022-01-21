@@ -447,6 +447,12 @@ function ContentsPage({ num, lang }) {
             </Paragraph>
  
            <Paragraph>
+              <Title level={3}>
+                {lang == 'kor'
+                  ? ' 2. 주말 프로그램'
+                  : '2. Weekend Program '}
+              </Title>
+           <Paragraph>
               <Title level={5}>
                 {lang == 'kor'
                   ? '대상: 책을 좋아하는 누구나'
