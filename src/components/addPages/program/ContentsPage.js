@@ -446,7 +446,6 @@ function ContentsPage({ num, lang }) {
               </Paragraph>
             </Paragraph>
            
-           <Divider />
            <Paragraph>
               <Title level={3}>
                 {lang == 'kor'
@@ -504,7 +503,6 @@ function ContentsPage({ num, lang }) {
                 </li>
               </ul>
             </Paragraph>
-            <Divider />
             <img
               src={Pic5}
               style={
