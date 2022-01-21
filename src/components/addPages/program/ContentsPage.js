@@ -445,7 +445,8 @@ function ContentsPage({ num, lang }) {
                 </ul>
               </Paragraph>
             </Paragraph>
- 
+           
+           <Divider />
            <Paragraph>
               <Title level={3}>
                 {lang == 'kor'
