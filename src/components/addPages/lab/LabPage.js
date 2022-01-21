@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+
 import MenuBar from '../../MenuBar'
 import '../../../App.css'
 import styled from 'styled-components'
@@ -9,15 +9,8 @@ import BackgroundImage from './Main1.jpeg'
 import DetailPage from './DetailPage'
 import { withRouter } from 'react-router'
 import { useHistory, useLocation } from 'react-router-dom'
+import Footer from '../../Footer'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
 
 const Wrapper = styled.div`
   display: flex;
@@ -111,7 +104,7 @@ function LabPage({ match }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   })
-  const classes = useStyles()
+
   const [numState, setNumState] = useState(1)
   useEffect(() => setLang(match.params.lang), [match.params.lang])
 
@@ -242,7 +235,9 @@ function LabPage({ match }) {
           lang={lang}
         />
         {isMobile ? <ImageWrapper src={BackgroundImage} /> : <></>}
+     
       </Wrapper>
+      <Footer change={lang} />
     </div>
   )
 }

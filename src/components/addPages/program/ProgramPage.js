@@ -1,7 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Modal from '@material-ui/core/Modal'
-import Backdrop from '@material-ui/core/Backdrop'
+
+import Footer from "../../Footer"
 import Fade from '@material-ui/core/Fade'
 import MenuBar from '../../MenuBar'
 import '../../../App.css'
@@ -13,14 +12,7 @@ import DetailPage from './ContentsPage'
 import { withRouter } from 'react-router'
 import { useHistory, useLocation } from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -124,14 +116,14 @@ function ProgramPage({ match }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   })
-  const classes = useStyles()
+
   const [numState, setNumState] = useState(1)
 
   const location = useLocation(1)
   console.log(location.state)
 
   return (
-    <div>
+<div>
       <Wrapper>
         <MenuBar change={lang} />
         <RowWrapper>
@@ -281,8 +273,10 @@ function ProgramPage({ match }) {
             lang={lang}
           />
         </ContentsWrapper>
+      
       </Wrapper>
-    </div>
+        <Footer change={lang} /></div>
+ 
   )
 }
 

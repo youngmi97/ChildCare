@@ -401,7 +401,7 @@ function ContentsPage({ num, lang }) {
                 ? { display: 'flex', flexDirection: 'column' }
                 : { display: 'flex', flexDirection: 'row' }
             }
-          >
+          />
             {' '}
            <Paragraph>
               <Title level={3}>

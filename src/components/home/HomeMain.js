@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuBar from '../MenuBar'
+import Footer from '../Footer'
 import '../../App.css'
 import styled from 'styled-components'
 import BackgroundImage from './Main2.jpg'
@@ -13,14 +14,6 @@ import { FcHome, FcNews, FcGenealogy } from 'react-icons/fc'
 import { withRouter } from 'react-router'
 import Fade from 'react-reveal/Fade'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
 
 const Wrapper = styled.div`
   display: flex;
@@ -228,7 +221,7 @@ function HomeMain({ match }) {
   const [lang, setLang] = useState(match.params.lang)
   console.log(lang)
   const { Title, Paragraph, Text, Link } = Typography
-  const classes = useStyles()
+
   const history = useHistory()
 
   //모바일 여부 감지
@@ -547,6 +540,7 @@ function HomeMain({ match }) {
           )}
         </WelcomeWrapper>
       </Wrapper>
+      <Footer change={lang} />
     </div>
   )
 }

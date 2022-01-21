@@ -744,9 +744,7 @@ function DetailPage({ num, lang }) {
               </Fade>
             </WelcomeText>
           </WelcomeWrapper>
-        </ContentsWrapper>
-      </Wrapper>
- <WelcomeWrapper>
+          <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
                 <WelcomeImage src={'https://ifh.cc/g/vt5Ker.jpg'} />
@@ -829,6 +827,7 @@ function DetailPage({ num, lang }) {
           </WelcomeWrapper>
         </ContentsWrapper>
       </Wrapper>
+
     )
   } else if (num == 3) {
     return (
