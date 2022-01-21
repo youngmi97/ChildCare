@@ -747,7 +747,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/vt5Ker.jpg'} />
+                <WelcomeImage src={'https://ifh.cc/g/JmD9BI.jpg'} />
                 <Title
                   level={5}
                   style={{
