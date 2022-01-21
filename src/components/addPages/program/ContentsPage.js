@@ -504,6 +504,7 @@ function ContentsPage({ num, lang }) {
                 </li>
               </ul>
             </Paragraph>
+            <Divider />
             <img
               src={Pic5}
               style={
