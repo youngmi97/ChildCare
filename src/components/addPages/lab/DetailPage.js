@@ -309,7 +309,7 @@ const steps = [
   {
     title: '예약',
     content: '모든 상담 및 평가는 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)을 통한 예약제로 운영됩니다.',
-    Ftitle: '예약',
+    Ftitle: '',
   },
   {
     title: '전문가평가',
@@ -426,7 +426,7 @@ function DetailPage({ num, lang }) {
             marginBottom: '3%',
           }}
         >
-          {lang == 'kor' ? '함께하는 학교 및 기관' : 'Partner '}
+          {lang == 'kor' ? '함께하는 학교 및 기관' : 'Partners '}
         </Title>
         <Collab />
       </Wrapper>
@@ -471,7 +471,7 @@ function DetailPage({ num, lang }) {
               >
                 {lang == 'kor'
                   ? '* 빛나는 곳에 마우스를 올리면 함께하는 학교 및 기관을 확인하실 수 있습니다. '
-                  : '* If you mouse up in the shining place, you can check the partner company.'}
+                  : '* Place your mouse on the screen to view collaborating organizations.'}
               </Paragraph>
             </ContentsWrapper>
             <Divider />
@@ -494,7 +494,7 @@ function DetailPage({ num, lang }) {
                   <Title level={5}>
                     {lang == 'kor'
                       ? '1) 신뢰할 수 있는 공인 전문가의 차별화된 언어 서비스 제공'
-                      : '1) Provide differentiated speech therapy services from trusted and certified experts'}
+                      : '1) Provide differentiated language support services from trusted and certified experts'}
                   </Title>
                   {lang == 'kor'
                     ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
@@ -783,37 +783,37 @@ function DetailPage({ num, lang }) {
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '인지학습상담전문가 2급 (대한학습치료사협회)'
-                        : '인지학습상담전문가 2급'}
+                        : 'Cognition and Learning Therapy Professional Level 2 (Korea Learning Therapy Association)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '아동심리상담사 1급 (한국심리상담사협회)'
-                        : '아동심리상담사 1급'}
+                        : 'Child Psychology Therapist Level 1 (Korea Psychology Counseling Association)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '놀이심리상담사 1급 (한국심리상담사협회)'
-                        : '놀이심리상담사 1급'}
+                        : 'Play Therapist Level 1 (Korea Psychology Counseling Association)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '문해교육전문가 과정 수료(한국난독증협회)'
-                        : '문해교육전문가 과정 수료'}
+                        : 'Completed Literacy Education Professional Curriculum (Korea Dyslexia Association)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? 'DIR Floortime 101과정 수료(ICDL)'
-                        : 'DIR Floortime 101과정 수료'}
+                        : 'Completed DIR Floortime 101 Program (The Interdiscilinary Council on Development and Learning'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? ' (현) 연세수언어심리연구원'
-                        : '(Previous) Korean-SLP at Aicorea Research Institute for Child Development and Education'}
+                        : '(Present) Younsei-Su Language Psychology Institute'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '(현) 아이샘언어심리발달센터 '
-                        : '(Previous) Korean-SLP at Seoul Top Maeum Clinic Pediatric Psychiatry'}
+                        : '(Present) Aisem Languag Psychology Development Center'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
