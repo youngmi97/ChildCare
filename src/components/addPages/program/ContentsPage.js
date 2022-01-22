@@ -135,25 +135,25 @@ function ContentsPage({ num, lang }) {
               <Title level={3}>
                 {lang == 'kor'
                   ? ' 전문가와 함께하는 책읽기'
-                  : 'Reading with an expert '}
+                  : 'Book reading with skilled professionals '}
               </Title>
               <Paragraph>
                 <Title level={5}>
                   {lang == 'kor'
                     ? '대상: 책을 좋아하는 모든 아동, 책과 친해지고 싶은 모든 아동, 책읽기에 어려움이 있는 아동'
-                    : 'Target demographic: All children who like books, want to get acquainted with books, and have difficulty in reading '}
+                    : 'Target: All children who love reading, want to grow closer to books, or have difficulty in reading '}
                 </Title>
 
                 <ul>
                   <li>
                     {lang == 'kor'
                       ? '국제 어린이, 국제 학생반: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립 학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가와 함께 읽어보는 시간'
-                      : 'English: Read books currently used in US national and public schools sponsored by Scholastic with a native-speaking expert'}
+                      : 'International class: Through the support of Scholastic, children will read books about a variety of topics with skilled professionals.'}
                   </li>
                   <li>
                     {lang == 'kor'
                       ? '국내 한국어반: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달전문가와 함께 읽어보는 시간 '
-                      : 'Korean: Read books on various topics sponsored by Woongjin ThinkBig with a language development expert'}
+                      : 'Korean class: Through the support of Woongfin ThinkBig, children will read books about a variety of topics with skilled professionals'}
                   </li>
                   <li>
                     {lang == 'kor'
@@ -407,40 +407,40 @@ function ContentsPage({ num, lang }) {
               <Title level={3}>
                 {lang == 'kor'
                   ? ' 1. 북클럽 회원제'
-                  : '1. Bookclub Membership '}
+                  : '1. Bookclub membership '}
               </Title>
               <Paragraph>
                 <Title level={5}>
                   {lang == 'kor'
                     ? 'I SAY LAB 작은 도서관에서 자녀와 함께 책으로 함께 하는 시간을 보내세요. 클럽 회원이 되시면 미국의 대형 출판사로서 국공립 학교에 책을 공급하고 있는 스콜라스틱(Scholastic) 도서부터 웅진씽크빅 도서까지, 다양한 주제의 책을 자유롭게 이용할 수 있습니다.'
-                    : 'Target demographic: All children who like books, want to get acquainted with books, and have difficulty in reading '}
+                    : 'Spend time at the I Say Lab library reading books with your children! If you are a member, you will have access to and freely be able to read books from publishing companies such as Woongjin ThinkBig or Scholastic, a major publisher supplying books to American public schools. '}
                 </Title>
               <Paragraph>
                 <Title level={5}>
                   {lang == 'kor'
                     ? '영유아 아동은(36개월 미만) 양육자와 동행하셔서 편안하게 책읽기 활동을 즐기고, 학령전기 또는 학령기 아동은 양육자와 함께 혼자 와서 읽을 수 있습니다.'
-                    : 'Target demographic: All children who like books, want to get acquainted with books, and have difficulty in reading '}
+                    : 'Toddlers (36 months and below) can enjoy book reading activities accompanied by their caregivers, Preschool children and up can visit the library alone or with their caregiver. '}
                 </Title>
                 <ul>
                   <li>
                     {lang == 'kor'
                       ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령전기 자녀를 둔 부모 (영유아인 경우 양육자 누구나 가능)'
-                      : 'Korean: Read books on various topics sponsored by Woongjin ThinkBig with a language development expert '}
+                      : 'Who: All parents of toddlers ~ school aged children who want to use the resources and facility of I Say Lab (In the case of toddlers, any caregiver may join) '}
                   </li>
                   <li>
                     {lang == 'kor'
                       ? '이용시간: 연구소 open 시간 동안 언제나 무한제 (1년에 특별한 강좌나 캠프가 진행되는 동안에는 제한)'
-                      : 'English: Read books currently used in US national and public schools sponsored by Scholastic with a native-speaking expert'}
+                      : 'When: Any time the I Say Lab is open (no limit on time except for during annual book reading campus'}
                   </li>
                   <li>
                     {lang == 'kor'
                       ? '이용방법: 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)에서 신청 후 사용'
-                      : 'Improve vocabulary and literacy skills through research-proven effective reading methods'}
+                      : 'How: Sign up by phone (02-540-5242) or by email (isaylab2020@gmail.com)'}
                   </li>
                   <li>
                     {lang == 'kor'
                       ? '이용절차: 이용자 등록 및 이용증 발급 > 소지품 보관 > 도서관 이용 > 이용종료'
-                      : 'Improve vocabulary and literacy skills through research-proven effective reading methods'}
+                      : 'Procedure: Registration & library card issued > Storage of possessions > Use library'}
                   </li>
                 </ul>
               </Paragraph>
@@ -544,7 +544,7 @@ function ContentsPage({ num, lang }) {
               <Title level={5}>
                 {lang == 'kor'
                   ? '대상: 모든 아동(만 4세 ~ 12세)'
-                  : 'Target demographic: Preschool children'}
+                  : 'Target demographic: All children (ages 4-12)'}
               </Title>
               <Title level={5}>
                 {lang == 'kor'
