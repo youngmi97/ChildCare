@@ -671,7 +671,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/vt5Ker.jpg'} />
+                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
                 <Title
                   level={5}
                   style={{
@@ -744,10 +744,11 @@ function DetailPage({ num, lang }) {
               </Fade>
             </WelcomeText>
           </WelcomeWrapper>
+          
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/JmD9BI.jpg'} />
+                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
                 <Title
                   level={5}
                   style={{
@@ -757,7 +758,7 @@ function DetailPage({ num, lang }) {
                 >
                   {lang == 'kor'
                     ? '조연주(1급 언어재활사)'
-                    : 'Yeonj Cho (Lv1-SLP) '}
+                    : 'Yeonj Michelle Cho (Lv1-SLP) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -777,48 +778,135 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
+                        ? 'University of California, Berkeley 연수'
+                        : 'University of California, Berkeley (Short-term program)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'American University 연수'
+                        : 'American University (Short-term program)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
                         ? '언어재활사(1급)'
                         : 'Level 1 Korean-SLP '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '인지학습상담전문가 2급 (대한학습치료사협회)'
-                        : 'Cognition and Learning Therapy Professional Level 2 (Korea Learning Therapy Association)'}
+                        : 'Level 2 Cognitive Learning Counselling Specialist (Korea Association of Learning Therapist)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '아동심리상담사 1급 (한국심리상담사협회)'
-                        : 'Child Psychology Therapist Level 1 (Korea Psychology Counseling Association)'}
+                        : 'Level 1 Child Psychological Counselor (The Korea Association of Psychology Counselor)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '놀이심리상담사 1급 (한국심리상담사협회)'
-                        : 'Play Therapist Level 1 (Korea Psychology Counseling Association)'}
+                        : 'Level 1 Child Play Psychological Counselor (The Korea Association of Psychology Counselor)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '문해교육전문가 과정 수료(한국난독증협회)'
-                        : 'Completed Literacy Education Professional Curriculum (Korea Dyslexia Association)'}
+                        : 'Literacy Education Specialist (Korea Dyslexia Association)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? 'DIR Floortime 101과정 수료(ICDL)'
-                        : 'Completed DIR Floortime 101 Program (The Interdiscilinary Council on Development and Learning'}
+                        : 'DIR Floortime 101 Program (ICDL'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? ' (현) 연세수언어심리연구원'
-                        : '(Present) Younsei-Su Language Psychology Institute'}
+                        : 'Korean-SLP at Yonseisu Research Institute for language development and psychology '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '(현) 아이샘언어심리발달센터 '
-                        : '(Present) Aisem Languag Psychology Development Center'}
+                        : 'Korean-SLP at Isam Research Institute for language development and psychology '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '국제 SCOUPS 2건의 논문 게재'
-                        : 'Published in a total of 2 international and domestic journals: SCOPUS (2) '}
+                        ? 'Cho, Y., & Yim, D. (2020). A Comparative Study of Chunking Skills in Bilingual Children and Monolingual Children with and without Specific Language Impairment. Communication Sciences and Disorders, 25(2), 242-257. '
+                        : 'Cho, Y., & Yim, D. (2020). A Comparative Study of Chunking Skills in Bilingual Children and Monolingual Children with and without Specific Language Impairment. Communication Sciences and Disorders, 25(2), 242-257. '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'Kim, S., Yoo, S., Jang, J., Cho, Y., Yang, Y., & Yim, D. (2019). Usage of Onomatopoeic and Mimetic Words in Vietnamese-Korean Bilingual compared to Korean Monolingual Families. Communication Sciences and Disorders, 24(2). 288-298. '
+                        : 'Kim, S., Yoo, S., Jang, J., Cho, Y., Yang, Y., & Yim, D. (2019). Usage of Onomatopoeic and Mimetic Words in Vietnamese-Korean Bilingual compared to Korean Monolingual Families. Communication Sciences and Disorders, 24(2). 288-298. '}
+                    </li>
+                  </ul>
+                </Paragraph>
+              </Fade>
+            </WelcomeText>
+          </WelcomeWrapper>
+
+          <WelcomeWrapper>
+            <Fade cascade>
+              <ColumnWrapper>
+                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
+                <Title
+                  level={5}
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {lang == 'kor'
+                    ? '이지혜(1급 언어재활사) '
+                    : 'Jen Lee(Lv1-SLP) '}
+                </Title>
+              </ColumnWrapper>
+            </Fade>
+            <WelcomeText style={{ marginTop: '20px' }}>
+              <Fade cascade>
+                <Paragraph>
+                  <ul style={{ fontFamily: 'payboocBold' }}>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'George Brown College 유아교육과 졸업'
+                        : 'George Brown College, Early Childhood Education Diploma Program'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'Simon Fraser University 언어학 졸업'
+                        : 'Simon Fraser University, B.A. Major in Linguistics, Minor in Education'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 언어병리학과 석사'
+                        : 'Ewha Womans University, Completed M.A. program in Communication Disorders'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '언어재활사(1급)'
+                        : 'Level 1 Korean-SLP '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'CLSS 자격증 (Certificate in Linguistics of Speech Science)'
+                        : 'Certificate in Linguistics of Speech Science'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'TESOL 자격증 (Teaching English to Speakers of Other Languages)'
+                        : 'TESOL certification (Teaching English to Speakers of Other Languages)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '어린이 영어지도사 자격증 (한국심리상담사협회)'
+                        : 'TEYL certification (Teaching English to Young Learners)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 경기 영어마을 영어 교사)'
+                        : '(Previous) English teacher at Gyeonggi English Village'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 캐나다 어린이집 교사'
+                        : '(Previous) Early Childhood Education at Daycare Center, Canada'}
                     </li>
                   </ul>
                 </Paragraph>
