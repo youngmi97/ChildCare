@@ -875,7 +875,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '이화여자대학교 언어병리학과 석사'
+                        ? '이화여자대학교 언어병리학과 석사 수료'
                         : 'Ewha Womans University, Completed M.A. program in Communication Disorders'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
