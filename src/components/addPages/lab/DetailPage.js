@@ -671,7 +671,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
+                <WelcomeImage src={''} />
                 <Title
                   level={5}
                   style={{
@@ -748,7 +748,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
+                <WelcomeImage src={''} />
                 <Title
                   level={5}
                   style={{
@@ -845,7 +845,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/.jpg'} />
+                <WelcomeImage src={''} />
                 <Title
                   level={5}
                   style={{
