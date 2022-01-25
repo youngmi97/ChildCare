@@ -430,7 +430,7 @@ function ContentsPage({ num, lang }) {
                   <li>
                     {lang == 'kor'
                       ? '이용시간: 연구소 open 시간 동안 언제나 무한제 (1년에 특별한 강좌나 캠프가 진행되는 동안에는 제한)'
-                      : 'When: Any time the I Say Lab is open (no limit on time except for during annual book reading campus'}
+                      : 'When: Any time the I Say Lab is open (no limit on time except for during annual book reading camp)'}
                   </li>
                   <li>
                     {lang == 'kor'
