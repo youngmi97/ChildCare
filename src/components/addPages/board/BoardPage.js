@@ -293,8 +293,8 @@ let newsData = [
     title: '제 1회 ISSC 봄방학캠프 책읽기 프로그램을 시작합니다(Launching a brand new ISSC Spring camp; Book Reading Program!)',
     image:ISSCengkor,
     contents:
-      '아이세이 연구소(I Say Lab)에서 제 1회 ISSC 봄방학캠프 (I SAY Spring Camp)를 개최합니다. 그림책을 매개로 다양한 언어놀이 활동을 함으로써 어휘력, 문해력, 상상력을 기르고 책읽기에 대한 흥미와 관심을 키울 수 있는 영어와 한국어 캠프에 많은 관심과 참여 부탁드립니다.층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 구체적인 내용은 하단 이미지를 확인해 주시기 바랍니다.',
+      '아이세이 연구소(I Say Lab)에서 제 1회 ISSC 봄방학캠프 (I SAY Spring Camp)를 개최합니다. 그림책을 매개로 다양한 언어놀이 활동을 함으로써 어휘력, 문해력, 상상력을 기르고 책읽기에 대한 흥미와 관심을 키울 수 있는 영어와 한국어 캠프에 많은 관심과 참여 부탁드립니다.층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 구체적인 내용은 상단 이미지를 확인해 주시기 바랍니다.',
     contentsEng:
-      'I Say Lab is running its first ever I Say Spring Camp (ISSC) this comping spring break. In the Engish and Korean camps, children will be able to develop vocabulary and literacy skills as well as creativity and a love for reading through a variety of language-related activities using storybooks as mediators. We invite you to join us for this special opportunity. For more information, please check the below flyer.',
+      'I Say Lab is running its first ever I Say Spring Camp (ISSC) this comping spring break. In the Engish and Korean camps, children will be able to develop vocabulary and literacy skills as well as creativity and a love for reading through a variety of language-related activities using storybooks as mediators. We invite you to join us for this special opportunity. For more information, please check the above image.',
   },
 ]
