@@ -486,7 +486,7 @@ function HomeMain({ match }) {
                     }}
                   >
                     {lang == 'kor'
-                      ? ' 임동선교수님께서 연구책임자로 계신 아동언어연구실에서는 아이들의 언어발달에 중요한 기저가 무엇인지, 그리고 아동의 언어적 환경이 언어발달에 얼마나 큰 영향을 미치는지에 대해 다각적으로 연구합니다.'
+                      ? ' 임동선교수님께서 책임연구자로 계신 아동언어연구실에서는 아이들의 언어발달에 중요한 기저가 무엇인지, 그리고 아동의 언어적 환경이 언어발달에 얼마나 큰 영향을 미치는지에 대해 다각적으로 연구합니다.'
                       : ' We study how children learn language and also how language learning can break down.'}
                   </Title>
                   <Title
