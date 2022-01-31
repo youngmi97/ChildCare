@@ -7,6 +7,8 @@ import 'antd/dist/antd.css'
 import { Button, Table, Modal, Typography } from 'antd'
 import Fade from 'react-reveal/Fade'
 import BackgroundImage from './Main1.jpg'
+import ISSCkor from './ISSCkor.jpg'
+import ISSCeng from './ISSCeng.jpg'
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
@@ -284,5 +286,17 @@ let newsData = [
       'I Say Lab은 금강아케이드(서울특별시 강남구 압구정로 29길 68) 2층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 주차와 관련된 구체적인 내용은 I Say Lab 홈페이지에서 ‘연구소 소개’의 ‘오시는 길‘ 메뉴를 확인해 주시기 바랍니다.',
     contentsEng:
       'I Say Lab is located on the second floor of Geumgang Arcade (68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul), and there are commercial or free parking spaces around the building. For more parking information, please check the “Directions" and "Parking Guide" menus on the first screen of the I Say Lab website.',
+  },
+  {
+    date: '2022-01-28',
+    source: 4,
+    theme: '아이세이 연구소',
+    title: '제 1회 ISSC 봄방학캠프 책읽기 프로그램을 시작합니다(Launching a brand new ISSC Spring camp; Book Reading Program!)',
+    image:ISSCkor,
+    image:ISSCeng,
+    contents:
+      '아이세이 연구소(I Say Lab)에서 제 1회 ISSC 봄방학캠프 (I SAY Spring Camp)를 개최합니다. 그림책을 매개로 다양한 언어놀이 활동을 함으로써 어휘력, 문해력, 상상력을 기르고 책읽기에 대한 흥미와 관심을 키울 수 있는 영어와 한국어 캠프에 많은 관심과 참여 부탁드립니다.층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 구체적인 내용은 하단 이미지를 확인해 주시기 바랍니다.',
+    contentsEng:
+      'I Say Lab is running its first ever I Say Spring Camp (ISSC) this comping spring break. In the Engish and Korean camps, children will be able to develop vocabulary and literacy skills as well as creativity and a love for reading through a variety of language-related activities using storybooks as mediators. We invite you to join us for this special opportunity. For more information, please check the below flyer.',
   },
 ]
