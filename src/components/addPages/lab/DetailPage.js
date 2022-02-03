@@ -854,8 +854,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '이지혜(1급 언어재활사) '
-                    : 'Jen Lee(Lv1-SLP) '}
+                    ? '조예림 '
+                    : 'Yerim Helen Cho '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -865,48 +865,38 @@ function DetailPage({ num, lang }) {
                   <ul style={{ fontFamily: 'payboocBold' }}>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'George Brown College 유아교육과 졸업'
-                        : 'George Brown College, Early Childhood Education Diploma Program'}
+                        ? 'G'
+                        : 'G'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'Simon Fraser University 언어학 졸업'
-                        : 'Simon Fraser University, B.A. Major in Linguistics, Minor in Education'}
+                        ? 'S'
+                        : 'S'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '이화여자대학교 언어병리학과 석사 수료'
-                        : 'Ewha Womans University, Completed M.A. program in Communication Disorders'}
+                        ? '이화여자대학교 언어병리학과 석사 과정'
+                        : 'Ewha Womans University, M.A. student in Communication Disorders'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '언어재활사(1급)'
-                        : 'Level 1 Korean-SLP '}
+                        ? 'L '
+                        : 'L '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'CLSS 자격증 (Certificate in Linguistics of Speech Science)'
-                        : 'Certificate in Linguistics of Speech Science'}
+                        ? 'C'
+                        : 'C'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'TESOL 자격증 (Teaching English to Speakers of Other Languages)'
-                        : 'TESOL certification (Teaching English to Speakers of Other Languages)'}
+                        ? 'T'
+                        : 'T'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '어린이 영어지도사 자격증 (한국심리상담사협회)'
-                        : 'TEYL certification (Teaching English to Young Learners)'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? '(전) 경기 영어마을 영어 교사)'
-                        : '(Previous) English teacher at Gyeonggi English Village'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? '(전) 캐나다 어린이집 교사'
-                        : '(Previous) Early Childhood Education at Daycare Center, Canada'}
+                        ? 'T'
+                        : 'T'}
                     </li>
                   </ul>
                 </Paragraph>
