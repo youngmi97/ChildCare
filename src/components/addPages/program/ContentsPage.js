@@ -424,7 +424,7 @@ function ContentsPage({ num, lang }) {
                 <ul>
                   <li>
                     {lang == 'kor'
-                      ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령전기 자녀를 둔 부모 (영유아인 경우 양육자 누구나 가능)'
+                      ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령기 자녀를 둔 부모 (영유아인 경우 양육자 누구나 가능)'
                       : 'Who: All parents of toddlers ~ school aged children who want to use the resources and facility of I Say Lab (In the case of toddlers, any caregiver may join) '}
                   </li>
                   <li>
