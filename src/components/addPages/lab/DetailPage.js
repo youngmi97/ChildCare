@@ -757,8 +757,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '조연주(1급 언어재활사)'
-                    : 'Yeonj Michelle Cho (Lv1-SLP) '}
+                    ? '조윤주(1급 언어재활사)'
+                    : 'Yunju Michelle Cho (Lv1-SLP) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -875,7 +875,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '호주 언어재활사 자격증 (CPSP) 봉ㅍ '
+                        ? '호주 언어재활사 자격증 (CPSP) 보유 '
                         : 'Australian Speech Pathologist (CPSP) '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
