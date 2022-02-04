@@ -716,7 +716,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? ' (전) 아이코리아 아동발달교육연구원 언어재활사'
+                        ? '(전) 아이코리아 아동발달교육연구원 언어재활사'
                         : '(Previous) Korean-SLP at Aicorea Research Institute for Child Development and Education'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
@@ -818,7 +818,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? ' (현) 연세수언어심리연구원'
+                        ? '(현) 연세수언어심리연구원'
                         : 'Korean-SLP at Yonseisu Research Institute for language development and psychology '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
@@ -865,38 +865,23 @@ function DetailPage({ num, lang }) {
                   <ul style={{ fontFamily: 'payboocBold' }}>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'G'
-                        : 'G'}
+                        ? '시드니대학교 언어병리학과 졸업'
+                        : 'University of Sydney, B.A. in Speech Pathology'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'S'
-                        : 'S'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? '이화여자대학교 언어병리학과 석사 과정'
+                        ? '이화여자대학교 언어병리학과 석사과정'
                         : 'Ewha Womans University, M.A. student in Communication Disorders'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'L '
-                        : 'L '}
+                        ? '호주 언어재활사 자격증 (CPSP) 봉ㅍ '
+                        : 'Australian Speech Pathologist (CPSP) '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? 'C'
-                        : 'C'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? 'T'
-                        : 'T'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? 'T'
-                        : 'T'}
+                        ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 )'
+                        : '(Previous) Communicating Champions Speech Pathology, Australia'}
                     </li>
                   </ul>
                 </Paragraph>
