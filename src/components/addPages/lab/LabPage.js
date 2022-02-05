@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import Footer from "../../Footer"
+
 import MenuBar from '../../MenuBar'
 import '../../../App.css'
 import styled from 'styled-components'
@@ -104,7 +105,7 @@ function LabPage({ match }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   })
-  const classes = useStyles()
+
   const [numState, setNumState] = useState(1)
   useEffect(() => setLang(match.params.lang), [match.params.lang])
 
@@ -236,6 +237,7 @@ function LabPage({ match }) {
         />
         {isMobile ? <ImageWrapper src={BackgroundImage} /> : <></>}
       </Wrapper>
+      <Footer change={lang} />
     </div>
   )
 }

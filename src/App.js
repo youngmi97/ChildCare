@@ -17,7 +17,7 @@ function App() {
         <Route path="/board/:lang" component={BoardPage} />
         <Route path='/' component={Home} />
       </Switch>
-      <Footer />
+
     </Router>
   )
 }
