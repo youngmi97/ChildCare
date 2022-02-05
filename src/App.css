@@ -1,0 +1,59 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+body {
+  font-family: 'Nanum Square', sans-serif;
+}
+
+.page-title {
+  display: block !important;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.form-container {
+  width: 400px;
+}
+
+.ui.teal.button:focus,
+.ui.teal.buttons .button:focus {
+  background-color: #6c2dc7;
+}
+
+.graybox {
+  float: right;
+  background-color: gray;
+  height: 100px;
+  width: 400px;
+  line-height: 100px;
+  transform-origin: 100% 50%;
+  animation: main 5s;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'payboocBold';
+  src: url('./fonts/paybooc Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocExtraBold';
+  src: url('./fonts/paybooc ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocLight';
+  src: url('./fonts/paybooc Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'payboocMedium';
+  src: url('./fonts/paybooc Medium.ttf') format('truetype');
+}
