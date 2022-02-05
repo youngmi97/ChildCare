@@ -10,14 +10,7 @@ import DetailPage from './DetailPage'
 import { withRouter } from 'react-router'
 import { useHistory, useLocation } from 'react-router-dom'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -169,7 +162,7 @@ function LabPage({ match }) {
                   marginBottom: '1px',
                 }}
               >
-                {lang == 'kor' ? '연구원 소개' : 'Researchers'}
+                {lang == 'kor' ? '연구원 소개' : 'Clinicians'}
               </Button>
               <Button
                 onClick={() => {

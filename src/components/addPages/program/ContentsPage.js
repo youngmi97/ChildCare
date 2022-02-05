@@ -134,65 +134,36 @@ function ContentsPage({ num, lang }) {
             <Paragraph>
               <Title level={3}>
                 {lang == 'kor'
-                  ? ' 1. 전문가와의 일대일 책읽기'
-                  : '1. One-on-one reading with an expert '}
+                  ? ' 전문가와 함께하는 책읽기'
+                  : 'Book reading with skilled professionals '}
               </Title>
               <Paragraph>
                 <Title level={5}>
                   {lang == 'kor'
                     ? '대상: 책을 좋아하는 모든 아동, 책과 친해지고 싶은 모든 아동, 책읽기에 어려움이 있는 아동'
-                    : 'Target demographic: All children who like books, want to get acquainted with books, and have difficulty in reading '}
+                    : 'Target: All children who love reading, want to grow closer to books, or have difficulty in reading '}
                 </Title>
 
                 <ul>
                   <li>
                     {lang == 'kor'
-                      ? '한글 책읽기: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달전문가와 함께 읽어보는 시간'
-                      : 'Korean: Read books on various topics sponsored by Woongjin ThinkBig with a language development expert '}
+                      ? '국제 어린이, 국제 학생반: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립 학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가와 함께 읽어보는 시간'
+                      : 'International class: Through the support of Scholastic, children will read books about a variety of topics with skilled professionals.'}
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '영어 책읽기: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립 학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가와 함께 읽어보는 시간'
-                      : 'English: Read books currently used in US national and public schools sponsored by Scholastic with a native-speaking expert'}
+                      ? '국내 한국어반: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달전문가와 함께 읽어보는 시간 '
+                      : 'Korean class: Through the support of Woongfin ThinkBig, children will read books about a variety of topics with skilled professionals'}
                   </li>
                   <li>
                     {lang == 'kor'
                       ? '연구로 검증된 효과적인 책읽기 방법을 통해 어휘력 및 문해력 촉진'
                       : 'Improve vocabulary and literacy skills through research-proven effective reading methods'}
                   </li>
-                </ul>
-              </Paragraph>
-            </Paragraph>
-
-            <Divider />
-            <Paragraph>
-              <Title level={3}>
-                {lang == 'kor'
-                  ? '2. 전문가와 함께하는 소집단 책읽기'
-                  : '2. Reading in small groups with experts '}
-              </Title>
-              <Paragraph>
-                <Title level={5}>
-                  {lang == 'kor'
-                    ? ' 대상: 책을 좋아하는 모든 아동, 책과 친해지고 싶은 모든 아동, 책읽기에 어려움이 있는 아동'
-                    : 'Target demographic: All children who like books, who want to get acquainted with books, and have difficulty reading '}
-                </Title>
-
-                <ul>
                   <li>
                     {lang == 'kor'
-                      ? '한글 책읽기: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달 전문가의 지도 아래 또래들과 함께 읽어보는 시간'
-                      : 'Korean: Read books on various topics sponsored by Woongjin ThinkBig with peers under the guidance of a language development expert'}
-                  </li>
-                  <li>
-                    {lang == 'kor'
-                      ? '영어 책읽기: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가의 지도 아래 또래들과 함께 읽어보는 시간'
-                      : 'English: Read books currently used in US national and public schools sponsored by Scholastic with peers under the guidance of native-speaking experts. '}
-                  </li>
-                  <li>
-                    {lang == 'kor'
-                      ? '전문가의 지도 아래 또래들과 함께 책읽기(2-4명)'
-                      : 'Read with peers under the guidance of an expert (2-4 people) '}
+                      ? '전문가 지도 아래 또래들과 함께 책읽기(1~4명)'
+                      : 'Read with peers under the guidance of an expert (1-4 people) '}
                   </li>
                   <li>
                     {lang == 'kor'
@@ -405,97 +376,147 @@ function ContentsPage({ num, lang }) {
     )
   } else if (num == 5) {
     return (
-      <Typography>
-        <Fade bottom cascade>
-          <Title level={2}>
-            {lang == 'kor'
-              ? '주말 프로그램: 책과 함께하는 휴식 시간'
-              : 'Weekend Program: Break Time with Books'}
-          </Title>
-          <br />
-          <br />
-          <Paragraph>
-            <Title level={5}>
+      <div>
+        <Typography>
+          <Fade bottom cascade>
+            <Title level={2}>
               {lang == 'kor'
-                ? '아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. 토요일에는 I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
-                : 'Children can freely encounter books to develop their language skills, and parents can get information related to language development and book reading. On Saturday, I Say Lab will turn into a small library, allowing children to freely read books and participate in various book activities with language development experts. Parents can also freely visit and talk to experts at I Say Lab to ask questions and get information about language development.'}
+                ? '책과 함께하는 휴식 시간'
+                : 'Break Time with Books'}
             </Title>
-          </Paragraph>
-          <br />
+            <Divider />
+            <br />
+            <Paragraph
+              style={
+                isMobile
+                  ? { display: 'flex', flexDirection: 'column' }
+                  : { display: 'flex', flexDirection: 'row' }
+              }
+            >
+              {' '}
+              <br />
+              <Title level={5}>
+                {lang == 'kor'
+                  ? '아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. 토요일에는 I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
+                  : 'Children can freely encounter books to develop their language skills, and parents can get information related to language development and book reading. On Saturday, I Say Lab will turn into a small library, allowing children to freely read books and participate in various book activities with language development experts. Parents can also freely visit and talk to experts at I Say Lab to ask questions and get information about language development.'}
+              </Title>
+            </Paragraph>
+            <br />
 
-          <Divider />
-          <Paragraph
-            style={
-              isMobile
-                ? { display: 'flex', flexDirection: 'column' }
-                : { display: 'flex', flexDirection: 'row' }
-            }
-          >
-            {' '}
             <Paragraph>
-              <Title level={5}>
+              <Title level={3}>
                 {lang == 'kor'
-                  ? '대상: 책을 좋아하는 누구나'
-                  : 'Target demographic: Anyone who likes books'}
+                  ? ' 1. 북클럽 회원제'
+                  : '1. Bookclub membership '}
               </Title>
-              <Title level={5}>
-                {lang == 'kor'
-                  ? '그룹활동: 한 그룹당 최대 10명의 아동(신청자 수에 따라 인원 조정 가능), 한 명의 언어발달 전문가가 담당'
-                  : 'Group activities: up to 10 children per group (can be adjusted according to the number of applicants) with one language development expert'}
-              </Title>
-              <Title level={5}>
-                {lang == 'kor' ? '토요일 9:00~12:00' : 'Saturday 9:00-12:00 '}
-              </Title>
-              <blockquote>
+              <Paragraph>
+                <Title level={5}>
+                  {lang == 'kor'
+                    ? 'I SAY LAB 작은 도서관에서 자녀와 함께 책으로 함께 하는 시간을 보내세요. 클럽 회원이 되시면 미국의 대형 출판사로서 국공립 학교에 책을 공급하고 있는 스콜라스틱(Scholastic) 도서부터 웅진씽크빅 도서까지, 다양한 주제의 책을 자유롭게 이용할 수 있습니다.'
+                    : 'Spend time at the I Say Lab library reading books with your children! If you are a member, you will have access to and freely be able to read books from publishing companies such as Woongjin ThinkBig or Scholastic, a major publisher supplying books to American public schools. '}
+                </Title>  
+                <Title level={5}>
+                  {lang == 'kor'
+                    ? '영유아 아동은(36개월 미만) 양육자와 동행하셔서 편안하게 책읽기 활동을 즐기고, 학령전기 또는 학령기 아동은 양육자와 함께 혼자 와서 읽을 수 있습니다.'
+                    : 'Toddlers (36 months and below) can enjoy book reading activities accompanied by their caregivers, Preschool children and up can visit the library alone or with their caregiver. '}
+                </Title>
+
                 <ul>
                   <li>
                     {lang == 'kor'
-                      ? '9:00-10:00 영유아 (2-3세)'
-                      : '9:00-10:00 Infants/Toddlers (2-3 years old)'}
+                      ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령기 자녀를 둔 부모 (영유아인 경우 양육자 누구나 가능)'
+                      : 'Who: All parents of toddlers ~ school aged children who want to use the resources and facility of I Say Lab (In the case of toddlers, any caregiver may join) '}
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '10:00-11:00 학령전기 (4-6세)'
-                      : '10:00-11:00 Pre-school age (4-6 years old)'}
+                      ? '이용시간: 연구소 open 시간 동안 언제나 무한제 (1년에 특별한 강좌나 캠프가 진행되는 동안에는 제한)'
+                      : 'When: Any time the I Say Lab is open (no limit on time except for during annual book reading camp)'}
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '11:00-12:00 학령기 (7세~13세)'
-                      : '11:00-12:00 School age (7-13 years old)'}
+                      ? '이용방법: 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)에서 신청 후 사용'
+                      : 'How: Sign up by phone (02-540-5242) or by email (isaylab2020@gmail.com)'}
+                  </li>
+                  <li>
+                    {lang == 'kor'
+                      ? '이용절차: 이용자 등록 및 이용증 발급 > 소지품 보관 > 도서관 이용 > 이용종료'
+                      : 'Procedure: Registration & library card issued > Storage of possessions > Use library'}
                   </li>
                 </ul>
-              </blockquote>
-              <ul>
-                <li>
-                  {lang == 'kor'
-                    ? '한국어 및 영어 프로그램'
-                    : 'Korean and English programs are provided'}
-                </li>
-                <li>
-                  {lang == 'kor'
-                    ? ' 언어발달 전문가와 2-3권의 책 읽은 후 다양한 독후 활동 진행'
-                    : 'Various post-reading activities after reading 2-3 books with a language development expert'}
-                </li>
-                <li>
-                  {lang == 'kor'
-                    ? '아동 연령별로 책읽기 수업 참여 후 열린 책 방에서 아동 혼자 또는 부모님과 개별 책읽기 활동 진행 가능'
-                    : 'Children can read books alone or with their parents in an open area after participating in a reading class'}
-                </li>
-              </ul>
+              </Paragraph>
             </Paragraph>
-            <img
-              src={Pic5}
-              style={
-                isMobile
-                  ? { width: '100%' }
-                  : { width: '400px', marginLeft: '15%' }
-              }
-            />
-          </Paragraph>
-          <br />
-          <br />
-        </Fade>
-      </Typography>
+           
+            <Divider />
+            <Paragraph>
+              <Title level={3}>
+                {lang == 'kor'
+                  ? ' 2. 주말 프로그램'
+                  : '2. Weekend program '}
+              </Title>
+              <Paragraph>
+                <Title level={5}>
+                  {lang == 'kor'
+                    ? '대상: 책을 좋아하는 누구나'
+                    : 'Target demographic: Anyone who likes books'}
+                </Title>
+                <Title level={5}>
+                  {lang == 'kor'
+                    ? '그룹활동: 한 그룹당 최대 10명의 아동(신청자 수에 따라 인원 조정 가능), 언어발달 전문가가 담당'
+                    : 'Group activities: up to 10 children per group (can be adjusted according to the number of applicants) with one language development expert'}
+                </Title>
+                <Title level={5}>
+                  {lang == 'kor' ? '토요일 9:00~12:00' : 'Saturday 9:00-12:00 '}
+                </Title>
+                <blockquote>
+                  <ul>
+                    <li>
+                      {lang == 'kor'
+                        ? '9:00-10:00 영유아 (2-3세)'
+                        : '9:00-10:00 Infants/Toddlers (2-3 years old)'}
+                    </li>
+                    <li>
+                      {lang == 'kor'
+                        ? '10:00-11:00 학령전기 (4-6세)'
+                        : '10:00-11:00 Pre-school age (4-6 years old)'}
+                    </li>
+                    <li>
+                      {lang == 'kor'
+                        ? '11:00-12:00 학령기 (7세~13세)'
+                        : '11:00-12:00 School age (7-13 years old)'}
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul>
+                  <li>
+                    {lang == 'kor'
+                      ? '한국어 및 영어 프로그램'
+                      : 'Korean and English programs are provided'}
+                  </li>
+                  <li>
+                    {lang == 'kor'
+                      ? ' 언어발달 전문가와 2-3권의 책 읽은 후 다양한 독후 활동 진행'
+                      : 'Various post-reading activities after reading 2-3 books with a language development expert'}
+                  </li>
+                  <li>
+                    {lang == 'kor'
+                      ? '아동 연령별로 책읽기 수업 참여 후 열린 책 방에서 아동 혼자 또는 부모님과 개별 책읽기 활동 진행 가능'
+                      : 'Children can read books alone or with their parents in an open area after participating in a reading class'}
+                  </li>
+                </ul>
+              </Paragraph>
+            </Paragraph>
+              <img
+                src={Pic5}
+                style={
+                  isMobile
+                    ? { width: '100%' }
+                    : { width: '400px', marginLeft: '15%' }
+                }
+              />
+            <Divider />
+          </Fade>
+        </Typography>
+      </div>
     )
   } else if (num == 6) {
     return (
@@ -503,7 +524,7 @@ function ContentsPage({ num, lang }) {
         <Fade bottom cascade>
           <Title level={2}>
             {lang == 'kor'
-              ? '특별 프로그램: 여름/겨울방학 책읽기 캠프 (한국어 및 영어)'
+              ? '특별 프로그램: 봄/여름/겨울방학 책읽기 캠프 (한국어 및 영어)'
               : 'Special Program: Summer/Winter Vacation Reading Camp (Korean and English)'}
           </Title>
           <br />
@@ -511,7 +532,7 @@ function ContentsPage({ num, lang }) {
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
-                ? '책, 그리고 친구들과 함께 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 말하기를 배울 수 있는 시간이 될 것입니다. I Say Lab에서는 여름방학과 겨울방학에 책읽기 캠프를 진행합니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
+                ? '책, 그리고 친구들과 함께 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 언어 활동을 할 수 있는 시간이 될 것입니다. I Say Lab에서는 봄/여름/겨울방학에 책읽기 캠프를 진행합니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
                 : 'Through books and with friends, children can improve communication skills and learn to speak in a fun way by experiencing various activities under the guidance of a language development expert. I Say Lab holds a book reading camp during summer and winter vacation. Parents can choose between Korean and English programs according to their children`s interests and needs. Book reading camp will provide an opportunity for children to grow language, communication, and emotions with language development experts and peers. '}
             </Title>
           </Paragraph>
@@ -529,8 +550,8 @@ function ContentsPage({ num, lang }) {
             <Paragraph>
               <Title level={5}>
                 {lang == 'kor'
-                  ? '대상: 학령전기 아동'
-                  : 'Target demographic: Preschool children'}
+                  ? '대상: 모든 아동(만 4세 ~ 12세)'
+                  : 'Target demographic: All children (ages 4-12)'}
               </Title>
               <Title level={5}>
                 {lang == 'kor'

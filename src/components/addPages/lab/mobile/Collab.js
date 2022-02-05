@@ -16,10 +16,7 @@ const Card = styled.div`
   font-size: 0.9rem;
   margin: 20px 0px;
 
-  .contents {
-    list-style-position: inside;
-    text-indent: -18px;
-    padding-left: 18px;
+  li {
   }
 `
 const Collab = () => {

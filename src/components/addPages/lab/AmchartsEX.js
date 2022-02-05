@@ -94,7 +94,7 @@ class AmchartsEX extends Component {
       'contents':"- Samsung Medical Center (삼성 서울병원)"+"\n - Early childhood education centers in Seoul and Gyeonggi-do (서울 및 경기도 소재 유아교육기관)"+
       "\n - Seoul Foreign School (서울외국인학교)"+"\n - Seoul International School (서울국제학교)" +"\n - North London Collegiate School Jeju (NLCS 제주)"+ 
       "\n - Chadwick International School (채드윅 송도 국제학교)"+"\n - Dulwich College Seoul (덜위치칼리지 서울영국학교)"+"\n - Postech (포항공과대학교)"+"\n - Korean Institute of Brief Family Therapy (한국단기가족치료연구소)"
-      +"\n - Seoul Seobu Distirct Office of Education (서울특별시 서부교육지원청)"
+      +"\n - Seoul Seobu Distirct Office of Education (서울특별시 서부교육지원청)"+"\n - KAIST, School of Computing (한국과학기술원 전산학과)"+"\n - Korea International School (한국외국인학교)"
     } ];
 
   }

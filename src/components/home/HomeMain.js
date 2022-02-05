@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import MenuBar from '../MenuBar'
+import Footer from '../Footer'
 import '../../App.css'
 import styled from 'styled-components'
 import BackgroundImage from './Main2.jpg'
@@ -13,14 +14,6 @@ import { FcHome, FcNews, FcGenealogy } from 'react-icons/fc'
 import { withRouter } from 'react-router'
 import Fade from 'react-reveal/Fade'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
 
 const Wrapper = styled.div`
   display: flex;
@@ -228,7 +221,6 @@ function HomeMain({ match }) {
   const [lang, setLang] = useState(match.params.lang)
   console.log(lang)
   const { Title, Paragraph, Text, Link } = Typography
-  const classes = useStyles()
   const history = useHistory()
 
   //모바일 여부 감지
@@ -480,7 +472,7 @@ function HomeMain({ match }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '아동언어연구실을 더 알아보세요!'
+                    ? '이화여자대학교 아동언어연구실(Child Language Lab)을 더 알아보세요!'
                     : 'Learn More about Child-Language Lab.'}
                 </Title>
                 <Paragraph>
@@ -493,7 +485,7 @@ function HomeMain({ match }) {
                     }}
                   >
                     {lang == 'kor'
-                      ? ' 아동언어연구실에서는 아이들이 언어를 배우는 방법과 언어 학습이 어떻게 무너질 수 있는지에 대해 연구합니다.'
+                      ? ' 임동선교수님께서 책임연구자로 계신 아동언어연구실에서는 아이들의 언어발달에 중요한 기저가 무엇인지, 그리고 아동의 언어적 환경이 언어발달에 얼마나 큰 영향을 미치는지에 대해 다각적으로 연구합니다.'
                       : ' We study how children learn language and also how language learning can break down.'}
                   </Title>
                   <Title
@@ -505,7 +497,7 @@ function HomeMain({ match }) {
                     }}
                   >
                     {lang == 'kor'
-                      ? ' 저희의 목표는 언어 학습에 대한 인지 언어 이론에 대한 우리의 시각을 넓히고 언어 장애가 있는 아이들에게 더 정확한 평가와 더 효과적인 개입 서비스를 제공하는 것입니다.'
+                      ? ' 다학제간 연구를 통해 이론과 실제를 유기적으로 연결하고, 연구와 임상의 연결고리를 역동적으로 찾아가는 연구실입니다.'
                       : ' Our aim is to broaden our perspective on cognitive-linguistic theories of language learning and to achieve more accurate assessment and more effective intervention services for children who have language difficulties.'}
                   </Title>
                 </Paragraph>
@@ -547,6 +539,7 @@ function HomeMain({ match }) {
           )}
         </WelcomeWrapper>
       </Wrapper>
+      <Footer change={lang} />
     </div>
   )
 }

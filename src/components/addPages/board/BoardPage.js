@@ -7,6 +7,7 @@ import 'antd/dist/antd.css'
 import { Button, Table, Modal, Typography } from 'antd'
 import Fade from 'react-reveal/Fade'
 import BackgroundImage from './Main1.jpg'
+import ISSCengkor from './ISSCengkor.jpg'
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
@@ -259,9 +260,9 @@ let newsData = [
     theme: '아이세이 연구소',
     title: '공지사항 (Notice) ',
     contents:
-      '교육 및 프로그램 참여 비용은 전화(070-***-****) 또는 이메일(isaylab2020@gmail.com)로 문의주시기 바랍니다.결제는 신용카드, 계좌이체, 현금 결제 모두 가능하며, 계좌이체 또는 현금 결제 시 현금영수증을 발급해드립니다. * 본 기관은 바우처 제공 기관이 아닙니다.',
+      '교육 및 프로그램 참여 비용은 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)로 문의주시기 바랍니다.결제는 신용카드, 계좌이체, 현금 결제 모두 가능하며, 계좌이체 또는 현금 결제 시 현금영수증을 발급해드립니다. * 본 기관은 바우처 제공 기관이 아닙니다.',
     contentsEng:
-      'If you would like to inquire about the cost of the program, please call (070-*****) or email (isaylab2020@gmail.com). Payment can be made by credit card, account transfer, or cash payment, and a cash receipt will be issued for account transfer or cash payment. * This institution is not a voucher provider.',
+      'If you would like to inquire about the cost of the program, please call (02-540-5242) or email (isaylab2020@gmail.com). Payment can be made by credit card, account transfer, or cash payment, and a cash receipt will be issued for account transfer or cash payment. * This institution is not a voucher provider.',
   },
   {
     date: '2021-12-01',
@@ -284,5 +285,16 @@ let newsData = [
       'I Say Lab은 금강아케이드(서울특별시 강남구 압구정로 29길 68) 2층에 위치하고 있으며, 건물 주위에 유료 또는 무료로 주차할 수 있는 공간들이 있습니다. 주차와 관련된 구체적인 내용은 I Say Lab 홈페이지에서 ‘연구소 소개’의 ‘오시는 길‘ 메뉴를 확인해 주시기 바랍니다.',
     contentsEng:
       'I Say Lab is located on the second floor of Geumgang Arcade (68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul), and there are commercial or free parking spaces around the building. For more parking information, please check the “Directions" and "Parking Guide" menus on the first screen of the I Say Lab website.',
+  },
+  {
+    date: '2022-01-28',
+    source: 4,
+    theme: '아이세이 연구소',
+    title: '제 1회 ISSC 봄방학캠프 책읽기 프로그램을 시작합니다(Launching a brand new ISSC Spring camp; Book Reading Program!)',
+    image:ISSCengkor,
+    contents:
+      '아이세이 연구소(I Say Lab)에서 제 1회 ISSC 봄방학캠프 (I SAY Spring Camp)를 개최합니다. 영어와 한국어 캠프에서 그림책을 매개로 다양한 언어놀이 활동을 함으로써 어휘력, 문해력, 상상력을 기르고 책읽기에 대한 흥미와 관심을 키울 수 있는 기회를 제공하려고 합니다. 많은 관심과 참여를 부탁드립니다. 구체적인 내용은 상단 이미지를 확인해 주시기 바랍니다.',
+    contentsEng:
+      'I Say Lab is running its first ever I Say Spring Camp (ISSC) this comping spring break. In the Engish and Korean camps, children will be able to develop vocabulary and literacy skills as well as creativity and a love for reading through a variety of language-related activities using storybooks as mediators. We invite you to join us for this special opportunity. For more information, please check the above image.',
   },
 ]

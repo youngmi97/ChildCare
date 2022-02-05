@@ -308,8 +308,8 @@ const images4 = [{ url: img41 }, { url: img42 }, { url: img43 }, { url: img44 }]
 const steps = [
   {
     title: '예약',
-    content: '모든 상담 및 평가는 예약제로 운영됩니다.',
-    Ftitle: '예약',
+    content: '모든 상담 및 평가는 전화(02-540-5242) 또는 이메일(isaylab2020@gmail.com)을 통한 예약제로 운영됩니다.',
+    Ftitle: '',
   },
   {
     title: '전문가평가',
@@ -426,7 +426,7 @@ function DetailPage({ num, lang }) {
             marginBottom: '3%',
           }}
         >
-          {lang == 'kor' ? '협력업체' : 'Partner Company '}
+          {lang == 'kor' ? '함께하는 학교 및 기관' : 'Partners '}
         </Title>
         <Collab />
       </Wrapper>
@@ -470,8 +470,8 @@ function DetailPage({ num, lang }) {
                 }}
               >
                 {lang == 'kor'
-                  ? '* 빛나는 곳에 마우스를 올리면 협력업체를 확인하실 수 있습니다. '
-                  : '* If you mouse up in the shining place, you can check the partner company.'}
+                  ? '* 빛나는 곳에 마우스를 올리면 함께하는 학교 및 기관을 확인하실 수 있습니다. '
+                  : '* Place your mouse on the screen to view collaborating organizations.'}
               </Paragraph>
             </ContentsWrapper>
             <Divider />
@@ -493,11 +493,11 @@ function DetailPage({ num, lang }) {
                 >
                   <Title level={5}>
                     {lang == 'kor'
-                      ? '1) 신뢰할 수 있는 공인 전문가의 차별화된 언어치료 서비스 제공'
-                      : '1) Provide differentiated speech therapy services from trusted and certified experts'}
+                      ? '1) 신뢰할 수 있는 공인 전문가의 차별화된 언어 서비스 제공'
+                      : '1) Provide differentiated language support services from trusted and certified experts'}
                   </Title>
                   {lang == 'kor'
-                    ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 치료 서비스를 제공합니다.'
+                    ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
                     : 'Professor Dongsun Yim, CEO of I Say Lab, is a professor of Communication Disorders at Ewha Womans University and an internationally recognized clinical expert with a level 1 Korean SLP certification, US CCC-SLP (American Speech-Language Hearing Association), and a parental education certificate from Hanen Centre in Canada.          I Say Lab provides evidence-based treatment services that Professor Yim has verified through long-term research and clinical trials.'}
                 </Paragraph>
                 <Paragraph
@@ -582,7 +582,7 @@ function DetailPage({ num, lang }) {
             marginBottom: '3%',
           }}
         >
-          {lang == 'kor' ? '연구원 소개' : 'Researchers'}
+          {lang == 'kor' ? '연구원 소개' : 'Clinicians'}
         </Title>
 
         <ContentsWrapper>
@@ -624,8 +624,8 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '국제논문 및 국내논문 총 102건 게재: SCI급(9건) 및 SCOPUS(44건), KCI(49건)'
-                        : 'Published in a total of 102 international and domestic journals: SCI (9), SCOPUS (44), KCI (49)'}
+                        ? '국제논문 및 국내논문 총 128건 게재'
+                        : 'Published in a total of 182 international and domestic journals'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -634,8 +634,13 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '우수 연구 수상 총 15건'
-                        : 'Received 15 Outstanding Research Awards'}
+                        ? '우수 연구 수상 총 16건'
+                        : 'Received 16 Outstanding Research Awards'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 연구 우수 교원으로 선정(2014년)'
+                        : 'Selected as Excellent Researcher at Ewha Womans University (2021)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -649,7 +654,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '한국형 온라인 공개 강좌인 K-MOOC 강의는 우수 강좌 Blue Ribbon상 수상(2020, 2021년)'
+                        ? '한국형 온라인 공개 강좌인 K-MOOC 우수 강좌 Blue Ribbon상 수상(2020, 2021년)'
                         : 'Awarded the Blue Ribbon Award for excellent lectures in the K-MOOC lecture, a Korean-style open online course (2020, 2021)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
@@ -666,7 +671,7 @@ function DetailPage({ num, lang }) {
           <WelcomeWrapper>
             <Fade cascade>
               <ColumnWrapper>
-                <WelcomeImage src={'https://ifh.cc/g/vt5Ker.jpg'} />
+                <WelcomeImage src={''} />
                 <Title
                   level={5}
                   style={{
@@ -711,7 +716,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? ' (전) 아이코리아 아동발달교육연구원 언어재활사'
+                        ? '(전) 아이코리아 아동발달교육연구원 언어재활사'
                         : '(Previous) Korean-SLP at Aicorea Research Institute for Child Development and Education'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
@@ -739,8 +744,153 @@ function DetailPage({ num, lang }) {
               </Fade>
             </WelcomeText>
           </WelcomeWrapper>
+          
+          <WelcomeWrapper>
+            <Fade cascade>
+              <ColumnWrapper>
+                <WelcomeImage src={''} />
+                <Title
+                  level={5}
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {lang == 'kor'
+                    ? '조윤주(1급 언어재활사)'
+                    : 'Yunju Michelle Cho (Lv1-SLP) '}
+                </Title>
+              </ColumnWrapper>
+            </Fade>
+            <WelcomeText style={{ marginTop: '20px' }}>
+              <Fade cascade>
+                <Paragraph>
+                  <ul style={{ fontFamily: 'payboocBold' }}>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 심리학과 졸업'
+                        : 'Ewha Womans University, B.A. in Psychology'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 언어병리학과 석사'
+                        : 'Ewha Womans University, M.A. in Communication Disorders'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'University of California, Berkeley 연수'
+                        : 'University of California, Berkeley (Short-term program)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'American University 연수'
+                        : 'American University (Short-term program)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '언어재활사(1급)'
+                        : 'Level 1 Korean-SLP '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '인지학습상담전문가 2급 (대한학습치료사협회)'
+                        : 'Level 2 Cognitive Learning Counselling Specialist (Korea Association of Learning Therapist)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '아동심리상담사 1급 (한국심리상담사협회)'
+                        : 'Level 1 Child Psychological Counselor (The Korea Association of Psychology Counselor)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '놀이심리상담사 1급 (한국심리상담사협회)'
+                        : 'Level 1 Child Play Psychological Counselor (The Korea Association of Psychology Counselor)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '문해교육전문가 과정 수료(한국난독증협회)'
+                        : 'Literacy Education Specialist (Korea Dyslexia Association)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'DIR Floortime 101과정 수료(ICDL)'
+                        : 'DIR Floortime 101 Program (ICDL'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(현) 연세수언어심리연구원'
+                        : 'Korean-SLP at Yonseisu Research Institute for language development and psychology '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(현) 아이샘언어심리발달센터 '
+                        : 'Korean-SLP at Isam Research Institute for language development and psychology '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'Cho, Y., & Yim, D. (2020). A Comparative Study of Chunking Skills in Bilingual Children and Monolingual Children with and without Specific Language Impairment. Communication Sciences and Disorders, 25(2), 242-257. '
+                        : 'Cho, Y., & Yim, D. (2020). A Comparative Study of Chunking Skills in Bilingual Children and Monolingual Children with and without Specific Language Impairment. Communication Sciences and Disorders, 25(2), 242-257. '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? 'Kim, S., Yoo, S., Jang, J., Cho, Y., Yang, Y., & Yim, D. (2019). Usage of Onomatopoeic and Mimetic Words in Vietnamese-Korean Bilingual compared to Korean Monolingual Families. Communication Sciences and Disorders, 24(2). 288-298. '
+                        : 'Kim, S., Yoo, S., Jang, J., Cho, Y., Yang, Y., & Yim, D. (2019). Usage of Onomatopoeic and Mimetic Words in Vietnamese-Korean Bilingual compared to Korean Monolingual Families. Communication Sciences and Disorders, 24(2). 288-298. '}
+                    </li>
+                  </ul>
+                </Paragraph>
+              </Fade>
+            </WelcomeText>
+          </WelcomeWrapper>
+
+          <WelcomeWrapper>
+            <Fade cascade>
+              <ColumnWrapper>
+                <WelcomeImage src={''} />
+                <Title
+                  level={5}
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {lang == 'kor'
+                    ? '조예림 '
+                    : 'Yerim Helen Cho '}
+                </Title>
+              </ColumnWrapper>
+            </Fade>
+            <WelcomeText style={{ marginTop: '20px' }}>
+              <Fade cascade>
+                <Paragraph>
+                  <ul style={{ fontFamily: 'payboocBold' }}>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '시드니대학교 언어병리학과 졸업'
+                        : 'University of Sydney, B.A. in Speech Pathology'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '이화여자대학교 언어병리학과 석사과정'
+                        : 'Ewha Womans University, M.A. student in Communication Disorders'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '호주 언어재활사 자격증 (CPSP) 보유 '
+                        : 'Australian Speech Pathologist (CPSP) '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 )'
+                        : '(Previous) Communicating Champions Speech Pathology, Australia'}
+                    </li>
+                  </ul>
+                </Paragraph>
+              </Fade>
+            </WelcomeText>
+          </WelcomeWrapper>
         </ContentsWrapper>
       </Wrapper>
+
     )
   } else if (num == 3) {
     return (
@@ -880,8 +1030,8 @@ function DetailPage({ num, lang }) {
           }}
         >
           {lang == 'kor'
-            ? '언어치료교육 서비스 이용 절차'
-            : 'The procedure for using the language therapy education'}
+            ? '언어 서비스 이용 절차'
+            : 'The procedure for using the language support system'}
         </Title>
 
         <ContentsWrapper3>
@@ -998,11 +1148,7 @@ function DetailPage({ num, lang }) {
               marginLeft: '5%',
               textAlign: 'center',
             }}
-          >
-            {lang == 'kor'
-              ? '서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층'
-              : '68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul, Republic of Korea'}
-          </Title>
+          ></Title>
         )}
 
         {isMobile ? (

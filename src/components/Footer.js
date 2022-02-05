@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
-const useStyles = makeStyles(theme => ({
-  modal: {},
-  footer: {
-    height: '20vh',
-    backgroundColor: '#F9BE00',
-    fontFamily: 'payboocBold',
-  },
-}))
+const Wrapper=styled.div`
+ height: 20vh;
+ background-color: #F9BE00;
+ font-family: 'payboocBold';
 
-const Footer = () => {
-  const classes = useStyles()
+`
+
+
+
+function Footer({change}) {
+
 
   //모바일 여부 감지
   const [isMobile, setIsMobile] = useState(false)
+  const [isEnglish, setIsEnglish] = useState(false)
   const resizingHandler = () => {
     if (window.innerWidth <= 430) {
       setIsMobile(true)
@@ -34,7 +35,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <div className={classes.footer}>
+    <Wrapper>
       <div
         style={{
           display: 'flex',
@@ -70,13 +71,17 @@ const Footer = () => {
               }
         }
       >
-        <div>대표이메일 : isaylab2020@gmail.com</div>
+        <div> {change == 'kor' ? '대표전화번호 : 02-540-5242' : 'Tel. 02.540.5242'} </div>
         {isMobile ? <></> : <div style={{ margin: '0px 1vw' }}>|</div>}
         <div>
-          주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층
+        {change == 'kor' ? '대표이메일 : isaylab2020@gmail.com' : 'Email : isaylab2020@gmail.com '}</div>
+        {isMobile ? <></> : <div style={{ margin: '0px 1vw' }}>|</div>}
+        <div>
+        {change == 'kor' ? '주소: 서울특별시 강남구 압구정로 29길 68, 금강아케이드상가 2층' : '2F Geumgangarcade 68, Apgujeong-ro 29-gil, Gangnam-gu, Seoul'}
+          
         </div>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 
