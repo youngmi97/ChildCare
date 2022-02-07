@@ -411,7 +411,7 @@ function MenuBar({ change, openProgram, setOpenProgram }) {
               }}
             >
               {change == 'kor'
-                ? '특별프로그램: 여름/겨울방학 책읽기 캠프'
+                ? '특별프로그램: 봄/여름/겨울방학 책읽기 캠프'
                 : 'Special: Vacation Reading Camp'}
             </DetailSlideItem>
           </ul>
