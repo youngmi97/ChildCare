@@ -290,7 +290,7 @@ function MenuBar({ change, openProgram, setOpenProgram }) {
                 setIsOpen(false)
               }}
             >
-              {change == 'kor' ? '연구원 소개' : 'Researchers'}
+              {change == 'kor' ? '연구원 소개' : 'Clinicians'}
             </DetailSlideItem>
             <DetailSlideItem
               onClick={() => {
@@ -398,7 +398,7 @@ function MenuBar({ change, openProgram, setOpenProgram }) {
               }}
             >
               {change == 'kor'
-                ? '주말프로그램 : 책과 함께하는 휴식 시간'
+                ? '책과 함께하는 휴식 시간'
                 : 'Weekend: Break Time with Books'}
             </DetailSlideItem>
             <DetailSlideItem

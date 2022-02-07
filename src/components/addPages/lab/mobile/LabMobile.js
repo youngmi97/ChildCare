@@ -42,12 +42,12 @@ const LabMobile = ({ lang }) => {
       <Card style={{ borderColor: '#C77F5E' }}>
         <h3>
           {lang == 'kor'
-            ? '1) 신뢰할 수 있는 공인 전문가의 차별화된 언어치료 서비스 제공'
+            ? '1) 신뢰할 수 있는 공인 전문가의 차별화된 언어 서비스 제공'
             : '1) Provide differentiated speech therapy services from trusted and certified experts'}
         </h3>
         <div className="contents">
           {lang == 'kor'
-            ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 치료 서비스를 제공합니다.'
+            ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
             : 'Professor Dongsun Yim, CEO of I Say Lab, is a professor of Communication Disorders at Ewha Womans University and an internationally recognized clinical expert with a level 1 Korean SLP certification, US CCC-SLP (American Speech-Language Hearing Association), and a parental education certificate from Hanen Centre in Canada.          I Say Lab provides evidence-based treatment services that Professor Yim has verified through long-term research and clinical trials.'}
         </div>
       </Card>
