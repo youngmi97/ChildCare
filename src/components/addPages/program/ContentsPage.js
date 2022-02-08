@@ -417,14 +417,14 @@ function ContentsPage({ num, lang }) {
                 </Title>  
                 <Title level={5}>
                   {lang == 'kor'
-                    ? '영유아 아동은(36개월 미만) 양육자와 동행하셔서 편안하게 책읽기 활동을 즐기고, 학령전기 또는 학령기 아동은 양육자와 함께 혼자 와서 읽을 수 있습니다.'
+                    ? '영유아 아동은(36개월 미만) 양육자와 동행하셔서 편안하게 책읽기 활동을 즐기고, 학령전기 또는 학령기 아동은 양육자와 함께 또는 혼자 와서 읽을 수 있습니다.'
                     : 'Toddlers (36 months and below) can enjoy book reading activities accompanied by their caregivers, Preschool children and up can visit the library alone or with their caregiver. '}
                 </Title>
 
                 <ul>
                   <li>
                     {lang == 'kor'
-                      ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령기 자녀를 둔 부모 (영유아인 경우 양육자 누구나 가능)'
+                      ? '이용대상: I SAY LAB 소장 자료와 시설을 이용하고자 하는 영유아 ~ 학령기 아동과 부모 (영유아인 경우 양육자 누구나 가능)'
                       : 'Who: All parents of toddlers ~ school aged children who want to use the resources and facility of I Say Lab (In the case of toddlers, any caregiver may join) '}
                   </li>
                   <li>
