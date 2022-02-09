@@ -397,7 +397,7 @@ function ContentsPage({ num, lang }) {
               <br />
               <Title level={5}>
                 {lang == 'kor'
-                  ? '아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. 토요일에는 I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
+                  ? '아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
                   : 'Children can freely encounter books to develop their language skills, and parents can get information related to language development and book reading. On Saturday, I Say Lab will turn into a small library, allowing children to freely read books and participate in various book activities with language development experts. Parents can also freely visit and talk to experts at I Say Lab to ask questions and get information about language development.'}
               </Title>
             </Paragraph>
