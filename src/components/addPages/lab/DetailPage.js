@@ -926,27 +926,32 @@ function DetailPage({ num, lang }) {
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '보스턴대학교 방송학과 졸업'
-                        : 'Boston University, B.A. in Mass Communications'}
+                        : 'Boston University, B.S. in Mass Communications'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '시몬스 컬리지 보스턴 교육학과 졸업'
-                        : 'Simmons College Boston, M.A. in Education'}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? '(전) 미국 컬럼비아주 공립학교 교사'
-                        : '(Previous) Educator, District of Columbia Public Schools, Washington, USA '}
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                      {lang == 'kor'
-                        ? '(전)미국 보스턴 카플란어학원 교사 '
-                        : '(Previous) Instructor, Kaplan, Inc., Boston, USA'}
+                        ? '시몬스 컬리지 보스턴 교육학 석사 '
+                        : 'Simmons College Boston, M.A. in Teaching'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '미국 컬럼비아주 교사 자격증 (1-6)'
                         : 'District of Columbia Teacher License (1-6) '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(현) 미국 컬럼비아주 공립학교 교사'
+                        : '(Present) Educator, District of Columbia Public Schools, Washington, USA '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 미국 보스턴 카플란어학원 교사 '
+                        : '(Previous) Instructor, Kaplan, Inc., Boston, USA'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '2009-2018 컬럼비아 공립학교 행정구역 우수 교사상 '
+                        : 'Distric of Columbia Public Schools(DCPS) Highly Effective Teacher Award, 2009-2018'}
                     </li>
                   </ul>
                 </Paragraph>
