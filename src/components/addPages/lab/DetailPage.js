@@ -862,8 +862,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '조예림(언어재활사) '
-                    : 'Yerim Helen Cho(Speech-Language Pathologist) '}
+                    ? '조예림(CPSP, 언어재활사) '
+                    : 'Yerim Helen Cho(CPSP, Speech Pathologist) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -888,12 +888,12 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 )'
+                        ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 '
                         : '(Previous) Communicating Champions Speech Pathology, Australia'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '2021년 제 7회 한국언어치료학회 한국언어청각학회 공동학술대회 연구 우수상 )'
+                        ? '2021년 제 7회 한국언어치료학회 한국언어청각학회 공동학술대회 연구 우수상 '
                         : 'The 7th KASA & KSHA conference 2021 Outstanding Research Award(Oral presentation) '}
                     </li>
                   </ul>
@@ -930,7 +930,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '시몬스 컬리지 보스턴 교육학과 석사과정'
+                        ? '시몬스 컬리지 보스턴 교육학과 졸업'
                         : 'Simmons College Boston, M.A. in Education'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
