@@ -862,8 +862,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '조예림 '
-                    : 'Yerim Helen Cho '}
+                    ? '조예림(언어재활사) '
+                    : 'Yerim Helen Cho(Speech-Language Pathologist) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -890,6 +890,63 @@ function DetailPage({ num, lang }) {
                       {lang == 'kor'
                         ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 )'
                         : '(Previous) Communicating Champions Speech Pathology, Australia'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '2021년 제 7회 한국언어치료학회 한국언어청각학회 공동학술대회 연구 우수상 )'
+                        : 'The 7th KASA & KSHA conference 2021 Outstanding Research Award(Oral presentation) '}
+                    </li>
+                  </ul>
+                </Paragraph>
+              </Fade>
+            </WelcomeText>
+          </WelcomeWrapper>
+
+          <WelcomeWrapper>
+            <Fade cascade>
+              <ColumnWrapper>
+                <WelcomeImage src={''} />
+                <Title
+                  level={5}
+                  style={{
+                    fontFamily: 'payboocExtraBold',
+                    textAlign: 'center',
+                  }}
+                >
+                  {lang == 'kor'
+                    ? 'Jinny Choi(교사) '
+                    : 'Jinny Choi(Teacher) '}
+                </Title>
+              </ColumnWrapper>
+            </Fade>
+            <WelcomeText style={{ marginTop: '20px' }}>
+              <Fade cascade>
+                <Paragraph>
+                  <ul style={{ fontFamily: 'payboocBold' }}>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '보스턴대학교 방송학과 졸업'
+                        : 'Boston University, B.A. in Mass Communications'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '시몬스대학교 교육학과 석사과정'
+                        : 'Simmons College Boston, M.A. in Education'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 미국 컬럼비아주 공립학교 교사'
+                        : '(Previous) Educator, District of Columbia Public Schools, Washington, USA '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전)미국 보스턴 카플란어학원 교사 '
+                        : '(Previous) Instructor, Kaplan, Inc., Boston, USA'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '미국 컬럼비아주 교사 자격증 (1-6)'
+                        : 'District of Columbia Teacher License (1-6) '}
                     </li>
                   </ul>
                 </Paragraph>
