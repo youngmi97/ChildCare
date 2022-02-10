@@ -930,7 +930,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '시몬스대학교 교육학과 석사과정'
+                        ? '시몬스 컬리지 보스턴 교육학과 석사과정'
                         : 'Simmons College Boston, M.A. in Education'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
