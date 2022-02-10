@@ -667,7 +667,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '국내에서는 외국인 및 이중언어, 다문화 가정에 언어치료교육 서비스를 제공, 국외의 대상자(캐나다, 미국)에게도 온라인으로 치료 및 교육을 진행하고 있음.'
+                        ? '국내에서는 외국인 및 이중언어, 다문화 가정에 언어치료교육 서비스를 제공, 국외의 대상자(캐나다, 미국)에게도 온라인으로 치료 및 교육을 진행하고 있음'
                         : 'Currently providing speech therapy education services to foreigners, bilingual and multicultural families in Korea, and online treatment and education to overseas families (Canada and USA).'}
                     </li>
                   </ul>
