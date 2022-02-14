@@ -632,7 +632,7 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '국제논문 및 국내논문 총 128건 게재'
+                        ? '국제논문 및 국내논문 총 130건 이상 게재'
                         : 'Published in a total of 182 international and domestic journals'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>

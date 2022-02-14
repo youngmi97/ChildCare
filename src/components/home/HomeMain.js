@@ -331,8 +331,8 @@ function HomeMain({ match }) {
                     }}
                   >
                     {lang == 'kor'
-                      ? '임동선 교수님을 비롯한 여러 연구진에 대해서 알아보세요.'
-                      : 'Learn about Professor Dongsun Yim  and other researchers.'}
+                      ? '연구소 대표 임동선 교수를 비롯한 아이세이 언어 연구실의 연구진에 대해서 알아보세요.'
+                      : 'Learn about Professor Dongsun Yim and other researchers.'}
                   </Title>
                 </Paragraph>
                 <Button
@@ -486,7 +486,7 @@ function HomeMain({ match }) {
                     }}
                   >
                     {lang == 'kor'
-                      ? ' 임동선교수님께서 책임연구자로 계신 아동언어연구실에서는 아이들의 언어발달에 중요한 기저가 무엇인지, 그리고 아동의 언어적 환경이 언어발달에 얼마나 큰 영향을 미치는지에 대해 다각적으로 연구합니다.'
+                      ? ' 임동선교수가 책임연구자로 있는 아동언어연구실에서는 아동의 언어발달에 중요한 기저가 무엇인지, 그리고 아동의 언어적 환경이 언어발달에 얼마나 큰 영향을 미치는지에 대해 다각적으로 연구합니다.'
                       : ' We study how children learn language and also how language learning can break down.'}
                   </Title>
                   <Title
@@ -500,6 +500,18 @@ function HomeMain({ match }) {
                     {lang == 'kor'
                       ? ' 다학제간 연구를 통해 이론과 실제를 유기적으로 연결하고, 연구와 임상의 연결고리를 역동적으로 찾아가는 연구실입니다.'
                       : ' Our aim is to broaden our perspective on cognitive-linguistic theories of language learning and to achieve more accurate assessment and more effective intervention services for children who have language difficulties.'}
+                  </Title>
+                  <Title
+                    className="contents"
+                    level={5}
+                    style={{
+                      marginBottom: '20px',
+                      fontFamily: 'payboocLight',
+                    }}
+                  >
+                    {lang == 'kor'
+                      ? ' 연구들과 연구소 소식을 더 알아보세요.'
+                      : ' Find our researches and news.'}
                   </Title>
                 </Paragraph>
                 <Button
