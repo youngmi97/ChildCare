@@ -950,6 +950,16 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
+                        ? '(전) 미국 Bishoff Communications 영업지원 '
+                        : '(Previous) Account Coordinator, Bishoff Communications, Boston, USA'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) 미국 브룩라인 지역 기자/프리랜서 작가 '
+                        : '(Previous) Journalist/Freelance writer, Brookline, USA'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
                         ? '2009-2018 컬럼비아 공립학교 행정구역 우수 교사상 '
                         : 'Distric of Columbia Public Schools(DCPS) Highly Effective Teacher Award, 2009-2018'}
                     </li>
