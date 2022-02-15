@@ -47,7 +47,7 @@ const LabMobile = ({ lang }) => {
         </h3>
         <div className="contents">
           {lang == 'kor'
-            ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
+            ? 'I Say Lab의 대표 임동선 교수는 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수의 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
             : 'Professor Dongsun Yim, CEO of I Say Lab, is a professor of Communication Disorders at Ewha Womans University and an internationally recognized clinical expert with a level 1 Korean SLP certification, US CCC-SLP (American Speech-Language Hearing Association), and a parental education certificate from Hanen Centre in Canada.          I Say Lab provides evidence-based treatment services that Professor Yim has verified through long-term research and clinical trials.'}
         </div>
       </Card>
@@ -74,7 +74,7 @@ const LabMobile = ({ lang }) => {
         <div className="contents">
           <li>
             {lang == 'kor'
-              ? 'I Say Lab의 대표인 임동선 교수님은 임상 현장에서 20년 이상 부모를 대상으로 부모교육을 진행해 왔으며, 또한 서울 및 경기 지역의 유아교육 기관에서 부모님들을 대상으로 책읽기 교육 프로그램을 실시하여 그 효과를 검증하였습니다. 부모님들이 자녀를 대상으로, 또 전문가들이 임상 및 교육 현장에서 바로 적용할 수 있는 양질의 정보들을 제공합니다.'
+              ? 'I Say Lab의 대표 임동선 교수는 임상 현장에서 20년 이상 부모를 대상으로 부모교육을 진행해 왔으며, 또한 서울 및 경기 지역의 유아교육 기관에서 부모님들을 대상으로 책읽기 교육 프로그램을 실시하여 그 효과를 검증하였습니다. 부모님들이 자녀를 대상으로, 또 전문가들이 임상 및 교육 현장에서 바로 적용할 수 있는 양질의 정보들을 제공합니다.'
               : 'Professor Yim, CEO of I Say Lab, has been conducting parental education for parents for more than 20 years in the clinical field, and book reading education programs in   the early childhood education institutions in Seoul and Gyeonggi Province, and she has verified its effectiveness. Also, she provides quality information that parents can apply directly to their children and experts in clinical and educational fields.'}
           </li>
         </div>
@@ -87,7 +87,7 @@ const LabMobile = ({ lang }) => {
         </h3>
         <div className="contents">
           {lang == 'kor'
-            ? 'I Say Lab의 대표인 임동선 교수님이 오랫동안 연구에 기반하여 축적한 지식과 현장에서의 경험을 토대로, 언어치료교육 서비스 제공에 최적화된 온라인 플랫폼을 개발하여 자연발화 음성 빅데이터 구축, 인공지능 활용 진단 및 치료 자동화를 목표로 기술 개발 네트워크를 지속적으로 확보하고 있습니다.'
+            ? 'I Say Lab의 대표 임동선 교수는 오랫동안 연구에 기반하여 축적한 지식과 현장에서의 경험을 토대로, 언어치료교육 서비스 제공에 최적화된 온라인 플랫폼을 개발하여 자연발화 음성 빅데이터 구축, 인공지능 활용 진단 및 치료 자동화를 목표로 기술 개발 네트워크를 지속적으로 확보하고 있습니다.'
             : 'Professor Yim, CEO of I Say Lab, continues to secure a technology development network to build big date of natural speech, diagnose through artificial intelligence, and    provide automating treatment by developing an online platform optimized for language therapy education services.'}
         </div>
       </Card>
