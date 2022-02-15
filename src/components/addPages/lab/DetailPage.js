@@ -505,7 +505,7 @@ function DetailPage({ num, lang }) {
                       : '1) Provide differentiated language support services from trusted and certified experts'}
                   </Title>
                   {lang == 'kor'
-                    ? 'I Say Lab의 대표인 임동선 교수님은 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
+                    ? 'I Say Lab의 대표 임동선 교수는 이화여자대학교 언어병리학과 교수이자 한국 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증, 그리고 캐나다 Hanene centre의 부모교육 자격증을 보유한 국제적으로 공인된 임상 전문가입니다. I Say Lab에서는 임동선 교수님이 오랜 시간 연구 및 임상을 통해 그 효과를 검증한 근거 기반 언어 지원 서비스를 제공합니다.'
                     : 'Professor Dongsun Yim, CEO of I Say Lab, is a professor of Communication Disorders at Ewha Womans University and an internationally recognized clinical expert with a level 1 Korean SLP certification, US CCC-SLP (American Speech-Language Hearing Association), and a parental education certificate from Hanen Centre in Canada.          I Say Lab provides evidence-based treatment services that Professor Yim has verified through long-term research and clinical trials.'}
                 </Paragraph>
                 <Paragraph
@@ -862,8 +862,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? '조예림(CPSP, 언어재활사) '
-                    : 'Yerim Helen Cho(CPSP, Speech Pathologist) '}
+                    ? 'Helen Cho(CPSP, 언어재활사) '
+                    : 'Helen Cho(CPSP, Speech Pathologist) '}
                 </Title>
               </ColumnWrapper>
             </Fade>
@@ -925,43 +925,43 @@ function DetailPage({ num, lang }) {
                   <ul style={{ fontFamily: 'payboocBold' }}>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '보스턴대학교 방송학과 졸업'
+                        ? 'Boston University, B.S. in Mass Communications'
                         : 'Boston University, B.S. in Mass Communications'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '시몬스 컬리지 보스턴 교육학 석사 '
+                        ? 'Simmons College Boston, M.A. in Teaching '
                         : 'Simmons College Boston, M.A. in Teaching'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '미국 컬럼비아주 교사 자격증 (1-6)'
+                        ? 'District of Columbia Teacher License (1-6) '
                         : 'District of Columbia Teacher License (1-6) '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(현) 미국 컬럼비아주 공립학교 교사'
+                        ? '(Present) Educator, District of Columbia Public Schools, Washington, USA'
                         : '(Present) Educator, District of Columbia Public Schools, Washington, USA '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) 미국 보스턴 카플란어학원 교사 '
-                        : '(Previous) Instructor, Kaplan, Inc., Boston, USA'}
+                        ? '(Previous) Instructor, Kaplan, Inc., Boston, USA '
+                        : '(Previous) Instructor, Kaplan, Inc., Boston, USA '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) 미국 Bishoff Communications 영업지원 '
+                        ? '(Previous) Account Coordinator, Bishoff Communications, Boston, USA '
                         : '(Previous) Account Coordinator, Bishoff Communications, Boston, USA'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) 미국 브룩라인 지역 기자/프리랜서 작가 '
-                        : '(Previous) Journalist/Freelance writer, Brookline, USA'}
+                        ? '(Previous) Journalist/Freelance writer, Brookline, USA '
+                        : '(Previous) Journalist/Freelance writer, Brookline, USA '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '2009-2018 컬럼비아 공립학교 행정구역 우수 교사상 '
-                        : 'Distric of Columbia Public Schools(DCPS) Highly Effective Teacher Award, 2009-2018'}
+                        ? 'Distric of Columbia Public Schools(DCPS) Highly Effective Teacher Award, 2009-2018 '
+                        : 'Distric of Columbia Public Schools(DCPS) Highly Effective Teacher Award, 2009-2018 '}
                     </li>
                   </ul>
                 </Paragraph>

@@ -42,6 +42,7 @@ const Collab = () => {
           <li>
             Korean Institute of Brief Family Therapy (한국단기가족치료연구소)
           </li>
+          <li> Korea International School (한국외국인학교)</li>
           <li>
             Seoul Seobu Distirct Office of Education (서울특별시 서부교육지원청)
           </li>
