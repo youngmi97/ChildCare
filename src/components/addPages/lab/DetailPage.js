@@ -617,8 +617,13 @@ function DetailPage({ num, lang }) {
                   <ul style={{ fontFamily: 'payboocBold' }}>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '이화여자대학교 언어병리학과 교수'
-                        : 'Professor at Ewha Womans University '}
+                        ? '(현) 이화여자대학교 언어병리학과 교수'
+                        : '(Present) Professor at Ewha Womans University '}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '(전) Northwestern University 언어병리학과 교수'
+                        : '(Previous) Assistant professor at Northwestern University, USA '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -633,22 +638,22 @@ function DetailPage({ num, lang }) {
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '국제논문 및 국내논문 총 130건 이상 게재'
-                        : 'Published in a total of 182 international and domestic journals'}
+                        : 'Published in a total of 130 international and domestic journals'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '특허등록 총 6건 보유: 연구를 통해 검증된 언어발달 스크리닝 및 재활 프로그램'
-                        : '6 registered patents: language development screening and rehabilitation program verified through research'}
+                        ? '교육부장관표창상 공적: 2021년 K-MOOC 유공자'
+                        : 'Achievement of the Minister of Education Award: 2021 K-MOOC Meritorious Persons'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '우수 연구 수상 총 16건'
-                        : 'Received 16 Outstanding Research Awards'}
+                        ? '우수 연구 수상 총 18건'
+                        : 'Received 18 Outstanding Research Awards'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
                         ? '이화여자대학교 연구 우수 교원으로 선정(2014년)'
-                        : 'Selected as Excellent Researcher at Ewha Womans University (2021)'}
+                        : 'Selected as Excellent Researcher at Ewha Womans University (2014)'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
@@ -664,6 +669,11 @@ function DetailPage({ num, lang }) {
                       {lang == 'kor'
                         ? '한국형 온라인 공개 강좌인 K-MOOC 우수 강좌 Blue Ribbon상 수상(2020, 2021년)'
                         : 'Awarded the Blue Ribbon Award for excellent lectures in the K-MOOC lecture, a Korean-style open online course (2020, 2021)'}
+                    </li>
+                    <li style={{ marginBottom: '10px' }}>
+                      {lang == 'kor'
+                        ? '특허등록 총 6건 보유: 연구를 통해 검증된 언어발달 스크리닝 및 재활 프로그램'
+                        : '6 registered patents: language development screening and rehabilitation program verified through research'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
