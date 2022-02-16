@@ -862,7 +862,7 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? 'Helen Cho(CPSP, 언어재활사) '
+                    ? 'Helen Cho(CPSP, Speech Pathologist) '
                     : 'Helen Cho(CPSP, Speech Pathologist) '}
                 </Title>
               </ColumnWrapper>
@@ -873,27 +873,27 @@ function DetailPage({ num, lang }) {
                   <ul style={{ fontFamily: 'payboocBold' }}>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '시드니대학교 언어병리학과 졸업'
+                        ? 'University of Sydney, B.A. in Speech Pathology'
                         : 'University of Sydney, B.A. in Speech Pathology'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '이화여자대학교 언어병리학과 석사과정'
+                        ? 'Ewha Womans University, M.A. student in Communication Disorders'
                         : 'Ewha Womans University, M.A. student in Communication Disorders'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '호주 언어재활사 자격증 (CPSP) 보유 '
+                        ? 'Australian Speech Pathologist (CPSP) '
                         : 'Australian Speech Pathologist (CPSP) '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) 호주 Communicating Champions Speech Pathology Clinic 언어재활사 '
+                        ? '(Previous) Communicating Champions Speech Pathology, Australia '
                         : '(Previous) Communicating Champions Speech Pathology, Australia'}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '2021년 제 7회 한국언어치료학회 한국언어청각학회 공동학술대회 연구 우수상 '
+                        ? 'The 7th KASA & KSHA conference 2021 Outstanding Research Award(Oral presentation) '
                         : 'The 7th KASA & KSHA conference 2021 Outstanding Research Award(Oral presentation) '}
                     </li>
                   </ul>
