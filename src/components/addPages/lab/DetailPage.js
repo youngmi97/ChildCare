@@ -622,8 +622,8 @@ function DetailPage({ num, lang }) {
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
-                        ? '(전) Northwestern University 언어병리학과 교수'
-                        : '(Previous) Assistant professor at Northwestern University, USA '}
+                        ? '(전) Northwestern University Dept. of Communication Sciences and Disorders 교수'
+                        : '(Previous) Assistant professor, Department of Communication Sciences and Disorders, Northwestern '}
                     </li>
                     <li style={{ marginBottom: '10px' }}>
                       {lang == 'kor'
