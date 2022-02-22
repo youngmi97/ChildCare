@@ -256,7 +256,7 @@ export default BoardPage
 let newsData = [
   {
     date: '2021-12-01',
-    source: 1,
+    source: 5,
     theme: '아이세이 연구소',
     title: '공지사항 (Notice) ',
     contents:
@@ -266,7 +266,7 @@ let newsData = [
   },
   {
     date: '2021-12-01',
-    source: 2,
+    source: 4,
     theme: '아이세이 연구소',
     title:
       'I Say Lab이 압구정동에서 새롭게 시작합니다. (I Say Lab starts anew in Apgujeong-dong)',
@@ -288,7 +288,7 @@ let newsData = [
   },
   {
     date: '2022-01-28',
-    source: 4,
+    source: 2,
     theme: '아이세이 연구소',
     title: '제 1회 ISSC 봄방학캠프 책읽기 프로그램을 시작합니다(Launching a brand new ISSC Spring camp; Book Reading Program!)',
     image:ISSCengkor,
@@ -299,7 +299,7 @@ let newsData = [
   },
   {
     date: '2022-02-22',
-    source: 5,
+    source: 1,
     theme: '아이세이 연구소',
     title: '서울대학교 평생교육원에서 이중언어 부모 교육 프로그램을 개최합니다(Launching a Bilingual Parent training program at Extension College Seoul National University)',
     image:ECSNU,
