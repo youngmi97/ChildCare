@@ -304,8 +304,8 @@ let newsData = [
     title: '서울대학교 평생교육원에서 이중언어 부모 교육 프로그램을 개최합니다(Launching a Bilingual Parent training program at Extension College Seoul National University)',
     image:ECSNU,
     contents:
-      '2022년 봄학기, 서울대학교 평생교육원에서 우리 아이 이중언어(bilingual)로 키우기 위한 언어 성장 프로젝트 부모교육 프로그램이 개강합니다. 아이세이 연구소 임동선 대표가 직접 강의하며, 국제화 시대 창의적이고 열린사고를 지닌 멀티링구얼 아동을 양육하기 위해 필요한 이론지식, 경험과 상담사례를 나눕니다.  교육은 2022년 3월 15일부터 3월 29일 매주 화요일 오전 10시~12시(총 3회), Zoom을 통한 실시간 온라인 강의로 진행됩니다. 수강신청 및 자세한 사항은 서울대학교 평생교육원(https://snui.snu.ac.kr/el/course/course_info_form.acl?COURSE_SEQ=350&LECTURE_SEQ=501)을 참고하시기 바랍니다.',
+      '2022년 봄학기, 서울대학교 평생교육원에서 우리 아이 이중언어(bilingual)로 키우기 위한 언어 성장 프로젝트 부모교육 프로그램이 개강합니다. 아이세이 연구소 임동선 대표가 직접 강의하며, 국제화 시대 창의적이고 열린사고를 지닌 멀티링구얼 아동을 양육하기 위해 필요한 이론지식, 경험과 상담사례를 나눕니다.  교육은 2022년 3월 15일부터 3월 29일 매주 화요일 오전 10시~12시(총 3회), Zoom을 통한 실시간 온라인 강의로 진행됩니다. 수강신청 및 자세한 사항은 서울대학교 평생교육원을 참고하시기 바랍니다.',
     contentsEng:
-      'Extension College Seoul National University will run a parent education program called "Language growth project to raise my child as bilingual". Dr. Yim will provide lectures via Zoom and share the theoretical knowledge, her clinical experiences and counsel cases. The program is running from March 15th to 29th, from 10 a.m to 12a.m every Tuesday. For registeration and more details, please refer to Extension College Seoul National University website(https://snui.snu.ac.kr/el/course/course_info_form.acl?COURSE_SEQ=350&LECTURE_SEQ=501).',
+      'Extension College Seoul National University will run a parent education program called "Language growth project to raise my child as bilingual". Dr. Yim will provide lectures via Zoom and share the theoretical knowledge, her clinical experiences and counsel cases. The program is running from March 15th to 29th, from 10 a.m to 12a.m every Tuesday. For registeration and more details, please refer to Extension College Seoul National University website).',
   },  
 ]
