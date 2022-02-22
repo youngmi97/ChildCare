@@ -53,7 +53,7 @@ function ContentsPage({ num, lang }) {
               <br />
               <Title level={5}>
                 {lang == 'kor'
-                  ? '이화여자대학교 언어병리학과 교수인 대표와 석박사 학위의 전문가로 구성된 팀이 풍부한 임상 경험과 국내외 우수한 학술지들에 발표한 연구 결과를 기반으로 개별 맞춤형 언어지원 서비스를 제공합니다.한국의 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증을 보유한 대표, 그리고 한국의 국가 공인 언어재활사 자격증을 소지한 전문가들이 함께 협력하여 각 아동에게 맞춤화된 최적의 언어치료교육 서비스를 제공합니다. I Say Lab에서는 우수한 전문인력에게 가장 효과적이며 효율적인 언어치료교육 서비스를 제공받을 수 있습니다.'
+                  ? '1급 언어재활사, CCC-SLP(American Speech-Language Hearing Association) 자격증을 보유한 대표, 국가 공인 언어재활사 자격증을 소지한 전문가의 맞춤 언어치료 교육 서비스 이화여자대학교 언어병리학과 교수인 대표와 석박사 학위의 전문가로 구성된 팀이 풍부한 임상 경험과 국내외 우수한 학술지들에 발표한 연구 결과를 기반으로 개별 맞춤형 언어지원 서비스를 제공합니다.한국의 1급 언어재활사 및 미국 CCC-SLP(American Speech-Language Hearing Association) 자격증을 보유한 대표, 그리고 한국의 국가 공인 언어재활사 자격증을 소지한 전문가가 맞춤 언어치료교육 서비스를 제공합니다.'
                   : 'A team of experts with master`s and doctoral degrees from the Department of Communication Disorders at Ewha Womans University provides personalized language support services based on abundant clinical experience and research findings published in excellent domestic and foreign academic journals.The CEO of I Say Lab with level 1 Korean SLP certificates, and American Speech-Language Learning Association (CCC-SLP) certificates, as well as experts with nationally recognized speech-language therapy certificates in Korea, work together to provide optimal language therapy education services tailored to each child. I Say Lab offers the most effective and efficient speech therapy education services provided by excellent professionals.'}
                 <Title level={4}>
                   <br /> <br />
@@ -70,7 +70,7 @@ function ContentsPage({ num, lang }) {
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '결과 보고서 제공 및 임동선 교수님의 부모 상담'
+                      ? '결과 보고서 제공 및 임동선 교수의 부모 상담'
                       : 'Provided evaluation results report and parental counseling by Professor Dongsun Yim '}
                   </li>
                   <li>
@@ -101,7 +101,7 @@ function ContentsPage({ num, lang }) {
           <Fade bottom cascade>
             <Title level={2}>
               {lang == 'kor'
-                ? '언어발달 전문가와 함께 하는 책읽기 프로그램 (한국어 및 영어)'
+                ? '언어발달 전문가와 함께 책읽기 (한국어 및 영어)'
                 : 'Book reading program with language development experts (Korean and English) '}
             </Title>
             <Divider />
@@ -117,7 +117,7 @@ function ContentsPage({ num, lang }) {
               <br />
               <Title level={5}>
                 {lang == 'kor'
-                  ? '  한국연구재단의 지원으로 다년 간 책읽기 연구를 진행해온 연구팀이 국내외 우수한 학술지들에 발표한 연구 결과를 아낌없이 공유합니다. 어휘력, 구문 능력, 담화 능력, 그리고 문해력을 높일 수 있는 책읽기를 언어발달 전문가, 그리고 또래들과 함께 즐겁게 시도해보는 프로그램입니다. I Say Lab에서는 미국의 대형 출판사로서 국공립 학교에 책을 공급하고 있는 스콜라스틱(Scholastic)과의 업무 제휴를 통해 영어 이야기책 및 독후 활동 프로그램을 특별한 가격으로 이용할 수 있습니다. 또한 I Say Lab에서는 서울시 교육청 어린이도서관에서 제안하는 연령별 권장도서 및 웅진씽크빅에서 출간하는 다양한 주제의 책을 구비, 이를 자유롭게 이용할 수 있습니다.'
+                  ? ' 한국연구재단의 지원으로 다년 간 책읽기 연구를 진행해온 연구팀이 국내외 우수한 학술지들에 발표한 연구 결과를 아낌없이 공유합니다. 어휘력, 구문 능력, 담화 능력, 그리고 문해력을 높일 수 있는 책읽기 활동을 언어발달 전문가, 그리고 또래들과 함께 즐겁게 시도해보는 프로그램입니다. I Say Lab에서는 미국의 대형 출판사로서 국공립 학교에 책을 공급하고 있는 스콜라스틱(Scholastic)과의 업무 제휴를 통해 영어 이야기책 및 독후 활동 프로그램을 특별한 가격으로 이용할 수 있습니다. 또한 I Say Lab에서는 서울시 교육청 어린이도서관에서 제안하는 연령별 권장도서 및 웅진씽크빅에서 출간하는 다양한 주제의 책을 구비, 이를 자유롭게 이용할 수 있습니다.'
                   : 'The research team, who have been conducting research on reading for many years with the support of the National Research Foundation of Korea, incorporates the research findings published in excellent international and domestic academic journals into this program. Book reading is a program to enjoy reading books while enhancing vocabulary, syntax, discourse, and literacy skills with language development experts and peers. I Say Lab offers special prices for English storybooks and book activity programs through business partnerships with Scholastic, a large American publisher that supplies books to national and public schools. In addition, I Say Lab is equipped with recommended books by age proposed by the Children’s Library of the Seoul Metropolitan Office of Education and books on various topics published by Woongjin Thinkbig, and anybody can use them freely.'}
               </Title>
               <img
@@ -134,7 +134,7 @@ function ContentsPage({ num, lang }) {
             <Paragraph>
               <Title level={3}>
                 {lang == 'kor'
-                  ? ' 전문가와 함께하는 책읽기'
+                  ? '언어발달 전문가와 함께 책읽기'
                   : 'Book reading with skilled professionals '}
               </Title>
               <Paragraph>
@@ -147,12 +147,12 @@ function ContentsPage({ num, lang }) {
                 <ul>
                   <li>
                     {lang == 'kor'
-                      ? '국제 어린이, 국제 학생반: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립 학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가와 함께 읽어보는 시간'
+                      ? '1. 영어책 읽기 프로그램: 스콜라스틱(Scholastic)의 후원으로 미국의 국공립 학교에서 현재 사용되고 있는 책을 원어민 수준의 전문가와 함께 읽어보는 시간'
                       : 'International class: Through the support of Scholastic, children will read books about a variety of topics with skilled professionals.'}
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '국내 한국어반: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달전문가와 함께 읽어보는 시간 '
+                      ? '2. 한국어 책 읽기 프로그램: 웅진씽크빅의 후원으로 다양한 주제의 책을 언어발달전문가와 함께 언어 활동 진행 '
                       : 'Korean class: Through the support of Woongfin ThinkBig, children will read books about a variety of topics with skilled professionals'}
                   </li>
                   <li>
@@ -184,7 +184,7 @@ function ContentsPage({ num, lang }) {
         <Fade bottom cascade>
           <Title level={2}>
             {lang == 'kor'
-              ? '자녀의 언어발달을 촉진하기 위한 부모 코칭 프로그램'
+              ? '자녀 언어발달 촉진 부모 코칭 프로그램'
               : 'Parent coaching program to promote children`s language development '}
           </Title>
           <Divider />
@@ -252,6 +252,11 @@ function ContentsPage({ num, lang }) {
                       ? '두 언어를 사용하는 이중언어 아동의 부모'
                       : 'Parents of bilingual children who speak two languages'}
                   </li>
+                  <li>
+                    {lang == 'kor'
+                      ? '영유아 0-36개월, 어린이집, 유치원, 영어유치원, 국제학교, 외국인 학교에 다니는 자녀를 둔 부모'
+                      : ''}
+                  </li>
                 </ul>
               </Paragraph>
             </Paragraph>
@@ -308,8 +313,14 @@ function ContentsPage({ num, lang }) {
             <Title level={5}>
               <br />
               {lang == 'kor'
-                ? '언어재활사, 교사, 의사, 간호사, 사회복지사, 임상심리사, 놀이치료사 등 아동발달에 관련된 모든 전문가, 그리고 아동학, 심리학, 언어학, 컴퓨터공학, 뇌인지과학 등 언어발달에 관련된 영역에 관심을 갖고 공부하고 있는 예비 전문가를 대상으로 하는 교육입니다. 아동의 언어발달에 대해 관심이 있고 공부하고자 하는 관련 영역의 모든 전문가들을 대상으로 아동언어발달 및 부모교육 분야에서 20년 넘게 연구해 온 임동선 교수님이 직접 전문가 교육을 실시합니다. 두 가지 프로그램으로, 이중언어 아동의 언어발달과 의사소통장애에 대한 개괄적인 이해와 구체적인 임상에서의 적용 방법 교육, 그리고 단일언어 및 이중언어 아동의 부모를 대상으로 한 부모 코칭 방법 교육입니다.'
-                : 'This training program is designed for pre-professionals who are currently studying and/or works in fields related to child development, such as speech-language therapists, teachers, doctors, nurses, social workers, clinical psychologists, play therapists, etc. Professor Dongsun Yim, who has been studying children`s language development and parent education for more than 20 years, will provide expert education to all experts in related fields who are interested in children`s language development. Two programs include a comprehensive understanding of communication disorders and bilingual children`s language development along with specific clinical application education, and parent coaching education for parents of monolingual and bilingual children.'}
+                ? '이중언어 아동의 언어발달과 의사소통장애에 대한 개괄적인 이해와 구체적인 임상에서의 적용 방법의 교육, 그리고 단일언어 및 이중언어 아동의 부모를 대상으로 한 부모 코칭 방법 교육 프로그램입니다. 아동의 언어발달에 대해 관심이 있고 공부하고자 하는 관련 영역의 모든 전문가들을 대상으로 아동언어발달 및 부모교육 분야에서 20년 넘게 연구해 온 임동선 교수가 직접 전문가 교육을 실시합니다. '
+                : 'Professor Dongsun Yim, who has been studying children`s language development and parent education for more than 20 years, will provide expert education to all experts in related fields who are interested in children`s language development. Two programs include a comprehensive understanding of communication disorders and bilingual children`s language development along with specific clinical application education, and parent coaching education for parents of monolingual and bilingual children.'}
+            </Title>
+            <Title level={5}>
+              <br />
+              {lang == 'kor'
+                ? '대상: 언어재활사, 교사, 의사, 간호사, 사회복지사, 임상심리사, 놀이치료사 등 아동발달에 관련된 모든 전문가, 그리고 아동학, 심리학, 언어학, 컴퓨터공학, 뇌인지과학 등의 전문가 '
+                : 'This training program is designed for pre-professionals who are currently studying and/or works in fields related to child development, such as speech-language therapists, teachers, doctors, nurses, social workers, clinical psychologists, play therapists, etc. '}
             </Title>
             <img
               src={Pic4}
@@ -397,7 +408,7 @@ function ContentsPage({ num, lang }) {
               <br />
               <Title level={5}>
                 {lang == 'kor'
-                  ? '아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
+                  ? '언어발달 전문가와 2~3권의 책을 읽은 후 다양한 독후 활동을 진행하는 프로그램입니다. 아동 연령별로 책읽기 수업 참여 후 열린 책방에서 아동 혼자 또는 전문가 선생님과 책읽기 활동이 가능합니다. 아이들은 자유롭게 책과 만나면서 언어능력을 기르고, 부모님들은 언어발달 및 책읽기와 관련된 정보를 얻을 수 있는 시간이 될 것입니다. I Say Lab이 작은 도서관이 되어, 아이들은 자유롭게 책을 읽고 언어발달 전문가와 함께 다양한 독후 활동에 참여할 수 있습니다. 부모님도 함께 가벼운 마음으로 방문하여 I Say Lab의 전문가와 대화를 나누면서 언어발달에 대한 궁금한 점에 대해 정보를 얻어가실 수 있습니다.'
                   : 'Children can freely encounter books to develop their language skills, and parents can get information related to language development and book reading. On Saturday, I Say Lab will turn into a small library, allowing children to freely read books and participate in various book activities with language development experts. Parents can also freely visit and talk to experts at I Say Lab to ask questions and get information about language development.'}
               </Title>
             </Paragraph>
@@ -412,12 +423,12 @@ function ContentsPage({ num, lang }) {
               <Paragraph>
                 <Title level={5}>
                   {lang == 'kor'
-                    ? 'I SAY LAB 작은 도서관에서 자녀와 함께 책으로 함께 하는 시간을 보내세요. 클럽 회원이 되시면 미국의 대형 출판사로서 국공립 학교에 책을 공급하고 있는 스콜라스틱(Scholastic) 도서부터 웅진씽크빅 도서까지, 다양한 주제의 책을 자유롭게 이용할 수 있습니다.'
+                    ? '연령별 권장도서 및 한국연구재단의 지원으로 다년간 책읽기 연구를 진행해온 결과를 바탕으로 엄선된 다양한 주제의 책들을 자유롭게 이용할 수 있습니다.'
                     : 'Spend time at the I Say Lab library reading books with your children! If you are a member, you will have access to and freely be able to read books from publishing companies such as Woongjin ThinkBig or Scholastic, a major publisher supplying books to American public schools. '}
                 </Title>  
                 <Title level={5}>
                   {lang == 'kor'
-                    ? '영유아 아동은(36개월 미만) 양육자와 동행하셔서 편안하게 책읽기 활동을 즐기고, 학령전기 또는 학령기 아동은 양육자와 함께 또는 혼자 와서 읽을 수 있습니다.'
+                    ? '영유아 아동은(36개월 미만) 양육자와 함께, 학령전기 또는 학령기 아동은 양육자와 함께 또는 혼자 와서 읽을 수도 있습니다.'
                     : 'Toddlers (36 months and below) can enjoy book reading activities accompanied by their caregivers, Preschool children and up can visit the library alone or with their caregiver. '}
                 </Title>
 
@@ -429,8 +440,8 @@ function ContentsPage({ num, lang }) {
                   </li>
                   <li>
                     {lang == 'kor'
-                      ? '이용시간: 연구소 open 시간 동안 언제나 무한제 (1년에 특별한 강좌나 캠프가 진행되는 동안에는 제한)'
-                      : 'When: Any time the I Say Lab is open (no limit on time except for during annual book reading camp)'}
+                      ? '이용시간: 월요일 ~ 금요일 오전 매일 3시간 (1년에 특별한 강좌나 캠프가 진행되는 동안에는 제한)'
+                      : 'When: 3 hours a day from Monday to Friday (no limit on time except for during annual book reading camp)'}
                   </li>
                   <li>
                     {lang == 'kor'
@@ -465,26 +476,9 @@ function ContentsPage({ num, lang }) {
                     : 'Group activities: up to 10 children per group (can be adjusted according to the number of applicants) with one language development expert'}
                 </Title>
                 <Title level={5}>
-                  {lang == 'kor' ? '토요일 9:00~12:00' : 'Saturday 9:00-12:00 '}
+                  {lang == 'kor' ? '토요일 9:00~13:00' : 'Saturday 9:00-13:00 '}
                 </Title>
                 <blockquote>
-                  <ul>
-                    <li>
-                      {lang == 'kor'
-                        ? '9:00-10:00 영유아 (2-3세)'
-                        : '9:00-10:00 Infants/Toddlers (2-3 years old)'}
-                    </li>
-                    <li>
-                      {lang == 'kor'
-                        ? '10:00-11:00 학령전기 (4-6세)'
-                        : '10:00-11:00 Pre-school age (4-6 years old)'}
-                    </li>
-                    <li>
-                      {lang == 'kor'
-                        ? '11:00-12:00 학령기 (7세~13세)'
-                        : '11:00-12:00 School age (7-13 years old)'}
-                    </li>
-                  </ul>
                 </blockquote>
                 <ul>
                   <li>
@@ -532,7 +526,7 @@ function ContentsPage({ num, lang }) {
           <Paragraph>
             <Title level={5}>
               {lang == 'kor'
-                ? '책, 그리고 친구들과 함께 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 언어 활동을 할 수 있는 시간이 될 것입니다. I Say Lab에서는 봄/여름/겨울방학에 책읽기 캠프를 진행합니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
+                ? '봄, 여름, 겨울방학에 언어발달 전문가의 지도 아래 다양한 활동을 하면서 자유로운 의사소통을 시도하고 즐거운 언어 활동을 할 수 있는 캠프입니다. 아동의 흥미와 필요에 따라 한국어 또는 영어 프로그램 중에서 선택할 수 있으며, 언어발달 전문가와 또래와의 책읽기 캠프를 통해 방학 동안 언어와 의사소통, 그리고 정서 또한 한층 성장하는 시간이 될 것입니다.'
                 : 'Through books and with friends, children can improve communication skills and learn to speak in a fun way by experiencing various activities under the guidance of a language development expert. I Say Lab holds a book reading camp during summer and winter vacation. Parents can choose between Korean and English programs according to their children`s interests and needs. Book reading camp will provide an opportunity for children to grow language, communication, and emotions with language development experts and peers. '}
             </Title>
           </Paragraph>
@@ -550,13 +544,13 @@ function ContentsPage({ num, lang }) {
             <Paragraph>
               <Title level={5}>
                 {lang == 'kor'
-                  ? '대상: 모든 아동(만 4세 ~ 12세)'
-                  : 'Target demographic: All children (ages 4-12)'}
+                  ? '대상: 모든 아동(만 4세 ~ 15세)'
+                  : 'Target demographic: All children (ages 4-15)'}
               </Title>
               <Title level={5}>
                 {lang == 'kor'
-                  ? '소집단: 언어발달 수준을 고려한 2-4명의 소집단 구성, 한 명의 언어발달 전문가가 담당'
-                  : 'Small group class: A small group of 2-4 children with similar level of language development accompanied by one language development expert'}
+                  ? '소집단: 언어발달 수준을 고려한 2-4명의 소집단 구성, 언어발달 전문가가 담당'
+                  : 'Small group class: A small group of 2-4 children with similar level of language development accompanied by language development experts'}
               </Title>
 
               <ul>
@@ -567,8 +561,8 @@ function ContentsPage({ num, lang }) {
                 </li>
                 <li>
                   {lang == 'kor'
-                    ? '월~금 매일 3시간(오전), 3주 간 진행(주차 선택 가능)'
-                    : 'The program runs for 3 hours a day for 3 weeks from Monday to Friday (Program week can be selected)'}
+                    ? '월~금 매일 3시간(오전)'
+                    : 'The program runs for 3 hours a day from Monday to Friday'}
                 </li>
                 <li>
                   {lang == 'kor'

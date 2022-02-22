@@ -872,8 +872,8 @@ function DetailPage({ num, lang }) {
                   }}
                 >
                   {lang == 'kor'
-                    ? 'Helen Cho(CPSP, Speech Pathologist) '
-                    : 'Helen Cho(CPSP, Speech Pathologist) '}
+                    ? 'Helen Cho(교사) '
+                    : 'Helen Cho(Teacher) '}
                 </Title>
               </ColumnWrapper>
             </Fade>

@@ -175,7 +175,7 @@ function ProgramPage({ match }) {
                 }}
               >
                 {lang == 'kor'
-                  ? '언어발달 전문가와 함께 하는 책읽기'
+                  ? '언어발달 전문가와 함께 책읽기'
                   : 'Book reading with experts'}
               </Button>
               <Button
@@ -195,7 +195,7 @@ function ProgramPage({ match }) {
                 }}
               >
                 {lang == 'kor'
-                  ? '자녀의 언어발달을 촉진하기 위한 부모 코칭'
+                  ? '자녀 언어발달 촉진 부모 코칭'
                   : 'Parent coaching '}
               </Button>
               <Button

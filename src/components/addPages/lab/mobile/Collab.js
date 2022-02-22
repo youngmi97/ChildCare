@@ -28,6 +28,7 @@ const Collab = () => {
       <Card style={{ borderColor: '#C667DC' }}>
         <h3>Korea</h3>
         <div className="contents">
+          <li>Ewha Womans University (이화여자대학교)</li>
           <li>Samsung Medical Center (삼성 서울병원)</li>
           <li>
             Early childhood education centers in Seoul and Gyeonggi-do (서울 및
@@ -38,14 +39,17 @@ const Collab = () => {
           <li>North London Collegiate School Jeju (NLCS 제주)</li>
           <li>Chadwick International School (채드윅 송도 국제학교)</li>
           <li>Dulwich College Seoul (덜위치칼리지 서울영국학교)</li>
-          <li>Postech (포항공과대학교)</li>
           <li>
-            Korean Institute of Brief Family Therapy (한국단기가족치료연구소)
+            Korean Institute of Brief Family Therapy (한국단기가족 치료연구소)
           </li>
           <li> Korea International School (한국외국인학교)</li>
           <li>
             Seoul Seobu Distirct Office of Education (서울특별시 서부교육지원청)
           </li>
+          <li>Seoul National University (서울대학교)</li>
+          <li>Yonsei University (연세대학교)</li>
+          <li>Korea Advanced Institute of Science and Technology, KAIST (한국과학기술대학교)</li>
+          <li>Postech (포항공과대학교)</li>
         </div>
       </Card>
       <Card style={{ borderColor: '#C77F5E' }}>
