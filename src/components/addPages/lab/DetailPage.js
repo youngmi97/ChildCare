@@ -538,7 +538,7 @@ function DetailPage({ num, lang }) {
                   </Title>
                   {lang == 'kor'
                     ? 'I Say Lab의 대표 임동선 교수는 임상 현장에서 20년 이상 부모를 대상으로 부모교육을 진행해 왔으며, 또한 서울 및 경기 지역의 유아교육 기관에서 부모님들을 대상으로 책읽기 교육 프로그램을 실시하여 그 효과를 검증하였습니다. 부모님들이 자녀를 대상으로, 또 전문가들이 임상 및 교육 현장에서 바로 적용할 수 있는 양질의 정보들을 제공합니다.'
-                    : 'Professor Yim, CEO of I Say Lab, has been conducting parental education for parents for more than 20 years in the clinical field, and book reading education programs in   the early childhood education institutions in Seoul and Gyeonggi Province, and she has verified its effectiveness. Also, she provides quality information that parents can apply directly to their children and experts in clinical and educational fields.'}
+                    : 'Professor Yim, CEO of I Say Lab, has been conducting parental education for parents for more than 20 years in the clinical field, and book reading education programs in the early childhood education institutions in Seoul and Gyeonggi Province, and she has verified its effectiveness. Also, she provides quality information that parents can apply directly to their children and experts in clinical and educational fields.'}
                 </Paragraph>
                 <Paragraph
                   style={{
