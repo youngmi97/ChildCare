@@ -48,7 +48,9 @@ const Collab = () => {
           </li>
           <li>Seoul National University (서울대학교)</li>
           <li>Yonsei University (연세대학교)</li>
-          <li>Korea Advanced Institute of Science and Technology, KAIST (한국과학기술대학교)</li>
+          <li>
+            Korea Advanced Institute of Science and Technology, KAIST (한국과학기술대학교)            
+          </li>
           <li>Postech (포항공과대학교)</li>
         </div>
       </Card>
