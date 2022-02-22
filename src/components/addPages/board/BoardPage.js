@@ -254,7 +254,6 @@ function BoardPage({ match }) {
 export default BoardPage
 
 let newsData = [
-  
   {
     date: '2021-12-01',
     source: 1,
