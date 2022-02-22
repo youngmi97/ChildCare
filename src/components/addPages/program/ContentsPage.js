@@ -313,14 +313,8 @@ function ContentsPage({ num, lang }) {
             <Title level={5}>
               <br />
               {lang == 'kor'
-                ? '이중언어 아동의 언어발달과 의사소통장애에 대한 개괄적인 이해와 구체적인 임상에서의 적용 방법의 교육, 그리고 단일언어 및 이중언어 아동의 부모를 대상으로 한 부모 코칭 방법 교육 프로그램입니다. 아동의 언어발달에 대해 관심이 있고 공부하고자 하는 관련 영역의 모든 전문가들을 대상으로 아동언어발달 및 부모교육 분야에서 20년 넘게 연구해 온 임동선 교수가 직접 전문가 교육을 실시합니다. '
-                : 'Professor Dongsun Yim, who has been studying children`s language development and parent education for more than 20 years, will provide expert education to all experts in related fields who are interested in children`s language development. Two programs include a comprehensive understanding of communication disorders and bilingual children`s language development along with specific clinical application education, and parent coaching education for parents of monolingual and bilingual children.'}
-            </Title>
-            <Title level={5}>
-              <br />
-              {lang == 'kor'
-                ? '대상: 언어재활사, 교사, 의사, 간호사, 사회복지사, 임상심리사, 놀이치료사 등 아동발달에 관련된 모든 전문가, 그리고 아동학, 심리학, 언어학, 컴퓨터공학, 뇌인지과학 등의 전문가 '
-                : 'This training program is designed for pre-professionals who are currently studying and/or works in fields related to child development, such as speech-language therapists, teachers, doctors, nurses, social workers, clinical psychologists, play therapists, etc. '}
+                ? '이중언어 아동의 언어발달과 의사소통장애에 대한 개괄적인 이해와 구체적인 임상에서의 적용 방법의 교육, 그리고 단일언어 및 이중언어 아동의 부모를 대상으로 한 부모 코칭 방법 교육 프로그램입니다. 언어재활사, 교사, 의사, 간호사, 사회복지사, 임상심리사, 놀이치료사 등 아동발달에 관련된 모든 전문가, 그리고 아동학, 심리학, 언어학, 컴퓨터공학, 뇌인지과학 등의 전문가 등 언어발달에 관련된 영역에 관심을 갖고 공부하고 있는 예비 전문가를 대상으로 하는 교육입니다. 아동의 언어발달에 대해 관심이 있고 공부하고자 하는 관련 영역의 모든 전문가들을 대상으로 아동언어발달 및 부모교육 분야에서 20년 넘게 연구해 온 임동선 교수가 직접 전문가 교육을 실시합니다. '
+                : 'Professor Dongsun Yim, who has been studying children`s language development and parent education for more than 20 years, will provide expert education to all experts in related fields who are interested in children`s language development. Two programs include a comprehensive understanding of communication disorders and bilingual children`s language development along with specific clinical application education, and parent coaching education for parents of monolingual and bilingual children. This training program is designed for pre-professionals who are currently studying and/or works in fields related to child development, such as speech-language therapists, teachers, doctors, nurses, social workers, clinical psychologists, play therapists, etc.'}
             </Title>
             <img
               src={Pic4}
