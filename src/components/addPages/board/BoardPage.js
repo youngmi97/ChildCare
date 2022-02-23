@@ -8,6 +8,7 @@ import { Button, Table, Modal, Typography } from 'antd'
 import Fade from 'react-reveal/Fade'
 import BackgroundImage from './Main1.jpg'
 import ISSCengkor from './ISSCengkor.jpg'
+import ECSNU from "./ECSNU.jpg"
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
