@@ -260,6 +260,8 @@ function ContentsPage({ num, lang }) {
                 </ul>
               </Paragraph>
             </Paragraph>
+            
+            <Divider />
             <Paragraph style={isMobile ? {} : { marginLeft: '20%' }}>
               <Title level={4}>
                 {lang == 'kor'
