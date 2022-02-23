@@ -359,7 +359,7 @@ function MenuBar({ change, openProgram, setOpenProgram }) {
               }}
             >
               {change == 'kor'
-                ? '언어발달 전문가와 함께하는 책읽기'
+                ? '언어발달 전문가와 함께 책읽기'
                 : 'Book reading with experts'}
             </DetailSlideItem>
             <DetailSlideItem
@@ -372,7 +372,7 @@ function MenuBar({ change, openProgram, setOpenProgram }) {
               }}
             >
               {change == 'kor'
-                ? '자녀의 언어발달을 촉진하기 위한 부모 코칭'
+                ? '자녀 언어발달을 촉진 부모 코칭'
                 : 'Parent coaching'}
             </DetailSlideItem>
             <DetailSlideItem

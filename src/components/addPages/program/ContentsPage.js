@@ -255,7 +255,7 @@ function ContentsPage({ num, lang }) {
                   <li>
                     {lang == 'kor'
                       ? '영유아 0-36개월, 어린이집, 유치원, 영어유치원, 국제학교, 외국인 학교에 다니는 자녀를 둔 부모'
-                      : 'Toddlers (36 months and below)'}
+                      : ''}
                   </li>
                 </ul>
               </Paragraph>
