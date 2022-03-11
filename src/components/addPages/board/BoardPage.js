@@ -261,7 +261,7 @@ let newsData = [
     source: 6,
     theme: '아이세이 연구소',
     title: '국제학교, 외국인학교 재학생을 위한 봄방학 캠프(I Say Lab Spring Break Camp for international and foreign school students.)',
-    image:ECSNU,
+    image:ISSC2,
     contents:
       '국제학교, 외국인학교 재학생을 위한 아이세이 연구소 봄방학 캠프가 진행됩니다. 캠프는 1주일 동안 "세상을 바꿔요!"라는 주제로 진행됩니다. 자세한 사항은 첨부이미지를 확인해주시기 바랍니다. 신청 및 문의는 전화(02-540-5242), 이메일(isaylab2020@gmail.com) 혹은 참가신청링크(https://docs.google.com/forms/d/e/1FAIpQLSf5ZzRgVsw2E8zWEY7OHQ9svGHkpcffw62lEtpRwpuOCMCpUg/viewform?usp=sf_link)를 통해 문의주시기 바랍니다.',
     contentsEng:
