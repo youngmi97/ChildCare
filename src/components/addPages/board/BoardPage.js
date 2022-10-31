@@ -10,6 +10,7 @@ import BackgroundImage from './Main1.jpg'
 import ISSCengkor from './ISSCengkor.jpg'
 import ECSNU from "./ECSNU.jpg"
 import ISSC2 from "./ISSC2.jpg"
+import crewdy from "./crewdy.jpg"
 
 const ImageWrapper = styled.image`
   background: url(${props => props.src});
@@ -256,6 +257,17 @@ function BoardPage({ match }) {
 export default BoardPage
 
 let newsData = [
+  {
+    date: '2022-10-31',
+    source: 7,
+    theme: '아이세이 연구소',
+    title: 'KT 크루디 내 <온라인 사회성 캠프> 강의 신설(A new lecture <Online Social Camp> was established in KT Crewdy.)',
+    image:crewdy,
+    contents:
+      '아이세이언어연구소는 지난 10월, 초등학생 대상 그룹 의사소통 프로그램 <온라인 사회성 캠프-화용언어 트레이닝>을 출시했다. <온라인 사회성 캠프>는 KT의 온라인 라이브 교육 플랫폼 "크루디"를 통해 예비 초등학생, 초등 1, 2학년을 대상으로 제공된다. &nbsp; 사회성 캠프에 참여한 수강생은 4주 동안 4:1 실시간 그룹 수업을 통해 매주 1권씩 총 4권의 동화책을 읽으며 논리적으로 생각을 전하고 마음을 언어로 표현하는 방법을 배운다. 또 친구의 상황과 마음에 공감하고, 상대방을 행복하게 만들 수 있도록 말하는 방법을 연습하게 된다. 아동은 4주간 선생님과 또래아동과 상호작용을 할 수 있다. 책에 나와 있는 목표어휘, 화용언어에 필요한 중요한 기술도 습득 가능하다. 4회의 수업이 모두 끝나면, 수강생은 낯선 환경에서 보이는 언어적 특성을 비롯해 장점 및 도움이 필요한 부분을 전문가가 분석한 "화용언어 분석 보고서"를 받아볼 수 있다. &nbsp; 임동선 아이세이 언어연구소 대표(이화여대 언어병리학과 교수)는 “KT크루디를 활용한 온라인 사회성 프로그램을 통해 아동이 책을 기반으로 또래와 상호작용을 할 수 있을 것”이라며 “학부모에게 맞춤 가이드라인을, 언어 재활사에게는 비대면 수업 경험을 풍부하게 쌓을 기회를 제공해 교육 분야 디지털 전환에도 기여할 것”이라고 말했다.',
+    contentsEng:
+      'In October, I SAY LAB launched an online sociality camp program for elementary school students to improve their pragmatic language ability. <Online Sociali Camp> is provided for prospective elementary school students and first and second graders through KTs online live education platform "Crewdy." &nbsp; Students who participated in the camp will learn how to logically convey their thoughts and express their minds in language by reading a total of four fairy tale books, one every week, through a 4:1 real-time group class for four weeks. They will also practice how to relate to the friends situation and mind, and how to speak to make the other person happy. Students can interact with a teacher and some friends of his or her age for four weeks. The knowledge about the target vocabularies in the books and important skills necessary for the pargmatic language can also be acquired. At the end of all four classes, students can receive a "Pragmatic Language Analysis Report" in which experts analyze the advantages and needs, as well as their linguistic characteristics seen in unfamiliar environments. &nbsp;  "The online social program using KT Crewdy will allow children to interact with their peers based on books," said Lim Dong-sun, head of I SAY LAB. "It will also contribute to the digital transformation of the education sector by providing customized guidelines to parents and providing SLPs with opportunities to get non-face-to-face teaching experience.“ ',
+  },
   {
     date: '2022-03-10',
     source: 6,
